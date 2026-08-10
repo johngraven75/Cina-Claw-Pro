@@ -27,6 +27,8 @@ import type { TFunction } from 'i18next';
 import { SUPPORTED_LANGUAGES } from '@/i18n';
 import { toast } from 'sonner';
 import { hostApi } from '@/lib/host-api';
+import { ProvidersSettings } from '@/components/settings/ProvidersSettings';
+import { useProviderStore } from '@/stores/providers';
 
 interface SetupStep {
   id: string;
@@ -37,8 +39,9 @@ interface SetupStep {
 const STEP = {
   WELCOME: 0,
   RUNTIME: 1,
-  INSTALLING: 2,
-  COMPLETE: 3,
+  PROVIDER: 2,
+  INSTALLING: 3,
+  COMPLETE: 4,
 } as const;
 
 const getSteps = (t: TFunction): SetupStep[] => [
@@ -51,6 +54,11 @@ const getSteps = (t: TFunction): SetupStep[] => [
     id: 'runtime',
     title: t('steps.runtime.title'),
     description: t('steps.runtime.description'),
+  },
+  {
+    id: 'provider',
+    title: t('steps.provider.title'),
+    description: t('steps.provider.description'),
   },
   {
     id: 'installing',
@@ -94,6 +102,8 @@ export function Setup() {
   const [installedSkills, setInstalledSkills] = useState<string[]>([]);
   // Runtime check status
   const [runtimeChecksPassed, setRuntimeChecksPassed] = useState(false);
+  const providerAccounts = useProviderStore((state) => state.accounts);
+  const providerReady = providerAccounts.some((account) => account.enabled);
 
   const steps = getSteps(t);
   const safeStepIndex = Number.isInteger(currentStep)
@@ -112,6 +122,8 @@ export function Setup() {
         return true;
       case STEP.RUNTIME:
         return runtimeChecksPassed;
+      case STEP.PROVIDER:
+        return providerReady;
       case STEP.INSTALLING:
         return false; // Cannot manually proceed, auto-proceeds when done
       case STEP.COMPLETE:
@@ -119,7 +131,7 @@ export function Setup() {
       default:
         return true;
     }
-  }, [safeStepIndex, runtimeChecksPassed]);
+  }, [safeStepIndex, runtimeChecksPassed, providerReady]);
 
   const handleNext = async () => {
     if (isLastStep) {
@@ -196,7 +208,7 @@ export function Setup() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="mx-auto max-w-2xl p-8"
+            className={cn('mx-auto p-8', safeStepIndex === STEP.PROVIDER ? 'max-w-5xl' : 'max-w-2xl')}
           >
             <div className="text-center mb-8">
               <h1 className="text-3xl font-serif font-normal tracking-tight mb-2">{t(`steps.${step.id}.title`)}</h1>
@@ -207,6 +219,12 @@ export function Setup() {
             <div className="rounded-xl bg-card text-card-foreground border shadow-sm p-8 mb-8">
               {safeStepIndex === STEP.WELCOME && <WelcomeContent />}
               {safeStepIndex === STEP.RUNTIME && <RuntimeContent onStatusChange={setRuntimeChecksPassed} />}
+              {safeStepIndex === STEP.PROVIDER && (
+                <div className="space-y-4">
+                  <p className="text-sm text-muted-foreground">{t('provider.secureHint')}</p>
+                  <ProvidersSettings />
+                </div>
+              )}
               {safeStepIndex === STEP.INSTALLING && (
                 <InstallingContent
                   skills={getDefaultSkills(t)}
@@ -233,7 +251,7 @@ export function Setup() {
                   )}
                 </div>
                 <div className="flex gap-2">
-                  {!isLastStep && safeStepIndex !== STEP.RUNTIME && (
+                  {!isLastStep && safeStepIndex !== STEP.RUNTIME && safeStepIndex !== STEP.PROVIDER && (
                     <Button data-testid="setup-skip-button" variant="ghost" onClick={handleSkip}>
                       {t('nav.skipSetup')}
                     </Button>
@@ -267,7 +285,7 @@ function WelcomeContent() {
   return (
     <div data-testid="setup-welcome-step" className="text-center space-y-4">
       <div className="mb-4 flex justify-center">
-        <img src={clawxIcon} alt="ClawX" className="h-16 w-16" />
+        <img src={clawxIcon} alt="Cina-Claw Pro" className="h-16 w-16" />
       </div>
       <h2 className="text-xl font-serif font-normal tracking-tight">{t('welcome.title')}</h2>
       <p className="text-muted-foreground">

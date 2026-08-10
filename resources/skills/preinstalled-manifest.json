@@ -1,36 +1,23 @@
 {
+  "source": "anthropics/skills",
+  "policy": "Reviewed official skills are bundled and enabled; community marketplace installs remain explicit.",
   "skills": [
-    {
-      "slug": "pdf",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/pdf",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "xlsx",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/xlsx",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "docx",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/docx",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "pptx",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/pptx",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    }
+    { "slug": "algorithmic-art", "repo": "anthropics/skills", "repoPath": "skills/algorithmic-art", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "brand-guidelines", "repo": "anthropics/skills", "repoPath": "skills/brand-guidelines", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "canvas-design", "repo": "anthropics/skills", "repoPath": "skills/canvas-design", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "claude-api", "repo": "anthropics/skills", "repoPath": "skills/claude-api", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "doc-coauthoring", "repo": "anthropics/skills", "repoPath": "skills/doc-coauthoring", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "docx", "repo": "anthropics/skills", "repoPath": "skills/docx", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "frontend-design", "repo": "anthropics/skills", "repoPath": "skills/frontend-design", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "internal-comms", "repo": "anthropics/skills", "repoPath": "skills/internal-comms", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "mcp-builder", "repo": "anthropics/skills", "repoPath": "skills/mcp-builder", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "pdf", "repo": "anthropics/skills", "repoPath": "skills/pdf", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "pptx", "repo": "anthropics/skills", "repoPath": "skills/pptx", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "skill-creator", "repo": "anthropics/skills", "repoPath": "skills/skill-creator", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "slack-gif-creator", "repo": "anthropics/skills", "repoPath": "skills/slack-gif-creator", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "theme-factory", "repo": "anthropics/skills", "repoPath": "skills/theme-factory", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "web-artifacts-builder", "repo": "anthropics/skills", "repoPath": "skills/web-artifacts-builder", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "webapp-testing", "repo": "anthropics/skills", "repoPath": "skills/webapp-testing", "ref": "main", "version": "main", "autoEnable": true },
+    { "slug": "xlsx", "repo": "anthropics/skills", "repoPath": "skills/xlsx", "ref": "main", "version": "main", "autoEnable": true }
   ]
 }

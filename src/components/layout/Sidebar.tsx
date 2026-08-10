@@ -485,8 +485,8 @@ export function Sidebar() {
       >
         {!sidebarCollapsed && (
           <div className="flex items-center gap-2 px-2 overflow-hidden">
-            <img src={logoSvg} alt="ClawX" className="h-5 w-auto shrink-0" />
-            <span className="text-sm font-semibold truncate whitespace-nowrap text-foreground/90">ClawX</span>
+            <img src={logoSvg} alt="Cina-Claw Pro" className="h-5 w-auto shrink-0" />
+            <span className="text-sm font-semibold truncate whitespace-nowrap text-foreground/90">Cina-Claw Pro</span>
           </div>
         )}
         <Button

@@ -1,6 +1,6 @@
 import { closeElectronApp, expect, test } from './fixtures/electron';
 
-test.describe('ClawX Electron smoke flows', () => {
+test.describe('Cina-Claw Pro Electron smoke flows', () => {
   test('shows the setup wizard on a fresh profile', async ({ page }) => {
     await expect(page.getByTestId('setup-page')).toBeVisible();
     await expect(page.getByTestId('setup-welcome-step')).toBeVisible();
@@ -17,7 +17,17 @@ test.describe('ClawX Electron smoke flows', () => {
 
     await expect(page.getByTestId('models-page')).toBeVisible();
     await expect(page.getByTestId('models-page-title')).toBeVisible();
+    await expect(page.getByTestId('free-model-dock')).toBeVisible();
     await expect(page.getByTestId('providers-settings')).toBeVisible();
+  });
+
+  test('shows the command center and free-first model route', async ({ page }) => {
+    await page.getByTestId('setup-skip-button').click();
+    await expect(page.getByText('Your work.')).toBeVisible();
+    await expect(page.getByText('Guarded + enabled')).toBeVisible();
+    await page.getByRole('button', { name: /Configure free models/i }).click();
+    await expect(page.getByTestId('free-model-dock')).toBeVisible();
+    await expect(page.getByText('openrouter/free')).toBeVisible();
   });
 
   test('persists skipped setup across relaunch for the same isolated profile', async ({ electronApp, launchElectronApp }) => {

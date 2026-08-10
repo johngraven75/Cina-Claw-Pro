@@ -37,12 +37,12 @@ case "$1" in
     echo ""
     echo "To update openclaw, update ClawX:"
     echo "  Open ClawX > Settings > Check for Updates"
-    echo "  Or download the latest version from https://claw-x.com"
+    echo "  Or download the latest version from https://github.com/johngraven75/Cina-Claw-Pro/releases/latest"
     echo ""
     ELECTRON_RUN_AS_NODE=1 "$ELECTRON" "$CLI" --version 2>/dev/null || true
     exit 0
     ;;
 esac
 
-export OPENCLAW_EMBEDDED_IN="ClawX"
+export OPENCLAW_EMBEDDED_IN="Cina-Claw Pro"
 ELECTRON_RUN_AS_NODE=1 exec "$ELECTRON" "$CLI" "$@"

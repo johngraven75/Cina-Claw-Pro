@@ -1,37 +1,9 @@
 {
-    "name": "clawx",
-    "version": "0.5.3",
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "@discordjs/opus",
-            "@google/genai",
-            "@whiskeysockets/baileys",
-            "electron",
-            "electron-winstaller",
-            "esbuild",
-            "koffi",
-            "node-llama-cpp",
-            "openclaw",
-            "protobufjs",
-            "sharp",
-            "tree-sitter-bash"
-        ],
-        "overrides": {
-            "isbinaryfile": "^5.0.0"
-        },
-        "supportedArchitectures": {
-            "os": [
-                "current"
-            ],
-            "cpu": [
-                "x64",
-                "arm64"
-            ]
-        }
-    },
-    "description": "ClawX - Graphical AI Assistant based on OpenClaw",
+    "name": "cina-claw-pro",
+    "version": "1.0.0",
+    "description": "A Windows-first autonomous multimodal AI command center powered by OpenClaw.",
+    "author": "John Graven",
     "main": "dist-electron/main/index.js",
-    "author": "ClawX Team",
     "license": "MIT",
     "private": true,
     "scripts": {
@@ -49,7 +21,9 @@
         "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
         "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
         "typecheck": "pnpm run typecheck:node && pnpm run typecheck:web",
-        "test": "vitest run",
+        "test": "vitest run --maxWorkers=4",
+        "verify:carry-forward": "node --test tests/carry-forward-verification.test.mjs",
+        "verify:release": "pnpm run lint:check && pnpm run typecheck && pnpm run test && pnpm run verify:carry-forward && pnpm run build:vite",
         "test:e2e": "pnpm run build:vite && playwright test",
         "test:e2e:headed": "pnpm run build:vite && playwright test --headed",
         "perf:chat": "pnpm run build:vite && playwright test tests/e2e/renderer-performance.spec.ts --workers=1",

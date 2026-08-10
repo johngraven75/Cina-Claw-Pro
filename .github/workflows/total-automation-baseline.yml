@@ -1,0 +1,34 @@
+name: Total Automation Baseline
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.15.0'
+          cache: pnpm
+      - name: Reject whitespace errors
+        run: git show --check --oneline --format='%h %s' HEAD
+      - name: Reject unresolved merge markers
+        shell: bash
+        run: |
+          if git grep -nE '^(<{7}|={7}|>{7})( |$)' -- ':!pnpm-lock.yaml'; then exit 1; fi
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run verify:carry-forward
+      - name: Verify release governance files
+        run: |
+          test -s .github/AUTOMATION_POLICY.md
+          test -s docs/CARRY_FORWARD.md
+          test -s RELEASE_NOTES_v1.0.0.md
+          test -s SECURITY.md

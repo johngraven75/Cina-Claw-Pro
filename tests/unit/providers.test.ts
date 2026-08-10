@@ -138,7 +138,7 @@ describe('provider metadata', () => {
       docsUrl: 'https://platform.claude.com/docs/en/api/overview',
     });
     expect(getProviderDocsUrl(anthropic, 'en')).toBe('https://platform.claude.com/docs/en/api/overview');
-    expect(getProviderDocsUrl(openrouter, 'en')).toBe('https://openrouter.ai/models');
+    expect(getProviderDocsUrl(openrouter, 'en')).toBe('https://openrouter.ai/docs/guides/routing/routers/free-router');
     expect(getProviderDocsUrl(moonshot, 'en')).toBe('https://platform.moonshot.cn/');
     expect(getProviderDocsUrl(siliconflow, 'en')).toBe('https://docs.siliconflow.cn/cn/userguide/introduction');
     expect(getProviderDocsUrl(ark, 'en')).toBe('https://www.volcengine.com/');
@@ -165,7 +165,7 @@ describe('provider metadata', () => {
     });
     expect(openrouter).toMatchObject({
       showModelId: true,
-      defaultModelId: 'openai/gpt-5.6-sol',
+      defaultModelId: 'openrouter/free',
     });
     expect(siliconflow).toMatchObject({
       showModelId: true,
@@ -206,7 +206,7 @@ describe('provider metadata', () => {
       supportsApiKey: true,
     });
     expect(openai?.hideOAuthUi).toBeUndefined();
-    expect(google).toMatchObject({ showModelId: true, defaultModelId: 'gemini-3.1-pro-preview' });
+    expect(google).toMatchObject({ showModelId: true, defaultModelId: 'gemini-3-flash-preview' });
     expect(minimax).toMatchObject({ showModelId: true, defaultModelId: 'MiniMax-M3' });
     expect(minimaxCn).toMatchObject({ showModelId: true, defaultModelId: 'MiniMax-M3' });
 
@@ -217,7 +217,7 @@ describe('provider metadata', () => {
     }
 
     expect(resolveProviderModelForSave(openai, '   ', false)).toBe('gpt-5.6-sol');
-    expect(resolveProviderModelForSave(google, '   ', false)).toBe('gemini-3.1-pro-preview');
+    expect(resolveProviderModelForSave(google, '   ', false)).toBe('gemini-3-flash-preview');
     expect(resolveProviderModelForSave(minimax, '   ', false)).toBe('MiniMax-M3');
     expect(resolveProviderModelForSave(minimaxCn, '   ', false)).toBe('MiniMax-M3');
   });
@@ -246,7 +246,7 @@ describe('provider metadata', () => {
       .toBe('Qwen/Qwen3-Coder-480B-A35B-Instruct');
     expect(resolveProviderModelForSave(anthropic, 'claude-sonnet-4-5', false)).toBe('claude-sonnet-4-5');
 
-    expect(resolveProviderModelForSave(openrouter, '   ', false)).toBe('openai/gpt-5.6-sol');
+    expect(resolveProviderModelForSave(openrouter, '   ', false)).toBe('openrouter/free');
     expect(resolveProviderModelForSave(siliconflow, '   ', false)).toBe('deepseek-ai/DeepSeek-V3');
     expect(resolveProviderModelForSave(anthropic, '   ', false)).toBe('claude-opus-4-8');
     expect(resolveProviderModelForSave(ark, '  ep-custom-model  ', false)).toBe('ep-custom-model');

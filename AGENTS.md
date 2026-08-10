@@ -1,10 +1,22 @@
 # AGENTS.md
 
+## Owner repository rules
+
+Cina-Claw Pro follows the same carry-forward and total-automation discipline as the owner's CinaVault repository. `.github/AUTOMATION_POLICY.md` is authoritative and `docs/CARRY_FORWARD.md` is enforced by CI.
+
+- Preserve accepted features; removal requires explicit owner approval and a release-note entry.
+- Fix root causes and rerun relevant checks until green or until a proven external blocker is documented.
+- Verify runtime and user-visible behavior in addition to compile success.
+- Keep upgrades, settings, model accounts, skills, channels, and OpenClaw configuration compatible.
+- Publish source, Windows installer artifacts, checksums, and build notes for tagged releases.
+- Never commit credentials, provider keys, signing material, tokens, or private certificates.
+- Do not weaken security or remove tests merely to make automation pass.
+
 ## Cursor Cloud specific instructions
 
 ### Overview
 
-ClawX is a cross-platform **Electron desktop app** (React 19 + Vite + TypeScript) providing a GUI for the OpenClaw AI agent runtime. It uses pnpm as its package manager (pinned version in `package.json`'s `packageManager` field).
+Cina-Claw Pro is a Windows-first **Electron desktop app** (React 19 + Vite + TypeScript) providing a GUI for the OpenClaw AI agent runtime. It uses pnpm as its package manager (pinned version in `package.json`'s `packageManager` field).
 
 ### Quick reference
 

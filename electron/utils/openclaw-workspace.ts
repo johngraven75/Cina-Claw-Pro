@@ -30,15 +30,15 @@ function isCurrentOpenClawPath(p: string): boolean {
 
 export function buildDefaultClawXIdentityContent(): string {
   return [
-    '# IDENTITY.md - ClawX',
+    '# IDENTITY.md - Cina-Claw Pro',
     '',
-    '- **Name:** ClawX',
+    '- **Name:** Cina-Claw Pro',
     '- **Creature:** desktop AI assistant',
     '- **Vibe:** concise, capable, and practical',
     '- **Emoji:** 🐾',
     '- **Avatar:**',
     '',
-    'ClawX uses a default desktop identity instead of chat-first bootstrap.',
+    'Cina-Claw Pro uses a default desktop identity instead of chat-first bootstrap.',
     '',
   ].join('\n');
 }

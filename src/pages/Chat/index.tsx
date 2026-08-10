@@ -33,6 +33,7 @@ import { ChatInput, type ChatWorkspaceOption, type FileAttachment } from './Chat
 import { ChatToolbar } from './ChatToolbar';
 import { AcpTimeline } from './AcpTimeline';
 import { AcpErrorBanner } from './AcpErrorBanner';
+import { CinaCommandCenter } from './CinaCommandCenter';
 
 const ArtifactPanelLazy = lazy(() =>
   import('@/components/file-preview/ArtifactPanel').then((m) => ({ default: m.ArtifactPanel })),
@@ -125,14 +126,7 @@ function QuestionDirectory({ items }: { items: QuestionDirectoryItem[] }) {
 }
 
 function AcpEmptyState() {
-  const { t } = useTranslation('chat');
-  return (
-    <div data-testid="acp-chat-empty-state" className="flex h-[60vh] flex-col items-center justify-center text-center">
-      <h1 className="text-4xl font-serif font-normal tracking-tight text-foreground/80 md:text-5xl">
-        {t('welcome.subtitle')}
-      </h1>
-    </div>
-  );
+  return <CinaCommandCenter />;
 }
 
 function WorkspaceUnavailableBanner({

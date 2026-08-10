@@ -1,21 +1,22 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Security fixes are applied to the latest stable Cina-Claw Pro release.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Reporting a vulnerability
 
-## Reporting a Vulnerability
+Do not open a public issue for a suspected vulnerability. Use GitHub's private vulnerability reporting page:
 
-Use this section to tell people how to report a vulnerability.
+<https://github.com/johngraven75/Cina-Claw-Pro/security/advisories/new>
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Include the affected version, Windows version, reproduction steps, impact, and any relevant logs with credentials and personal data removed.
+
+## Security boundaries
+
+- Provider credentials use Electron `safeStorage`; packaged Windows builds use Windows DPAPI.
+- Host execution defaults to an allowlist and prompts when a command is not covered.
+- Only the reviewed bundled skill set is auto-enabled. Community skills and plugins require explicit installation.
+- The Renderer must use typed Main-process host APIs and may not directly own Gateway transport.
+
+Never commit or paste API keys, OAuth tokens, provider credentials, signing keys, certificates, or user transcripts into issues or logs.

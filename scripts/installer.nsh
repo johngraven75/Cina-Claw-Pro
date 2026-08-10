@@ -79,7 +79,7 @@ FunctionEnd
   ; Make stage logs visible on assisted installers (defaults to hidden).
   SetDetailsPrint both
   DetailPrint "Preparing installation..."
-  DetailPrint "Extracting ClawX runtime files. This can take a few minutes on slower disks or while antivirus scanning is active."
+  DetailPrint `Extracting "${PRODUCT_NAME}" runtime files. This can take a few minutes on slower disks or while antivirus scanning is active.`
 
   ${nsProcess::FindProcess} "${APP_EXECUTABLE_FILENAME}" $R0
 
@@ -107,7 +107,7 @@ FunctionEnd
     DetailPrint `Closing running "${PRODUCT_NAME}"...`
 
     # Kill ALL processes whose executable lives inside $INSTDIR.
-    # This covers ClawX.exe (multiple Electron processes), openclaw-gateway.exe,
+    # This covers the app executable (multiple Electron processes), openclaw-gateway.exe,
     # python.exe (skills runtime), uv.exe (package manager), and any other
     # child process that might hold file locks in the installation directory.
     #
@@ -140,7 +140,7 @@ FunctionEnd
       ${nsProcess::Unload}
   ${endIf}
 
-  ; Even if ClawX.exe was not detected as running, orphan child processes
+  ; Even if the app executable was not detected as running, orphan child processes
   ; (python.exe, openclaw-gateway.exe, uv.exe, etc.) from a previous crash
   ; or unclean shutdown may still hold file locks inside $INSTDIR.
   ; Unconditionally kill any process whose executable lives in the install dir.
@@ -168,7 +168,7 @@ FunctionEnd
   ; Do not continue while the old UI process is still alive. Continuing in that
   ; state can leave the running old process/window in place, making the user see
   ; the old version after an otherwise successful extract.  Use process-list
-  ; commands instead of nsProcess here: field diagnostics showed ClawX.exe can
+  ; commands instead of nsProcess here: field diagnostics showed the app executable can
   ; remain alive while the old installer still reports success; this check must
   ; fail closed even when taskkill or the nsProcess plugin misses/elevates poorly.
   StrCpy $R7 0
@@ -194,7 +194,7 @@ FunctionEnd
       ${if} $R7 < 5
         Goto _clawx_verify_closed
       ${endIf}
-      MessageBox MB_RETRYCANCEL|MB_ICONEXCLAMATION "ClawX is still running and cannot be replaced safely. Please close ClawX and retry installation." /SD IDCANCEL IDRETRY _clawx_verify_closed
+      MessageBox MB_RETRYCANCEL|MB_ICONEXCLAMATION `"${PRODUCT_NAME}" is still running and cannot be replaced safely. Please close "${PRODUCT_NAME}" and retry installation.` /SD IDCANCEL IDRETRY _clawx_verify_closed
       SetErrorLevel 2
       Quit
     ${endIf}
@@ -260,7 +260,7 @@ FunctionEnd
       RMDir "$INSTDIR"
       IfFileExists "$INSTDIR\" 0 _recreate_clean_instdir
         DetailPrint "Failed to remove previous installation directory; aborting to avoid leaving the old version installed."
-        MessageBox MB_OK|MB_ICONEXCLAMATION "Unable to replace the previous ClawX installation because files are still locked. Please close ClawX and retry installation." /SD IDOK
+        MessageBox MB_OK|MB_ICONEXCLAMATION `Unable to replace the previous "${PRODUCT_NAME}" installation because files are still locked. Please close "${PRODUCT_NAME}" and retry installation.` /SD IDOK
         SetErrorLevel 2
         Quit
       _recreate_clean_instdir:
@@ -416,7 +416,7 @@ FunctionEnd
 
   ; Ask user if they want to remove AppData (preserves .openclaw)
   MessageBox MB_YESNO|MB_ICONQUESTION \
-    "Do you want to remove ClawX application data?$\r$\n$\r$\nThis will delete:$\r$\n  • AppData\Local\clawx (local app data)$\r$\n  • AppData\Roaming\clawx (roaming app data)$\r$\n$\r$\nYour .openclaw folder (configuration & skills) will be preserved.$\r$\nSelect 'No' to keep all data for future reinstallation." \
+    `Do you want to remove "${PRODUCT_NAME}" application data?$\r$\n$\r$\nThis removes the application's local and roaming data.$\r$\n$\r$\nYour .openclaw folder (configuration & skills) will be preserved.$\r$\nSelect 'No' to keep all data for future reinstallation.` \
     /SD IDNO IDYES _cu_removeData IDNO _cu_skipRemove
 
   _cu_removeData:
@@ -435,6 +435,8 @@ FunctionEnd
 
     ; --- Always remove current user's AppData first ---
     ; NOTE: .openclaw directory is intentionally preserved (user configuration & skills)
+    RMDir /r "$LOCALAPPDATA\${PRODUCT_NAME}"
+    RMDir /r "$APPDATA\${PRODUCT_NAME}"
     RMDir /r "$LOCALAPPDATA\clawx"
     RMDir /r "$APPDATA\clawx"
 

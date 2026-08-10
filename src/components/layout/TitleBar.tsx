@@ -8,6 +8,7 @@
 import { useState, useEffect } from 'react';
 import { Minus, Square, X, Copy } from 'lucide-react';
 import { hostApi } from '@/lib/host-api';
+import { useTranslation } from 'react-i18next';
 
 export function TitleBar() {
   const platform = window.electron?.platform;
@@ -26,6 +27,7 @@ export function TitleBar() {
 }
 
 function WindowsTitleBar() {
+  const { t } = useTranslation('common');
   const [maximized, setMaximized] = useState(false);
 
   useEffect(() => {
@@ -61,21 +63,23 @@ function WindowsTitleBar() {
         <button
           onClick={handleMinimize}
           className="flex h-full w-11 items-center justify-center text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10 transition-colors"
-          title="Minimize"
+          title={t('titleBar.minimize', { defaultValue: 'Minimize' })}
         >
           <Minus className="h-4 w-4" />
         </button>
         <button
           onClick={handleMaximize}
           className="flex h-full w-11 items-center justify-center text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10 transition-colors"
-          title={maximized ? 'Restore' : 'Maximize'}
+          title={maximized
+            ? t('titleBar.restore', { defaultValue: 'Restore' })
+            : t('titleBar.maximize', { defaultValue: 'Maximize' })}
         >
           {maximized ? <Copy className="h-3.5 w-3.5" /> : <Square className="h-3.5 w-3.5" />}
         </button>
         <button
           onClick={handleClose}
           className="flex h-full w-11 items-center justify-center text-muted-foreground hover:bg-red-500 hover:text-white transition-colors"
-          title="Close"
+          title={t('titleBar.close', { defaultValue: 'Close' })}
         >
           <X className="h-4 w-4" />
         </button>

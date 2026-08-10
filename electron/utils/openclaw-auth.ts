@@ -45,6 +45,7 @@ import {
   normalizeOpenClawApiProtocol,
 } from '../shared/providers/types';
 import { inferCustomModelContextWindow, inferCustomModelInputModalities } from '../shared/providers/model-capabilities';
+import { applyCinaClawAutonomyDefaults } from './cina-claw-defaults';
 import {
   CLAWX_OPENAI_IMAGE_DEFAULT_MODEL,
   CLAWX_OPENAI_IMAGE_PROVIDER_KEY,
@@ -2679,6 +2680,10 @@ export async function batchSyncConfigFields(token: string): Promise<void> {
       modified = true;
     }
 
+    if (applyCinaClawAutonomyDefaults(config)) {
+      modified = true;
+    }
+
     pinnedProviderRuntimes = applyOpenClawProviderAgentRuntimePinsToConfig(config);
     if (pinnedProviderRuntimes.length > 0) {
       modified = true;
@@ -2926,6 +2931,10 @@ export async function sanitizeOpenClawConfig(): Promise<void> {
   await mutateOpenClawConfig(async (config) => {
     let modified = false;
 
+    if (applyCinaClawAutonomyDefaults(config)) {
+      modified = true;
+    }
+
     // ── skills section ──────────────────────────────────────────────
     // OpenClaw's Zod schema uses .strict() on the skills object, accepting
     // only: allowBundled, load, install, limits, entries.
@@ -3105,21 +3114,6 @@ export async function sanitizeOpenClawConfig(): Promise<void> {
     ) {
       toolsConfig.deny = webSearchDenyResult.deny;
       toolsModified = true;
-    }
-
-    // ── tools.exec approvals (OpenClaw 3.28+) ──────────────────────
-    // ClawX is a local desktop app where the user is the trusted operator.
-    // Exec approval prompts add unnecessary friction in this context, so we
-    // set security="full" (allow all commands) and ask="off" (never prompt).
-    // If a user has manually configured a stricter ~/.openclaw/exec-approvals.json,
-    // OpenClaw's minSecurity/maxAsk merge will still respect their intent.
-    const execConfig = (toolsConfig.exec as Record<string, unknown> | undefined) || {};
-    if (execConfig.security !== 'full' || execConfig.ask !== 'off') {
-      execConfig.security = 'full';
-      execConfig.ask = 'off';
-      toolsConfig.exec = execConfig;
-      toolsModified = true;
-      console.log('[sanitize] Set tools.exec.security="full" and tools.exec.ask="off" to disable exec approvals for ClawX desktop');
     }
 
     if (toolsModified) {

@@ -476,7 +476,7 @@ describe('sanitizeOpenClawConfig', () => {
     // User-owned sections must survive the sanitize pass
     expect(result.memory).toEqual({ enabled: true, limit: 100 });
     expect(result.channels).toEqual({ discord: { token: 'tok', enabled: true } });
-    expect((result.agents as Record<string, unknown>).defaults).toEqual({
+    expect((result.agents as Record<string, unknown>).defaults).toMatchObject({
       model: { primary: 'openai/gpt-4' },
     });
     // tools settings should now be enforced
