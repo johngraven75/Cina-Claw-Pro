@@ -62,6 +62,7 @@ requiredRules:
   - web-browser-security-and-lifecycle
   - comms-regression
   - docs-sync
+  - windows-native-voice-safety
 forbiddenPatterns:
   - window.electron.ipcRenderer.invoke in src/pages/**
   - window.electron.ipcRenderer.invoke in src/components/**
@@ -99,3 +100,8 @@ The local HTML Preview privileged bridge is also Main-owned: Renderer may load a
 Gateway session-catalog subscription, normalization, ordered list/event replay, attention transitions, and reconnect recovery are documented in `harness/reference/sidebar-session-attention.md`.
 
 Gateway WebSocket heartbeat misses are diagnostic availability signals for the first nine consecutive misses and must not interrupt long-running work during that window. A pong or any incoming Gateway message resets the sequence. On the tenth consecutive miss, Main may request the guarded Gateway restart path when auto-recovery is enabled and lifecycle state is still running; the heartbeat callback must not directly terminate the socket or process. Authoritative process-exit and socket-close signals retain their existing automatic lifecycle paths.
+
+Windows-native voice is also Main-owned. Renderer uses the typed `voice` host
+module; Main runs `System.Speech` without shell interpolation or remote audio
+upload. Microphone recognition is always user-initiated and cancellable, while
+automatic playback is limited to newly completed assistant replies.

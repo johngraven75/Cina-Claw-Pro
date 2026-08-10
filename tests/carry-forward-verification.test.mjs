@@ -17,6 +17,9 @@ const checks = [
   ['export function Agents', 'src/pages/Agents/index.tsx'],
   ['export function Cron', 'src/pages/Cron/index.tsx'],
   ['"commandCenter"', 'shared/i18n/locales/en/chat.json'],
+  ['export const VOICE_PROFILES', 'shared/voice.ts'],
+  ['export function createVoiceApi', 'electron/services/voice-api.ts'],
+  ['## Default Model Behavior', 'resources/context/AGENTS.clawx.md'],
   ['verify:carry-forward', 'package.json'],
 ];
 

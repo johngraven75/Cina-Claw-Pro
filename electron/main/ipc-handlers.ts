@@ -64,6 +64,7 @@ import { createProvidersApi } from '../services/providers-api';
 import { createSessionsApi } from '../services/sessions-api';
 import { createSkillsApi } from '../services/skills-api';
 import { createUsageApi } from '../services/usage-api';
+import { createVoiceApi } from '../services/voice-api';
 import { createWebBrowserApi } from '../services/web-browser-api';
 import type { WebBrowserGuestRegistry } from './web-browser-policy';
 import {
@@ -178,6 +179,7 @@ function registerTypedHostHandlers(
     cron: createCronApi({ gatewayManager }),
     skills: createSkillsApi({ clawHubService, gatewayManager }),
     usage: createUsageApi(),
+    voice: createVoiceApi(),
   });
   registerHostInvokeHandler(hostApiRegistry);
 }

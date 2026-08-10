@@ -679,11 +679,11 @@
 .cina-aurora { position:absolute; inset:3% 0 auto 5%; height:70%; pointer-events:none; filter:blur(54px); opacity:.55; background:radial-gradient(circle at 22% 35%,rgba(34,211,238,.22),transparent 36%),radial-gradient(circle at 73% 27%,rgba(139,92,246,.2),transparent 38%); animation:cina-float 9s ease-in-out infinite alternate; }
 .cina-grid { position:absolute; inset:0; pointer-events:none; opacity:.16; background-image:linear-gradient(rgba(100,116,139,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(100,116,139,.18) 1px,transparent 1px); background-size:38px 38px; mask-image:linear-gradient(to bottom,black,transparent 88%); transform:rotateX(58deg) translateY(36%); transform-origin:center bottom; }
 .cina-gradient-text { color:transparent; background:linear-gradient(110deg,#06b6d4 0%,#3b82f6 42%,#a855f7 88%); background-clip:text; -webkit-background-clip:text; }
-.cina-core-card { transform-style:preserve-3d; animation:cina-card 7s ease-in-out infinite alternate; }
-.cina-core-card::after { content:""; position:absolute; inset:14% -7% -10% 12%; z-index:-1; border-radius:2rem; background:linear-gradient(135deg,rgba(34,211,238,.25),rgba(168,85,247,.2)); filter:blur(34px); }
+.cina-core-card { transform-style:preserve-3d; }
+.cina-core-card::after { content:""; position:absolute; inset:14% -7% -10% 12%; z-index:-1; border-radius:2rem; background:linear-gradient(135deg,rgba(34,211,238,.25),rgba(168,85,247,.2)); filter:blur(34px); animation:cina-card-glow 7s ease-in-out infinite alternate; }
 .cina-orb { box-shadow:inset 0 0 24px rgba(34,211,238,.22),0 0 34px rgba(34,211,238,.14); animation:cina-pulse 2.8s ease-in-out infinite; }
 .cina-launch-card { transform-style:preserve-3d; }
 @keyframes cina-float { to { transform:translate3d(3%,-4%,0) scale(1.07); } }
-@keyframes cina-card { from { transform:rotateY(-2deg) rotateX(1deg) translateY(0); } to { transform:rotateY(3deg) rotateX(-1deg) translateY(-8px); } }
+@keyframes cina-card-glow { from { transform:rotate(-1deg) translateY(0) scale(.98); } to { transform:rotate(2deg) translateY(-8px) scale(1.03); } }
 @keyframes cina-pulse { 50% { transform:scale(1.06) rotate(3deg); } }
-@media (prefers-reduced-motion:reduce) { .cina-aurora,.cina-core-card,.cina-orb { animation:none; } }
+@media (prefers-reduced-motion:reduce) { .cina-aurora,.cina-core-card::after,.cina-orb { animation:none; } }

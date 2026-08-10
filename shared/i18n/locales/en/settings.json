@@ -13,6 +13,36 @@
     "launchAtStartup": "Launch at system startup",
     "launchAtStartupDesc": "Automatically launch Cina-Claw Pro when you log in"
   },
+  "voice": {
+    "title": "Voice Chat",
+    "description": "Talk to chat and hear responses with private Windows-native speech",
+    "enabled": "Voice enabled",
+    "choose": "Voice style",
+    "balance": "Five female and five male profiles, tuned for different tones and depths",
+    "count": "10 voices",
+    "speed": "Speaking speed",
+    "depth": "Voice depth",
+    "autoRead": "Read assistant replies",
+    "autoReadDesc": "Speak each completed assistant response automatically.",
+    "autoSend": "Send after dictation",
+    "autoSendDesc": "Send recognized speech immediately instead of placing it in the composer.",
+    "privateTitle": "Speech stays on this Windows device",
+    "privateDesc": "Microphone capture starts only when you press the mic. System.Speech handles recognition and playback without a paid voice host.",
+    "test": "Test voice",
+    "testing": "Speaking…",
+    "testPhrase": "Cina-Claw Pro voice chat is ready. How can I help?",
+    "genders": { "female": "Female", "male": "Male" },
+    "styles": {
+      "warm": "Warm", "bright": "Bright", "calm": "Calm", "crisp": "Crisp", "confident": "Confident",
+      "deep": "Deep", "balanced": "Balanced", "gentle": "Gentle", "precise": "Precise", "energetic": "Energetic"
+    },
+    "profiles": {
+      "aurora": { "name": "Aurora" }, "nova": { "name": "Nova" }, "selene": { "name": "Selene" },
+      "iris": { "name": "Iris" }, "ember": { "name": "Ember" }, "atlas": { "name": "Atlas" },
+      "orion": { "name": "Orion" }, "rowan": { "name": "Rowan" }, "sterling": { "name": "Sterling" },
+      "echo": { "name": "Echo" }
+    }
+  },
   "aiProviders": {
     "title": "AI Providers",
     "description": "Configure your AI model providers and API keys",

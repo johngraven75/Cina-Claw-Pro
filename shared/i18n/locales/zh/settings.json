@@ -13,6 +13,36 @@
     "launchAtStartup": "开机自动启动",
     "launchAtStartupDesc": "登录系统后自动启动 Cina-Claw Pro"
   },
+  "voice": {
+    "title": "语音聊天",
+    "description": "使用 Windows 本机语音与聊天对话并收听回复",
+    "enabled": "启用语音",
+    "choose": "声音风格",
+    "balance": "5 种女声和 5 种男声，具有不同语气与深度",
+    "count": "10 种声音",
+    "speed": "语速",
+    "depth": "声音深度",
+    "autoRead": "朗读助手回复",
+    "autoReadDesc": "自动朗读每条已完成的助手回复。",
+    "autoSend": "听写后发送",
+    "autoSendDesc": "立即发送识别出的语音，而不是先放入输入框。",
+    "privateTitle": "语音处理保留在此 Windows 设备上",
+    "privateDesc": "仅在按下麦克风后开始录音。System.Speech 无需付费语音服务即可完成识别和播放。",
+    "test": "测试声音",
+    "testing": "正在朗读…",
+    "testPhrase": "Cina-Claw Pro 语音聊天已准备就绪。我能为您做什么？",
+    "genders": { "female": "女声", "male": "男声" },
+    "styles": {
+      "warm": "温暖", "bright": "明亮", "calm": "沉静", "crisp": "清晰", "confident": "自信",
+      "deep": "深沉", "balanced": "均衡", "gentle": "柔和", "precise": "精准", "energetic": "活力"
+    },
+    "profiles": {
+      "aurora": { "name": "极光" }, "nova": { "name": "新星" }, "selene": { "name": "月神" },
+      "iris": { "name": "鸢尾" }, "ember": { "name": "余烬" }, "atlas": { "name": "阿特拉斯" },
+      "orion": { "name": "猎户" }, "rowan": { "name": "罗文" }, "sterling": { "name": "斯特林" },
+      "echo": { "name": "回声" }
+    }
+  },
   "aiProviders": {
     "title": "AI 模型提供商",
     "description": "配置 AI 模型提供商和 API 密钥",

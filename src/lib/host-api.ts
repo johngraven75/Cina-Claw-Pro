@@ -38,6 +38,8 @@ import type {
   UpdateChannel,
   WorkspaceContextInput,
   WorkspaceFileRef,
+  VoiceListenPayload,
+  VoiceSpeakPayload,
 } from '@shared/host-api/contract';
 import type { WebBrowserNavigatePayload } from '@shared/web-browser';
 import type {
@@ -160,6 +162,12 @@ export const hostApi = {
       invokeHost('settings', 'setMany', { patch })
     ),
     reset: () => invokeHost('settings', 'reset'),
+  },
+  voice: {
+    speak: (input: VoiceSpeakPayload) => invokeHost('voice', 'speak', input),
+    stopSpeaking: () => invokeHost('voice', 'stopSpeaking'),
+    listen: (input?: VoiceListenPayload) => invokeHost('voice', 'listen', input),
+    cancelListening: () => invokeHost('voice', 'cancelListening'),
   },
   gateway: {
     status: () => invokeHost('gateway', 'status'),

@@ -10,9 +10,13 @@
 - Seventeen reviewed official Anthropic skills enabled at installation; broader marketplace remains opt-in.
 - English, Simplified Chinese, Japanese, and Russian interface coverage.
 - Carry-forward governance and automated Windows build/release workflows.
+- Windows-native voice chat with microphone dictation, automatic spoken replies, five female and five male voice profiles, speed/depth controls, and no paid speech host.
+- Managed all-model guidance for truthfulness, relevance, evidence, confidentiality, credential redaction, and maximal safe completion.
 
 ## Known limitations
 
 - Provider free tiers, quotas, multimodal capabilities, and model inventories may change.
 - v1.0.0 is unsigned unless the repository is supplied with a trusted Windows signing identity, so SmartScreen may warn.
 - Local Ollama requires the selected model to be installed separately.
+- Windows installs may expose different underlying speech voices by OS language pack; Cina-Claw applies all ten style profiles and falls back to an installed system voice when the requested gender is unavailable.
+- Local speech stays on-device, while prompts sent to hosted AI models are processed under the selected provider's privacy terms.

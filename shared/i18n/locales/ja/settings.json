@@ -13,6 +13,36 @@
     "launchAtStartup": "システム起動時に自動起動",
     "launchAtStartupDesc": "ログイン時に Cina-Claw Pro を自動的に起動します"
   },
+  "voice": {
+    "title": "音声チャット",
+    "description": "Windows ネイティブ音声で話しかけ、返信を聞くことができます",
+    "enabled": "音声を有効化",
+    "choose": "音声スタイル",
+    "balance": "異なるトーンと深さに調整した女性 5 種、男性 5 種",
+    "count": "10 音声",
+    "speed": "読み上げ速度",
+    "depth": "声の深さ",
+    "autoRead": "アシスタントの返信を読み上げる",
+    "autoReadDesc": "完了したアシスタントの返信を自動的に読み上げます。",
+    "autoSend": "音声入力後に送信",
+    "autoSendDesc": "認識した音声を入力欄に置かず、すぐに送信します。",
+    "privateTitle": "音声処理はこの Windows デバイス内で完結",
+    "privateDesc": "マイクを押したときだけ録音を開始します。System.Speech により有料音声ホストなしで認識・再生します。",
+    "test": "音声をテスト",
+    "testing": "読み上げ中…",
+    "testPhrase": "Cina-Claw Pro の音声チャットを利用できます。何をお手伝いしましょうか？",
+    "genders": { "female": "女性", "male": "男性" },
+    "styles": {
+      "warm": "温かい", "bright": "明るい", "calm": "穏やか", "crisp": "明瞭", "confident": "自信",
+      "deep": "深い", "balanced": "バランス", "gentle": "優しい", "precise": "正確", "energetic": "活発"
+    },
+    "profiles": {
+      "aurora": { "name": "オーロラ" }, "nova": { "name": "ノヴァ" }, "selene": { "name": "セレーネ" },
+      "iris": { "name": "アイリス" }, "ember": { "name": "エンバー" }, "atlas": { "name": "アトラス" },
+      "orion": { "name": "オリオン" }, "rowan": { "name": "ローワン" }, "sterling": { "name": "スターリング" },
+      "echo": { "name": "エコー" }
+    }
+  },
   "aiProviders": {
     "title": "AI プロバイダー",
     "description": "AI モデルプロバイダーと API キーを設定",

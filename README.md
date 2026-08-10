@@ -2,6 +2,10 @@
 
 Cina-Claw Pro is a Windows-first autonomous multimodal AI command center powered by the embedded [OpenClaw](https://github.com/openclaw/openclaw) runtime. It combines chat, images and files, multi-agent delegation, skills, browser tools, channels, and scheduled automations in an animated desktop interface.
 
+## Voice chat
+
+Voice chat uses Windows-native `System.Speech`, so dictation and playback do not require a paid speech provider. The composer accepts microphone prompts, assistant replies can be read automatically, and Settings includes ten tuned profiles—five female and five male—with speed, depth, auto-read, and auto-send controls. Microphone capture starts only when the user presses the mic button.
+
 ## Free-first models
 
 - **OpenRouter Free Router** — `openrouter/free` dynamically selects an available no-cost model. Availability and supported modalities vary.
@@ -10,9 +14,13 @@ Cina-Claw Pro is a Windows-first autonomous multimodal AI command center powered
 
 Provider credentials are encrypted with Electron `safeStorage` (Windows DPAPI in packaged Windows builds). The setup wizard requires one enabled provider so chat works immediately after onboarding.
 
+Local speech never needs a speech host. Chat prompts sent to a hosted AI model are still processed under that provider's privacy terms; use Ollama for local model inference and never paste passwords, private keys, tokens, or recovery codes into a prompt.
+
 ## Autonomy and skills
 
 Planning, bounded code-mode execution, and multi-agent delegation are enabled on first launch. Host commands use an allowlist and require approval on a miss. Explicit operator settings are always preserved.
+
+Managed all-model guidance requires truthful, relevant, evidence-based responses, minimal assumptions, private handling of user content, and maximal completion of lawful and safe requests. Provider/system requirements still apply. Secrets should be entered through secure Settings, not pasted into chat.
 
 Seventeen reviewed skills from the official Anthropic skills repository are bundled and enabled. OpenClaw's plugin/provider discovery and the broader skills marketplace remain available, but community code is never silently granted machine access.
 

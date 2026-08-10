@@ -15,6 +15,7 @@ import { useSettingsStore } from '@/stores/settings';
 import { useGatewayStore } from '@/stores/gateway';
 import { useUpdateStore } from '@/stores/update';
 import { UpdateSettings } from '@/components/settings/UpdateSettings';
+import { VoiceSettings } from '@/components/settings/VoiceSettings';
 import { toUserMessage } from '@/lib/error-message';
 import {
   clearUiTelemetry,
@@ -507,6 +508,10 @@ export function Settings() {
               </div>
             </div>
           </div>
+
+          <Separator className="bg-black/5 dark:bg-white/5" />
+
+          <VoiceSettings />
 
           <Separator className="bg-black/5 dark:bg-white/5" />
 

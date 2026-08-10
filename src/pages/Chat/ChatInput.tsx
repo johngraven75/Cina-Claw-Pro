@@ -7,7 +7,7 @@
  * references in the ACP session/prompt request.
  */
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { SendHorizontal, Square, X, Paperclip, FileText, Film, Music, FileArchive, File, FolderOpen, Loader2, AtSign, Search, ChevronDown, Check } from 'lucide-react';
+import { SendHorizontal, Square, X, Paperclip, FileText, Film, Music, FileArchive, File, FolderOpen, Loader2, AtSign, Search, ChevronDown, Check, Mic, MicOff, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
@@ -28,6 +28,7 @@ import { rendererExtensionRegistry } from '@/extensions/registry';
 import { collectDroppedFiles } from '@/lib/collect-dropped-files';
 import { fetchQuickAccessSkills } from '@/lib/quick-access-skills';
 import { DEFAULT_WORKSPACE_CWD, isDefaultWorkspacePath, normalizeWorkspacePath } from '@/lib/workspace-context';
+import { useSettingsStore } from '@/stores/settings';
 
 // ── Types ────────────────────────────────────────────────────────
 
@@ -224,6 +225,7 @@ export function ChatInput({
   const [switchingModelRef, setSwitchingModelRef] = useState<string | null>(null);
   const [optimisticModelRef, setOptimisticModelRef] = useState<string | null>(null);
   const [providerSnapshotReady, setProviderSnapshotReady] = useState(false);
+  const [listening, setListening] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const pickerRef = useRef<HTMLDivElement>(null);
   const skillPickerRef = useRef<HTMLDivElement>(null);
@@ -241,6 +243,11 @@ export function ChatInput({
   const providerError = useProviderStore((s) => s.error);
   const refreshProviderSnapshot = useProviderStore((s) => s.refreshProviderSnapshot);
   const currentAgentId = useChatStore((s) => s.currentAgentId);
+  const voiceEnabled = useSettingsStore((s) => s.voiceEnabled);
+  const voiceAutoRead = useSettingsStore((s) => s.voiceAutoRead);
+  const voiceAutoSend = useSettingsStore((s) => s.voiceAutoSend);
+  const language = useSettingsStore((s) => s.language);
+  const setVoiceAutoRead = useSettingsStore((s) => s.setVoiceAutoRead);
   const currentAgent = useMemo(
     () => (agents ?? []).find((agent) => agent.id === currentAgentId) ?? null,
     [agents, currentAgentId],
@@ -427,6 +434,67 @@ export function ChatInput({
 
   const handleInputChange = useCallback((value: string) => {
     setInput(value);
+  }, []);
+
+  const handleDictation = useCallback(async () => {
+    if (listening) {
+      setListening(false);
+      await hostApi.voice?.cancelListening?.()?.catch(() => undefined);
+      return;
+    }
+    if (!voiceEnabled || inputDisabled || sending || imageGenerating) return;
+    setPickerOpen(false);
+    setSkillPickerOpen(false);
+    setModelPickerOpen(false);
+    setWorkspaceMenuOpen(false);
+    setListening(true);
+    try {
+      const voiceApi = hostApi.voice;
+      if (!voiceApi) return;
+      await voiceApi.stopSpeaking().catch(() => undefined);
+      const result = await voiceApi.listen({ locale: language, timeoutMs: 15_000 });
+      const spokenText = result.text?.trim() ?? '';
+      if (result.cancelled) return;
+      if (!result.success || !spokenText) {
+        toast.error(t('composer.dictationFailed', { error: result.error || t('composer.noSpeech') }));
+        return;
+      }
+      if (voiceAutoSend) {
+        if (rendererExtensionRegistry.hasChatBeforeSendHooks()) {
+          const guard = await rendererExtensionRegistry.runChatBeforeSend({
+            text: spokenText,
+            targetAgentId,
+          });
+          if (!guard.ok) {
+            if (guard.message) toast.error(guard.message);
+            return;
+          }
+        }
+        onSend(spokenText, undefined, targetAgentId);
+        setTargetAgentId(null);
+        return;
+      }
+      const textarea = textareaRef.current;
+      const start = textarea?.selectionStart ?? input.length;
+      const end = textarea?.selectionEnd ?? start;
+      const leadingSpace = start > 0 && !/\s/.test(input[start - 1] ?? '') ? ' ' : '';
+      const trailingSpace = end < input.length && !/\s/.test(input[end] ?? '') ? ' ' : '';
+      const nextInput = `${input.slice(0, start)}${leadingSpace}${spokenText}${trailingSpace}${input.slice(end)}`;
+      setInput(nextInput);
+      requestAnimationFrame(() => {
+        const cursor = start + leadingSpace.length + spokenText.length + trailingSpace.length;
+        textareaRef.current?.focus();
+        textareaRef.current?.setSelectionRange(cursor, cursor);
+      });
+    } catch (error) {
+      toast.error(t('composer.dictationFailed', { error: String(error) }));
+    } finally {
+      setListening(false);
+    }
+  }, [imageGenerating, input, inputDisabled, language, listening, onSend, sending, t, targetAgentId, voiceAutoSend, voiceEnabled]);
+
+  useEffect(() => () => {
+    void hostApi.voice?.cancelListening?.()?.catch(() => undefined);
   }, []);
 
   const moveCaretTo = useCallback((position: number) => {
@@ -727,6 +795,7 @@ export function ChatInput({
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
     }
+    void hostApi.voice?.stopSpeaking?.()?.catch(() => undefined);
     onSend(textToSend, attachmentsToSend, targetAgentId);
     setTargetAgentId(null);
     setPickerOpen(false);
@@ -918,6 +987,21 @@ export function ChatInput({
           </div>
         )}
 
+        {listening && (
+          <div
+            data-testid="chat-voice-listening-indicator"
+            role="status"
+            aria-live="polite"
+            className="mb-2 flex h-5 items-center gap-2 text-sm text-cyan-700 dark:text-cyan-300"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-500" />
+            </span>
+            <span>{t('composer.listening')}</span>
+          </div>
+        )}
+
         {/* Attachment Previews */}
         {attachments.length > 0 && (
           <div className="flex gap-2 mb-3 flex-wrap">
@@ -1001,6 +1085,51 @@ export function ChatInput({
             >
               <Paperclip className="h-3.5 w-3.5" />
             </Button>
+
+            {voiceEnabled && (
+              <>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  data-testid="chat-voice-microphone"
+                  aria-pressed={listening}
+                  className={cn(
+                    'shrink-0 h-8 w-8 rounded-lg transition-colors',
+                    listening
+                      ? 'bg-cyan-500/15 text-cyan-700 hover:bg-cyan-500/20 dark:text-cyan-300'
+                      : 'text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10',
+                  )}
+                  onClick={() => void handleDictation()}
+                  disabled={inputDisabled || sending || imageGenerating}
+                  title={listening ? t('composer.stopDictation') : t('composer.startDictation')}
+                  aria-label={listening ? t('composer.stopDictation') : t('composer.startDictation')}
+                >
+                  {listening ? <MicOff className="h-3.5 w-3.5" /> : <Mic className="h-3.5 w-3.5" />}
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  data-testid="chat-voice-auto-read"
+                  aria-pressed={voiceAutoRead}
+                  className={cn(
+                    'shrink-0 h-8 w-8 rounded-lg transition-colors',
+                    voiceAutoRead
+                      ? 'text-cyan-700 hover:bg-cyan-500/10 dark:text-cyan-300'
+                      : 'text-muted-foreground hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10',
+                  )}
+                  onClick={() => {
+                    if (voiceAutoRead) void hostApi.voice?.stopSpeaking?.()?.catch(() => undefined);
+                    setVoiceAutoRead(!voiceAutoRead);
+                  }}
+                  title={voiceAutoRead ? t('composer.autoReadOn') : t('composer.autoReadOff')}
+                  aria-label={voiceAutoRead ? t('composer.autoReadOn') : t('composer.autoReadOff')}
+                >
+                  {voiceAutoRead ? <Volume2 className="h-3.5 w-3.5" /> : <VolumeX className="h-3.5 w-3.5" />}
+                </Button>
+              </>
+            )}
 
             {showAgentPicker && (
               <div ref={pickerRef} className="relative shrink-0">

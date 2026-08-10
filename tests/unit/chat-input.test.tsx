@@ -5,7 +5,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 const hostApiFetchMock = vi.hoisted(() => vi.fn());
 const hostApiDialogOpenMock = vi.hoisted(() => vi.fn());
 const toastErrorMock = vi.hoisted(() => vi.fn());
-const { agentsState, chatState, gatewayState, providersState, artifactPanelMocks } = vi.hoisted(() => ({
+const { agentsState, chatState, gatewayState, providersState, artifactPanelMocks, settingsState } = vi.hoisted(() => ({
   agentsState: {
     agents: [] as Array<Record<string, unknown>>,
     defaultModelRef: null as string | null,
@@ -27,6 +27,13 @@ const { agentsState, chatState, gatewayState, providersState, artifactPanelMocks
   artifactPanelMocks: {
     openPreview: vi.fn(),
   },
+  settingsState: {
+    voiceEnabled: false,
+    voiceAutoRead: false,
+    voiceAutoSend: false,
+    language: 'en',
+    setVoiceAutoRead: vi.fn(),
+  },
 }));
 
 vi.mock('@/stores/agents', () => ({
@@ -47,6 +54,10 @@ vi.mock('@/stores/providers', () => ({
 
 vi.mock('@/stores/artifact-panel', () => ({
   useArtifactPanel: (selector: (state: typeof artifactPanelMocks) => unknown) => selector(artifactPanelMocks),
+}));
+
+vi.mock('@/stores/settings', () => ({
+  useSettingsStore: (selector: (state: typeof settingsState) => unknown) => selector(settingsState),
 }));
 
 vi.mock('@/lib/host-api', () => ({

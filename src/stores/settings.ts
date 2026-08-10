@@ -8,6 +8,7 @@ import i18n from '@/i18n';
 import { hostApi } from '@/lib/host-api';
 import { resolveSupportedLanguage } from '@shared/language';
 import { DEFAULT_WORKSPACE_CWD, MAX_RECENT_WORKSPACES } from '@shared/workspace';
+import { DEFAULT_VOICE_PROFILE_ID, getVoiceProfile } from '@shared/voice';
 import {
   getWorkspaceDisplayLabel,
   isDefaultWorkspacePath,
@@ -47,6 +48,14 @@ interface SettingsState {
   recentWorkspacePaths: string[];
   workspaceLabels: Record<string, string>;
 
+  // Voice Chat
+  voiceEnabled: boolean;
+  voiceProfileId: string;
+  voiceAutoRead: boolean;
+  voiceAutoSend: boolean;
+  voiceSpeed: number;
+  voiceDepth: number;
+
   // Setup
   setupComplete: boolean;
 
@@ -73,6 +82,12 @@ interface SettingsState {
   setChatWorkspacePath: (workspacePath: string) => void;
   setWorkspaceLabel: (workspacePath: string, label: string) => void;
   removeWorkspace: (workspacePath: string) => Promise<void>;
+  setVoiceEnabled: (value: boolean) => void;
+  setVoiceProfileId: (profileId: string) => void;
+  setVoiceAutoRead: (value: boolean) => void;
+  setVoiceAutoSend: (value: boolean) => void;
+  setVoiceSpeed: (value: number) => void;
+  setVoiceDepth: (value: number) => void;
   markSetupComplete: () => void;
   resetSettings: () => void;
 }
@@ -99,6 +114,12 @@ const defaultSettings = {
   chatWorkspacePath: DEFAULT_WORKSPACE_CWD,
   recentWorkspacePaths: [DEFAULT_WORKSPACE_CWD],
   workspaceLabels: {},
+  voiceEnabled: true,
+  voiceProfileId: DEFAULT_VOICE_PROFILE_ID,
+  voiceAutoRead: true,
+  voiceAutoSend: false,
+  voiceSpeed: 1,
+  voiceDepth: getVoiceProfile(DEFAULT_VOICE_PROFILE_ID).defaultDepth,
   setupComplete: false,
 };
 
@@ -241,6 +262,36 @@ export const useSettingsStore = create<SettingsState>()(
         };
         set(patch);
         await hostApi.settings.setMany(patch);
+      },
+      setVoiceEnabled: (voiceEnabled) => {
+        set({ voiceEnabled });
+        void hostApi.settings.set('voiceEnabled', voiceEnabled).catch(() => { });
+      },
+      setVoiceProfileId: (voiceProfileId) => {
+        const profile = getVoiceProfile(voiceProfileId);
+        set({ voiceProfileId: profile.id, voiceDepth: profile.defaultDepth });
+        void hostApi.settings.setMany({
+          voiceProfileId: profile.id,
+          voiceDepth: profile.defaultDepth,
+        }).catch(() => { });
+      },
+      setVoiceAutoRead: (voiceAutoRead) => {
+        set({ voiceAutoRead });
+        void hostApi.settings.set('voiceAutoRead', voiceAutoRead).catch(() => { });
+      },
+      setVoiceAutoSend: (voiceAutoSend) => {
+        set({ voiceAutoSend });
+        void hostApi.settings.set('voiceAutoSend', voiceAutoSend).catch(() => { });
+      },
+      setVoiceSpeed: (voiceSpeed) => {
+        const safeSpeed = Math.min(1.4, Math.max(0.6, voiceSpeed));
+        set({ voiceSpeed: safeSpeed });
+        void hostApi.settings.set('voiceSpeed', safeSpeed).catch(() => { });
+      },
+      setVoiceDepth: (voiceDepth) => {
+        const safeDepth = Math.min(100, Math.max(0, Math.round(voiceDepth)));
+        set({ voiceDepth: safeDepth });
+        void hostApi.settings.set('voiceDepth', safeDepth).catch(() => { });
       },
       markSetupComplete: () => set({ setupComplete: true }),
       resetSettings: () => set(defaultSettings),

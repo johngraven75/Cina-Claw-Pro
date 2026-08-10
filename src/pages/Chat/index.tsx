@@ -7,6 +7,7 @@ import { AlertTriangle, ArrowDownToLine, FolderOpen } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { DEFAULT_SESSION_KEY } from '@shared/chat/types';
+import { toSpeakableText } from '@shared/voice';
 import { Button } from '@/components/ui/button';
 import { useAgentsStore } from '@/stores/agents';
 import { useArtifactPanel } from '@/stores/artifact-panel';
@@ -73,6 +74,25 @@ function buildQuestionDirectoryTitle(item: MessageSegmentItem, fallback: string)
     ({ segment }) => segment,
   );
   return graphemes.length > 64 ? `${graphemes.slice(0, 61).join('')}...` : normalized;
+}
+
+function getLatestAssistantSpeech(
+  timeline: ReturnType<typeof createEmptyAcpTimeline>,
+): { key: string; text: string } | null {
+  const assistantItems = timeline.itemOrder
+    .map((itemId) => timeline.itemsById[itemId])
+    .filter((item): item is MessageSegmentItem => item?.kind === 'message-segment' && item.role === 'assistant');
+  const latest = assistantItems.at(-1);
+  if (!latest) return null;
+  const text = toSpeakableText(
+    assistantItems
+      .filter((item) => item.messageId === latest.messageId)
+      .flatMap((item) => item.parts)
+      .filter((part): part is Extract<RenderPart, { kind: 'markdown' }> => part.kind === 'markdown')
+      .map((part) => part.text)
+      .join('\n'),
+  );
+  return text ? { key: `${timeline.sessionId}:${latest.messageId}`, text } : null;
 }
 
 function isRecoverableInitialAcpLoadError(message: string | null): boolean {
@@ -181,6 +201,11 @@ export function Chat() {
   const acknowledgeAcpSessionCreated = useChatStore((s) => s.acknowledgeAcpSessionCreated);
   const setVisibleSession = useSessionAttentionStore((s) => s.setVisibleSession);
   const chatWorkspacePath = useSettingsStore((s) => s.chatWorkspacePath);
+  const voiceEnabled = useSettingsStore((s) => s.voiceEnabled);
+  const voiceAutoRead = useSettingsStore((s) => s.voiceAutoRead);
+  const voiceProfileId = useSettingsStore((s) => s.voiceProfileId);
+  const voiceSpeed = useSettingsStore((s) => s.voiceSpeed);
+  const voiceDepth = useSettingsStore((s) => s.voiceDepth);
   const recentWorkspacePaths = useSettingsStore((s) => s.recentWorkspacePaths ?? []);
   const workspaceLabels = useSettingsStore((s) => s.workspaceLabels);
   const setChatWorkspacePath = useSettingsStore((s) => s.setChatWorkspacePath);
@@ -283,6 +308,10 @@ export function Chat() {
   const closeArtifactPanel = useArtifactPanel((s) => s.close);
   const splitContainerRef = useRef<HTMLDivElement | null>(null);
   const acpLoadInFlightKeyRef = useRef<string | null>(null);
+  const voiceWasWorkingRef = useRef(false);
+  const voicePendingReplyRef = useRef(false);
+  const voiceResponseBaselineRef = useRef<string | null>(null);
+  const lastSpokenReplyRef = useRef<string | null>(null);
   const { contentRef, scrollRef, scrollToBottom, isAtBottom } = useStickToBottomInstant(
     currentSessionKey,
     acpSending || acpCancelling,
@@ -300,6 +329,52 @@ export function Chat() {
   useEffect(() => {
     closeArtifactPanel();
   }, [currentSessionKey, closeArtifactPanel]);
+
+  useEffect(() => {
+    voiceWasWorkingRef.current = false;
+    voicePendingReplyRef.current = false;
+    voiceResponseBaselineRef.current = null;
+    lastSpokenReplyRef.current = null;
+    void hostApi.voice?.stopSpeaking?.()?.catch(() => undefined);
+  }, [currentSessionKey]);
+
+  useEffect(() => {
+    const working = acpSending || acpCancelling;
+    if (working) {
+      if (!voiceWasWorkingRef.current) {
+        voiceResponseBaselineRef.current = getLatestAssistantSpeech(visibleAcpTimeline)?.key ?? null;
+      }
+      voiceWasWorkingRef.current = true;
+      return;
+    }
+    if (voiceWasWorkingRef.current) {
+      voiceWasWorkingRef.current = false;
+      voicePendingReplyRef.current = true;
+    }
+    if (!voicePendingReplyRef.current) return;
+    const speech = getLatestAssistantSpeech(visibleAcpTimeline);
+    if (!speech || speech.key === lastSpokenReplyRef.current) return;
+    voicePendingReplyRef.current = false;
+    if (speech.key === voiceResponseBaselineRef.current) return;
+    lastSpokenReplyRef.current = speech.key;
+    if (!voiceEnabled || !voiceAutoRead) return;
+    const voiceApi = hostApi.voice;
+    if (!voiceApi) return;
+    void voiceApi.speak({
+      text: speech.text,
+      profileId: voiceProfileId,
+      speed: voiceSpeed,
+      depth: voiceDepth,
+    }).then((result) => {
+      if (!result.success && result.error) toast.error(t('composer.speechFailed', { error: result.error }));
+    }).catch((error) => {
+      toast.error(t('composer.speechFailed', { error: String(error) }));
+    });
+  }, [acpCancelling, acpSending, t, visibleAcpTimeline, voiceAutoRead, voiceDepth, voiceEnabled, voiceProfileId, voiceSpeed]);
+
+  useEffect(() => {
+    if (!voiceEnabled || !voiceAutoRead) void hostApi.voice?.stopSpeaking?.()?.catch(() => undefined);
+  }, [voiceAutoRead, voiceEnabled]);
 
   const projectionExecutionCwd = acpActiveSessionKey === currentSessionKey && acpCwd ? acpCwd : cwd;
   const workspaceContextKey = currentSessionKey && cwd && projectionExecutionCwd

@@ -20,6 +20,9 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Multi-agent management | `export function Agents` | `src/pages/Agents/index.tsx` |
 | Scheduled automations | `export function Cron` | `src/pages/Cron/index.tsx` |
 | Four-locale UI | `"commandCenter"` | `shared/i18n/locales/en/chat.json` |
+| Ten-profile voice catalog (5 female / 5 male) | `export const VOICE_PROFILES` | `shared/voice.ts` |
+| Windows-native voice bridge | `export function createVoiceApi` | `electron/services/voice-api.ts` |
+| All-model truth, evidence, and privacy guidance | `## Default Model Behavior` | `resources/context/AGENTS.clawx.md` |
 | Carry-forward CI | `verify:carry-forward` | `package.json` |
 
 Provider quotas, model inventories, and external plugin APIs may change independently. Community code is not silently granted machine access.

@@ -127,6 +127,12 @@ export type SettingsSnapshot = Partial<{
   chatWorkspacePath: string;
   recentWorkspacePaths: string[];
   workspaceLabels: Record<string, string>;
+  voiceEnabled: boolean;
+  voiceProfileId: string;
+  voiceAutoRead: boolean;
+  voiceAutoSend: boolean;
+  voiceSpeed: number;
+  voiceDepth: number;
 }>;
 export type SettingsKey = keyof SettingsSnapshot & string;
 export type SettingsValue = SettingsSnapshot[SettingsKey];
@@ -134,6 +140,20 @@ export type SettingsGetPayload = { key: SettingsKey };
 export type SettingsSetPayload = { key: SettingsKey; value: SettingsValue };
 export type SettingsSetManyPayload = { patch: Partial<SettingsSnapshot> };
 export type SettingsResetResult = HostSuccess & { settings: SettingsSnapshot };
+
+export type VoiceSpeakPayload = {
+  text: string;
+  profileId: string;
+  speed: number;
+  depth: number;
+};
+export type VoiceSpeakResult = HostSuccess & { cancelled?: boolean };
+export type VoiceListenPayload = { locale?: string; timeoutMs?: number };
+export type VoiceListenResult = HostSuccess & {
+  text?: string;
+  confidence?: number;
+  cancelled?: boolean;
+};
 
 export type GatewayControlUiResult = HostSuccess & {
   url?: string;
@@ -853,6 +873,12 @@ export type HostApiContract = {
     set: (payload: SettingsSetPayload) => HostSuccess;
     setMany: (payload: SettingsSetManyPayload) => HostSuccess;
     reset: () => SettingsResetResult;
+  };
+  voice: {
+    speak: (payload: VoiceSpeakPayload) => VoiceSpeakResult;
+    stopSpeaking: () => HostSuccess;
+    listen: (payload?: VoiceListenPayload) => VoiceListenResult;
+    cancelListening: () => HostSuccess;
   };
   gateway: {
     status: () => GatewayStatus;

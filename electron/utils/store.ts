@@ -7,6 +7,7 @@ import { randomBytes } from 'crypto';
 import { app } from 'electron';
 import { resolveSupportedLanguage } from '@shared/language';
 import { DEFAULT_WORKSPACE_CWD } from '@shared/workspace';
+import { DEFAULT_VOICE_PROFILE_ID, getVoiceProfile } from '@shared/voice';
 
 // Lazy-load electron-store (ESM module)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -56,6 +57,14 @@ export interface AppSettings {
   chatWorkspacePath: string;
   recentWorkspacePaths: string[];
   workspaceLabels: Record<string, string>;
+
+  // Voice Chat
+  voiceEnabled: boolean;
+  voiceProfileId: string;
+  voiceAutoRead: boolean;
+  voiceAutoSend: boolean;
+  voiceSpeed: number;
+  voiceDepth: number;
 
   // Presets
   selectedBundles: string[];
@@ -111,6 +120,14 @@ function createDefaultSettings(): AppSettings {
     chatWorkspacePath: DEFAULT_WORKSPACE_CWD,
     recentWorkspacePaths: [DEFAULT_WORKSPACE_CWD],
     workspaceLabels: {},
+
+    // Voice Chat (Windows System.Speech; microphone is always user-initiated)
+    voiceEnabled: true,
+    voiceProfileId: DEFAULT_VOICE_PROFILE_ID,
+    voiceAutoRead: true,
+    voiceAutoSend: false,
+    voiceSpeed: 1,
+    voiceDepth: getVoiceProfile(DEFAULT_VOICE_PROFILE_ID).defaultDepth,
 
     // Presets
     selectedBundles: ['productivity', 'developer'],
