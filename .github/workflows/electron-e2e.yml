@@ -9,6 +9,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: electron-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   electron-e2e:
     name: Electron E2E (${{ matrix.os }})
