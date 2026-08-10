@@ -23,6 +23,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Generate extension bridge
+        run: pnpm run ext:bridge
       - name: Verify source
         run: pnpm run verify:release
 
