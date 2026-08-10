@@ -2,7 +2,7 @@ appId: pro.cinaclaw.desktop
 productName: Cina-Claw Pro
 copyright: Copyright © 2026 John Graven. ClawX portions © ValueCell Team.
 compression: maximum
-artifactName: ${productName}-${version}-${os}-${arch}.${ext}
+artifactName: Cina-Claw-Pro-${version}-${os}-${arch}.${ext}
 
 directories:
   output: release

@@ -433,7 +433,7 @@ export async function installIpcMocks(
 ): Promise<void> {
   await app.evaluate(
     async ({ app: _app }, mockConfig) => {
-      const { ipcMain } = process.mainModule!.require('electron') as typeof import('electron');
+      const { BrowserWindow, ipcMain } = process.mainModule!.require('electron') as typeof import('electron');
       const stableStringify = (value: unknown): string => {
         if (value == null || typeof value !== 'object') return JSON.stringify(value);
         if (Array.isArray(value)) return `[${value.map((item) => stableStringify(item)).join(',')}]`;
@@ -689,6 +689,14 @@ export async function installIpcMocks(
       if (mockConfig.gatewayStatus) {
         ipcMain.removeHandler('gateway:status');
         ipcMain.handle('gateway:status', async () => mockConfig.gatewayStatus);
+        // A Windows file:// reload can occasionally retain the existing
+        // renderer. Keep that renderer synchronized with the newly installed
+        // status mock instead of leaving its composer disabled.
+        for (const window of BrowserWindow.getAllWindows()) {
+          if (!window.isDestroyed() && !window.webContents.isDestroyed()) {
+            window.webContents.send('gateway:status-changed', mockConfig.gatewayStatus);
+          }
+        }
       }
     },
     config,

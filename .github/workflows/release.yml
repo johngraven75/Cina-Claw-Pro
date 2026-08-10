@@ -110,9 +110,14 @@ jobs:
         run: |
           shopt -s nullglob
           assets=(release/*.exe release/*.blockmap release/latest*.yml release/SHA256SUMS.txt)
+          notes_file="RELEASE_NOTES_${RELEASE_TAG}.md"
+          if [[ ! -f "$notes_file" ]]; then
+            echo "Release notes not found: $notes_file" >&2
+            exit 1
+          fi
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" "${assets[@]}" --clobber
-            gh release edit "$RELEASE_TAG" --notes-file RELEASE_NOTES_v1.0.0.md --title "Cina-Claw Pro ${RELEASE_TAG#v}"
+            gh release edit "$RELEASE_TAG" --notes-file "$notes_file" --title "Cina-Claw Pro ${RELEASE_TAG#v}"
           else
-            gh release create "$RELEASE_TAG" "${assets[@]}" --verify-tag --title "Cina-Claw Pro ${RELEASE_TAG#v}" --notes-file RELEASE_NOTES_v1.0.0.md
+            gh release create "$RELEASE_TAG" "${assets[@]}" --verify-tag --title "Cina-Claw Pro ${RELEASE_TAG#v}" --notes-file "$notes_file"
           fi

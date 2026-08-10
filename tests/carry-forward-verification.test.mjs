@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 
 const checks = [
   ['productName: Cina-Claw Pro', 'electron-builder.yml'],
+  ['artifactName: Cina-Claw-Pro-${version}-${os}-${arch}.${ext}', 'electron-builder.yml'],
   ['"openclaw": "2026.7.1"', 'package.json'],
   ['export function CinaCommandCenter', 'src/pages/Chat/CinaCommandCenter.tsx'],
   ['.cina-core-card', 'src/styles/globals.css'],

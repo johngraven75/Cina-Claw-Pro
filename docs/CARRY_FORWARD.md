@@ -7,6 +7,7 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Capability | Token | Source |
 | --- | --- | --- |
 | Windows product identity | `productName: Cina-Claw Pro` | `electron-builder.yml` |
+| Stable Windows release filenames | `artifactName: Cina-Claw-Pro-${version}-${os}-${arch}.${ext}` | `electron-builder.yml` |
 | Embedded OpenClaw runtime | `"openclaw": "2026.7.1"` | `package.json` |
 | Animated command center | `export function CinaCommandCenter` | `src/pages/Chat/CinaCommandCenter.tsx` |
 | 3D neural core | `.cina-core-card` | `src/styles/globals.css` |
