@@ -17,7 +17,10 @@ jobs:
   electron-e2e:
     name: Electron E2E (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    # The full 146-test Electron suite is intentionally single-worker because
+    # each case owns an isolated desktop profile. Windows and macOS regularly
+    # need more than 20 minutes including the production build.
+    timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
