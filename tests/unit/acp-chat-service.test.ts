@@ -928,8 +928,8 @@ describe('AcpChatService', () => {
       expect(accessRegistry.get('agent:pi:grant', 1)).toEqual({
         sessionKey: 'agent:pi:grant',
         generation: 1,
-        workspaceRoot: realpathSync(workspaceRoot),
-        executionCwd: realpathSync(executionCwd),
+        workspaceRoot: realpathSync.native(workspaceRoot),
+        executionCwd: realpathSync.native(executionCwd),
       });
     } finally {
       rmSync(parent, { recursive: true, force: true });
@@ -957,8 +957,8 @@ describe('AcpChatService', () => {
       expect(accessRegistry.get('agent:pi:first', 1)).toEqual({
         sessionKey: 'agent:pi:first',
         generation: 1,
-        workspaceRoot: realpathSync(firstRoot),
-        executionCwd: realpathSync(firstRoot),
+        workspaceRoot: realpathSync.native(firstRoot),
+        executionCwd: realpathSync.native(firstRoot),
       });
       expect(accessRegistry.get('agent:pi:second', 2)).toBeNull();
     } finally {

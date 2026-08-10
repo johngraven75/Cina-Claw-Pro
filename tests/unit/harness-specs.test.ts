@@ -345,6 +345,24 @@ Body`);
     expect(spec.data.docs).toEqual({ required: false });
   });
 
+  it('parses Markdown frontmatter after a Windows CRLF checkout', () => {
+    const spec = parseFrontmatter([
+      '---',
+      'id: windows-example',
+      'requiredProfiles:',
+      '  - fast',
+      '---',
+      '',
+      'Windows body',
+    ].join('\r\n'));
+
+    expect(spec.data).toMatchObject({
+      id: 'windows-example',
+      requiredProfiles: ['fast'],
+    });
+    expect(spec.body).toBe('Windows body');
+  });
+
   it('matches repository glob paths', () => {
     expect(pathMatchesAny('src/stores/chat/runtime-graph.ts', ['src/stores/chat/**'])).toBe(true);
     expect(pathMatchesAny('src/lib/host-api.ts', ['src/lib/host-api.ts'])).toBe(true);

@@ -36,8 +36,8 @@ describe('AcpSessionAccessRegistry', () => {
     })).resolves.toEqual({
       sessionKey: 'agent:main:session-1',
       generation: 1,
-      workspaceRoot: realpathSync(workspaceRoot),
-      executionCwd: realpathSync(executionCwd),
+      workspaceRoot: realpathSync.native(workspaceRoot),
+      executionCwd: realpathSync.native(executionCwd),
     });
 
     await expect(registry.prepareGrant({

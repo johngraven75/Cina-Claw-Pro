@@ -1,8 +1,11 @@
 import { readFile, readdir } from 'node:fs/promises';
+import { realpathSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+export const ROOT = realpathSync.native(
+  path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
+);
 export const SPEC_ROOT = path.join(ROOT, 'harness', 'specs');
 
 function parseScalar(value) {
@@ -17,7 +20,7 @@ function parseScalar(value) {
 }
 
 export function parseFrontmatter(markdown) {
-  const match = markdown.match(/^---\n([\s\S]*?)\n---(?:\n|$)/);
+  const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
   if (!match) {
     throw new Error('Spec must start with Markdown frontmatter');
   }
@@ -26,7 +29,7 @@ export function parseFrontmatter(markdown) {
   let currentKey = null;
   let nestedKey = null;
 
-  for (const rawLine of match[1].split('\n')) {
+  for (const rawLine of match[1].split(/\r?\n/)) {
     if (!rawLine.trim() || rawLine.trimStart().startsWith('#')) continue;
     const indent = rawLine.match(/^ */)?.[0].length ?? 0;
     const line = rawLine.trim();
