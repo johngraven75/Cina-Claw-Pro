@@ -12,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  windows-build:
-    runs-on: windows-latest
+  verify-source:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
@@ -25,6 +25,19 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Verify source
         run: pnpm run verify:release
+
+  windows-build:
+    needs: verify-source
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.22.3'
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Package unsigned Windows installer
         run: pnpm run package:win
       - uses: actions/upload-artifact@v4
