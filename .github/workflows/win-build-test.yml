@@ -7,6 +7,10 @@ on:
       - 'electron/**'
       - 'scripts/**'
       - 'electron-builder.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tests/unit/gateway-runtime-compatibility.test.ts'
+      - 'scripts/smoke-packaged-gateway.mjs'
 
 permissions:
   contents: read
@@ -46,6 +50,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Package unsigned Windows installer
         run: pnpm run package:win
+      - name: Smoke-test packaged OpenClaw gateway
+        run: node scripts/smoke-packaged-gateway.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: unsigned-windows-installer

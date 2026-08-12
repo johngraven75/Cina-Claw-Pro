@@ -1,6 +1,6 @@
 {
     "name": "cina-claw-pro",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A Windows-first autonomous multimodal AI command center powered by OpenClaw.",
     "author": "John Graven",
     "main": "dist-electron/main/index.js",
@@ -73,7 +73,7 @@
         "posthog-node": "^5.28.0",
         "tar": "^7.5.22",
         "timeago.js": "^4.0.2",
-        "ws": "^8.21.0",
+        "ws": "8.19.0",
         "yaml": "^2.9.0",
         "zod": "^4.4.3"
     },
@@ -131,7 +131,7 @@
         "diff": "^9.0.0",
         "discord-api-types": "^0.38.47",
         "docx-preview": "^0.4.0",
-        "electron": "41.10.3",
+        "electron": "40.10.6",
         "electron-builder": "^26.8.1",
         "eslint": "^10.0.0",
         "eslint-plugin-react-hooks": "^7.0.1",

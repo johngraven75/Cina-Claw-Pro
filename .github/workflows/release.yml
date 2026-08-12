@@ -95,6 +95,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: pnpm run package:win
+      - name: Smoke-test packaged OpenClaw gateway
+        run: node scripts/smoke-packaged-gateway.mjs
       - name: Create SHA-256 manifest
         shell: pwsh
         run: |
