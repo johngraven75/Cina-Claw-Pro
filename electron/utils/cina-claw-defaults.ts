@@ -9,8 +9,24 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   let changed = false;
   const tools = record(config.tools);
   if (tools.codeMode === undefined) {
-    tools.codeMode = { enabled: true, maxToolCalls: 24, maxDurationMs: 300_000 };
+    tools.codeMode = { enabled: true, maxPendingToolCalls: 24, timeoutMs: 300_000 };
     changed = true;
+  } else if (tools.codeMode && typeof tools.codeMode === 'object' && !Array.isArray(tools.codeMode)) {
+    // Cina-Claw v1.0.2 seeded pre-release names that OpenClaw 2026.7.1
+    // rejects under its strict CodeMode schema. Migrate them in place so an
+    // affected installation can recover before Gateway validation runs.
+    const codeMode = tools.codeMode as ConfigRecord;
+    if (codeMode.maxPendingToolCalls === undefined && typeof codeMode.maxToolCalls === 'number') {
+      codeMode.maxPendingToolCalls = codeMode.maxToolCalls;
+      changed = true;
+    }
+    if (codeMode.timeoutMs === undefined && typeof codeMode.maxDurationMs === 'number') {
+      codeMode.timeoutMs = codeMode.maxDurationMs;
+      changed = true;
+    }
+    if ('maxToolCalls' in codeMode) { delete codeMode.maxToolCalls; changed = true; }
+    if ('maxDurationMs' in codeMode) { delete codeMode.maxDurationMs; changed = true; }
+    tools.codeMode = codeMode;
   }
   const experimental = record(tools.experimental);
   if (experimental.planTool === undefined) { experimental.planTool = true; changed = true; }
@@ -26,7 +42,13 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   const defaults = record(agents.defaults);
   if (defaults.maxConcurrent === undefined) { defaults.maxConcurrent = 4; changed = true; }
   const subagents = record(defaults.subagents);
-  if (subagents.allow === undefined) { subagents.allow = ['*']; changed = true; }
+  if (subagents.allowAgents === undefined) {
+    subagents.allowAgents = Array.isArray(subagents.allow) ? subagents.allow : ['*'];
+    changed = true;
+  }
+  // OpenClaw's strict Subagent schema calls this field allowAgents. Remove
+  // the obsolete v1.0.2 alias even when a canonical value already exists.
+  if ('allow' in subagents) { delete subagents.allow; changed = true; }
   if (subagents.maxConcurrent === undefined) { subagents.maxConcurrent = 4; changed = true; }
   if (subagents.delegationMode === undefined) { subagents.delegationMode = 'prefer'; changed = true; }
   if (subagents.runTimeoutSeconds === undefined) { subagents.runTimeoutSeconds = 900; changed = true; }

@@ -12,6 +12,7 @@ touchedAreas:
   - .github/workflows/win-build-test.yml
   - .github/workflows/release.yml
   - tests/unit/gateway-runtime-compatibility.test.ts
+  - tests/unit/cina-claw-defaults.test.ts
   - RELEASE_NOTES_v1.0.3.md
 expectedUserBehavior:
   - A clean Windows installation starts the bundled OpenClaw gateway automatically.
