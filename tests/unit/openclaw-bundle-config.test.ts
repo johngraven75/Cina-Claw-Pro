@@ -7,8 +7,24 @@ import { describe, expect, it } from 'vitest';
 
 const require = createRequire(import.meta.url);
 
+function numericVersion(version: string): [number, number, number] {
+  const match = /^(\d+)\.(\d+)\.(\d+)/.exec(version);
+  if (!match) throw new Error(`Unsupported runtime version: ${version}`);
+  return [Number(match[1]), Number(match[2]), Number(match[3])];
+}
+
+function versionAtLeast(actual: string, minimum: string): boolean {
+  const actualParts = numericVersion(actual);
+  const minimumParts = numericVersion(minimum);
+  for (let index = 0; index < actualParts.length; index += 1) {
+    if (actualParts[index]! > minimumParts[index]!) return true;
+    if (actualParts[index]! < minimumParts[index]!) return false;
+  }
+  return true;
+}
+
 describe('openclaw bundle config', () => {
-  it('pins the OpenClaw 2026.7.1 runtime compatibility matrix', () => {
+  it('pins the OpenClaw integration packages and an exact Electron runtime', () => {
     const packageJson = JSON.parse(readFileSync(resolve(process.cwd(), 'package.json'), 'utf8')) as {
       dependencies?: Record<string, string>;
       devDependencies?: Record<string, string>;
@@ -16,7 +32,6 @@ describe('openclaw bundle config', () => {
     expect(packageJson.dependencies?.['@agentclientprotocol/sdk']).toBe('1.1.0');
     expect(packageJson.devDependencies).toMatchObject({
       openclaw: '2026.7.1',
-      electron: '40.10.6',
       '@openclaw/discord': '2026.7.1',
       '@openclaw/qqbot': '2026.7.1',
       '@openclaw/whatsapp': '2026.7.1',
@@ -24,6 +39,10 @@ describe('openclaw bundle config', () => {
       '@wecom/wecom-openclaw-plugin': '2026.7.2',
       '@larksuite/openclaw-lark': '2026.7.9',
     });
+    const electronVersion = packageJson.devDependencies?.electron;
+    expect(electronVersion).toMatch(/^\d+\.\d+\.\d+$/);
+    expect(JSON.parse(readFileSync(resolve(process.cwd(), 'node_modules/electron/package.json'), 'utf8')).version)
+      .toBe(electronVersion);
 
     const nodeDownloadScript = readFileSync(
       resolve(process.cwd(), 'scripts/download-bundled-node.mjs'),
@@ -32,7 +51,7 @@ describe('openclaw bundle config', () => {
     expect(nodeDownloadScript).toContain("const NODE_VERSION = '22.22.3'");
   });
 
-  it('uses an Electron runtime with OpenClaw-compatible Node and SQLite versions', () => {
+  it('uses an Electron runtime with OpenClaw-safe Node and SQLite versions', () => {
     const electronPath = require('electron') as string;
     const raw = execFileSync(
       electronPath,
@@ -42,7 +61,12 @@ describe('openclaw bundle config', () => {
         env: { ...process.env, ELECTRON_RUN_AS_NODE: '1' },
       },
     );
-    expect(JSON.parse(raw.trim())).toEqual({ node: '24.15.0', sqlite: '3.51.3' });
+    const runtime = JSON.parse(raw.trim()) as { node: string; sqlite: string };
+    // OpenClaw rejects Node runtimes containing SQLite versions affected by
+    // the upstream WAL-reset corruption bug. Validate the safety contract,
+    // not stale patch versions that change with routine Electron upgrades.
+    expect(versionAtLeast(runtime.node, '24.15.0')).toBe(true);
+    expect(versionAtLeast(runtime.sqlite, '3.51.3')).toBe(true);
   });
 
   it('keeps upstream WeCom and Open Lark manifest identities unchanged across the version bump', () => {

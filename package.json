@@ -20,6 +20,7 @@
         "lint:check": "eslint .",
         "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
         "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+        "pretypecheck": "pnpm run ext:bridge",
         "typecheck": "pnpm run typecheck:node && pnpm run typecheck:web",
         "test": "vitest run --maxWorkers=4",
         "verify:carry-forward": "node --test tests/carry-forward-verification.test.mjs",

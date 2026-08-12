@@ -80,8 +80,33 @@ function flushBufferSync(): void {
   writeBuffer = [];
 }
 
-// Ensure all buffered data reaches disk before the process exits.
-process.on('exit', flushBufferSync);
+/**
+ * Vitest, Electron development reloads, and some embedders can evaluate this
+ * module more than once in the same process. Registering an exit listener on
+ * every evaluation retains the old module graph and eventually triggers
+ * EventEmitter's leak warning. Keep one process-owned listener and update the
+ * callback it delegates to so the newest logger instance is always flushed.
+ */
+const LOGGER_EXIT_STATE = Symbol.for('cina-claw.logger.exit-state');
+type LoggerExitState = {
+  flush: () => void;
+  listener: () => void;
+};
+
+const processWithLoggerState = process as NodeJS.Process & {
+  [LOGGER_EXIT_STATE]?: LoggerExitState;
+};
+const existingExitState = processWithLoggerState[LOGGER_EXIT_STATE];
+if (existingExitState) {
+  existingExitState.flush = flushBufferSync;
+} else {
+  const state: LoggerExitState = {
+    flush: flushBufferSync,
+    listener: () => state.flush(),
+  };
+  processWithLoggerState[LOGGER_EXIT_STATE] = state;
+  process.once('exit', state.listener);
+}
 
 // ── Initialisation ───────────────────────────────────────────────
 

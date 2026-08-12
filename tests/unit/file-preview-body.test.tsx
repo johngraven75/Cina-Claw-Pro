@@ -230,7 +230,10 @@ describe('FilePreviewBody', () => {
       />,
     );
 
-    expect(await screen.findByTestId(testId)).toHaveTextContent(`/tmp/${fileName}`);
+    // The viewer is intentionally code-split. Under the full parallel suite,
+    // module evaluation can take longer than Testing Library's 1s default on
+    // shared CI runners even though the stat/read contract is healthy.
+    expect(await screen.findByTestId(testId, {}, { timeout: 5_000 })).toHaveTextContent(`/tmp/${fileName}`);
     expect(statFile).toHaveBeenCalledWith(`/tmp/${fileName}`);
     expect(readTextFile).not.toHaveBeenCalled();
     expect(readWorkspaceText).not.toHaveBeenCalled();
