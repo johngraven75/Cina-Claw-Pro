@@ -7,7 +7,7 @@ This corrective release restores automatic OpenClaw gateway startup and connecti
 ## Reliability improvements
 
 - Restores the last gateway-verified Electron utility-process runtime and WebSocket client versions.
-- Adds an installed-executable Windows smoke test that starts the real bundled OpenClaw gateway and requires a successful gateway handshake before release publication.
+- Adds an installed-executable Windows smoke test, running under a clean valid Windows profile, that starts the real bundled OpenClaw gateway and requires a successful gateway handshake before release publication.
 - Emits application and gateway log tails when the packaged smoke test fails, making future startup regressions actionable in CI.
 - Preserves all v1.0.2 settings, providers, models, voice, skills, channels, and local data.
 
