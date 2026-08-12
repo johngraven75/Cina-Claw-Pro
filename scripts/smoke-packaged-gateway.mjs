@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { spawn, spawnSync } from 'node:child_process';
-import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
+import { mkdir, mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -76,6 +76,13 @@ function isGatewayPortListening() {
 const profileRoot = await mkdtemp(path.join(tmpdir(), 'cina-claw-gateway-smoke-'));
 const roamingRoot = path.join(profileRoot, 'AppData', 'Roaming');
 const localRoot = path.join(profileRoot, 'AppData', 'Local');
+// Electron resolves userData beneath APPDATA before the application creates
+// its own subdirectory. Windows runners do not create the standard profile
+// hierarchy for synthetic USERPROFILE values, so seed both parents first.
+await Promise.all([
+  mkdir(roamingRoot, { recursive: true }),
+  mkdir(localRoot, { recursive: true }),
+]);
 const child = spawn(executable, [], {
   detached: false,
   windowsHide: true,
