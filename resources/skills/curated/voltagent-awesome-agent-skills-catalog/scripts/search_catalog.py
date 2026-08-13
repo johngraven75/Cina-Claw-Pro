@@ -27,10 +27,13 @@ def main() -> int:
     parser.add_argument("query")
     parser.add_argument("--limit", type=int, default=10)
     args = parser.parse_args()
+    query = args.query.strip()
+    if not query:
+        parser.error("query must not be empty")
 
     payload = json.loads(args.catalog.read_text(encoding="utf-8"))
     matches = sorted(
-        ((rank(entry, args.query), entry) for entry in payload["entries"]),
+        ((rank(entry, query), entry) for entry in payload["entries"]),
         key=lambda item: (-item[0], str(item[1].get("name", ""))),
     )
     for score, entry in [item for item in matches if item[0] > 0][: max(1, args.limit)]:
