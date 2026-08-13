@@ -19,6 +19,8 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | OS-backed secret encryption | `safeStorage.encryptString` | `electron/services/secrets/secret-store.ts` |
 | Official skill bundle | `webapp-testing` | `resources/skills/preinstalled-manifest.json` |
 | Reviewed curated skill bundle | `cina-curated-2026.08.13` | `resources/skills/preinstalled-manifest.json` |
+| Official Google agent-skill catalog | `google-agent-skills-catalog` | `resources/skills/preinstalled-manifest.json` |
+| VoltAgent awesome agent-skill catalog | `voltagent-awesome-agent-skills-catalog` | `resources/skills/preinstalled-manifest.json` |
 | Multi-agent management | `export function Agents` | `src/pages/Agents/index.tsx` |
 | Scheduled automations | `export function Cron` | `src/pages/Cron/index.tsx` |
 | Four-locale UI | `"commandCenter"` | `shared/i18n/locales/en/chat.json` |

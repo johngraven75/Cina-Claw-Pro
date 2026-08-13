@@ -1,0 +1,6 @@
+interface:
+  display_name: "Google Agent Skills"
+  short_description: "Search 109 official Google workflows"
+  default_prompt: "Use $google-agent-skills-catalog to find and safely adapt the best official Google workflow for this task."
+policy:
+  allow_implicit_invocation: true
