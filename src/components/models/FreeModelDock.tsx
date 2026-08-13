@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 const FREE_PROVIDERS = [
   { vendorId: 'openrouter', icon: Cloud, model: 'openrouter/free', accent: 'from-cyan-400/20 via-blue-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
   { vendorId: 'google', icon: Sparkles, model: 'gemini-3-flash-preview', accent: 'from-violet-400/20 via-fuchsia-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
-  { vendorId: 'ollama', icon: Cpu, model: 'gemma4:latest', accent: 'from-emerald-400/20 via-teal-500/10 to-transparent', traits: ['vision', 'tools'] },
+  { vendorId: 'ollama', icon: Cpu, model: 'qwen3-vl:8b', accent: 'from-emerald-400/20 via-teal-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
 ] as const;
 
 export function FreeModelDock() {

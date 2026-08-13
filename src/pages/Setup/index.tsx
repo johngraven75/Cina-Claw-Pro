@@ -291,6 +291,11 @@ function WelcomeContent() {
       <p className="text-muted-foreground">
         {t('welcome.description')}
       </p>
+      <div data-testid="local-model-prerequisite" className="rounded-xl border border-amber-500/25 bg-amber-500/10 p-3 text-left text-sm text-amber-800 dark:text-amber-300">
+        <p className="font-semibold">{t('welcome.localModel.title')}</p>
+        <p className="mt-1">{t('welcome.localModel.description')}</p>
+        <code className="mt-2 block rounded bg-black/5 px-2 py-1 font-mono text-xs dark:bg-white/10">ollama pull qwen3-vl:8b</code>
+      </div>
 
       {/* Language Selector */}
       <div className="flex justify-center gap-2 py-2">

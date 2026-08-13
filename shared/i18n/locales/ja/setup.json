@@ -28,6 +28,10 @@
   "welcome": {
     "title": "Cina-Claw Proへようこそ",
     "description": "Cina-Claw ProはOpenClawのグラフィカルインターフェースで、お気に入りのメッセージングプラットフォームでAIアシスタントを簡単に使用できます。",
+    "localModel": {
+      "title": "非公開・トークン費用ゼロの既定設定",
+      "description": "初回起動ではローカルの Qwen3 VL 8B 推論・画像モデルを選択します。Ollama をインストールして起動し、下のコマンドでモデルを取得してください。それまではローカルチャットを利用できず、Cina-Claw Pro がクラウドへ自動送信することはありません。"
+    },
     "features": {
       "noCommand": "コマンドライン不要",
       "modernUI": "モダンで美しいインターフェース",

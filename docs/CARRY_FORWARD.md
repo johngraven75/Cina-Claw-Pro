@@ -14,7 +14,7 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Multimodal input | `composer.attachFiles` | `src/pages/Chat/ChatInput.tsx` |
 | OpenRouter free router | `openrouter/free` | `src/lib/providers.ts` |
 | Gemini free-tier preset | `gemini-3-flash-preview` | `src/lib/providers.ts` |
-| Local Ollama preset | `gemma4:latest` | `src/lib/providers.ts` |
+| Startup-ready local Ollama preset | `qwen3-vl:8b` | `electron/utils/cina-claw-defaults.ts` |
 | Guarded planning and delegation | `applyCinaClawAutonomyDefaults` | `electron/utils/cina-claw-defaults.ts` |
 | OS-backed secret encryption | `safeStorage.encryptString` | `electron/services/secrets/secret-store.ts` |
 | Official skill bundle | `webapp-testing` | `resources/skills/preinstalled-manifest.json` |
