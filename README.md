@@ -10,7 +10,7 @@ Voice chat uses Windows-native `System.Speech`, so dictation and playback do not
 
 - **OpenRouter Free Router** — `openrouter/free` dynamically selects an available no-cost model. Availability and supported modalities vary.
 - **Google Gemini Flash** — `gemini-3-flash-preview` uses Gemini API free-tier quotas when the account is eligible.
-- **Ollama Local** — `gemma4:latest` keeps inference on the Windows PC with no hosted token charge.
+- **Ollama Local** — fresh installs select `qwen3-vl:8b` for local reasoning, image input, and tool-driven general assistance with no hosted token charge. Install [Ollama](https://ollama.com/) separately, start it, and run `ollama pull qwen3-vl:8b`. Cina-Claw Pro never silently falls back to a cloud provider.
 
 Provider credentials are encrypted with Electron `safeStorage` (Windows DPAPI in packaged Windows builds). The setup wizard requires one enabled provider so chat works immediately after onboarding.
 

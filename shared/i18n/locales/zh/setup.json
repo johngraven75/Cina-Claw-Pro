@@ -28,6 +28,10 @@
   "welcome": {
     "title": "欢迎使用 Cina-Claw Pro",
     "description": "Cina-Claw Pro 是 OpenClaw 的图形界面，让您可以在喜爱的消息平台上轻松使用 AI 助手。",
+    "localModel": {
+      "title": "私密、零令牌费用的默认设置",
+      "description": "首次启动会选择本地 Qwen3 VL 8B 推理与视觉模型。请安装并启动 Ollama，然后使用下面的命令下载模型。在此之前，本地聊天不可用；Cina-Claw Pro 不会把请求发送到云端后备服务。"
+    },
     "features": {
       "noCommand": "无需命令行",
       "modernUI": "现代美观的界面",

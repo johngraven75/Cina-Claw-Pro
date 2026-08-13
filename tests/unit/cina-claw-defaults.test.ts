@@ -1,14 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { applyCinaClawAutonomyDefaults } from '../../electron/utils/cina-claw-defaults';
+import { applyCinaClawAutonomyDefaults, CINA_LOCAL_MODEL_REF } from '../../electron/utils/cina-claw-defaults';
 
 describe('Cina-Claw Pro autonomy defaults', () => {
+  const defaultsFrom = (config: Record<string, unknown>) =>
+    ((config.agents as Record<string, unknown>).defaults as Record<string, unknown>);
+
   it('seeds bounded planning, exec, and delegation defaults', () => {
     const config: Record<string, unknown> = {};
     expect(applyCinaClawAutonomyDefaults(config)).toBe(true);
     expect(config).toMatchObject({
       tools: { codeMode: { enabled: true, maxPendingToolCalls: 24, timeoutMs: 300_000 }, experimental: { planTool: true }, exec: { host: 'gateway', security: 'allowlist', ask: 'on-miss' } },
       agents: { defaults: { maxConcurrent: 4, subagents: { allowAgents: ['*'], maxConcurrent: 4, delegationMode: 'prefer', runTimeoutSeconds: 900 } } },
+      models: { providers: { ollama: { baseUrl: 'http://localhost:11434/v1', models: [{ id: 'qwen3-vl:8b', reasoning: true, input: ['text', 'image'] }] } } },
     });
+    expect(defaultsFrom(config).model).toEqual({ primary: CINA_LOCAL_MODEL_REF, fallbacks: [] });
   });
 
   it('preserves every valid explicit operator choice', () => {
@@ -18,6 +23,26 @@ describe('Cina-Claw Pro autonomy defaults', () => {
   });
 
   it('is idempotent', () => { const config: Record<string, unknown> = {}; applyCinaClawAutonomyDefaults(config); expect(applyCinaClawAutonomyDefaults(config)).toBe(false); });
+
+  it('never recreates a provider or changes an upgraded installation model choice', () => {
+    const explicitModel = { primary: 'custom/private-model', fallbacks: ['custom/backup'] };
+    const config: Record<string, unknown> = {
+      models: { providers: {} },
+      agents: { defaults: { model: explicitModel } },
+    };
+
+    applyCinaClawAutonomyDefaults(config);
+
+    expect(config.models).toEqual({ providers: {} });
+    expect(defaultsFrom(config).model).toEqual(explicitModel);
+  });
+
+  it('does not reinterpret an existing empty models section as a first boot', () => {
+    const config: Record<string, unknown> = { models: {} };
+    applyCinaClawAutonomyDefaults(config);
+    expect(config.models).toEqual({});
+    expect(defaultsFrom(config).model).toBeUndefined();
+  });
 
   it('migrates v1.0.2 field names rejected by the OpenClaw 2026.7.1 schema', () => {
     const config: Record<string, unknown> = {
