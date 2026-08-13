@@ -1,0 +1,6 @@
+interface:
+  display_name: "VoltAgent Awesome Agent Skills"
+  short_description: "Search 1,497+ curated agent skills"
+  default_prompt: "Use $voltagent-awesome-agent-skills-catalog to find and safely adapt the best linked agent skill for this task."
+policy:
+  allow_implicit_invocation: true

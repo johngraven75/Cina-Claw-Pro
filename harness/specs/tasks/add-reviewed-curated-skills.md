@@ -22,7 +22,7 @@ touchedAreas:
   - README.ru-RU.md
   - package.json
 expectedUserBehavior:
-  - A fresh installation deploys and enables 17 reviewed official skills and 38 reviewed Cina adapters.
+  - A fresh installation deploys and enables 17 reviewed official skills and 40 reviewed Cina adapters.
   - Existing user-managed skill directories are never overwritten.
   - Existing preinstalled skills with a different marker version remain untouched for manual reconciliation.
   - Marketplace skills and plugins still require an explicit user install.
@@ -38,7 +38,7 @@ requiredTests:
   - pnpm run verify:carry-forward
   - pnpm run bundle:preinstalled-skills
 acceptance:
-  - The manifest has 55 unique slugs: 17 remote official entries and 38 repository-local adapters.
+  - The manifest has 57 unique slugs: 17 remote official entries and 40 repository-local adapters.
   - Every local adapter is auto-enabled, versioned, name-aligned, and contained under resources/skills/curated.
   - Local path validation blocks ambiguous sources and repository traversal.
   - The packaged lock records source provenance for remote and local entries.

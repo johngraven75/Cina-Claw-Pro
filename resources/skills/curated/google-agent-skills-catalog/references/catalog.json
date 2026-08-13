@@ -1,0 +1,661 @@
+{
+  "repo": "https://github.com/google/skills",
+  "snapshot_commit": "7072dc408e998a5e9b84cfc8d8fb8ade84d3b213",
+  "entry_count": 109,
+  "entries": [
+    {
+      "name": "Authenticating to Google Cloud",
+      "path": "skills/cloud/google-cloud-recipe-auth",
+      "category": "Getting started with Google Cloud",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-recipe-auth"
+    },
+    {
+      "name": "Google Cloud Recipe: Foundation Builder",
+      "path": "skills/cloud/google-cloud-recipe-foundation-builder",
+      "category": "Getting started with Google Cloud",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-recipe-foundation-builder"
+    },
+    {
+      "name": "Onboarding to Google Cloud",
+      "path": "skills/cloud/google-cloud-recipe-onboarding",
+      "category": "Getting started with Google Cloud",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-recipe-onboarding"
+    },
+    {
+      "name": "Google Cloud solution-architecture workflow",
+      "path": "skills/cloud/google-cloud-solution-architecture",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-architecture"
+    },
+    {
+      "name": "Agentic analytics across cloud providers and data types",
+      "path": "skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog"
+    },
+    {
+      "name": "Borderless open data lakehouse agentic AI system",
+      "path": "skills/cloud/google-cloud-solution-agentic-ai-borderless-data-lakehouse",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-agentic-ai-borderless-data-lakehouse"
+    },
+    {
+      "name": "Build and deploy AI agents on Google Cloud",
+      "path": "skills/cloud/google-cloud-solution-build-deploy-agents",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-build-deploy-agents"
+    },
+    {
+      "name": "Data science workflow with AI agents solution",
+      "path": "skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow"
+    },
+    {
+      "name": "Live bidirectional multimodal streaming agentic AI solution",
+      "path": "skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming"
+    },
+    {
+      "name": "Migrate AI Workloads to GKE Inference",
+      "path": "skills/cloud/google-cloud-solution-guided-gke-ai-migration",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-guided-gke-ai-migration"
+    },
+    {
+      "name": "RAG for enterprise search using GKE and AlloyDB",
+      "path": "skills/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb"
+    },
+    {
+      "name": "Secure n-tier serverless web application with strict private application tiers",
+      "path": "skills/cloud/google-cloud-solution-n-tier-serverless-web-app",
+      "category": "Multi-product solution skills",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-solution-n-tier-serverless-web-app"
+    },
+    {
+      "name": "Agent Platform Alert Configuration",
+      "path": "skills/cloud/agent-platform-alert-configuration",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-alert-configuration"
+    },
+    {
+      "name": "Agent Platform Endpoint Management",
+      "path": "skills/cloud/agent-platform-endpoint-management",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-endpoint-management"
+    },
+    {
+      "name": "Agent Platform Eval Flywheel Skill",
+      "path": "skills/cloud/agent-platform-eval-flywheel",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-eval-flywheel"
+    },
+    {
+      "name": "Agent Platform GenAI Inference Skill",
+      "path": "skills/cloud/agent-platform-inference",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-inference"
+    },
+    {
+      "name": "Agent Platform Model Garden Deploy Skill",
+      "path": "skills/cloud/agent-platform-deploy",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-deploy"
+    },
+    {
+      "name": "Agent Platform Model Registry Management",
+      "path": "skills/cloud/agent-platform-model-registry",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-model-registry"
+    },
+    {
+      "name": "Agent Platform Model Tuning",
+      "path": "skills/cloud/agent-platform-tuning",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-tuning"
+    },
+    {
+      "name": "Agent Platform Prompt Management",
+      "path": "skills/cloud/agent-platform-prompt-management",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-prompt-management"
+    },
+    {
+      "name": "Agent Platform RAG Engine Management",
+      "path": "skills/cloud/agent-platform-rag-engine-management",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-rag-engine-management"
+    },
+    {
+      "name": "Agent Platform Troubleshooting",
+      "path": "skills/cloud/agent-platform-troubleshooting",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-troubleshooting"
+    },
+    {
+      "name": "Agent Platform Tuning Management",
+      "path": "skills/cloud/agent-platform-tuning-management",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-tuning-management"
+    },
+    {
+      "name": "BigQuery AI & ML",
+      "path": "skills/cloud/bigquery-ai-ml",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/bigquery-ai-ml"
+    },
+    {
+      "name": "Gemini API in Agent Platform",
+      "path": "skills/cloud/gemini-api",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gemini-api"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform - Managed Agents API Skill",
+      "path": "skills/cloud/gemini-agents-api",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gemini-agents-api"
+    },
+    {
+      "name": "Gemini Interactions API Skill",
+      "path": "skills/cloud/gemini-interactions-api",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gemini-interactions-api"
+    },
+    {
+      "name": "LiveAPI Service Skill",
+      "path": "skills/cloud/gemini-live-api",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gemini-live-api"
+    },
+    {
+      "name": "Migrating from Gemini API in AI Studio to Agent Platform",
+      "path": "skills/cloud/agent-platform-migrate-from-ai-studio",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-migrate-from-ai-studio"
+    },
+    {
+      "name": "Skill Registry",
+      "path": "skills/cloud/agent-platform-skill-registry",
+      "category": "AI/ML",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/agent-platform-skill-registry"
+    },
+    {
+      "name": "Custom Infrastructure Design and Deployment Skill",
+      "path": "skills/cloud/design-deploy",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/design-deploy"
+    },
+    {
+      "name": "Deployment Troubleshooting Skill",
+      "path": "skills/cloud/design-deploy/references/infra-deployment-debugging",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/design-deploy/references/infra-deployment-debugging"
+    },
+    {
+      "name": "GKE AI/ML Inference",
+      "path": "skills/cloud/gke-inference",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-inference"
+    },
+    {
+      "name": "GKE App Onboarding",
+      "path": "skills/cloud/gke-app-onboarding",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-app-onboarding"
+    },
+    {
+      "name": "GKE Backup & Disaster Recovery",
+      "path": "skills/cloud/gke-backup-dr",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-backup-dr"
+    },
+    {
+      "name": "GKE Basics & Critical Gotchas",
+      "path": "skills/cloud/gke-basics",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-basics"
+    },
+    {
+      "name": "GKE Batch & HPC Workloads",
+      "path": "skills/cloud/gke-batch-hpc",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-batch-hpc"
+    },
+    {
+      "name": "GKE Cluster Autoscaler",
+      "path": "skills/cloud/gke-cluster-autoscaler",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-cluster-autoscaler"
+    },
+    {
+      "name": "GKE Cluster Creation",
+      "path": "skills/cloud/gke-cluster-creation",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-cluster-creation"
+    },
+    {
+      "name": "GKE ComputeClasses",
+      "path": "skills/cloud/gke-compute-classes",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-compute-classes"
+    },
+    {
+      "name": "GKE Golden Path Configuration",
+      "path": "skills/cloud/gke-golden-path",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-golden-path"
+    },
+    {
+      "name": "GKE JobSet Interruption Troubleshooting",
+      "path": "skills/cloud/gke-ai-troubleshooting-jobset-interruption",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-ai-troubleshooting-jobset-interruption"
+    },
+    {
+      "name": "GKE Manifest Generation Skill",
+      "path": "skills/cloud/gke-manifest-generation",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-manifest-generation"
+    },
+    {
+      "name": "GKE Multi-Tenancy",
+      "path": "skills/cloud/gke-multitenancy",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-multitenancy"
+    },
+    {
+      "name": "GKE Networking",
+      "path": "skills/cloud/gke-networking",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-networking"
+    },
+    {
+      "name": "GKE Productionize Skill",
+      "path": "skills/cloud/gke-productionize",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-productionize"
+    },
+    {
+      "name": "GKE Reliability",
+      "path": "skills/cloud/gke-reliability",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-reliability"
+    },
+    {
+      "name": "GKE Service Networking Skill",
+      "path": "skills/cloud/gke-service-networking",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-service-networking"
+    },
+    {
+      "name": "GKE Storage",
+      "path": "skills/cloud/gke-storage",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-storage"
+    },
+    {
+      "name": "GKE TPU Dynamic Slices Monitoring & Management",
+      "path": "skills/cloud/gke-tpu-dynamic-slices-monitoring",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-tpu-dynamic-slices-monitoring"
+    },
+    {
+      "name": "GKE Upgrades & Maintenance",
+      "path": "skills/cloud/gke-upgrades",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-upgrades"
+    },
+    {
+      "name": "GKE Workload Scaling",
+      "path": "skills/cloud/gke-workload-scaling",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-workload-scaling"
+    },
+    {
+      "name": "GKE Workload Troubleshooting Skill",
+      "path": "skills/cloud/gke-workload-troubleshooting",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-workload-troubleshooting"
+    },
+    {
+      "name": "Google Cloud Filestore Autoscale",
+      "path": "skills/cloud/google-cloud-filestore-autoscale",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-filestore-autoscale"
+    },
+    {
+      "name": "Google Cloud global external Application Load Balancer Configuration Skill",
+      "path": "skills/cloud/google-cloud-global-frontend-configuration",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-global-frontend-configuration"
+    },
+    {
+      "name": "Google Cloud Networking Observability Expert",
+      "path": "skills/cloud/google-cloud-networking-observability",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-networking-observability"
+    },
+    {
+      "name": "Google Cloud Storage Basics",
+      "path": "skills/cloud/google-cloud-storage-basics",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-storage-basics"
+    },
+    {
+      "name": "Simplified GCP Modular Terraform Architect Skill",
+      "path": "skills/cloud/design-deploy/references/design",
+      "category": "Infrastructure",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/design-deploy/references/design"
+    },
+    {
+      "name": "AlloyDB Basics",
+      "path": "skills/cloud/alloydb-basics",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/alloydb-basics"
+    },
+    {
+      "name": "BigFrames (BigQuery DataFrame) basics",
+      "path": "skills/cloud/bigquery-bigframes",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/bigquery-bigframes"
+    },
+    {
+      "name": "BigQuery Asset Impact Analysis",
+      "path": "skills/cloud/datalineage-bigquery-asset-impact-analysis",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/datalineage-bigquery-asset-impact-analysis"
+    },
+    {
+      "name": "BigQuery Basics",
+      "path": "skills/cloud/bigquery-basics",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/bigquery-basics"
+    },
+    {
+      "name": "Bigtable Basics",
+      "path": "skills/cloud/bigtable-basics",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/bigtable-basics"
+    },
+    {
+      "name": "Cloud SQL Basics",
+      "path": "skills/cloud/cloud-sql-basics",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-sql-basics"
+    },
+    {
+      "name": "Data Lineage Summary",
+      "path": "skills/cloud/datalineage-summary",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/datalineage-summary"
+    },
+    {
+      "name": "GCP Managed Airflow DAG Authoring Guide",
+      "path": "skills/cloud/managed-airflow-dag-authoring",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/managed-airflow-dag-authoring"
+    },
+    {
+      "name": "Managed Service for Apache Airflow (formerly Cloud Composer) Migration Guide",
+      "path": "skills/cloud/managed-airflow-migrations",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/managed-airflow-migrations"
+    },
+    {
+      "name": "Spanner Basics",
+      "path": "skills/cloud/spanner-basics",
+      "category": "Databases and analytics",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/spanner-basics"
+    },
+    {
+      "name": "Developer Device Platform",
+      "path": "skills/cloud/developer-device-platform-basics",
+      "category": "Developer tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/developer-device-platform-basics"
+    },
+    {
+      "name": "gcloud CLI Skill for AI Agents",
+      "path": "skills/cloud/gcloud",
+      "category": "Developer tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gcloud"
+    },
+    {
+      "name": "Google Agents CLI Onboarding",
+      "path": "skills/cloud/google-agents-cli-onboarding",
+      "category": "Developer tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-agents-cli-onboarding"
+    },
+    {
+      "name": "Cloud Monitoring Chart Generation Skill (cloud-monitoring-chart-generation)",
+      "path": "skills/cloud/cloud-monitoring-chart-generation",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-monitoring-chart-generation"
+    },
+    {
+      "name": "Configuring Cloud Logging",
+      "path": "skills/cloud/cloud-logging-configuration-basics",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-logging-configuration-basics"
+    },
+    {
+      "name": "Configuring Cross-Project Logging",
+      "path": "skills/cloud/cloud-logging-cross-project-configuration",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-logging-cross-project-configuration"
+    },
+    {
+      "name": "Generate Logging Query Language queries",
+      "path": "skills/cloud/cloud-logging-query-generation",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-logging-query-generation"
+    },
+    {
+      "name": "GKE Cost Analysis",
+      "path": "skills/cloud/gke-cost-analysis",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-cost-analysis"
+    },
+    {
+      "name": "GKE Cost Optimization",
+      "path": "skills/cloud/gke-cost-optimization",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-cost-optimization"
+    },
+    {
+      "name": "GKE Observability",
+      "path": "skills/cloud/gke-observability",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-observability"
+    },
+    {
+      "name": "GKE TPU Metrics Monitoring Guide",
+      "path": "skills/cloud/gke-tpu-metrics-monitoring",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-tpu-metrics-monitoring"
+    },
+    {
+      "name": "Handle Disruption on GPUs and TPUs Troubleshooting",
+      "path": "skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu"
+    },
+    {
+      "name": "Metric Selection (Service Query & Local Keyword Filtering)",
+      "path": "skills/cloud/cloud-monitoring-metric-selection",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-monitoring-metric-selection"
+    },
+    {
+      "name": "SLO Alert Configuration Setup Wizard",
+      "path": "skills/cloud/google-cloud-slo-alert-configuration",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-slo-alert-configuration"
+    },
+    {
+      "name": "TPU Connection Failure and VBAR OOM Troubleshooting",
+      "path": "skills/cloud/gke-ai-troubleshooting-tpu-vbar-oom",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-ai-troubleshooting-tpu-vbar-oom"
+    },
+    {
+      "name": "Workload Manager Basics",
+      "path": "skills/cloud/workload-manager-basics",
+      "category": "Management tools",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/workload-manager-basics"
+    },
+    {
+      "name": "Google Cloud Well-Architected Framework skill for the Cost Optimization pillar",
+      "path": "skills/cloud/google-cloud-waf-cost-optimization",
+      "category": "Well-Architected Framework",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-waf-cost-optimization"
+    },
+    {
+      "name": "Google Cloud Well-Architected Framework skill for the Operational Excellence pillar",
+      "path": "skills/cloud/google-cloud-waf-operational-excellence",
+      "category": "Well-Architected Framework",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-waf-operational-excellence"
+    },
+    {
+      "name": "Google Cloud Well-Architected Framework skill for the Performance Optimization pillar",
+      "path": "skills/cloud/google-cloud-waf-performance-optimization",
+      "category": "Well-Architected Framework",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-waf-performance-optimization"
+    },
+    {
+      "name": "Google Cloud Well-Architected Framework skill for the Reliability pillar",
+      "path": "skills/cloud/google-cloud-waf-reliability",
+      "category": "Well-Architected Framework",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-waf-reliability"
+    },
+    {
+      "name": "Google Cloud Well-Architected Framework skill for the Security pillar",
+      "path": "skills/cloud/google-cloud-waf-security",
+      "category": "Well-Architected Framework",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-waf-security"
+    },
+    {
+      "name": "Google Cloud Well-Architected Framework skill for the Sustainability pillar",
+      "path": "skills/cloud/google-cloud-waf-sustainability",
+      "category": "Well-Architected Framework",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/google-cloud-waf-sustainability"
+    },
+    {
+      "name": "GKE Platform Security",
+      "path": "skills/cloud/gke-platform-security",
+      "category": "Security and identity",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-platform-security"
+    },
+    {
+      "name": "GKE Workload Security",
+      "path": "skills/cloud/gke-workload-security",
+      "category": "Security and identity",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/gke-workload-security"
+    },
+    {
+      "name": "SecOps Detection Coverage Skill",
+      "path": "skills/cloud/detection-engineering-coverage-evaluation",
+      "category": "Security and identity",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/detection-engineering-coverage-evaluation"
+    },
+    {
+      "name": "Cloud Run Basics",
+      "path": "skills/cloud/cloud-run-basics",
+      "category": "Web and app hosting",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/cloud-run-basics"
+    },
+    {
+      "name": "Firebase Basics",
+      "path": "skills/cloud/firebase-basics",
+      "category": "Web and app hosting",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/cloud/firebase-basics"
+    },
+    {
+      "name": "AI Migration Agent Instructions for the Google Mobile Ads SDK",
+      "path": "skills/ads/google-mobile-ads-android-migrate-to-next-gen",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-mobile-ads-android-migrate-to-next-gen"
+    },
+    {
+      "name": "Data Manager API Audience Ingestion",
+      "path": "skills/ads/data-manager-api-audience-ingestion",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/data-manager-api-audience-ingestion"
+    },
+    {
+      "name": "Data Manager API Event Ingestion",
+      "path": "skills/ads/data-manager-api-event-ingestion",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/data-manager-api-event-ingestion"
+    },
+    {
+      "name": "Data Manager API Setup",
+      "path": "skills/ads/data-manager-api-setup",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/data-manager-api-setup"
+    },
+    {
+      "name": "Google Ads API Account Performance Diagnostics Skill",
+      "path": "skills/ads/google-ads-api-account-diagnostics",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-ads-api-account-diagnostics"
+    },
+    {
+      "name": "Google Ads API MCP Server Installation",
+      "path": "skills/ads/google-ads-api-mcp-setup",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-ads-api-mcp-setup"
+    },
+    {
+      "name": "Google Ads API Quickstart",
+      "path": "skills/ads/google-ads-api-quickstart",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-ads-api-quickstart"
+    },
+    {
+      "name": "Google Mobile Ads SDK - Banner Ads",
+      "path": "skills/ads/google-mobile-ads-banner",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-mobile-ads-banner"
+    },
+    {
+      "name": "Google Mobile Ads SDK - Install",
+      "path": "skills/ads/google-mobile-ads-get-started",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-mobile-ads-get-started"
+    },
+    {
+      "name": "Google Mobile Ads SDK - Interstitial Ads",
+      "path": "skills/ads/google-mobile-ads-interstitial",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-mobile-ads-interstitial"
+    },
+    {
+      "name": "Google Mobile Ads SDK - Rewarded Ads",
+      "path": "skills/ads/google-mobile-ads-rewarded",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/google-mobile-ads-rewarded"
+    },
+    {
+      "name": "IMA SDK client-side",
+      "path": "skills/ads/ima-sdk-client-side",
+      "category": "Advertising",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/ads/ima-sdk-client-side"
+    },
+    {
+      "name": "Getting Started with Google Analytics Admin API",
+      "path": "skills/analytics/google-analytics-admin-api-basics",
+      "category": "Others",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/analytics/google-analytics-admin-api-basics"
+    },
+    {
+      "name": "Getting Started with Google Analytics Data API",
+      "path": "skills/analytics/google-analytics-data-api-basics",
+      "category": "Others",
+      "url": "https://github.com/google/skills/tree/7072dc408e998a5e9b84cfc8d8fb8ade84d3b213/skills/analytics/google-analytics-data-api-basics"
+    }
+  ]
+}

@@ -229,6 +229,12 @@
       "autoEnable": true
     },
     {
+      "slug": "google-agent-skills-catalog",
+      "localPath": "resources/skills/curated/google-agent-skills-catalog",
+      "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
       "slug": "html-anything-catalog",
       "localPath": "resources/skills/curated/html-anything-catalog",
       "version": "cina-curated-2026.08.13",
@@ -345,6 +351,12 @@
     {
       "slug": "ui-ux-pro-max",
       "localPath": "resources/skills/curated/ui-ux-pro-max",
+      "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
+      "slug": "voltagent-awesome-agent-skills-catalog",
+      "localPath": "resources/skills/curated/voltagent-awesome-agent-skills-catalog",
       "version": "cina-curated-2026.08.13",
       "autoEnable": true
     },

@@ -16,6 +16,8 @@ const checks = [
   ['safeStorage.encryptString', 'electron/services/secrets/secret-store.ts'],
   ['webapp-testing', 'resources/skills/preinstalled-manifest.json'],
   ['cina-curated-2026.08.13', 'resources/skills/preinstalled-manifest.json'],
+  ['google-agent-skills-catalog', 'resources/skills/preinstalled-manifest.json'],
+  ['voltagent-awesome-agent-skills-catalog', 'resources/skills/preinstalled-manifest.json'],
   ['export function Agents', 'src/pages/Agents/index.tsx'],
   ['export function Cron', 'src/pages/Cron/index.tsx'],
   ['"commandCenter"', 'shared/i18n/locales/en/chat.json'],
