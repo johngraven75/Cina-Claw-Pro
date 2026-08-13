@@ -1,0 +1,14 @@
+interface:
+  display_name: Ralphex Config Update
+  short_description: Merge new Ralphex defaults into customized config
+  default_prompt: Use $ralphex-update to review and safely merge current Ralphex configuration
+    defaults.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

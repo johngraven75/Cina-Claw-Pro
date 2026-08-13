@@ -4,6 +4,7 @@ import 'zx/globals';
 import { readFileSync, existsSync, mkdirSync, rmSync, cpSync, writeFileSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { materializeLocalSkills, validateManifestEntries } from './preinstalled-skill-sources.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -17,15 +18,7 @@ function loadManifest() {
   }
   const raw = readFileSync(MANIFEST_PATH, 'utf8');
   const parsed = JSON.parse(raw);
-  if (!parsed || !Array.isArray(parsed.skills)) {
-    throw new Error('Invalid preinstalled-skills manifest format');
-  }
-  for (const item of parsed.skills) {
-    if (!item.slug || !item.repo || !item.repoPath) {
-      throw new Error(`Invalid manifest entry: ${JSON.stringify(item)}`);
-    }
-  }
-  return parsed.skills;
+  return validateManifestEntries(parsed?.skills);
 }
 
 function groupByRepoRef(entries) {
@@ -120,7 +113,16 @@ const lock = {
   skills: [],
 };
 
-const groups = groupByRepoRef(manifestSkills);
+lock.skills.push(...materializeLocalSkills({
+  root: ROOT,
+  outputRoot: OUTPUT_ROOT,
+  entries: manifestSkills.local,
+}));
+for (const entry of manifestSkills.local) {
+  echo`Bundled local skill ${entry.slug}`;
+}
+
+const groups = groupByRepoRef(manifestSkills.remote);
 for (const group of groups) {
   const repoDir = join(TMP_ROOT, createRepoDirName(group.repo, group.ref));
   const sparsePaths = [...new Set(group.entries.map((entry) => entry.repoPath))];

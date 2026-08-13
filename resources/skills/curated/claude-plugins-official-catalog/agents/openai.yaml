@@ -1,0 +1,14 @@
+interface:
+  display_name: Claude Plugins Catalog
+  short_description: Search Anthropic official plugin marketplace
+  default_prompt: Use $claude-plugins-official-catalog to find an official Claude
+    plugin workflow and adapt it for Codex.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

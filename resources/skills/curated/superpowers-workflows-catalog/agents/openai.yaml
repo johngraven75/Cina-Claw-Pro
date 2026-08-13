@@ -1,0 +1,6 @@
+interface:
+  display_name: "Superpowers Workflows"
+  short_description: "Search 14 disciplined development workflows"
+  default_prompt: "Use $superpowers-workflows-catalog to select and safely adapt a Superpowers development workflow."
+policy:
+  allow_implicit_invocation: true

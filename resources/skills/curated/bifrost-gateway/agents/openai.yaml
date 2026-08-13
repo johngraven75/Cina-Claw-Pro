@@ -1,0 +1,6 @@
+interface:
+  display_name: "Bifrost Gateway"
+  short_description: "Configure and troubleshoot Bifrost safely"
+  default_prompt: "Use $bifrost-gateway to configure, secure, validate, or troubleshoot a Bifrost AI and MCP gateway."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,162 @@
+{
+  "repo": "anthropics/claude-plugins-official",
+  "snapshot_commit": "4a3e6565eae08b14c5efcb842d87dee8ae99527f",
+  "entry_count": 31,
+  "entries": [
+    {
+      "name": "access",
+      "plugin": "discord",
+      "path": "external_plugins/discord/skills/access/SKILL.md"
+    },
+    {
+      "name": "configure",
+      "plugin": "discord",
+      "path": "external_plugins/discord/skills/configure/SKILL.md"
+    },
+    {
+      "name": "access",
+      "plugin": "imessage",
+      "path": "external_plugins/imessage/skills/access/SKILL.md"
+    },
+    {
+      "name": "configure",
+      "plugin": "imessage",
+      "path": "external_plugins/imessage/skills/configure/SKILL.md"
+    },
+    {
+      "name": "access",
+      "plugin": "telegram",
+      "path": "external_plugins/telegram/skills/access/SKILL.md"
+    },
+    {
+      "name": "configure",
+      "plugin": "telegram",
+      "path": "external_plugins/telegram/skills/configure/SKILL.md"
+    },
+    {
+      "name": "claude-automation-recommender",
+      "plugin": "claude-code-setup",
+      "path": "plugins/claude-code-setup/skills/claude-automation-recommender/SKILL.md"
+    },
+    {
+      "name": "claude-md-improver",
+      "plugin": "claude-md-management",
+      "path": "plugins/claude-md-management/skills/claude-md-improver/SKILL.md"
+    },
+    {
+      "name": "claude-security",
+      "plugin": "claude-security",
+      "path": "plugins/claude-security/skills/claude-security/SKILL.md"
+    },
+    {
+      "name": "cardputer-buddy",
+      "plugin": "cwc-makers",
+      "path": "plugins/cwc-makers/skills/cardputer-buddy/SKILL.md"
+    },
+    {
+      "name": "m5-onboard",
+      "plugin": "cwc-makers",
+      "path": "plugins/cwc-makers/skills/m5-onboard/SKILL.md"
+    },
+    {
+      "name": "example-command",
+      "plugin": "example-plugin",
+      "path": "plugins/example-plugin/skills/example-command/SKILL.md"
+    },
+    {
+      "name": "example-skill",
+      "plugin": "example-plugin",
+      "path": "plugins/example-plugin/skills/example-skill/SKILL.md"
+    },
+    {
+      "name": "frontend-design",
+      "plugin": "frontend-design",
+      "path": "plugins/frontend-design/skills/frontend-design/SKILL.md"
+    },
+    {
+      "name": "writing-rules",
+      "plugin": "hookify",
+      "path": "plugins/hookify/skills/writing-rules/SKILL.md"
+    },
+    {
+      "name": "math-olympiad",
+      "plugin": "math-olympiad",
+      "path": "plugins/math-olympiad/skills/math-olympiad/SKILL.md"
+    },
+    {
+      "name": "build-mcp-app",
+      "plugin": "mcp-server-dev",
+      "path": "plugins/mcp-server-dev/skills/build-mcp-app/SKILL.md"
+    },
+    {
+      "name": "build-mcp-server",
+      "plugin": "mcp-server-dev",
+      "path": "plugins/mcp-server-dev/skills/build-mcp-server/SKILL.md"
+    },
+    {
+      "name": "build-mcpb",
+      "plugin": "mcp-server-dev",
+      "path": "plugins/mcp-server-dev/skills/build-mcpb/SKILL.md"
+    },
+    {
+      "name": "playground",
+      "plugin": "playground",
+      "path": "plugins/playground/skills/playground/SKILL.md"
+    },
+    {
+      "name": "agent-development",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/agent-development/SKILL.md"
+    },
+    {
+      "name": "command-development",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/command-development/SKILL.md"
+    },
+    {
+      "name": "hook-development",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/hook-development/SKILL.md"
+    },
+    {
+      "name": "mcp-integration",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/mcp-integration/SKILL.md"
+    },
+    {
+      "name": "plugin-settings",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/plugin-settings/SKILL.md"
+    },
+    {
+      "name": "plugin-structure",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/plugin-structure/SKILL.md"
+    },
+    {
+      "name": "skill-development",
+      "plugin": "plugin-dev",
+      "path": "plugins/plugin-dev/skills/skill-development/SKILL.md"
+    },
+    {
+      "name": "project-artifact",
+      "plugin": "project-artifact",
+      "path": "plugins/project-artifact/skills/project-artifact/SKILL.md"
+    },
+    {
+      "name": "receipts",
+      "plugin": "receipts",
+      "path": "plugins/receipts/skills/receipts/SKILL.md"
+    },
+    {
+      "name": "session-report",
+      "plugin": "session-report",
+      "path": "plugins/session-report/skills/session-report/SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "plugin": "skill-creator",
+      "path": "plugins/skill-creator/skills/skill-creator/SKILL.md"
+    }
+  ]
+}

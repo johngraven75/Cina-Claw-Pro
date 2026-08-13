@@ -22,7 +22,7 @@ Planning, bounded code-mode execution, and multi-agent delegation are enabled on
 
 Managed all-model guidance requires truthful, relevant, evidence-based responses, minimal assumptions, private handling of user content, and maximal completion of lawful and safe requests. Provider/system requirements still apply. Secrets should be entered through secure Settings, not pasted into chat.
 
-Seventeen reviewed skills from the official Anthropic skills repository are bundled and enabled. OpenClaw's plugin/provider discovery and the broader skills marketplace remain available, but community code is never silently granted machine access.
+Fifty-five reviewed skills are bundled and enabled: 17 skills from the official Anthropic repository plus 38 provenance-preserving Cina adapters for the requested research, engineering, browser, design, gateway, agent, media, and workflow ecosystems. The adapters do not silently install external runtimes, start services, connect accounts, or grant machine access. OpenClaw's plugin/provider discovery and the broader skills marketplace remain available for explicit installs.
 
 ## Windows development
 

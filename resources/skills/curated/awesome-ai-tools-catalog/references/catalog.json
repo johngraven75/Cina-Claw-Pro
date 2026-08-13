@@ -1,0 +1,2856 @@
+{
+  "source": "https://github.com/mahseema/awesome-ai-tools",
+  "snapshot_commit": "9d8b9d49fa26114fcc635a80ac1db1e950d3542a",
+  "entries": [
+    {
+      "name": "AdEspresso",
+      "category": "Advertising",
+      "url": "https://adespresso.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Albert AI",
+      "category": "Advertising",
+      "url": "https://albert.ai/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Brandwatch",
+      "category": "Analytics",
+      "url": "https://www.brandwatch.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Capalyze",
+      "category": "Analytics",
+      "url": "https://capalyze.ai/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Domo",
+      "category": "Analytics",
+      "url": "https://www.domo.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Talkwalker",
+      "category": "Analytics",
+      "url": "https://www.talkwalker.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "AI Music Generator",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.aisongmaker.io",
+      "source": "README.md"
+    },
+    {
+      "name": "AIVA",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.aiva.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Beatoven.ai",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.beatoven.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Boomy",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.boomy.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Ecrett Music",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.ecrettmusic.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Loudly",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.loudly.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Mubert",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.mubert.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Soundful",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.soundful.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Soundraw",
+      "category": "Audio / AI Music Generators",
+      "url": "https://soundraw.io",
+      "source": "README.md"
+    },
+    {
+      "name": "Splash Pro",
+      "category": "Audio / AI Music Generators",
+      "url": "https://www.splashpro.com",
+      "source": "README.md"
+    },
+    {
+      "name": "There's an AI AI Music Generation Tools list",
+      "category": "Audio / AI Music Generators",
+      "url": "https://theresanai.com/category/music-generation",
+      "source": "README.md"
+    },
+    {
+      "name": "AInterview.space",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://ainterview.space",
+      "source": "README.md"
+    },
+    {
+      "name": "Audify AI",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://audify-ai.ahmedtokyo.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome AI Music",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://github.com/xaramore/awesome-ai-music",
+      "source": "README.md"
+    },
+    {
+      "name": "Descript Overdub",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.descript.com/overdub",
+      "source": "README.md"
+    },
+    {
+      "name": "ElevenLabs",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://elevenlabs.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "iSpeech",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.ispeech.org/",
+      "source": "README.md"
+    },
+    {
+      "name": "Lovo.ai",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.lovo.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Microsoft Azure Neural TTS",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/",
+      "source": "README.md"
+    },
+    {
+      "name": "Murf AI",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://murf.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Resemble AI",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.resemble.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Respeecher",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.respeecher.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "There's an AI AI Voice Cloning list",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://theresanai.com/category/voice-cloning",
+      "source": "README.md"
+    },
+    {
+      "name": "TTS WebUI",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://github.com/rsxdalv/tts-generation-webui",
+      "source": "README.md"
+    },
+    {
+      "name": "Veritone Voice",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.veritone.com/solutions/voice/",
+      "source": "README.md"
+    },
+    {
+      "name": "WellSaid Labs",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://www.wellsaidlabs.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Zenmic.com",
+      "category": "Audio / AI Voice Cloning",
+      "url": "https://zenmic.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Adzooma",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.adzooma.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Chatfuel",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.chatfuel.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Clearbit",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://clearbit.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Crimson Hexagon",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.crimsonhexagon.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Jasper AI",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.jasper.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Keyla.AI",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://keyla.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "LogicBalls",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://logicballs.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Marketing List",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://github.com/mahseema/awesome-ai-tools/blob/main/marketing.md",
+      "source": "README.md"
+    },
+    {
+      "name": "MarketMuse",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.marketmuse.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Mutiny",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.mutinyhq.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "PersonaForce",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://personaforce.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Phrasee",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.phrasee.co/",
+      "source": "README.md"
+    },
+    {
+      "name": "Publish7",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://publish7.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Rupert AI",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.getrupert.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Seventh Sense",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.theseventhsense.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Smartly.io",
+      "category": "Audio / Marketing AI Tools",
+      "url": "https://www.smartly.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Harmonai",
+      "category": "Audio / Music",
+      "url": "https://www.harmonai.org/",
+      "source": "README.md"
+    },
+    {
+      "name": "Mubert",
+      "category": "Audio / Music",
+      "url": "https://mubert.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "MusicLM",
+      "category": "Audio / Music",
+      "url": "https://google-research.github.io/seanet/musiclm/examples/",
+      "source": "README.md"
+    },
+    {
+      "name": "Remusic",
+      "category": "Audio / Music",
+      "url": "https://remusic.ai/en",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Voice Agents",
+      "category": "Audio / Phone Calls",
+      "url": "https://diallink.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "AICaller.io",
+      "category": "Audio / Phone Calls",
+      "url": "https://aicaller.io/?ref=v",
+      "source": "README.md"
+    },
+    {
+      "name": "Cald.ai",
+      "category": "Audio / Phone Calls",
+      "url": "https://cald.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Rosie",
+      "category": "Audio / Phone Calls",
+      "url": "https://heyrosie.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Bark",
+      "category": "Audio / Speech",
+      "url": "https://github.com/suno-ai/bark",
+      "source": "README.md"
+    },
+    {
+      "name": "Coqui",
+      "category": "Audio / Speech",
+      "url": "https://coqui.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "CustomPod.io",
+      "category": "Audio / Speech",
+      "url": "https://custompod.io",
+      "source": "README.md"
+    },
+    {
+      "name": "EKHOS AI",
+      "category": "Audio / Speech",
+      "url": "https://ekhos.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Eleven Labs",
+      "category": "Audio / Speech",
+      "url": "https://beta.elevenlabs.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Play.ht",
+      "category": "Audio / Speech",
+      "url": "https://play.ht/",
+      "source": "README.md"
+    },
+    {
+      "name": "podcast.ai",
+      "category": "Audio / Speech",
+      "url": "https://podcast.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "TorToiSe",
+      "category": "Audio / Speech",
+      "url": "https://github.com/neonbjb/tortoise-tts",
+      "source": "README.md"
+    },
+    {
+      "name": "VALL-E X",
+      "category": "Audio / Speech",
+      "url": "https://vallex-demo.github.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "WellSaid",
+      "category": "Audio / Speech",
+      "url": "https://wellsaidlabs.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Kernel Explorer",
+      "category": "Code",
+      "url": "https://github.com/mathiscode/ai-kernel-explorer",
+      "source": "README.md"
+    },
+    {
+      "name": "AI2sql",
+      "category": "Code",
+      "url": "https://www.ai2sql.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Amazon CodeWhisperer",
+      "category": "Code",
+      "url": "https://aws.amazon.com/codewhisperer/",
+      "source": "README.md"
+    },
+    {
+      "name": "Capacity",
+      "category": "Code",
+      "url": "https://capacity.so",
+      "source": "README.md"
+    },
+    {
+      "name": "CodiumAI",
+      "category": "Code",
+      "url": "https://www.codium.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "DataPup",
+      "category": "Code",
+      "url": "https://github.com/DataPupOrg/DataPup",
+      "source": "README.md"
+    },
+    {
+      "name": "Debuild",
+      "category": "Code",
+      "url": "https://debuild.app/",
+      "source": "README.md"
+    },
+    {
+      "name": "FlexApp",
+      "category": "Code",
+      "url": "https://flexapp.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Ghostwriter",
+      "category": "Code",
+      "url": "https://blog.replit.com/ai",
+      "source": "README.md"
+    },
+    {
+      "name": "GitHub Copilot",
+      "category": "Code",
+      "url": "https://github.com/features/copilot",
+      "source": "README.md"
+    },
+    {
+      "name": "Gito",
+      "category": "Code",
+      "url": "https://github.com/Nayjest/Gito",
+      "source": "README.md"
+    },
+    {
+      "name": "GoCodeo",
+      "category": "Code",
+      "url": "https://www.gocodeo.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "GPT-Code UI",
+      "category": "Code",
+      "url": "https://github.com/ricklamers/gpt-code-ui",
+      "source": "README.md"
+    },
+    {
+      "name": "https://aws.amazon.com/codewhisperer/",
+      "category": "Code",
+      "url": "https://aws.amazon.com/q/developer/build/?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el",
+      "source": "README.md"
+    },
+    {
+      "name": "Kilo Code",
+      "category": "Code",
+      "url": "https://kilocode.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Manifest",
+      "category": "Code",
+      "url": "https://github.com/mnfst/manifest",
+      "source": "README.md"
+    },
+    {
+      "name": "MetaGPT",
+      "category": "Code",
+      "url": "https://github.com/geekan/MetaGPT",
+      "source": "README.md"
+    },
+    {
+      "name": "Mintlify",
+      "category": "Code",
+      "url": "https://mintlify.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "MutableAI",
+      "category": "Code",
+      "url": "https://mutable.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "MutahunterAI",
+      "category": "Code",
+      "url": "https://github.com/codeintegrity-ai/mutahunter",
+      "source": "README.md"
+    },
+    {
+      "name": "OpenAI Codex",
+      "category": "Code",
+      "url": "https://platform.openai.com/docs/guides/code/",
+      "source": "README.md"
+    },
+    {
+      "name": "poorcoder",
+      "category": "Code",
+      "url": "https://github.com/vgrichina/poorcoder",
+      "source": "README.md"
+    },
+    {
+      "name": "PR-Agent",
+      "category": "Code",
+      "url": "https://github.com/Codium-ai/pr-agent",
+      "source": "README.md"
+    },
+    {
+      "name": "Runcell",
+      "category": "Code",
+      "url": "https://runcell.dev",
+      "source": "README.md"
+    },
+    {
+      "name": "Stenography",
+      "category": "Code",
+      "url": "https://stenography.dev/",
+      "source": "README.md"
+    },
+    {
+      "name": "tabnine",
+      "category": "Code",
+      "url": "https://www.tabnine.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "TurboPilot",
+      "category": "Code",
+      "url": "https://github.com/ravenscroftj/turbopilot",
+      "source": "README.md"
+    },
+    {
+      "name": "WhoDB",
+      "category": "Code",
+      "url": "https://github.com/clidey/whodb",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Story Book",
+      "category": "Content Creation",
+      "url": "https://aistorybook.app",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Writesonic",
+      "category": "Content Creation",
+      "url": "https://writesonic.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Drift",
+      "category": "Customer Support",
+      "url": "https://www.drift.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Intercom",
+      "category": "Customer Support",
+      "url": "https://www.intercom.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Tidio",
+      "category": "Customer Support",
+      "url": "https://www.tidio.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "AI For Developers",
+      "category": "Editor's Choice",
+      "url": "https://aifordevelopers.org",
+      "source": "README.md"
+    },
+    {
+      "name": "MeetGeek",
+      "category": "Editor's Choice",
+      "url": "https://get.meetgeek.ai/zmrnb5xlyfs9",
+      "source": "README.md"
+    },
+    {
+      "name": "Murf AI",
+      "category": "Editor's Choice",
+      "url": "https://get.murf.ai/v8i9to5ad4oq",
+      "source": "README.md"
+    },
+    {
+      "name": "Notion AI",
+      "category": "Editor's Choice",
+      "url": "https://affiliate.notion.so/9po6cx7rvdr6-4y5a7",
+      "source": "README.md"
+    },
+    {
+      "name": "SaneBox",
+      "category": "Editor's Choice",
+      "url": "https://try.sanebox.com/yzkpe5s68xk2",
+      "source": "README.md"
+    },
+    {
+      "name": "There's an AI",
+      "category": "Editor's Choice",
+      "url": "https://theresanai.com",
+      "source": "README.md"
+    },
+    {
+      "name": "ActiveCampaign",
+      "category": "Email Marketing",
+      "url": "https://www.activecampaign.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Mailchimp",
+      "category": "Email Marketing",
+      "url": "https://mailchimp.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "GetBool AI",
+      "category": "GEO (Generative Engine Optimization)",
+      "url": "https://www.getbool.ai/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Awesome AI Image",
+      "category": "Image",
+      "url": "https://github.com/xaramore/awesome-ai-image",
+      "source": "README.md"
+    },
+    {
+      "name": "Best Image AI Tools",
+      "category": "Image",
+      "url": "https://github.com/mahseema/awesome-ai-tools/blob/main/IMAGE.md",
+      "source": "README.md"
+    },
+    {
+      "name": "Brandmark",
+      "category": "Image / Graphic design",
+      "url": "https://brandmark.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Gamma",
+      "category": "Image / Graphic design",
+      "url": "https://gamma.app/",
+      "source": "README.md"
+    },
+    {
+      "name": "Magic Patterns",
+      "category": "Image / Graphic design",
+      "url": "https://www.magicpatterns.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Microsoft Designer",
+      "category": "Image / Graphic design",
+      "url": "https://designer.microsoft.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Seede.ai",
+      "category": "Image / Graphic design",
+      "url": "https://seede.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "SVGStud.io",
+      "category": "Image / Graphic design",
+      "url": "https://svgstud.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Text2Infographic",
+      "category": "Image / Graphic design",
+      "url": "https://text2infographic.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Canva",
+      "category": "Image / Image libraries",
+      "url": "https://www.canva.com/ai-image-generator/",
+      "source": "README.md"
+    },
+    {
+      "name": "KREA",
+      "category": "Image / Image libraries",
+      "url": "https://www.krea.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Lexica",
+      "category": "Image / Image libraries",
+      "url": "https://lexica.art/",
+      "source": "README.md"
+    },
+    {
+      "name": "Libraire",
+      "category": "Image / Image libraries",
+      "url": "https://libraire.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "OpenArt",
+      "category": "Image / Image libraries",
+      "url": "https://openart.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Phygital",
+      "category": "Image / Image libraries",
+      "url": "https://app.phygital.plus/",
+      "source": "README.md"
+    },
+    {
+      "name": "Civitai",
+      "category": "Image / Model libraries",
+      "url": "https://civitai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Stable Diffusion Models",
+      "category": "Image / Model libraries",
+      "url": "https://rentry.org/sdmodels",
+      "source": "README.md"
+    },
+    {
+      "name": "Canva",
+      "category": "Image / Models",
+      "url": "https://www.canva.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "DALL·E 2",
+      "category": "Image / Models",
+      "url": "https://openai.com/dall-e-2/",
+      "source": "README.md"
+    },
+    {
+      "name": "DragGAN",
+      "category": "Image / Models",
+      "url": "https://github.com/XingangPan/DragGAN",
+      "source": "README.md"
+    },
+    {
+      "name": "Imagen",
+      "category": "Image / Models",
+      "url": "https://imagen.research.google/",
+      "source": "README.md"
+    },
+    {
+      "name": "Make-A-Scene",
+      "category": "Image / Models",
+      "url": "https://ai.facebook.com/blog/greater-creative-control-for-ai-image-generation/",
+      "source": "README.md"
+    },
+    {
+      "name": "Midjourney",
+      "category": "Image / Models",
+      "url": "https://www.midjourney.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Stable Diffusion",
+      "category": "Image / Models",
+      "url": "https://huggingface.co/CompVis/stable-diffusion-v1-4",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Boost",
+      "category": "Image / Services",
+      "url": "https://boost.pictures/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Photo Forge",
+      "category": "Image / Services",
+      "url": "https://aiphotoforge.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Alpaca",
+      "category": "Image / Services",
+      "url": "https://www.getalpaca.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Artbreeder",
+      "category": "Image / Services",
+      "url": "https://www.artbreeder.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Avatar AI",
+      "category": "Image / Services",
+      "url": "https://avatarai.me/",
+      "source": "README.md"
+    },
+    {
+      "name": "Black Headshots",
+      "category": "Image / Services",
+      "url": "https://www.blackheadshots.com",
+      "source": "README.md"
+    },
+    {
+      "name": "ClipDrop",
+      "category": "Image / Services",
+      "url": "https://clipdrop.co/",
+      "source": "README.md"
+    },
+    {
+      "name": "Craiyon",
+      "category": "Image / Services",
+      "url": "https://www.craiyon.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "DreamStudio",
+      "category": "Image / Services",
+      "url": "https://beta.dreamstudio.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "GauGAN2",
+      "category": "Image / Services",
+      "url": "http://gaugan.org/gaugan2/",
+      "source": "README.md"
+    },
+    {
+      "name": "Gensbot",
+      "category": "Image / Services",
+      "url": "https://gensbot.com",
+      "source": "README.md"
+    },
+    {
+      "name": "GenShare",
+      "category": "Image / Services",
+      "url": "https://www.genshare.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Human Generator",
+      "category": "Image / Services",
+      "url": "https://generated.photos/human-generator",
+      "source": "README.md"
+    },
+    {
+      "name": "iColoring",
+      "category": "Image / Services",
+      "url": "https://icoloring.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Imagine by Magic Studio",
+      "category": "Image / Services",
+      "url": "https://magicstudio.com/imagine",
+      "source": "README.md"
+    },
+    {
+      "name": "Lensa",
+      "category": "Image / Services",
+      "url": "https://prisma-ai.com/lensa",
+      "source": "README.md"
+    },
+    {
+      "name": "Magic Eraser",
+      "category": "Image / Services",
+      "url": "https://www.magiceraser.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "modyfi",
+      "category": "Image / Services",
+      "url": "https://www.modyfi.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Patience.ai",
+      "category": "Image / Services",
+      "url": "https://www.patience.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Pawtrait",
+      "category": "Image / Services",
+      "url": "https://www.pawtrait.art/",
+      "source": "README.md"
+    },
+    {
+      "name": "PhotoGuruAI",
+      "category": "Image / Services",
+      "url": "https://photoguruai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "PhotoRoom",
+      "category": "Image / Services",
+      "url": "https://www.photoroom.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Pixelz AI Art Generator",
+      "category": "Image / Services",
+      "url": "https://pixelz.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Pixvify AI",
+      "category": "Image / Services",
+      "url": "https://pixvify.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "PlantPhotoAI",
+      "category": "Image / Services",
+      "url": "https://www.plantphotoai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "PlantTattoosAI",
+      "category": "Image / Services",
+      "url": "https://www.planttattoosai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Playground AI",
+      "category": "Image / Services",
+      "url": "https://playgroundai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Ponzu",
+      "category": "Image / Services",
+      "url": "https://www.ponzu.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "RepublicLabs.AI",
+      "category": "Image / Services",
+      "url": "https://republiclabs.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Room Reinvented",
+      "category": "Image / Services",
+      "url": "https://roomreinvented.com",
+      "source": "README.md"
+    },
+    {
+      "name": "RunDiffusion",
+      "category": "Image / Services",
+      "url": "https://rundiffusion.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "stability.ai",
+      "category": "Image / Services",
+      "url": "https://stability.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "StockPhotoAI.net",
+      "category": "Image / Services",
+      "url": "https://www.stockphotoai.net/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Suit me Up",
+      "category": "Image / Services",
+      "url": "https://suitmeup.pictures/",
+      "source": "README.md"
+    },
+    {
+      "name": "VectorArt.ai",
+      "category": "Image / Services",
+      "url": "https://vectorart.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "@huggingface",
+      "category": "Image / Stable Diffusion resources",
+      "url": "https://github.com/huggingface",
+      "source": "README.md"
+    },
+    {
+      "name": "Hugging Face Diffusion Models Course",
+      "category": "Image / Stable Diffusion resources",
+      "url": "https://github.com/huggingface/diffusion-models-class",
+      "source": "README.md"
+    },
+    {
+      "name": "PublicPrompts",
+      "category": "Image / Stable Diffusion resources",
+      "url": "https://publicprompts.art/",
+      "source": "README.md"
+    },
+    {
+      "name": "Stable Horde",
+      "category": "Image / Stable Diffusion resources",
+      "url": "https://stablehorde.net/",
+      "source": "README.md"
+    },
+    {
+      "name": "Squoosh",
+      "category": "Image Compression",
+      "url": "https://squoosh.app/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "TinyPNG",
+      "category": "Image Compression",
+      "url": "https://tinypng.com/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "DeepArt",
+      "category": "Image Editing",
+      "url": "https://deepart.io/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Flux.1 Kontext",
+      "category": "Image Editing",
+      "url": "https://flux1kontext.io/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Let's Enhance",
+      "category": "Image Editing",
+      "url": "https://letsenhance.io/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Remove.bg",
+      "category": "Image Editing",
+      "url": "https://www.remove.bg/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Topaz Labs Gigapixel AI",
+      "category": "Image Enhancement",
+      "url": "https://www.topazlabs.com/gigapixel-ai",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "VanceAI",
+      "category": "Image Enhancement",
+      "url": "https://vanceai.com/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "DALL·E",
+      "category": "Image Generation",
+      "url": "https://openai.com/dall-e/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Runway ML",
+      "category": "Image Generation",
+      "url": "https://runwayml.com/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "AWS Rekognition",
+      "category": "Image Recognition",
+      "url": "https://aws.amazon.com/rekognition/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Clarifai",
+      "category": "Image Recognition",
+      "url": "https://www.clarifai.com/",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "Google Cloud Vision API",
+      "category": "Image Recognition",
+      "url": "https://cloud.google.com/vision",
+      "source": "IMAGE.md"
+    },
+    {
+      "name": "HubSpot AI",
+      "category": "Lead Generation",
+      "url": "https://www.hubspot.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Leadfeeder",
+      "category": "Lead Generation",
+      "url": "https://www.leadfeeder.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "coursera-deep-learning-specialization",
+      "category": "Learn AI free / Deep Learning",
+      "url": "https://github.com/pratham5368/coursera-deep-learning-specialization",
+      "source": "README.md"
+    },
+    {
+      "name": "Geoffrey Hinton’s Neural Networks For Machine Learning",
+      "category": "Learn AI free / Deep Learning",
+      "url": "https://medium.com/kaggle-blog",
+      "source": "README.md"
+    },
+    {
+      "name": "Jeremy Howard’s Fast.ai & Data Institute Certificates",
+      "category": "Learn AI free / Deep Learning",
+      "url": "https://www.fast.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "tensorflow",
+      "category": "Learn AI free / Deep Learning",
+      "url": "https://github.com/pratham5368/Tecnologies-I-Learn/tree/main/31-pytorch",
+      "source": "README.md"
+    },
+    {
+      "name": "AI and Machine Learning Roadmaps",
+      "category": "Learn AI free / Machine Learning",
+      "url": "https://www.scaler.com/blog/category/artificial-intelligence-machine-learning/",
+      "source": "README.md"
+    },
+    {
+      "name": "Andrew Ng’s Machine Learning at Stanford University",
+      "category": "Learn AI free / Machine Learning",
+      "url": "https://www.coursera.org/learn/machine-learning",
+      "source": "README.md"
+    },
+    {
+      "name": "How To Learn Artificial Intelligence (AI)?",
+      "category": "Learn AI free / Machine Learning",
+      "url": "https://www.appliedaicourse.com/blog/how-to-learn-artificial-intelligence-ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Roadmap",
+      "category": "Learn AI free / Machine Learning",
+      "url": "https://github.com/mrdbourke/machine-learning-roadmap",
+      "source": "README.md"
+    },
+    {
+      "name": "Sebastian Thrun’s Introduction To Machine Learning",
+      "category": "Learn AI free / Machine Learning",
+      "url": "https://www.udacity.com/course/intro-to-machine-learning--ud120",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatGPT prompt engineering for developers",
+      "category": "Learning resources",
+      "url": "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/",
+      "source": "README.md"
+    },
+    {
+      "name": "Learn Prompting",
+      "category": "Learning resources",
+      "url": "https://learnprompting.org/",
+      "source": "README.md"
+    },
+    {
+      "name": "OpenAI Cookbook",
+      "category": "Learning resources",
+      "url": "https://github.com/openai/openai-cookbook",
+      "source": "README.md"
+    },
+    {
+      "name": "Prompt Engineering Guide",
+      "category": "Learning resources",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "source": "README.md"
+    },
+    {
+      "name": "Robert Miles AI Safety",
+      "category": "Learning resources",
+      "url": "https://www.youtube.com/@RobertMilesAI",
+      "source": "README.md"
+    },
+    {
+      "name": "NVIDIA Omniverse AI Animal Explorer Extension",
+      "category": "NVIDIA Platform Extensions",
+      "url": "https://docs.omniverse.nvidia.com/extensions/latest/ext_animal-explorer.html#installation",
+      "source": "README.md"
+    },
+    {
+      "name": "Adon AI",
+      "category": "Other",
+      "url": "https://adon-web.awakast.com/en/recruiter/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Dungeon",
+      "category": "Other",
+      "url": "https://aidungeon.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Watermark Remover",
+      "category": "Other",
+      "url": "https://aiwatermarkremover.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Wedding Toast",
+      "category": "Other",
+      "url": "https://aiweddingtoast.com",
+      "source": "README.md"
+    },
+    {
+      "name": "AI-Flow",
+      "category": "Other",
+      "url": "https://ai-flow.net/",
+      "source": "README.md"
+    },
+    {
+      "name": "AISaver",
+      "category": "Other",
+      "url": "https://aisaver.io",
+      "source": "README.md"
+    },
+    {
+      "name": "Aispect",
+      "category": "Other",
+      "url": "https://aispect.io/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Architecture Helper",
+      "category": "Other",
+      "url": "https://architecturehelper.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Bricks",
+      "category": "Other",
+      "url": "https://www.thebricks.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Clickable",
+      "category": "Other",
+      "url": "https://www.clickable.so/",
+      "source": "README.md"
+    },
+    {
+      "name": "Code to Flow",
+      "category": "Other",
+      "url": "https://codetoflow.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Compass",
+      "category": "Other",
+      "url": "https://www.getwhys.io/compass",
+      "source": "README.md"
+    },
+    {
+      "name": "Context Data",
+      "category": "Other",
+      "url": "https://contextdata.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Daruy",
+      "category": "Other",
+      "url": "https://daruy.space/",
+      "source": "README.md"
+    },
+    {
+      "name": "Diagram",
+      "category": "Other",
+      "url": "https://diagram.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Exam Samurai",
+      "category": "Other",
+      "url": "https://www.examsamur.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "ezJobs",
+      "category": "Other",
+      "url": "https://www.getezjobs.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "FairyTailAI",
+      "category": "Other",
+      "url": "https://fairytailai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "FinChat",
+      "category": "Other",
+      "url": "https://finchat.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "fynk",
+      "category": "Other",
+      "url": "https://fynk.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "GradGPT",
+      "category": "Other",
+      "url": "https://www.gradgpt.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "GummySearch",
+      "category": "Other",
+      "url": "https://gummysearch.com/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Harbor",
+      "category": "Other",
+      "url": "https://github.com/av/harbor",
+      "source": "README.md"
+    },
+    {
+      "name": "Have I Been Trained?",
+      "category": "Other",
+      "url": "https://haveibeentrained.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Hyperbrowser",
+      "category": "Other",
+      "url": "https://hyperbrowser.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Interview Solver",
+      "category": "Other",
+      "url": "https://interviewsolver.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Interviews Chat",
+      "category": "Other",
+      "url": "https://www.interviews.chat/",
+      "source": "README.md"
+    },
+    {
+      "name": "LangMagic",
+      "category": "Other",
+      "url": "https://easytolearn.io",
+      "source": "README.md"
+    },
+    {
+      "name": "LooksMax AI",
+      "category": "Other",
+      "url": "https://looksmax.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Luthor",
+      "category": "Other",
+      "url": "https://luthor.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Melies",
+      "category": "Other",
+      "url": "https://melies.co",
+      "source": "README.md"
+    },
+    {
+      "name": "MindStudio",
+      "category": "Other",
+      "url": "https://mindstudio.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Myriad",
+      "category": "Other",
+      "url": "https://www.namepepper.com/free-tools/ai-content-prompt-tool",
+      "source": "README.md"
+    },
+    {
+      "name": "Napkin",
+      "category": "Other",
+      "url": "https://www.napkin.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Persuva",
+      "category": "Other",
+      "url": "https://persuva.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Petals",
+      "category": "Other",
+      "url": "https://github.com/bigscience-workshop/petals",
+      "source": "README.md"
+    },
+    {
+      "name": "Podify.io",
+      "category": "Other",
+      "url": "https://podify.io",
+      "source": "README.md"
+    },
+    {
+      "name": "PressPulse AI",
+      "category": "Other",
+      "url": "https://www.presspulse.ai/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "PromptBase",
+      "category": "Other",
+      "url": "https://promptbase.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Promptly",
+      "category": "Other",
+      "url": "https://searchpromptly.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "PromptPal",
+      "category": "Other",
+      "url": "https://promptpal.net",
+      "source": "README.md"
+    },
+    {
+      "name": "ResumeDive",
+      "category": "Other",
+      "url": "https://resumedive.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Scale Spellbook",
+      "category": "Other",
+      "url": "https://scale.com/spellbook",
+      "source": "README.md"
+    },
+    {
+      "name": "Scenario",
+      "category": "Other",
+      "url": "https://www.scenario.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Shotstack Workflows",
+      "category": "Other",
+      "url": "https://shotstack.io/product/workflows/",
+      "source": "README.md"
+    },
+    {
+      "name": "Socialsonic",
+      "category": "Other",
+      "url": "https://socialsonic.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Taplio",
+      "category": "Other",
+      "url": "https://taplio.com/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Taranify",
+      "category": "Other",
+      "url": "https://www.taranify.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Teleprompter",
+      "category": "Other",
+      "url": "https://github.com/danielgross/teleprompter",
+      "source": "README.md"
+    },
+    {
+      "name": "This Image Does Not Exist",
+      "category": "Other",
+      "url": "https://thisimagedoesnotexist.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "VocalReplica",
+      "category": "Other",
+      "url": "https://vocalreplica.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Dynamic Yield",
+      "category": "Personalization",
+      "url": "https://www.dynamicyield.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "PathFactory",
+      "category": "Personalization",
+      "url": "https://www.pathfactory.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "AI for Productivity",
+      "category": "Related Awesome Lists",
+      "url": "https://productivity.directory/category/ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Altern",
+      "category": "Related Awesome Lists",
+      "url": "https://altern.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome AI Books",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/mahseema/aibooks",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome AI Coding Tools",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/ai-for-developers/awesome-ai-coding-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome AI Models",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/dariubs/awesome-ai-models",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome Marketing",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/marketingtoolslist/awesome-marketing",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome Vibe Coding",
+      "category": "Related Awesome Lists",
+      "url": "http://github.com/dariubs/awesome-vibe-coding",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome Workflow Automation",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/dariubs/awesome-workflow-automation",
+      "source": "README.md"
+    },
+    {
+      "name": "Best of AI",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/best-of-ai/best-of-ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Top AI Directories",
+      "category": "Related Awesome Lists",
+      "url": "https://github.com/best-of-ai/ai-directories",
+      "source": "README.md"
+    },
+    {
+      "name": "Workflow Automation Softwares",
+      "category": "Related Awesome Lists",
+      "url": "https://productivity.directory/category/workflow-automation",
+      "source": "README.md"
+    },
+    {
+      "name": "Clearscope",
+      "category": "SEO & Search Optimization",
+      "url": "https://www.clearscope.io/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Surfer SEO",
+      "category": "SEO & Search Optimization",
+      "url": "https://surferseo.com/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Lately",
+      "category": "Social Media",
+      "url": "https://www.lately.ai/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Storyshort.ai",
+      "category": "Social Media",
+      "url": "https://www.storyshort.ai/",
+      "source": "marketing.md"
+    },
+    {
+      "name": "Consensus",
+      "category": "Text / Academia",
+      "url": "https://consensus.app/search/",
+      "source": "README.md"
+    },
+    {
+      "name": "Elicit",
+      "category": "Text / Academia",
+      "url": "https://elicit.org/",
+      "source": "README.md"
+    },
+    {
+      "name": "Explainpaper",
+      "category": "Text / Academia",
+      "url": "https://www.explainpaper.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Galactica",
+      "category": "Text / Academia",
+      "url": "https://galactica.org/",
+      "source": "README.md"
+    },
+    {
+      "name": "genei",
+      "category": "Text / Academia",
+      "url": "https://www.genei.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Mathos AI",
+      "category": "Text / Academia",
+      "url": "https://www.mathgptpro.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Model API",
+      "category": "Text / Academia",
+      "url": "https://github.com/paperswithcode/galai",
+      "source": "README.md"
+    },
+    {
+      "name": "NotebookLM",
+      "category": "Text / Academia",
+      "url": "https://notebooklm.google.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "SciSpace",
+      "category": "Text / Academia",
+      "url": "https://scispace.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Sourcely",
+      "category": "Text / Academia",
+      "url": "https://www.sourcely.net/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Character for GPT",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://chromewebstore.google.com/detail/ai-character-for-gpt/daoeioifimkjegafelcaljboknjkkohh",
+      "source": "README.md"
+    },
+    {
+      "name": "Chatbot UI",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://www.chatbotui.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatGPT for Jupyter",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://github.com/TiesdeKok/chat-gpt-jupyter-extension",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatGPT for Search Engines",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://chrome.google.com/webstore/detail/chatgpt-for-search-engine/feeonheemodpkdckaljcjogdncpiiban",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatGPT Prompt Genius",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://chrome.google.com/webstore/detail/chatgpt-prompt-genius/jjdnakkfjnnbbckhifcfchagnpofjffo",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatGPT Writer",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://chatgptwriter.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "editGPT",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://www.editgpt.app/",
+      "source": "README.md"
+    },
+    {
+      "name": "Forefront",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://www.forefront.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Gist AI",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://www.gistai.tech?utm_source=tool_directory&utm_medium=post&utm_campaign=launch",
+      "source": "README.md"
+    },
+    {
+      "name": "GPT for Sheets and Docs",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://workspace.google.com/marketplace/app/gpt_for_sheets_and_docs/677318054654",
+      "source": "README.md"
+    },
+    {
+      "name": "Merlin",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://merlin.foyer.work/",
+      "source": "README.md"
+    },
+    {
+      "name": "ShareGPT",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://sharegpt.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "WebChatGPT",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://chrome.google.com/webstore/detail/webchatgpt-chatgpt-with-i/lpfemeioodjbpieminkklglpmhlngfcn",
+      "source": "README.md"
+    },
+    {
+      "name": "YouTube Summary with ChatGPT",
+      "category": "Text / ChatGPT extensions",
+      "url": "https://chrome.google.com/webstore/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli",
+      "source": "README.md"
+    },
+    {
+      "name": "AICamp",
+      "category": "Text / Chatbots",
+      "url": "https://aicamp.so/",
+      "source": "README.md"
+    },
+    {
+      "name": "Bing Chat",
+      "category": "Text / Chatbots",
+      "url": "https://www.bing.com/chat",
+      "source": "README.md"
+    },
+    {
+      "name": "Character.AI",
+      "category": "Text / Chatbots",
+      "url": "https://character.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatGPT",
+      "category": "Text / Chatbots",
+      "url": "https://chatgpt.com",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatPDF",
+      "category": "Text / Chatbots",
+      "url": "https://www.chatpdf.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatSonic",
+      "category": "Text / Chatbots",
+      "url": "https://writesonic.com/chat",
+      "source": "README.md"
+    },
+    {
+      "name": "DeepSeek-R1",
+      "category": "Text / Chatbots",
+      "url": "https://www.deepseek.com",
+      "source": "README.md"
+    },
+    {
+      "name": "dmwithme",
+      "category": "Text / Chatbots",
+      "url": "https://dmwithme.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Gali Chat",
+      "category": "Text / Chatbots",
+      "url": "https://www.galichat.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Gemini",
+      "category": "Text / Chatbots",
+      "url": "https://gemini.google.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Phind",
+      "category": "Text / Chatbots",
+      "url": "https://www.phind.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Tiledesk",
+      "category": "Text / Chatbots",
+      "url": "https://tiledesk.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Aidbase",
+      "category": "Text / Customer Support",
+      "url": "https://www.aidbase.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Dear AI",
+      "category": "Text / Customer Support",
+      "url": "https://www.dearai.online",
+      "source": "README.md"
+    },
+    {
+      "name": "GPTHelp.ai",
+      "category": "Text / Customer Support",
+      "url": "https://gpthelp.ai/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Inline Help",
+      "category": "Text / Customer Support",
+      "url": "https://inlinehelp.com",
+      "source": "README.md"
+    },
+    {
+      "name": "SiteGPT",
+      "category": "Text / Customer Support",
+      "url": "https://sitegpt.ai/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "SiteSpeakAI",
+      "category": "Text / Customer Support",
+      "url": "https://sitespeak.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Twig",
+      "category": "Text / Customer Support",
+      "url": "https://www.twig.so/",
+      "source": "README.md"
+    },
+    {
+      "name": "Agenta",
+      "category": "Text / Developer tools",
+      "url": "https://agenta.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "AgentDock",
+      "category": "Text / Developer tools",
+      "url": "https://agentdock.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Agentic Radar",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/splx-ai/agentic-radar",
+      "source": "README.md"
+    },
+    {
+      "name": "AI/ML API",
+      "category": "Text / Developer tools",
+      "url": "https://aimlapi.com/?utm_source=github+of+altern.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Amazon Q Developer CLI",
+      "category": "Text / Developer tools",
+      "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html?trk=fd6bb27a-13b0-4286-8269-c7b1cfaa29f0&sc_channel=el",
+      "source": "README.md"
+    },
+    {
+      "name": "Calmo",
+      "category": "Text / Developer tools",
+      "url": "https://getcalmo.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "ChatWithCloud",
+      "category": "Text / Developer tools",
+      "url": "https://chatwithcloud.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Cleanlab",
+      "category": "Text / Developer tools",
+      "url": "https://help.cleanlab.ai/tlm/",
+      "source": "README.md"
+    },
+    {
+      "name": "co:here",
+      "category": "Text / Developer tools",
+      "url": "https://cohere.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Codeflash",
+      "category": "Text / Developer tools",
+      "url": "https://www.codeflash.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "CodeRabbit",
+      "category": "Text / Developer tools",
+      "url": "https://coderabbit.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "gpt4all",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/nomic-ai/gpt4all",
+      "source": "README.md"
+    },
+    {
+      "name": "Haystack",
+      "category": "Text / Developer tools",
+      "url": "https://haystack.deepset.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Hexabot",
+      "category": "Text / Developer tools",
+      "url": "https://hexabot.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Keploy",
+      "category": "Text / Developer tools",
+      "url": "https://keploy.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Kiln",
+      "category": "Text / Developer tools",
+      "url": "https://getkiln.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "LangChain",
+      "category": "Text / Developer tools",
+      "url": "https://langchain.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Langfuse",
+      "category": "Text / Developer tools",
+      "url": "https://langfuse.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "LlamaIndex",
+      "category": "Text / Developer tools",
+      "url": "https://www.llamaindex.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "LMQL",
+      "category": "Text / Developer tools",
+      "url": "https://lmql.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Maxim AI",
+      "category": "Text / Developer tools",
+      "url": "https://www.getmaxim.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Notte",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/nottelabs/notte",
+      "source": "README.md"
+    },
+    {
+      "name": "Ollama",
+      "category": "Text / Developer tools",
+      "url": "https://ollama.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "OpenAI Downtime Monitor",
+      "category": "Text / Developer tools",
+      "url": "https://status.portkey.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "opensource",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/portiaAI/portia-sdk-python",
+      "source": "README.md"
+    },
+    {
+      "name": "opensource",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/langfuse/langfuse",
+      "source": "README.md"
+    },
+    {
+      "name": "opensource",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/agenta-ai/agenta",
+      "source": "README.md"
+    },
+    {
+      "name": "Opik",
+      "category": "Text / Developer tools",
+      "url": "https://www.comet.com/site/products/opik/",
+      "source": "README.md"
+    },
+    {
+      "name": "Pagerly",
+      "category": "Text / Developer tools",
+      "url": "https://www.pagerly.io",
+      "source": "README.md"
+    },
+    {
+      "name": "Phoenix",
+      "category": "Text / Developer tools",
+      "url": "https://phoenix.arize.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Plandex",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/plandex-ai/plandex",
+      "source": "README.md"
+    },
+    {
+      "name": "Portia AI",
+      "category": "Text / Developer tools",
+      "url": "https://www.portialabs.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Portkey",
+      "category": "Text / Developer tools",
+      "url": "https://portkey.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Prediction Guard",
+      "category": "Text / Developer tools",
+      "url": "https://www.predictionguard.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Rysa AI",
+      "category": "Text / Developer tools",
+      "url": "https://www.rysa.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "SinglebaseCloud",
+      "category": "Text / Developer tools",
+      "url": "https://singlebase.cloud",
+      "source": "README.md"
+    },
+    {
+      "name": "StarOps",
+      "category": "Text / Developer tools",
+      "url": "https://ingenimax.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "TensorZero",
+      "category": "Text / Developer tools",
+      "url": "https://www.tensorzero.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "ToolHive",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/stacklok/toolhive",
+      "source": "README.md"
+    },
+    {
+      "name": "VoltAgent",
+      "category": "Text / Developer tools",
+      "url": "https://github.com/voltagent/voltagent",
+      "source": "README.md"
+    },
+    {
+      "name": "Wordware",
+      "category": "Text / Developer tools",
+      "url": "https://www.wordware.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "privateGPT",
+      "category": "Text / Local search engines",
+      "url": "https://github.com/imartinez/privateGPT",
+      "source": "README.md"
+    },
+    {
+      "name": "quivr",
+      "category": "Text / Local search engines",
+      "url": "https://github.com/StanGirard/quivr",
+      "source": "README.md"
+    },
+    {
+      "name": "Cogram",
+      "category": "Text / Meeting assistants",
+      "url": "https://www.cogram.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Loopin AI",
+      "category": "Text / Meeting assistants",
+      "url": "https://www.loopinhq.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Otter.ai",
+      "category": "Text / Meeting assistants",
+      "url": "https://otter.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Scribbl",
+      "category": "Text / Meeting assistants",
+      "url": "https://www.scribbl.co",
+      "source": "README.md"
+    },
+    {
+      "name": "Sybill",
+      "category": "Text / Meeting assistants",
+      "url": "https://www.sybill.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Bloom",
+      "category": "Text / Models",
+      "url": "https://huggingface.co/docs/transformers/model_doc/bloom",
+      "source": "README.md"
+    },
+    {
+      "name": "Claude 3",
+      "category": "Text / Models",
+      "url": "https://claude.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Gopher",
+      "category": "Text / Models",
+      "url": "https://www.deepmind.com/blog/language-modelling-at-scale-gopher-ethical-considerations-and-retrieval",
+      "source": "README.md"
+    },
+    {
+      "name": "GPT-4o Mini",
+      "category": "Text / Models",
+      "url": "https://altern.ai/ai/gpt-4o-mini",
+      "source": "README.md"
+    },
+    {
+      "name": "LLaMA",
+      "category": "Text / Models",
+      "url": "https://ai.facebook.com/blog/large-language-model-llama-meta-ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Llama 2",
+      "category": "Text / Models",
+      "url": "https://ai.meta.com/llama/",
+      "source": "README.md"
+    },
+    {
+      "name": "OpenAI API",
+      "category": "Text / Models",
+      "url": "https://openai.com/api/",
+      "source": "README.md"
+    },
+    {
+      "name": "OPT",
+      "category": "Text / Models",
+      "url": "https://huggingface.co/facebook/opt-350m",
+      "source": "README.md"
+    },
+    {
+      "name": "OPT-175B text generation",
+      "category": "Text / Models",
+      "url": "https://opt.alpa.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Stable Beluga",
+      "category": "Text / Models",
+      "url": "https://huggingface.co/stabilityai/StableBeluga1-Delta",
+      "source": "README.md"
+    },
+    {
+      "name": "Stable Beluga 2",
+      "category": "Text / Models",
+      "url": "https://huggingface.co/stabilityai/StableBeluga2",
+      "source": "README.md"
+    },
+    {
+      "name": "Vicuna-13B",
+      "category": "Text / Models",
+      "url": "https://lmsys.org/blog/2023-03-30-vicuna/",
+      "source": "README.md"
+    },
+    {
+      "name": "AI Poem Generator",
+      "category": "Text / Other text generators",
+      "url": "https://www.aipoemgenerator.org",
+      "source": "README.md"
+    },
+    {
+      "name": "EmailTriager",
+      "category": "Text / Other text generators",
+      "url": "https://www.emailtriager.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Never Jobless LinkedIn Message Generator",
+      "category": "Text / Other text generators",
+      "url": "https://neverjobless.com/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "AI for Google Slides",
+      "category": "Text / Productivity",
+      "url": "https://www.aiforgoogleslides.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "aiPDF",
+      "category": "Text / Productivity",
+      "url": "https://aipdf.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "AnkiDecks AI",
+      "category": "Text / Productivity",
+      "url": "https://anki-decks.com",
+      "source": "README.md"
+    },
+    {
+      "name": "BrainSoup",
+      "category": "Text / Productivity",
+      "url": "https://www.nurgo-software.com/products/brainsoup",
+      "source": "README.md"
+    },
+    {
+      "name": "Chat With PDF by Copilot.us",
+      "category": "Text / Productivity",
+      "url": "https://copilot.us/apps/chat-with-pdf",
+      "source": "README.md"
+    },
+    {
+      "name": "Cosmos",
+      "category": "Text / Productivity",
+      "url": "https://meetcosmos.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "CreateEasily",
+      "category": "Text / Productivity",
+      "url": "https://createeasily.com/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Elephas",
+      "category": "Text / Productivity",
+      "url": "https://elephas.app/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Emilio",
+      "category": "Text / Productivity",
+      "url": "https://getemil.io?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Excelmatic",
+      "category": "Text / Productivity",
+      "url": "https://excelmatic.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "fabric",
+      "category": "Text / Productivity",
+      "url": "https://github.com/danielmiessler/fabric/",
+      "source": "README.md"
+    },
+    {
+      "name": "FARSITE",
+      "category": "Text / Productivity",
+      "url": "https://far.site/",
+      "source": "README.md"
+    },
+    {
+      "name": "FirmOS",
+      "category": "Text / Productivity",
+      "url": "https://www.firmos.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Google Sheets Formula Generator",
+      "category": "Text / Productivity",
+      "url": "https://bettersheets.co/google-sheets-formula-generator?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "GOSH",
+      "category": "Text / Productivity",
+      "url": "https://gosh.app",
+      "source": "README.md"
+    },
+    {
+      "name": "Huntr AI Resume Builder",
+      "category": "Text / Productivity",
+      "url": "https://huntr.co/product/ai-resume-builder/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Kosmik",
+      "category": "Text / Productivity",
+      "url": "https://www.kosmik.app",
+      "source": "README.md"
+    },
+    {
+      "name": "Langfa.st",
+      "category": "Text / Productivity",
+      "url": "https://langfa.st/",
+      "source": "README.md"
+    },
+    {
+      "name": "Lemmy",
+      "category": "Text / Productivity",
+      "url": "https://lemmy.co/?ref=mahseema-awesome-ai-tools",
+      "source": "README.md"
+    },
+    {
+      "name": "Magic Potion",
+      "category": "Text / Productivity",
+      "url": "https://www.magicpotion.app",
+      "source": "README.md"
+    },
+    {
+      "name": "Marblism",
+      "category": "Text / Productivity",
+      "url": "https://marblism.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Mem",
+      "category": "Text / Productivity",
+      "url": "https://mem.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "MindPal",
+      "category": "Text / Productivity",
+      "url": "https://mindpal.space/",
+      "source": "README.md"
+    },
+    {
+      "name": "MinusX",
+      "category": "Text / Productivity",
+      "url": "https://minusx.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Mocha",
+      "category": "Text / Productivity",
+      "url": "https://getmocha.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Nekton AI",
+      "category": "Text / Productivity",
+      "url": "https://nekton.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Notion AI",
+      "category": "Text / Productivity",
+      "url": "https://www.notion.so/product/ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Nudge AI",
+      "category": "Text / Productivity",
+      "url": "https://getnudgeai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Perch Reader",
+      "category": "Text / Productivity",
+      "url": "https://perch.app/",
+      "source": "README.md"
+    },
+    {
+      "name": "Pieces",
+      "category": "Text / Productivity",
+      "url": "https://pieces.app/",
+      "source": "README.md"
+    },
+    {
+      "name": "Qurate",
+      "category": "Text / Productivity",
+      "url": "https://qurate.appcradle.net/",
+      "source": "README.md"
+    },
+    {
+      "name": "RabbitHoles AI",
+      "category": "Text / Productivity",
+      "url": "https://www.rabbitholes.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "ReBillion.ai",
+      "category": "Text / Productivity",
+      "url": "https://tc.rebillion.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Recall",
+      "category": "Text / Productivity",
+      "url": "https://www.getrecall.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Rember",
+      "category": "Text / Productivity",
+      "url": "https://www.rember.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Riffo",
+      "category": "Text / Productivity",
+      "url": "https://riffo.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "SalesAgent Chat",
+      "category": "Text / Productivity",
+      "url": "https://www.salesagent.chat",
+      "source": "README.md"
+    },
+    {
+      "name": "SlidesWizard",
+      "category": "Text / Productivity",
+      "url": "https://slideswizard.io",
+      "source": "README.md"
+    },
+    {
+      "name": "Smmry",
+      "category": "Text / Productivity",
+      "url": "https://smmry.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Spell",
+      "category": "Text / Productivity",
+      "url": "https://spellapp.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Summara",
+      "category": "Text / Productivity",
+      "url": "https://summara.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Summary With AI",
+      "category": "Text / Productivity",
+      "url": "https://www.summarywithai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "TailorTask",
+      "category": "Text / Productivity",
+      "url": "https://wwww.tailortask.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Talently AI",
+      "category": "Text / Productivity",
+      "url": "https://interview.talently.ai/?utm_source=mahseema-awesome-ai-tool&utm_medium=c_and_p&utm_campaign=tool-listing",
+      "source": "README.md"
+    },
+    {
+      "name": "Taskade",
+      "category": "Text / Productivity",
+      "url": "https://www.taskade.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Transgate",
+      "category": "Text / Productivity",
+      "url": "https://transgate.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Whisper API",
+      "category": "Text / Productivity",
+      "url": "https://whisper-api.com",
+      "source": "README.md"
+    },
+    {
+      "name": "X-doc AI",
+      "category": "Text / Productivity",
+      "url": "https://x-doc.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Agentset.ai",
+      "category": "Text / Search engines",
+      "url": "https://agentset.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Kazimir.ai",
+      "category": "Text / Search engines",
+      "url": "https://kazimir.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Komo AI",
+      "category": "Text / Search engines",
+      "url": "https://komo.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "MemFree",
+      "category": "Text / Search engines",
+      "url": "https://github.com/memfreeme/memfree",
+      "source": "README.md"
+    },
+    {
+      "name": "Metaphor",
+      "category": "Text / Search engines",
+      "url": "https://metaphor.systems/",
+      "source": "README.md"
+    },
+    {
+      "name": "Perplexity AI",
+      "category": "Text / Search engines",
+      "url": "https://www.perplexity.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Phind",
+      "category": "Text / Search engines",
+      "url": "https://phind.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Refinder AI",
+      "category": "Text / Search engines",
+      "url": "https://refinder.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Telborg",
+      "category": "Text / Search engines",
+      "url": "https://telborg.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "You.com",
+      "category": "Text / Search engines",
+      "url": "https://you.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Anyword",
+      "category": "Text / Writing assistants",
+      "url": "https://anyword.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Awesome AI Writing",
+      "category": "Text / Writing assistants",
+      "url": "https://github.com/xaramore/awesome-ai-writing",
+      "source": "README.md"
+    },
+    {
+      "name": "Compose AI",
+      "category": "Text / Writing assistants",
+      "url": "https://www.compose.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Contenda",
+      "category": "Text / Writing assistants",
+      "url": "https://contenda.co/",
+      "source": "README.md"
+    },
+    {
+      "name": "copy.ai",
+      "category": "Text / Writing assistants",
+      "url": "https://www.copy.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Copysmith",
+      "category": "Text / Writing assistants",
+      "url": "https://copysmith.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "DeepL Write",
+      "category": "Text / Writing assistants",
+      "url": "https://www.deepl.com/write",
+      "source": "README.md"
+    },
+    {
+      "name": "Dittto.ai",
+      "category": "Text / Writing assistants",
+      "url": "https://dittto.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "GPTLocalhost",
+      "category": "Text / Writing assistants",
+      "url": "https://gptlocalhost.com/demo/",
+      "source": "README.md"
+    },
+    {
+      "name": "Headlinesai.pro",
+      "category": "Text / Writing assistants",
+      "url": "https://www.headlinesai.pro/",
+      "source": "README.md"
+    },
+    {
+      "name": "HyperWrite",
+      "category": "Text / Writing assistants",
+      "url": "https://hyperwriteai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Hypotenuse AI",
+      "category": "Text / Writing assistants",
+      "url": "https://www.hypotenuse.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Jasper",
+      "category": "Text / Writing assistants",
+      "url": "https://www.jasper.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Jenni",
+      "category": "Text / Writing assistants",
+      "url": "https://jenni.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "LAIKA",
+      "category": "Text / Writing assistants",
+      "url": "https://www.writewithlaika.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Lavender",
+      "category": "Text / Writing assistants",
+      "url": "https://www.lavender.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Lex",
+      "category": "Text / Writing assistants",
+      "url": "https://lex.page/",
+      "source": "README.md"
+    },
+    {
+      "name": "Listomatic",
+      "category": "Text / Writing assistants",
+      "url": "https://listomatic.app",
+      "source": "README.md"
+    },
+    {
+      "name": "Moonbeam",
+      "category": "Text / Writing assistants",
+      "url": "https://www.gomoonbeam.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Nexus AI",
+      "category": "Text / Writing assistants",
+      "url": "https://mynexusai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Postwise",
+      "category": "Text / Writing assistants",
+      "url": "https://postwise.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "PulsePost",
+      "category": "Text / Writing assistants",
+      "url": "https://pulsepost.io/",
+      "source": "README.md"
+    },
+    {
+      "name": "Quick Creator",
+      "category": "Text / Writing assistants",
+      "url": "https://quickcreator.io",
+      "source": "README.md"
+    },
+    {
+      "name": "QuillBot",
+      "category": "Text / Writing assistants",
+      "url": "https://quillbot.com",
+      "source": "README.md"
+    },
+    {
+      "name": "RapidTextAI",
+      "category": "Text / Writing assistants",
+      "url": "https://app.rapidtextai.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Rytr",
+      "category": "Text / Writing assistants",
+      "url": "https://rytr.me/",
+      "source": "README.md"
+    },
+    {
+      "name": "Shy Editor",
+      "category": "Text / Writing assistants",
+      "url": "https://www.shyeditor.com",
+      "source": "README.md"
+    },
+    {
+      "name": "Trolly.ai",
+      "category": "Text / Writing assistants",
+      "url": "https://trolly.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "wordtune",
+      "category": "Text / Writing assistants",
+      "url": "https://www.wordtune.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Yomu",
+      "category": "Text / Writing assistants",
+      "url": "https://www.yomu.ai",
+      "source": "README.md"
+    },
+    {
+      "name": "Based AI",
+      "category": "Video",
+      "url": "https://www.basedlabs.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Clipwing",
+      "category": "Video",
+      "url": "https://clipwing.pro/",
+      "source": "README.md"
+    },
+    {
+      "name": "D-ID",
+      "category": "Video",
+      "url": "https://www.d-id.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "Hour One",
+      "category": "Video",
+      "url": "https://hourone.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "klingai",
+      "category": "Video",
+      "url": "https://app.klingai.com/global/",
+      "source": "README.md"
+    },
+    {
+      "name": "Recast Studio",
+      "category": "Video",
+      "url": "https://recast.studio",
+      "source": "README.md"
+    },
+    {
+      "name": "Rephrase AI",
+      "category": "Video",
+      "url": "https://www.rephrase.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "RunwayML",
+      "category": "Video",
+      "url": "https://runwayml.com/",
+      "source": "README.md"
+    },
+    {
+      "name": "ShortVideoGen",
+      "category": "Video",
+      "url": "https://shortgen.video/",
+      "source": "README.md"
+    },
+    {
+      "name": "Sisif",
+      "category": "Video",
+      "url": "https://sisif.ai/",
+      "source": "README.md"
+    },
+    {
+      "name": "Synthesia",
+      "category": "Video",
+      "url": "https://www.synthesia.io/",
+      "source": "README.md"
+    }
+  ]
+}

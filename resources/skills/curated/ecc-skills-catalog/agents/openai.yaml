@@ -1,0 +1,14 @@
+interface:
+  display_name: ECC Skills Catalog
+  short_description: Search and apply all 284 ECC workflows
+  default_prompt: Use $ecc-skills-catalog to find and apply the best ECC workflow
+    for this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

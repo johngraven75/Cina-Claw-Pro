@@ -15,6 +15,7 @@ const checks = [
   ['applyCinaClawAutonomyDefaults', 'electron/utils/cina-claw-defaults.ts'],
   ['safeStorage.encryptString', 'electron/services/secrets/secret-store.ts'],
   ['webapp-testing', 'resources/skills/preinstalled-manifest.json'],
+  ['cina-curated-2026.08.13', 'resources/skills/preinstalled-manifest.json'],
   ['export function Agents', 'src/pages/Agents/index.tsx'],
   ['export function Cron', 'src/pages/Cron/index.tsx'],
   ['"commandCenter"', 'shared/i18n/locales/en/chat.json'],

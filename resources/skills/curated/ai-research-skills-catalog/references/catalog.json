@@ -1,0 +1,497 @@
+{
+  "repo": "Orchestra-Research/AI-Research-SKILLs",
+  "snapshot_commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
+  "entry_count": 98,
+  "entries": [
+    {
+      "name": "autoresearch",
+      "category": "autoresearch",
+      "path": "0-autoresearch-skill/SKILL.md"
+    },
+    {
+      "name": "litgpt",
+      "category": "model-architecture",
+      "path": "01-model-architecture/litgpt/SKILL.md"
+    },
+    {
+      "name": "mamba",
+      "category": "model-architecture",
+      "path": "01-model-architecture/mamba/SKILL.md"
+    },
+    {
+      "name": "nanogpt",
+      "category": "model-architecture",
+      "path": "01-model-architecture/nanogpt/SKILL.md"
+    },
+    {
+      "name": "rwkv",
+      "category": "model-architecture",
+      "path": "01-model-architecture/rwkv/SKILL.md"
+    },
+    {
+      "name": "torchtitan",
+      "category": "model-architecture",
+      "path": "01-model-architecture/torchtitan/SKILL.md"
+    },
+    {
+      "name": "huggingface-tokenizers",
+      "category": "tokenization",
+      "path": "02-tokenization/huggingface-tokenizers/SKILL.md"
+    },
+    {
+      "name": "sentencepiece",
+      "category": "tokenization",
+      "path": "02-tokenization/sentencepiece/SKILL.md"
+    },
+    {
+      "name": "axolotl",
+      "category": "fine-tuning",
+      "path": "03-fine-tuning/axolotl/SKILL.md"
+    },
+    {
+      "name": "llama-factory",
+      "category": "fine-tuning",
+      "path": "03-fine-tuning/llama-factory/SKILL.md"
+    },
+    {
+      "name": "peft",
+      "category": "fine-tuning",
+      "path": "03-fine-tuning/peft/SKILL.md"
+    },
+    {
+      "name": "unsloth",
+      "category": "fine-tuning",
+      "path": "03-fine-tuning/unsloth/SKILL.md"
+    },
+    {
+      "name": "nnsight",
+      "category": "mechanistic-interpretability",
+      "path": "04-mechanistic-interpretability/nnsight/SKILL.md"
+    },
+    {
+      "name": "pyvene",
+      "category": "mechanistic-interpretability",
+      "path": "04-mechanistic-interpretability/pyvene/SKILL.md"
+    },
+    {
+      "name": "saelens",
+      "category": "mechanistic-interpretability",
+      "path": "04-mechanistic-interpretability/saelens/SKILL.md"
+    },
+    {
+      "name": "transformer-lens",
+      "category": "mechanistic-interpretability",
+      "path": "04-mechanistic-interpretability/transformer-lens/SKILL.md"
+    },
+    {
+      "name": "nemo-curator",
+      "category": "data-processing",
+      "path": "05-data-processing/nemo-curator/SKILL.md"
+    },
+    {
+      "name": "ray-data",
+      "category": "data-processing",
+      "path": "05-data-processing/ray-data/SKILL.md"
+    },
+    {
+      "name": "grpo-rl-training",
+      "category": "post-training",
+      "path": "06-post-training/grpo-rl-training/SKILL.md"
+    },
+    {
+      "name": "miles",
+      "category": "post-training",
+      "path": "06-post-training/miles/SKILL.md"
+    },
+    {
+      "name": "openrlhf",
+      "category": "post-training",
+      "path": "06-post-training/openrlhf/SKILL.md"
+    },
+    {
+      "name": "simpo",
+      "category": "post-training",
+      "path": "06-post-training/simpo/SKILL.md"
+    },
+    {
+      "name": "slime",
+      "category": "post-training",
+      "path": "06-post-training/slime/SKILL.md"
+    },
+    {
+      "name": "torchforge",
+      "category": "post-training",
+      "path": "06-post-training/torchforge/SKILL.md"
+    },
+    {
+      "name": "trl-fine-tuning",
+      "category": "post-training",
+      "path": "06-post-training/trl-fine-tuning/SKILL.md"
+    },
+    {
+      "name": "verl",
+      "category": "post-training",
+      "path": "06-post-training/verl/SKILL.md"
+    },
+    {
+      "name": "constitutional-ai",
+      "category": "safety-alignment",
+      "path": "07-safety-alignment/constitutional-ai/SKILL.md"
+    },
+    {
+      "name": "llamaguard",
+      "category": "safety-alignment",
+      "path": "07-safety-alignment/llamaguard/SKILL.md"
+    },
+    {
+      "name": "nemo-guardrails",
+      "category": "safety-alignment",
+      "path": "07-safety-alignment/nemo-guardrails/SKILL.md"
+    },
+    {
+      "name": "prompt-guard",
+      "category": "safety-alignment",
+      "path": "07-safety-alignment/prompt-guard/SKILL.md"
+    },
+    {
+      "name": "accelerate",
+      "category": "distributed-training",
+      "path": "08-distributed-training/accelerate/SKILL.md"
+    },
+    {
+      "name": "deepspeed",
+      "category": "distributed-training",
+      "path": "08-distributed-training/deepspeed/SKILL.md"
+    },
+    {
+      "name": "megatron-core",
+      "category": "distributed-training",
+      "path": "08-distributed-training/megatron-core/SKILL.md"
+    },
+    {
+      "name": "pytorch-fsdp2",
+      "category": "distributed-training",
+      "path": "08-distributed-training/pytorch-fsdp2/SKILL.md"
+    },
+    {
+      "name": "pytorch-lightning",
+      "category": "distributed-training",
+      "path": "08-distributed-training/pytorch-lightning/SKILL.md"
+    },
+    {
+      "name": "ray-train",
+      "category": "distributed-training",
+      "path": "08-distributed-training/ray-train/SKILL.md"
+    },
+    {
+      "name": "lambda-labs",
+      "category": "infrastructure",
+      "path": "09-infrastructure/lambda-labs/SKILL.md"
+    },
+    {
+      "name": "modal",
+      "category": "infrastructure",
+      "path": "09-infrastructure/modal/SKILL.md"
+    },
+    {
+      "name": "skypilot",
+      "category": "infrastructure",
+      "path": "09-infrastructure/skypilot/SKILL.md"
+    },
+    {
+      "name": "awq",
+      "category": "optimization",
+      "path": "10-optimization/awq/SKILL.md"
+    },
+    {
+      "name": "bitsandbytes",
+      "category": "optimization",
+      "path": "10-optimization/bitsandbytes/SKILL.md"
+    },
+    {
+      "name": "flash-attention",
+      "category": "optimization",
+      "path": "10-optimization/flash-attention/SKILL.md"
+    },
+    {
+      "name": "gguf",
+      "category": "optimization",
+      "path": "10-optimization/gguf/SKILL.md"
+    },
+    {
+      "name": "gptq",
+      "category": "optimization",
+      "path": "10-optimization/gptq/SKILL.md"
+    },
+    {
+      "name": "hqq",
+      "category": "optimization",
+      "path": "10-optimization/hqq/SKILL.md"
+    },
+    {
+      "name": "ml-training-recipes",
+      "category": "optimization",
+      "path": "10-optimization/ml-training-recipes/SKILL.md"
+    },
+    {
+      "name": "bigcode-evaluation-harness",
+      "category": "evaluation",
+      "path": "11-evaluation/bigcode-evaluation-harness/SKILL.md"
+    },
+    {
+      "name": "lm-evaluation-harness",
+      "category": "evaluation",
+      "path": "11-evaluation/lm-evaluation-harness/SKILL.md"
+    },
+    {
+      "name": "nemo-evaluator",
+      "category": "evaluation",
+      "path": "11-evaluation/nemo-evaluator/SKILL.md"
+    },
+    {
+      "name": "llama-cpp",
+      "category": "inference-serving",
+      "path": "12-inference-serving/llama-cpp/SKILL.md"
+    },
+    {
+      "name": "sglang",
+      "category": "inference-serving",
+      "path": "12-inference-serving/sglang/SKILL.md"
+    },
+    {
+      "name": "tensorrt-llm",
+      "category": "inference-serving",
+      "path": "12-inference-serving/tensorrt-llm/SKILL.md"
+    },
+    {
+      "name": "vllm",
+      "category": "inference-serving",
+      "path": "12-inference-serving/vllm/SKILL.md"
+    },
+    {
+      "name": "mlflow",
+      "category": "mlops",
+      "path": "13-mlops/mlflow/SKILL.md"
+    },
+    {
+      "name": "swanlab",
+      "category": "mlops",
+      "path": "13-mlops/swanlab/SKILL.md"
+    },
+    {
+      "name": "tensorboard",
+      "category": "mlops",
+      "path": "13-mlops/tensorboard/SKILL.md"
+    },
+    {
+      "name": "weights-and-biases",
+      "category": "mlops",
+      "path": "13-mlops/weights-and-biases/SKILL.md"
+    },
+    {
+      "name": "a-evolve",
+      "category": "agents",
+      "path": "14-agents/a-evolve/SKILL.md"
+    },
+    {
+      "name": "autogpt",
+      "category": "agents",
+      "path": "14-agents/autogpt/SKILL.md"
+    },
+    {
+      "name": "crewai",
+      "category": "agents",
+      "path": "14-agents/crewai/SKILL.md"
+    },
+    {
+      "name": "langchain",
+      "category": "agents",
+      "path": "14-agents/langchain/SKILL.md"
+    },
+    {
+      "name": "llamaindex",
+      "category": "agents",
+      "path": "14-agents/llamaindex/SKILL.md"
+    },
+    {
+      "name": "chroma",
+      "category": "rag",
+      "path": "15-rag/chroma/SKILL.md"
+    },
+    {
+      "name": "faiss",
+      "category": "rag",
+      "path": "15-rag/faiss/SKILL.md"
+    },
+    {
+      "name": "pinecone",
+      "category": "rag",
+      "path": "15-rag/pinecone/SKILL.md"
+    },
+    {
+      "name": "qdrant",
+      "category": "rag",
+      "path": "15-rag/qdrant/SKILL.md"
+    },
+    {
+      "name": "sentence-transformers",
+      "category": "rag",
+      "path": "15-rag/sentence-transformers/SKILL.md"
+    },
+    {
+      "name": "dspy",
+      "category": "prompt-engineering",
+      "path": "16-prompt-engineering/dspy/SKILL.md"
+    },
+    {
+      "name": "guidance",
+      "category": "prompt-engineering",
+      "path": "16-prompt-engineering/guidance/SKILL.md"
+    },
+    {
+      "name": "instructor",
+      "category": "prompt-engineering",
+      "path": "16-prompt-engineering/instructor/SKILL.md"
+    },
+    {
+      "name": "outlines",
+      "category": "prompt-engineering",
+      "path": "16-prompt-engineering/outlines/SKILL.md"
+    },
+    {
+      "name": "langsmith",
+      "category": "observability",
+      "path": "17-observability/langsmith/SKILL.md"
+    },
+    {
+      "name": "phoenix",
+      "category": "observability",
+      "path": "17-observability/phoenix/SKILL.md"
+    },
+    {
+      "name": "audiocraft",
+      "category": "multimodal",
+      "path": "18-multimodal/audiocraft/SKILL.md"
+    },
+    {
+      "name": "blip-2",
+      "category": "multimodal",
+      "path": "18-multimodal/blip-2/SKILL.md"
+    },
+    {
+      "name": "clip",
+      "category": "multimodal",
+      "path": "18-multimodal/clip/SKILL.md"
+    },
+    {
+      "name": "cosmos-policy",
+      "category": "multimodal",
+      "path": "18-multimodal/cosmos-policy/SKILL.md"
+    },
+    {
+      "name": "llava",
+      "category": "multimodal",
+      "path": "18-multimodal/llava/SKILL.md"
+    },
+    {
+      "name": "openpi",
+      "category": "multimodal",
+      "path": "18-multimodal/openpi/SKILL.md"
+    },
+    {
+      "name": "openvla-oft",
+      "category": "multimodal",
+      "path": "18-multimodal/openvla-oft/SKILL.md"
+    },
+    {
+      "name": "segment-anything",
+      "category": "multimodal",
+      "path": "18-multimodal/segment-anything/SKILL.md"
+    },
+    {
+      "name": "stable-diffusion",
+      "category": "multimodal",
+      "path": "18-multimodal/stable-diffusion/SKILL.md"
+    },
+    {
+      "name": "whisper",
+      "category": "multimodal",
+      "path": "18-multimodal/whisper/SKILL.md"
+    },
+    {
+      "name": "knowledge-distillation",
+      "category": "emerging-techniques",
+      "path": "19-emerging-techniques/knowledge-distillation/SKILL.md"
+    },
+    {
+      "name": "long-context",
+      "category": "emerging-techniques",
+      "path": "19-emerging-techniques/long-context/SKILL.md"
+    },
+    {
+      "name": "model-merging",
+      "category": "emerging-techniques",
+      "path": "19-emerging-techniques/model-merging/SKILL.md"
+    },
+    {
+      "name": "model-pruning",
+      "category": "emerging-techniques",
+      "path": "19-emerging-techniques/model-pruning/SKILL.md"
+    },
+    {
+      "name": "moe-training",
+      "category": "emerging-techniques",
+      "path": "19-emerging-techniques/moe-training/SKILL.md"
+    },
+    {
+      "name": "speculative-decoding",
+      "category": "emerging-techniques",
+      "path": "19-emerging-techniques/speculative-decoding/SKILL.md"
+    },
+    {
+      "name": "academic-plotting",
+      "category": "ml-paper-writing",
+      "path": "20-ml-paper-writing/academic-plotting/SKILL.md"
+    },
+    {
+      "name": "ml-paper-writing",
+      "category": "ml-paper-writing",
+      "path": "20-ml-paper-writing/ml-paper-writing/SKILL.md"
+    },
+    {
+      "name": "presenting-conference-talks",
+      "category": "ml-paper-writing",
+      "path": "20-ml-paper-writing/presenting-conference-talks/SKILL.md"
+    },
+    {
+      "name": "systems-paper-writing",
+      "category": "ml-paper-writing",
+      "path": "20-ml-paper-writing/systems-paper-writing/SKILL.md"
+    },
+    {
+      "name": "brainstorming-research-ideas",
+      "category": "research-ideation",
+      "path": "21-research-ideation/brainstorming-research-ideas/SKILL.md"
+    },
+    {
+      "name": "creative-thinking-for-research",
+      "category": "research-ideation",
+      "path": "21-research-ideation/creative-thinking-for-research/SKILL.md"
+    },
+    {
+      "name": "compiler",
+      "category": "agent-native-research-artifact",
+      "path": "22-agent-native-research-artifact/compiler/SKILL.md"
+    },
+    {
+      "name": "research-manager",
+      "category": "agent-native-research-artifact",
+      "path": "22-agent-native-research-artifact/research-manager/SKILL.md"
+    },
+    {
+      "name": "rigor-reviewer",
+      "category": "agent-native-research-artifact",
+      "path": "22-agent-native-research-artifact/rigor-reviewer/SKILL.md"
+    }
+  ]
+}

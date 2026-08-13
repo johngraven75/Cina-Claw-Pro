@@ -1,0 +1,6 @@
+interface:
+  display_name: "Swarms Framework"
+  short_description: "Build bounded Swarms multi-agent workflows"
+  default_prompt: "Use $swarms-framework to design, implement, test, or troubleshoot a bounded workflow with the Swarms framework."
+policy:
+  allow_implicit_invocation: true

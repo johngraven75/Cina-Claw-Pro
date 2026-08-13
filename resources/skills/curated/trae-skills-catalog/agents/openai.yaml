@@ -1,0 +1,14 @@
+interface:
+  display_name: TRAE Skills Catalog
+  short_description: Search curated software engineering implementation recipes
+  default_prompt: Use $trae-skills-catalog to find and apply the most relevant engineering
+    recipes for this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

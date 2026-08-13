@@ -1,0 +1,14 @@
+interface:
+  display_name: AI Shortfilm Prompt
+  short_description: Create structured cinematic AI video prompts
+  default_prompt: Use $shortfilm-prompt to create a copy-paste-ready cinematic video
+    prompt.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,13 @@
+interface:
+  display_name: UI/UX Pro Max
+  short_description: Design intelligence for polished interfaces
+  default_prompt: Use $ui-ux-pro-max to create a complete design system for this interface.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

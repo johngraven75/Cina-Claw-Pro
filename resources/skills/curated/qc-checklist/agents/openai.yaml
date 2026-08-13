@@ -1,0 +1,13 @@
+interface:
+  display_name: Quality Control Checklist
+  short_description: Build measurable pass/fail quality checks
+  default_prompt: Use $qc-checklist to turn this process into an operational QC checklist.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

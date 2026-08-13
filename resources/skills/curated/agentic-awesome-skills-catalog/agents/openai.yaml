@@ -1,0 +1,14 @@
+interface:
+  display_name: Agentic Awesome Skills
+  short_description: Search the AAS and Antigravity catalog
+  default_prompt: Use $agentic-awesome-skills-catalog to find a relevant upstream
+    skill and adapt it safely.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

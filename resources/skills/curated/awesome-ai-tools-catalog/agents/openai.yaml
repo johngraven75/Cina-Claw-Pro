@@ -1,0 +1,6 @@
+interface:
+  display_name: "Awesome AI Tools Catalog"
+  short_description: "Search a curated catalog of AI tools"
+  default_prompt: "Use $awesome-ai-tools-catalog to find and independently verify AI tools that fit this task."
+policy:
+  allow_implicit_invocation: true

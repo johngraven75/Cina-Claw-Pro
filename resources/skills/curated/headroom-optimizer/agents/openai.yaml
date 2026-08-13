@@ -1,0 +1,14 @@
+interface:
+  display_name: Headroom Optimizer
+  short_description: Configure Headroom context optimization safely
+  default_prompt: Use $headroom-optimizer to plan, configure, or troubleshoot Headroom
+    without exposing model traffic or credentials.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

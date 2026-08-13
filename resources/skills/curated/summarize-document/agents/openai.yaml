@@ -1,0 +1,14 @@
+interface:
+  display_name: Document Summarization
+  short_description: Create faithful decision-ready document digests
+  default_prompt: Use $summarize-document to produce a faithful, role-specific digest
+    of this document.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

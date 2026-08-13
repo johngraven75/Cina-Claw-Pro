@@ -1,0 +1,14 @@
+interface:
+  display_name: Weekly Status Report
+  short_description: Turn scattered updates into a concise status report
+  default_prompt: Use $weekly-status-report to turn these updates into an audience-ready
+    weekly report.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

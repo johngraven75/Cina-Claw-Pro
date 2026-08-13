@@ -1,0 +1,275 @@
+{
+  "repo": "Jeffallan/claude-skills",
+  "snapshot_commit": "882ef55e377dbf9a4dbe496bb41ac6ccd0e555cf",
+  "entry_count": 67,
+  "entries": [
+    {
+      "name": "angular-architect",
+      "path": "skills/angular-architect/SKILL.md"
+    },
+    {
+      "name": "api-designer",
+      "path": "skills/api-designer/SKILL.md"
+    },
+    {
+      "name": "architecture-designer",
+      "path": "skills/architecture-designer/SKILL.md"
+    },
+    {
+      "name": "atlassian-mcp",
+      "path": "skills/atlassian-mcp/SKILL.md"
+    },
+    {
+      "name": "chaos-engineer",
+      "path": "skills/chaos-engineer/SKILL.md"
+    },
+    {
+      "name": "cli-developer",
+      "path": "skills/cli-developer/SKILL.md"
+    },
+    {
+      "name": "cloud-architect",
+      "path": "skills/cloud-architect/SKILL.md"
+    },
+    {
+      "name": "code-documenter",
+      "path": "skills/code-documenter/SKILL.md"
+    },
+    {
+      "name": "code-reviewer",
+      "path": "skills/code-reviewer/SKILL.md"
+    },
+    {
+      "name": "cpp-pro",
+      "path": "skills/cpp-pro/SKILL.md"
+    },
+    {
+      "name": "csharp-developer",
+      "path": "skills/csharp-developer/SKILL.md"
+    },
+    {
+      "name": "database-optimizer",
+      "path": "skills/database-optimizer/SKILL.md"
+    },
+    {
+      "name": "debugging-wizard",
+      "path": "skills/debugging-wizard/SKILL.md"
+    },
+    {
+      "name": "devops-engineer",
+      "path": "skills/devops-engineer/SKILL.md"
+    },
+    {
+      "name": "django-expert",
+      "path": "skills/django-expert/SKILL.md"
+    },
+    {
+      "name": "django-storages-s3",
+      "path": "skills/django-storages-s3/SKILL.md"
+    },
+    {
+      "name": "dotnet-core-expert",
+      "path": "skills/dotnet-core-expert/SKILL.md"
+    },
+    {
+      "name": "embedded-systems",
+      "path": "skills/embedded-systems/SKILL.md"
+    },
+    {
+      "name": "fastapi-expert",
+      "path": "skills/fastapi-expert/SKILL.md"
+    },
+    {
+      "name": "feature-forge",
+      "path": "skills/feature-forge/SKILL.md"
+    },
+    {
+      "name": "fine-tuning-expert",
+      "path": "skills/fine-tuning-expert/SKILL.md"
+    },
+    {
+      "name": "flutter-expert",
+      "path": "skills/flutter-expert/SKILL.md"
+    },
+    {
+      "name": "fullstack-guardian",
+      "path": "skills/fullstack-guardian/SKILL.md"
+    },
+    {
+      "name": "game-developer",
+      "path": "skills/game-developer/SKILL.md"
+    },
+    {
+      "name": "golang-pro",
+      "path": "skills/golang-pro/SKILL.md"
+    },
+    {
+      "name": "graphql-architect",
+      "path": "skills/graphql-architect/SKILL.md"
+    },
+    {
+      "name": "java-architect",
+      "path": "skills/java-architect/SKILL.md"
+    },
+    {
+      "name": "javascript-pro",
+      "path": "skills/javascript-pro/SKILL.md"
+    },
+    {
+      "name": "kotlin-specialist",
+      "path": "skills/kotlin-specialist/SKILL.md"
+    },
+    {
+      "name": "kubernetes-specialist",
+      "path": "skills/kubernetes-specialist/SKILL.md"
+    },
+    {
+      "name": "laravel-specialist",
+      "path": "skills/laravel-specialist/SKILL.md"
+    },
+    {
+      "name": "legacy-modernizer",
+      "path": "skills/legacy-modernizer/SKILL.md"
+    },
+    {
+      "name": "mcp-developer",
+      "path": "skills/mcp-developer/SKILL.md"
+    },
+    {
+      "name": "microservices-architect",
+      "path": "skills/microservices-architect/SKILL.md"
+    },
+    {
+      "name": "ml-pipeline",
+      "path": "skills/ml-pipeline/SKILL.md"
+    },
+    {
+      "name": "monitoring-expert",
+      "path": "skills/monitoring-expert/SKILL.md"
+    },
+    {
+      "name": "nestjs-expert",
+      "path": "skills/nestjs-expert/SKILL.md"
+    },
+    {
+      "name": "nextjs-developer",
+      "path": "skills/nextjs-developer/SKILL.md"
+    },
+    {
+      "name": "pandas-pro",
+      "path": "skills/pandas-pro/SKILL.md"
+    },
+    {
+      "name": "php-pro",
+      "path": "skills/php-pro/SKILL.md"
+    },
+    {
+      "name": "playwright-expert",
+      "path": "skills/playwright-expert/SKILL.md"
+    },
+    {
+      "name": "postgres-pro",
+      "path": "skills/postgres-pro/SKILL.md"
+    },
+    {
+      "name": "prompt-engineer",
+      "path": "skills/prompt-engineer/SKILL.md"
+    },
+    {
+      "name": "python-pro",
+      "path": "skills/python-pro/SKILL.md"
+    },
+    {
+      "name": "rag-architect",
+      "path": "skills/rag-architect/SKILL.md"
+    },
+    {
+      "name": "rails-expert",
+      "path": "skills/rails-expert/SKILL.md"
+    },
+    {
+      "name": "react-expert",
+      "path": "skills/react-expert/SKILL.md"
+    },
+    {
+      "name": "react-native-expert",
+      "path": "skills/react-native-expert/SKILL.md"
+    },
+    {
+      "name": "rust-engineer",
+      "path": "skills/rust-engineer/SKILL.md"
+    },
+    {
+      "name": "salesforce-developer",
+      "path": "skills/salesforce-developer/SKILL.md"
+    },
+    {
+      "name": "secure-code-guardian",
+      "path": "skills/secure-code-guardian/SKILL.md"
+    },
+    {
+      "name": "security-reviewer",
+      "path": "skills/security-reviewer/SKILL.md"
+    },
+    {
+      "name": "shopify-expert",
+      "path": "skills/shopify-expert/SKILL.md"
+    },
+    {
+      "name": "spark-engineer",
+      "path": "skills/spark-engineer/SKILL.md"
+    },
+    {
+      "name": "spec-miner",
+      "path": "skills/spec-miner/SKILL.md"
+    },
+    {
+      "name": "spring-boot-engineer",
+      "path": "skills/spring-boot-engineer/SKILL.md"
+    },
+    {
+      "name": "sql-pro",
+      "path": "skills/sql-pro/SKILL.md"
+    },
+    {
+      "name": "sre-engineer",
+      "path": "skills/sre-engineer/SKILL.md"
+    },
+    {
+      "name": "swift-expert",
+      "path": "skills/swift-expert/SKILL.md"
+    },
+    {
+      "name": "terraform-engineer",
+      "path": "skills/terraform-engineer/SKILL.md"
+    },
+    {
+      "name": "test-master",
+      "path": "skills/test-master/SKILL.md"
+    },
+    {
+      "name": "the-fool",
+      "path": "skills/the-fool/SKILL.md"
+    },
+    {
+      "name": "typescript-pro",
+      "path": "skills/typescript-pro/SKILL.md"
+    },
+    {
+      "name": "vue-expert-js",
+      "path": "skills/vue-expert-js/SKILL.md"
+    },
+    {
+      "name": "vue-expert",
+      "path": "skills/vue-expert/SKILL.md"
+    },
+    {
+      "name": "websocket-engineer",
+      "path": "skills/websocket-engineer/SKILL.md"
+    },
+    {
+      "name": "wordpress-pro",
+      "path": "skills/wordpress-pro/SKILL.md"
+    }
+  ]
+}

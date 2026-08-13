@@ -1,0 +1,6 @@
+interface:
+  display_name: "HTML Anything Catalog"
+  short_description: "Search 81 HTML design and content templates"
+  default_prompt: "Use $html-anything-catalog to choose a design template and create a polished standalone HTML artifact."
+policy:
+  allow_implicit_invocation: true

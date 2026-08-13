@@ -1,0 +1,14 @@
+interface:
+  display_name: OpenAgent Skills Catalog
+  short_description: Find workflows from oh-my-openagent
+  default_prompt: Use $openagent-skills-catalog to find and safely adapt the best
+    oh-my-openagent workflow.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

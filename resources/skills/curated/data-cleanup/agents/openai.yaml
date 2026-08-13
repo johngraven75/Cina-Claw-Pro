@@ -1,0 +1,13 @@
+interface:
+  display_name: Data Cleanup
+  short_description: Clean messy tabular data without silent changes
+  default_prompt: Use $data-cleanup to profile and safely clean this dataset.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

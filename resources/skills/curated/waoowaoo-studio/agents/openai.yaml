@@ -1,0 +1,6 @@
+interface:
+  display_name: "Waoowaoo Studio"
+  short_description: "Develop and operate the AI video studio safely"
+  default_prompt: "Use $waoowaoo-studio to configure, develop, or troubleshoot waoowaoo with safe local defaults."
+policy:
+  allow_implicit_invocation: true

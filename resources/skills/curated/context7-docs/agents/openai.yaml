@@ -1,0 +1,14 @@
+interface:
+  display_name: Context7 Docs
+  short_description: Look up current library documentation safely
+  default_prompt: Use $context7-docs to resolve this library and retrieve focused
+    current documentation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
