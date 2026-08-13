@@ -1,6 +1,8 @@
 import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -86,5 +88,25 @@ test('all 40 reviewed Cina adapters are declared, auto-enabled, and name-aligned
     assert.match(entry.version, /^cina-curated-\d{4}\.\d{2}\.\d{2}$/);
     const skill = readFileSync(new URL(`${entry.localPath}/SKILL.md`, root), 'utf8');
     assert.match(skill, new RegExp(`^name: ${entry.slug}$`, 'm'));
+  }
+});
+
+test('catalog searchers reject empty queries instead of returning arbitrary skills', () => {
+  const root = new URL('..', import.meta.url);
+  for (const slug of ['google-agent-skills-catalog', 'voltagent-awesome-agent-skills-catalog']) {
+    const skillRoot = new URL(`resources/skills/curated/${slug}/`, root);
+    const result = spawnSync(
+      'python3',
+      [
+        fileURLToPath(new URL('scripts/search_catalog.py', skillRoot)),
+        fileURLToPath(new URL('references/catalog.json', skillRoot)),
+        '   ',
+      ],
+      { encoding: 'utf8' },
+    );
+
+    assert.equal(result.status, 2, `${slug} should reject an empty query`);
+    assert.match(result.stderr, /query must not be empty/);
+    assert.equal(result.stdout, '');
   }
 });
