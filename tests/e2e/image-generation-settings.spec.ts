@@ -46,11 +46,20 @@ test.describe('Image generation settings page', () => {
 
     await expect(page.getByTestId('image-generation-settings')).toBeVisible();
     await expect(page.getByTestId('image-generation-relay-base-url')).toBeVisible();
+    await expect(page.getByTestId('image-generation-refresh')).toHaveAccessibleName('Refresh');
     await page.getByTestId('image-generation-relay-base-url').fill('https://api.example.com/v1');
     await page.getByTestId('image-generation-relay-model').fill('gpt-image-2');
     await page.getByTestId('image-generation-relay-api-key').fill('sk-test-image');
 
     await expect(page.getByTestId('image-generation-relay-model')).toHaveValue('gpt-image-2');
+    const apiKeyInput = page.getByTestId('image-generation-relay-api-key');
+    const visibilityToggle = page.getByTestId('image-generation-relay-api-key-visibility');
+    await expect(apiKeyInput).toHaveAttribute('type', 'password');
+    await expect(visibilityToggle).toHaveAccessibleName('Show');
+    await visibilityToggle.click();
+    await expect(apiKeyInput).toHaveAttribute('type', 'text');
+    await expect(visibilityToggle).toHaveAccessibleName('Hide');
+    await expect(visibilityToggle).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByTestId('image-generation-save')).toBeEnabled();
   });
 
