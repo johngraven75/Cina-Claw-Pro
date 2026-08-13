@@ -1,0 +1,14 @@
+interface:
+  display_name: Meeting Notes to Actions
+  short_description: Extract decisions, owners, deadlines, and follow-ups
+  default_prompt: Use $meeting-notes-to-actions to turn these notes into accountable
+    action items.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+interface:
+  display_name: OmniRoute Gateway
+  short_description: Operate OmniRoute with version-aware checks
+  default_prompt: Use $omniroute-gateway to inspect or troubleshoot OmniRoute using
+    current upstream guidance.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

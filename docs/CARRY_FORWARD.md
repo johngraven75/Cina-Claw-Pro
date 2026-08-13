@@ -18,6 +18,7 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Guarded planning and delegation | `applyCinaClawAutonomyDefaults` | `electron/utils/cina-claw-defaults.ts` |
 | OS-backed secret encryption | `safeStorage.encryptString` | `electron/services/secrets/secret-store.ts` |
 | Official skill bundle | `webapp-testing` | `resources/skills/preinstalled-manifest.json` |
+| Reviewed curated skill bundle | `cina-curated-2026.08.13` | `resources/skills/preinstalled-manifest.json` |
 | Multi-agent management | `export function Agents` | `src/pages/Agents/index.tsx` |
 | Scheduled automations | `export function Cron` | `src/pages/Cron/index.tsx` |
 | Four-locale UI | `"commandCenter"` | `shared/i18n/locales/en/chat.json` |

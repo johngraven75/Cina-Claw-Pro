@@ -1,0 +1,14 @@
+interface:
+  display_name: Playwright Browser Automation
+  short_description: Test and automate websites with Playwright
+  default_prompt: Use $playwright-skill to automate and verify this website in a real
+    browser.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+interface:
+  display_name: Agent Reach
+  short_description: Route safe read-only research across web platforms
+  default_prompt: Use $agent-reach to choose safe read-only sources for this internet
+    research task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

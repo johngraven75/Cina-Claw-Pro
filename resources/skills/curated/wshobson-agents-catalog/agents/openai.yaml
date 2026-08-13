@@ -1,0 +1,14 @@
+interface:
+  display_name: Wshobson Agents Catalog
+  short_description: Search 175 cross-harness skills
+  default_prompt: Use $wshobson-agents-catalog to find and safely adapt a workflow
+    from wshobson/agents.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

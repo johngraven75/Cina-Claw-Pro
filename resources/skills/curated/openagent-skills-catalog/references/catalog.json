@@ -1,0 +1,75 @@
+{
+  "repo": "code-yeongyu/oh-my-openagent",
+  "snapshot_commit": "c26b8febdb6bd58c5240710ad55b9eddbb1c0471",
+  "entry_count": 17,
+  "entries": [
+    {
+      "name": "ast-grep",
+      "path": "packages/shared-skills/skills/ast-grep/SKILL.md"
+    },
+    {
+      "name": "coding-agent-sessions",
+      "path": "packages/shared-skills/skills/coding-agent-sessions/SKILL.md"
+    },
+    {
+      "name": "data-scientist",
+      "path": "packages/shared-skills/skills/data-scientist/SKILL.md"
+    },
+    {
+      "name": "debugging",
+      "path": "packages/shared-skills/skills/debugging/SKILL.md"
+    },
+    {
+      "name": "frontend",
+      "path": "packages/shared-skills/skills/frontend/SKILL.md"
+    },
+    {
+      "name": "git-master",
+      "path": "packages/shared-skills/skills/git-master/SKILL.md"
+    },
+    {
+      "name": "init-deep",
+      "path": "packages/shared-skills/skills/init-deep/SKILL.md"
+    },
+    {
+      "name": "lsp-setup",
+      "path": "packages/shared-skills/skills/lsp-setup/SKILL.md"
+    },
+    {
+      "name": "programming",
+      "path": "packages/shared-skills/skills/programming/SKILL.md"
+    },
+    {
+      "name": "refactor",
+      "path": "packages/shared-skills/skills/refactor/SKILL.md"
+    },
+    {
+      "name": "remove-ai-slops",
+      "path": "packages/shared-skills/skills/remove-ai-slops/SKILL.md"
+    },
+    {
+      "name": "review-work",
+      "path": "packages/shared-skills/skills/review-work/SKILL.md"
+    },
+    {
+      "name": "start-work",
+      "path": "packages/shared-skills/skills/start-work/SKILL.md"
+    },
+    {
+      "name": "ultimate-browsing",
+      "path": "packages/shared-skills/skills/ultimate-browsing/SKILL.md"
+    },
+    {
+      "name": "ulw-plan",
+      "path": "packages/shared-skills/skills/ulw-plan/SKILL.md"
+    },
+    {
+      "name": "ulw-research",
+      "path": "packages/shared-skills/skills/ulw-research/SKILL.md"
+    },
+    {
+      "name": "visual-qa",
+      "path": "packages/shared-skills/skills/visual-qa/SKILL.md"
+    }
+  ]
+}

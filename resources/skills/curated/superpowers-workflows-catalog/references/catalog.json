@@ -1,0 +1,62 @@
+{
+  "source": "https://github.com/obra/superpowers",
+  "snapshot_commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+  "entries": [
+    {
+      "name": "brainstorming",
+      "path": "skills/brainstorming/SKILL.md"
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "path": "skills/dispatching-parallel-agents/SKILL.md"
+    },
+    {
+      "name": "executing-plans",
+      "path": "skills/executing-plans/SKILL.md"
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "path": "skills/finishing-a-development-branch/SKILL.md"
+    },
+    {
+      "name": "receiving-code-review",
+      "path": "skills/receiving-code-review/SKILL.md"
+    },
+    {
+      "name": "requesting-code-review",
+      "path": "skills/requesting-code-review/SKILL.md"
+    },
+    {
+      "name": "subagent-driven-development",
+      "path": "skills/subagent-driven-development/SKILL.md"
+    },
+    {
+      "name": "systematic-debugging",
+      "path": "skills/systematic-debugging/SKILL.md"
+    },
+    {
+      "name": "test-driven-development",
+      "path": "skills/test-driven-development/SKILL.md"
+    },
+    {
+      "name": "using-git-worktrees",
+      "path": "skills/using-git-worktrees/SKILL.md"
+    },
+    {
+      "name": "using-superpowers",
+      "path": "skills/using-superpowers/SKILL.md"
+    },
+    {
+      "name": "verification-before-completion",
+      "path": "skills/verification-before-completion/SKILL.md"
+    },
+    {
+      "name": "writing-plans",
+      "path": "skills/writing-plans/SKILL.md"
+    },
+    {
+      "name": "writing-skills",
+      "path": "skills/writing-skills/SKILL.md"
+    }
+  ]
+}

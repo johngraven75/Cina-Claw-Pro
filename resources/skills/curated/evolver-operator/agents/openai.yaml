@@ -1,0 +1,6 @@
+interface:
+  display_name: "Evolver Operator"
+  short_description: "Review and apply agent improvements safely"
+  default_prompt: "Use $evolver-operator to review an Evolver improvement proposal without enabling autonomous or network behavior."
+policy:
+  allow_implicit_invocation: true

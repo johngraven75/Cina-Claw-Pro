@@ -1,0 +1,14 @@
+interface:
+  display_name: Production Product Builder
+  short_description: Ship complete, secure products and premium microsites
+  default_prompt: Use $production-product-builder to build and verify this product
+    end to end.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

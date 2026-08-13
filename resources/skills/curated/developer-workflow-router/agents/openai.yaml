@@ -1,0 +1,14 @@
+interface:
+  display_name: Developer Workflow Router
+  short_description: Route coding work through safe workflows
+  default_prompt: Use $developer-workflow-router to choose and run the safest workflow
+    for this development task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

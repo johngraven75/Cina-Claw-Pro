@@ -1,0 +1,521 @@
+{
+  "source": "https://github.com/browser-act/skills",
+  "snapshot_commit": "8f287271faa0c1df79a44578cb059102ff004da2",
+  "entries": [
+    {
+      "name": "browser-act",
+      "category": "core",
+      "path": "browser-act/SKILL.md"
+    },
+    {
+      "name": "browser-act-skill-forge",
+      "category": "core",
+      "path": "browser-act-skill-forge/SKILL.md"
+    },
+    {
+      "name": "1688-product-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/1688-product-detail/SKILL.md"
+    },
+    {
+      "name": "airbnb-listing-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/airbnb-listing-detail/SKILL.md"
+    },
+    {
+      "name": "airbnb-search-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/airbnb-search-listing/SKILL.md"
+    },
+    {
+      "name": "amazon-alexa-qa",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-alexa-qa/SKILL.md"
+    },
+    {
+      "name": "amazon-asin-lookup-api-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-asin-lookup-api-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-best-selling-products-finder-api-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-best-selling-products-finder-api-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-bestseller-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-bestseller-listing/SKILL.md"
+    },
+    {
+      "name": "amazon-buy-box-monitor-api-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-buy-box-monitor-api-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-competitor-analyzer",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-competitor-analyzer/SKILL.md"
+    },
+    {
+      "name": "amazon-listing-competitor-analysis-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-listing-competitor-analysis-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-product-api-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-product-api-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-product-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-product-detail/SKILL.md"
+    },
+    {
+      "name": "amazon-product-search-api-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-product-search-api-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-reviews-api-skill",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-reviews-api-skill/SKILL.md"
+    },
+    {
+      "name": "amazon-search-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/amazon-search-listing/SKILL.md"
+    },
+    {
+      "name": "ebay-item-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ebay-item-detail/SKILL.md"
+    },
+    {
+      "name": "ebay-search-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ebay-search-listing/SKILL.md"
+    },
+    {
+      "name": "ebay-sold-listings-search",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ebay-sold-listings-search/SKILL.md"
+    },
+    {
+      "name": "ecommerce-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ecommerce-listing/SKILL.md"
+    },
+    {
+      "name": "ecommerce-product-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ecommerce-product-detail/SKILL.md"
+    },
+    {
+      "name": "ecommerce-reviews",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ecommerce-reviews/SKILL.md"
+    },
+    {
+      "name": "ecommerce-seller-info",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/ecommerce-seller-info/SKILL.md"
+    },
+    {
+      "name": "etsy-category-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/etsy-category-listing/SKILL.md"
+    },
+    {
+      "name": "etsy-keyword-search",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/etsy-keyword-search/SKILL.md"
+    },
+    {
+      "name": "etsy-product-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/etsy-product-detail/SKILL.md"
+    },
+    {
+      "name": "etsy-shop-catalog",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/etsy-shop-catalog/SKILL.md"
+    },
+    {
+      "name": "goofish-item-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/goofish-item-detail/SKILL.md"
+    },
+    {
+      "name": "goofish-search-list",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/goofish-search-list/SKILL.md"
+    },
+    {
+      "name": "taobao-keyword-search",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/taobao-keyword-search/SKILL.md"
+    },
+    {
+      "name": "taobao-product-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/taobao-product-detail/SKILL.md"
+    },
+    {
+      "name": "taobao-product-reviews",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/taobao-product-reviews/SKILL.md"
+    },
+    {
+      "name": "taobao-shop-catalog",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/taobao-shop-catalog/SKILL.md"
+    },
+    {
+      "name": "walmart-category-listing",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/walmart-category-listing/SKILL.md"
+    },
+    {
+      "name": "walmart-keyword-search",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/walmart-keyword-search/SKILL.md"
+    },
+    {
+      "name": "walmart-product-detail",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/walmart-product-detail/SKILL.md"
+    },
+    {
+      "name": "walmart-product-reviews",
+      "category": "ecommerce",
+      "path": "solutions/ecommerce/walmart-product-reviews/SKILL.md"
+    },
+    {
+      "name": "business-contact-social-links-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/business-contact-social-links-skill/SKILL.md"
+    },
+    {
+      "name": "github-project-contributor-finder-api-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/github-project-contributor-finder-api-skill/SKILL.md"
+    },
+    {
+      "name": "google-maps-api-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/google-maps-api-skill/SKILL.md"
+    },
+    {
+      "name": "google-maps-contact-extract",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/google-maps-contact-extract/SKILL.md"
+    },
+    {
+      "name": "google-maps-reviews-api-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/google-maps-reviews-api-skill/SKILL.md"
+    },
+    {
+      "name": "google-maps-search-api-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/google-maps-search-api-skill/SKILL.md"
+    },
+    {
+      "name": "google-social-media-finder",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/google-social-media-finder/SKILL.md"
+    },
+    {
+      "name": "indeed-job-search",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/indeed-job-search/SKILL.md"
+    },
+    {
+      "name": "industry-key-contact-radar-api-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/industry-key-contact-radar-api-skill/SKILL.md"
+    },
+    {
+      "name": "linkedin-jobs-search",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/linkedin-jobs-search/SKILL.md"
+    },
+    {
+      "name": "producthunt-launches",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/producthunt-launches/SKILL.md"
+    },
+    {
+      "name": "social-media-finder-skill",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/social-media-finder-skill/SKILL.md"
+    },
+    {
+      "name": "trustpilot-company-info",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/trustpilot-company-info/SKILL.md"
+    },
+    {
+      "name": "youtube-channel-business-email",
+      "category": "lead-generation",
+      "path": "solutions/lead-generation/youtube-channel-business-email/SKILL.md"
+    },
+    {
+      "name": "google-image-api-skill",
+      "category": "search-research",
+      "path": "solutions/search-research/google-image-api-skill/SKILL.md"
+    },
+    {
+      "name": "google-news-api-skill",
+      "category": "search-research",
+      "path": "solutions/search-research/google-news-api-skill/SKILL.md"
+    },
+    {
+      "name": "google-search-serp",
+      "category": "search-research",
+      "path": "solutions/search-research/google-search-serp/SKILL.md"
+    },
+    {
+      "name": "web-research-assistant",
+      "category": "search-research",
+      "path": "solutions/search-research/web-research-assistant/SKILL.md"
+    },
+    {
+      "name": "web-search-scraper-api-skill",
+      "category": "search-research",
+      "path": "solutions/search-research/web-search-scraper-api-skill/SKILL.md"
+    },
+    {
+      "name": "webcrawler-deep-crawl",
+      "category": "search-research",
+      "path": "solutions/search-research/webcrawler-deep-crawl/SKILL.md"
+    },
+    {
+      "name": "facebook-ads-library-search",
+      "category": "social-listening",
+      "path": "solutions/social-listening/facebook-ads-library-search/SKILL.md"
+    },
+    {
+      "name": "facebook-groups-scrape-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/facebook-groups-scrape-posts/SKILL.md"
+    },
+    {
+      "name": "facebook-page-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/facebook-page-posts/SKILL.md"
+    },
+    {
+      "name": "facebook-page-profile-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/facebook-page-profile-posts/SKILL.md"
+    },
+    {
+      "name": "instagram-hashtag-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/instagram-hashtag-posts/SKILL.md"
+    },
+    {
+      "name": "instagram-place-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/instagram-place-posts/SKILL.md"
+    },
+    {
+      "name": "instagram-post-comments",
+      "category": "social-listening",
+      "path": "solutions/social-listening/instagram-post-comments/SKILL.md"
+    },
+    {
+      "name": "instagram-profile-meta",
+      "category": "social-listening",
+      "path": "solutions/social-listening/instagram-profile-meta/SKILL.md"
+    },
+    {
+      "name": "instagram-profile-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/instagram-profile-posts/SKILL.md"
+    },
+    {
+      "name": "reddit-competitor-analysis-api-skill",
+      "category": "social-listening",
+      "path": "solutions/social-listening/reddit-competitor-analysis-api-skill/SKILL.md"
+    },
+    {
+      "name": "reddit-warmup",
+      "category": "social-listening",
+      "path": "solutions/social-listening/reddit-warmup/SKILL.md"
+    },
+    {
+      "name": "threads-keyword-search",
+      "category": "social-listening",
+      "path": "solutions/social-listening/threads-keyword-search/SKILL.md"
+    },
+    {
+      "name": "threads-profile-search",
+      "category": "social-listening",
+      "path": "solutions/social-listening/threads-profile-search/SKILL.md"
+    },
+    {
+      "name": "threads-user-posts",
+      "category": "social-listening",
+      "path": "solutions/social-listening/threads-user-posts/SKILL.md"
+    },
+    {
+      "name": "trustpilot-company-info",
+      "category": "social-listening",
+      "path": "solutions/social-listening/trustpilot-company-info/SKILL.md"
+    },
+    {
+      "name": "trustpilot-reviews",
+      "category": "social-listening",
+      "path": "solutions/social-listening/trustpilot-reviews/SKILL.md"
+    },
+    {
+      "name": "wechat-article-search-api-skill",
+      "category": "social-listening",
+      "path": "solutions/social-listening/wechat-article-search-api-skill/SKILL.md"
+    },
+    {
+      "name": "x-dm-auto-chat",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-dm-auto-chat/SKILL.md"
+    },
+    {
+      "name": "x-keyword-comment",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-keyword-comment/SKILL.md"
+    },
+    {
+      "name": "x-tweet-by-conversation",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-tweet-by-conversation/SKILL.md"
+    },
+    {
+      "name": "x-tweet-by-handle",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-tweet-by-handle/SKILL.md"
+    },
+    {
+      "name": "x-tweet-by-url",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-tweet-by-url/SKILL.md"
+    },
+    {
+      "name": "x-tweet-search",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-tweet-search/SKILL.md"
+    },
+    {
+      "name": "x-tweet-search-by-query",
+      "category": "social-listening",
+      "path": "solutions/social-listening/x-tweet-search-by-query/SKILL.md"
+    },
+    {
+      "name": "xiaohongshu-auto-posting",
+      "category": "social-listening",
+      "path": "solutions/social-listening/xiaohongshu-auto-posting/SKILL.md"
+    },
+    {
+      "name": "xiaohongshu-note-detail",
+      "category": "social-listening",
+      "path": "solutions/social-listening/xiaohongshu-note-detail/SKILL.md"
+    },
+    {
+      "name": "xiaohongshu-search",
+      "category": "social-listening",
+      "path": "solutions/social-listening/xiaohongshu-search/SKILL.md"
+    },
+    {
+      "name": "xiaohongshu-search-full",
+      "category": "social-listening",
+      "path": "solutions/social-listening/xiaohongshu-search-full/SKILL.md"
+    },
+    {
+      "name": "xiaohongshu-user-profile",
+      "category": "social-listening",
+      "path": "solutions/social-listening/xiaohongshu-user-profile/SKILL.md"
+    },
+    {
+      "name": "zhihu-search-api-skill",
+      "category": "social-listening",
+      "path": "solutions/social-listening/zhihu-search-api-skill/SKILL.md"
+    },
+    {
+      "name": "douyin-video-search",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/douyin-video-search/SKILL.md"
+    },
+    {
+      "name": "tiktok-hashtag-videos",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/tiktok-hashtag-videos/SKILL.md"
+    },
+    {
+      "name": "tiktok-profile-videos",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/tiktok-profile-videos/SKILL.md"
+    },
+    {
+      "name": "tiktok-search-videos",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/tiktok-search-videos/SKILL.md"
+    },
+    {
+      "name": "tiktok-video-detail",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/tiktok-video-detail/SKILL.md"
+    },
+    {
+      "name": "youtube-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-batch-transcript-extractor-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-batch-transcript-extractor-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-channel-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-channel-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-comments-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-comments-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-influencer-finder-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-influencer-finder-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-search-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-search-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-transcript",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-transcript/SKILL.md"
+    },
+    {
+      "name": "youtube-transcript-analysis-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-transcript-analysis-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-transcript-extractor-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-transcript-extractor-api-skill/SKILL.md"
+    },
+    {
+      "name": "youtube-video-api-skill",
+      "category": "video-platforms",
+      "path": "solutions/video-platforms/youtube-video-api-skill/SKILL.md"
+    }
+  ]
+}

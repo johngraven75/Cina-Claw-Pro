@@ -1,0 +1,14 @@
+interface:
+  display_name: AI Research Skills Catalog
+  short_description: Search 98 end-to-end AI research workflows
+  default_prompt: Use $ai-research-skills-catalog to find and safely adapt the best
+    research workflow for this task.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas

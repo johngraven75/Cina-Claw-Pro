@@ -1,0 +1,412 @@
+{
+  "repo": "nexu-io/html-anything",
+  "snapshot_commit": "532bc39f743b97ade9e65fe592b506229f7b01ff",
+  "entry_count": 81,
+  "entries": [
+    {
+      "name": "article-magazine",
+      "group": "article",
+      "path": "next/src/lib/templates/skills/article-magazine/SKILL.md"
+    },
+    {
+      "name": "article-sketchnote-editorial",
+      "group": "article",
+      "path": "next/src/lib/templates/skills/article-sketchnote-editorial/SKILL.md"
+    },
+    {
+      "name": "blog-post",
+      "group": "blog",
+      "path": "next/src/lib/templates/skills/blog-post/SKILL.md"
+    },
+    {
+      "name": "card-twitter",
+      "group": "card",
+      "path": "next/src/lib/templates/skills/card-twitter/SKILL.md"
+    },
+    {
+      "name": "card-xiaohongshu",
+      "group": "card",
+      "path": "next/src/lib/templates/skills/card-xiaohongshu/SKILL.md"
+    },
+    {
+      "name": "competitive-teardown",
+      "group": "competitive",
+      "path": "next/src/lib/templates/skills/competitive-teardown/SKILL.md"
+    },
+    {
+      "name": "dashboard",
+      "group": "dashboard",
+      "path": "next/src/lib/templates/skills/dashboard/SKILL.md"
+    },
+    {
+      "name": "data-report",
+      "group": "data",
+      "path": "next/src/lib/templates/skills/data-report/SKILL.md"
+    },
+    {
+      "name": "dating-web",
+      "group": "dating",
+      "path": "next/src/lib/templates/skills/dating-web/SKILL.md"
+    },
+    {
+      "name": "deck-blueprint",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-blueprint/SKILL.md"
+    },
+    {
+      "name": "deck-course-module",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-course-module/SKILL.md"
+    },
+    {
+      "name": "deck-dir-key-nav",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-dir-key-nav/SKILL.md"
+    },
+    {
+      "name": "deck-graphify-dark",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-graphify-dark/SKILL.md"
+    },
+    {
+      "name": "deck-guizang-editorial",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-guizang-editorial/SKILL.md"
+    },
+    {
+      "name": "deck-hermes-cyber",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-hermes-cyber/SKILL.md"
+    },
+    {
+      "name": "deck-ljg-present",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-ljg-present/SKILL.md"
+    },
+    {
+      "name": "deck-magazine-web",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-magazine-web/SKILL.md"
+    },
+    {
+      "name": "deck-obsidian-claude",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-obsidian-claude/SKILL.md"
+    },
+    {
+      "name": "deck-open-slide-canvas",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-open-slide-canvas/SKILL.md"
+    },
+    {
+      "name": "deck-pitch",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-pitch/SKILL.md"
+    },
+    {
+      "name": "deck-presenter-mode",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-presenter-mode/SKILL.md"
+    },
+    {
+      "name": "deck-product-launch",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-product-launch/SKILL.md"
+    },
+    {
+      "name": "deck-replit",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-replit/SKILL.md"
+    },
+    {
+      "name": "deck-safety-alert",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-safety-alert/SKILL.md"
+    },
+    {
+      "name": "deck-simple",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-simple/SKILL.md"
+    },
+    {
+      "name": "deck-swiss-international",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-swiss-international/SKILL.md"
+    },
+    {
+      "name": "deck-tech-sharing",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-tech-sharing/SKILL.md"
+    },
+    {
+      "name": "deck-xhs-pastel",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-xhs-pastel/SKILL.md"
+    },
+    {
+      "name": "deck-xhs-post",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-xhs-post/SKILL.md"
+    },
+    {
+      "name": "deck-xhs-white",
+      "group": "deck",
+      "path": "next/src/lib/templates/skills/deck-xhs-white/SKILL.md"
+    },
+    {
+      "name": "digital-eguide",
+      "group": "digital",
+      "path": "next/src/lib/templates/skills/digital-eguide/SKILL.md"
+    },
+    {
+      "name": "doc-kami-parchment",
+      "group": "doc",
+      "path": "next/src/lib/templates/skills/doc-kami-parchment/SKILL.md"
+    },
+    {
+      "name": "docs-page",
+      "group": "docs",
+      "path": "next/src/lib/templates/skills/docs-page/SKILL.md"
+    },
+    {
+      "name": "email-marketing",
+      "group": "email",
+      "path": "next/src/lib/templates/skills/email-marketing/SKILL.md"
+    },
+    {
+      "name": "eng-runbook",
+      "group": "eng",
+      "path": "next/src/lib/templates/skills/eng-runbook/SKILL.md"
+    },
+    {
+      "name": "exec-briefing-memo",
+      "group": "exec",
+      "path": "next/src/lib/templates/skills/exec-briefing-memo/SKILL.md"
+    },
+    {
+      "name": "experiment-readout",
+      "group": "experiment",
+      "path": "next/src/lib/templates/skills/experiment-readout/SKILL.md"
+    },
+    {
+      "name": "finance-report",
+      "group": "finance",
+      "path": "next/src/lib/templates/skills/finance-report/SKILL.md"
+    },
+    {
+      "name": "flowai-team-dashboard",
+      "group": "flowai",
+      "path": "next/src/lib/templates/skills/flowai-team-dashboard/SKILL.md"
+    },
+    {
+      "name": "frame-data-chart-nyt",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-data-chart-nyt/SKILL.md"
+    },
+    {
+      "name": "frame-flowchart-sticky",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-flowchart-sticky/SKILL.md"
+    },
+    {
+      "name": "frame-glitch-title",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-glitch-title/SKILL.md"
+    },
+    {
+      "name": "frame-light-leak-cinema",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-light-leak-cinema/SKILL.md"
+    },
+    {
+      "name": "frame-liquid-bg-hero",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-liquid-bg-hero/SKILL.md"
+    },
+    {
+      "name": "frame-logo-outro",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-logo-outro/SKILL.md"
+    },
+    {
+      "name": "frame-macos-notification",
+      "group": "frame",
+      "path": "next/src/lib/templates/skills/frame-macos-notification/SKILL.md"
+    },
+    {
+      "name": "gamified-app",
+      "group": "gamified",
+      "path": "next/src/lib/templates/skills/gamified-app/SKILL.md"
+    },
+    {
+      "name": "hr-onboarding",
+      "group": "hr",
+      "path": "next/src/lib/templates/skills/hr-onboarding/SKILL.md"
+    },
+    {
+      "name": "info-funnel",
+      "group": "info",
+      "path": "next/src/lib/templates/skills/info-funnel/SKILL.md"
+    },
+    {
+      "name": "invoice",
+      "group": "invoice",
+      "path": "next/src/lib/templates/skills/invoice/SKILL.md"
+    },
+    {
+      "name": "kanban-board",
+      "group": "kanban",
+      "path": "next/src/lib/templates/skills/kanban-board/SKILL.md"
+    },
+    {
+      "name": "live-dashboard",
+      "group": "live",
+      "path": "next/src/lib/templates/skills/live-dashboard/SKILL.md"
+    },
+    {
+      "name": "magazine-poster",
+      "group": "magazine",
+      "path": "next/src/lib/templates/skills/magazine-poster/SKILL.md"
+    },
+    {
+      "name": "meeting-notes",
+      "group": "meeting",
+      "path": "next/src/lib/templates/skills/meeting-notes/SKILL.md"
+    },
+    {
+      "name": "mobile-app",
+      "group": "mobile",
+      "path": "next/src/lib/templates/skills/mobile-app/SKILL.md"
+    },
+    {
+      "name": "mobile-onboarding",
+      "group": "mobile",
+      "path": "next/src/lib/templates/skills/mobile-onboarding/SKILL.md"
+    },
+    {
+      "name": "mockup-device-3d",
+      "group": "mockup",
+      "path": "next/src/lib/templates/skills/mockup-device-3d/SKILL.md"
+    },
+    {
+      "name": "motion-frames",
+      "group": "motion",
+      "path": "next/src/lib/templates/skills/motion-frames/SKILL.md"
+    },
+    {
+      "name": "pm-spec",
+      "group": "pm",
+      "path": "next/src/lib/templates/skills/pm-spec/SKILL.md"
+    },
+    {
+      "name": "poster-hero",
+      "group": "poster",
+      "path": "next/src/lib/templates/skills/poster-hero/SKILL.md"
+    },
+    {
+      "name": "ppt-keynote",
+      "group": "ppt",
+      "path": "next/src/lib/templates/skills/ppt-keynote/SKILL.md"
+    },
+    {
+      "name": "pricing-page",
+      "group": "pricing",
+      "path": "next/src/lib/templates/skills/pricing-page/SKILL.md"
+    },
+    {
+      "name": "prototype-web",
+      "group": "prototype",
+      "path": "next/src/lib/templates/skills/prototype-web/SKILL.md"
+    },
+    {
+      "name": "resume-modern",
+      "group": "resume",
+      "path": "next/src/lib/templates/skills/resume-modern/SKILL.md"
+    },
+    {
+      "name": "saas-landing",
+      "group": "saas",
+      "path": "next/src/lib/templates/skills/saas-landing/SKILL.md"
+    },
+    {
+      "name": "social-carousel",
+      "group": "social",
+      "path": "next/src/lib/templates/skills/social-carousel/SKILL.md"
+    },
+    {
+      "name": "social-media-dashboard",
+      "group": "social",
+      "path": "next/src/lib/templates/skills/social-media-dashboard/SKILL.md"
+    },
+    {
+      "name": "social-media-matrix",
+      "group": "social",
+      "path": "next/src/lib/templates/skills/social-media-matrix/SKILL.md"
+    },
+    {
+      "name": "social-reddit-card",
+      "group": "social",
+      "path": "next/src/lib/templates/skills/social-reddit-card/SKILL.md"
+    },
+    {
+      "name": "social-spotify-card",
+      "group": "social",
+      "path": "next/src/lib/templates/skills/social-spotify-card/SKILL.md"
+    },
+    {
+      "name": "social-x-post-card",
+      "group": "social",
+      "path": "next/src/lib/templates/skills/social-x-post-card/SKILL.md"
+    },
+    {
+      "name": "sprite-animation",
+      "group": "sprite",
+      "path": "next/src/lib/templates/skills/sprite-animation/SKILL.md"
+    },
+    {
+      "name": "team-okrs",
+      "group": "team",
+      "path": "next/src/lib/templates/skills/team-okrs/SKILL.md"
+    },
+    {
+      "name": "vfx-text-cursor",
+      "group": "vfx",
+      "path": "next/src/lib/templates/skills/vfx-text-cursor/SKILL.md"
+    },
+    {
+      "name": "video-hyperframes",
+      "group": "video",
+      "path": "next/src/lib/templates/skills/video-hyperframes/SKILL.md"
+    },
+    {
+      "name": "waitlist-page",
+      "group": "waitlist",
+      "path": "next/src/lib/templates/skills/waitlist-page/SKILL.md"
+    },
+    {
+      "name": "web-proto-brutalist",
+      "group": "web",
+      "path": "next/src/lib/templates/skills/web-proto-brutalist/SKILL.md"
+    },
+    {
+      "name": "web-proto-editorial",
+      "group": "web",
+      "path": "next/src/lib/templates/skills/web-proto-editorial/SKILL.md"
+    },
+    {
+      "name": "web-proto-soft",
+      "group": "web",
+      "path": "next/src/lib/templates/skills/web-proto-soft/SKILL.md"
+    },
+    {
+      "name": "weekly-update",
+      "group": "weekly",
+      "path": "next/src/lib/templates/skills/weekly-update/SKILL.md"
+    },
+    {
+      "name": "wireframe-sketch",
+      "group": "wireframe",
+      "path": "next/src/lib/templates/skills/wireframe-sketch/SKILL.md"
+    }
+  ]
+}
