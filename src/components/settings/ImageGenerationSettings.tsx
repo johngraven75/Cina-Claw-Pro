@@ -206,6 +206,8 @@ export function ImageGenerationSettings() {
           className="rounded-full shrink-0"
           onClick={() => void load()}
           disabled={loading}
+          aria-label={t('common:actions.refresh')}
+          title={t('common:actions.refresh')}
           data-testid="image-generation-refresh"
         >
           <RefreshCw className={cn('h-4 w-4', loading && 'animate-spin')} />
@@ -301,7 +303,11 @@ export function ImageGenerationSettings() {
                     <button
                       type="button"
                       onClick={() => setShowRelayApiKey((value) => !value)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                      aria-label={t(showRelayApiKey ? 'common:actions.hide' : 'common:actions.show')}
+                      aria-pressed={showRelayApiKey}
+                      title={t(showRelayApiKey ? 'common:actions.hide' : 'common:actions.show')}
+                      data-testid="image-generation-relay-api-key-visibility"
+                      className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 dark:hover:bg-white/10"
                     >
                       {showRelayApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
