@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      security-updates:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/harness"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      security-updates:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/resources/openclaw-plugins/clawx-openai-image"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      security-updates:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
