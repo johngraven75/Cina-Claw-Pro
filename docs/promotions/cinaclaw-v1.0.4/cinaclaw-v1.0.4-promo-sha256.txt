@@ -1,0 +1,2 @@
+2d30bb3594ff326befb9f937b288d982d4b0348e528400d736a13f8788ed8268  /home/ubuntu/cross-repo-audit/cinaclaw-v1.0.4-promo.mp4
+9121e8704941dbed49b3498e94d16ecabca1588a734062c554a115e118e269fc  /home/ubuntu/cross-repo-audit/cinaclaw-v1.0.4-promo-voiceover.wav
