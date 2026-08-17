@@ -336,10 +336,14 @@ async function initialize(): Promise<void> {
   }
 
   // Set application menu
+  logger.debug('Creating application menu');
   await createMenu();
+  logger.debug('Application menu created');
 
   // Create the main window
+  logger.debug('Creating main window');
   const window = createMainWindow();
+  logger.debug('Main window created');
 
   // Override security headers ONLY for the OpenClaw Gateway Control UI.
   // The URL filter ensures this callback only fires for gateway requests,
