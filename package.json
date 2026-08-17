@@ -13,7 +13,7 @@
         "dev": "vite",
         "ext:bridge": "node scripts/generate-ext-bridge.mjs",
         "build": "node scripts/generate-ext-bridge.mjs && pnpm run build:vite && zx scripts/bundle-openclaw.mjs && zx scripts/bundle-openclaw-plugins.mjs && zx scripts/bundle-preinstalled-skills.mjs && node scripts/run-electron-builder.mjs",
-        "build:vite": "node ./node_modules/vite/bin/vite.js build",
+        "build:vite": "node scripts/build-vite.mjs",
         "bundle:openclaw-plugins": "zx scripts/bundle-openclaw-plugins.mjs",
         "bundle:preinstalled-skills": "zx scripts/bundle-preinstalled-skills.mjs",
         "lint": "eslint . --fix",

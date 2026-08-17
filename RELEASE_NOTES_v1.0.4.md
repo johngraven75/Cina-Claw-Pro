@@ -8,6 +8,7 @@ Cina-Claw Pro v1.0.4 carries forward the security remediation from v1.0.3 and ha
 
 - Browser validation now generates the extension bridge before Vite compilation on clean checkouts.
 - The Electron E2E workflow keeps the no-`NODE_OPTIONS` security rule and uses Node 22.22.3 only on macOS, avoiding the observed Node 24 arm64 Vite abort while retaining Node 24 on Linux and Windows.
+- Vite builds now use a process-scoped heap limit calculated from the runner’s memory. No global `NODE_OPTIONS` override or fixed 6 GiB setting is exported to unrelated commands.
 - Dependency, CodeQL, and release-gate validation remain enforced before publication.
 
 ## Validation expectations
