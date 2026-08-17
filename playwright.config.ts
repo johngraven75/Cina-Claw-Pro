@@ -11,6 +11,7 @@ export default defineConfig({
     timeout: 15_000,
   },
   reporter: [
+    ...(process.env.CI ? [['./tests/e2e/progress-reporter.mjs'] as const] : []),
     ['list'],
     ['html', { open: 'never' }],
   ],
