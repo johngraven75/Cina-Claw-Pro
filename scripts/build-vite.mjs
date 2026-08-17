@@ -1,9 +1,8 @@
 import os from 'node:os';
-import { createRequire } from 'node:module';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const require = createRequire(import.meta.url);
-const viteEntry = require.resolve('vite/bin/vite.js');
+const viteEntry = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url));
 const megabytes = 1024 * 1024;
 
 // Vite’s dependency graph can exceed Node’s default ~2 GiB old-space limit on
@@ -15,6 +14,5 @@ const maxOldSpaceMb = Math.max(3072, Math.min(6144, availableMemoryMb));
 console.log(`[build-vite] launching Vite with max-old-space-size=${maxOldSpaceMb} MB`);
 execFileSync(process.execPath, [`--max-old-space-size=${maxOldSpaceMb}`, viteEntry, ...process.argv.slice(2)], {
   cwd: process.cwd(),
-  env: process.env,
   stdio: 'inherit',
 });
