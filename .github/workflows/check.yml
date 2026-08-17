@@ -50,6 +50,32 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Repair Electron binary
+        shell: pwsh
+        env:
+          force_no_cache: 'true'
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Remove-Item Env:ELECTRON_SKIP_BINARY_DOWNLOAD -ErrorAction SilentlyContinue
+          $electronDir = node -p "require('path').dirname(require.resolve('electron/package.json'))"
+          Remove-Item -Recurse -Force "$electronDir\dist", "$electronDir\path.txt" -ErrorAction SilentlyContinue
+          New-Item -ItemType Directory -Force -Path "$electronDir\dist" | Out-Null
+          Push-Location $electronDir
+          try {
+            $zip = node -e "const { downloadArtifact } = require('@electron/get'); const { version } = require('./package.json'); downloadArtifact({ version, artifactName: 'electron', force: true }).then((z) => { process.stdout.write(z); process.exit(0); }).catch((e) => { console.error(e); process.exit(1); });"
+          } finally {
+            Pop-Location
+          }
+          Expand-Archive -LiteralPath $zip -DestinationPath "$electronDir\dist" -Force
+          $typeDef = Join-Path $electronDir 'dist\electron.d.ts'
+          if (Test-Path -LiteralPath $typeDef) {
+            Move-Item -LiteralPath $typeDef -Destination (Join-Path $electronDir 'electron.d.ts') -Force
+          }
+          if (-not (Test-Path -LiteralPath (Join-Path $electronDir 'dist\electron.exe'))) {
+            throw "electron.exe missing after repair: $electronDir"
+          }
+          Set-Content -LiteralPath (Join-Path $electronDir 'path.txt') -Value 'electron.exe' -NoNewline
+          pnpm exec electron --version
       - name: Test Windows attachment open-with bridge
         run: pnpm exec vitest run tests/unit/attachment-open-with.test.ts tests/unit/attachment-open-with-native.test.ts tests/unit/safe-fs.test.ts tests/unit/secret-store.test.ts
       - name: Generate extension bridge
