@@ -259,6 +259,7 @@ function createMainWindow(): BrowserWindow {
   const win = createWindow();
 
   win.once('ready-to-show', () => {
+    logger.debug('Main window ready-to-show');
     if (mainWindow !== win) {
       return;
     }
@@ -282,6 +283,15 @@ function createMainWindow(): BrowserWindow {
     if (!isQuitting() && !isE2EMode) {
       event.preventDefault();
       win.hide();
+    }
+  });
+
+  win.webContents.on('did-finish-load', () => {
+    logger.debug('Main renderer did-finish-load');
+  });
+  win.webContents.on('did-fail-load', (_event, errorCode, errorDescription, validatedURL, isMainFrame) => {
+    if (isMainFrame) {
+      logger.error(`Main renderer did-fail-load: code=${errorCode} description=${errorDescription} url=${validatedURL}`);
     }
   });
 
@@ -326,10 +336,14 @@ async function initialize(): Promise<void> {
   }
 
   // Set application menu
+  logger.debug('Creating application menu');
   await createMenu();
+  logger.debug('Application menu created');
 
   // Create the main window
+  logger.debug('Creating main window');
   const window = createMainWindow();
+  logger.debug('Main window created');
 
   // Override security headers ONLY for the OpenClaw Gateway Control UI.
   // The URL filter ensures this callback only fires for gateway requests,

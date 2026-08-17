@@ -163,7 +163,9 @@ async function allocatePort(): Promise<number> {
 
 async function getStableWindow(app: ElectronApplication): Promise<Page> {
   const deadline = Date.now() + 30_000;
+  console.log('[e2e] waiting for first Electron window');
   let page = await app.firstWindow();
+  console.log('[e2e] first Electron window received');
 
   while (Date.now() < deadline) {
     const openWindows = app.windows().filter((candidate) => !candidate.isClosed());
@@ -171,7 +173,9 @@ async function getStableWindow(app: ElectronApplication): Promise<Page> {
 
     if (currentWindow && !currentWindow.isClosed()) {
       try {
+        console.log('[e2e] waiting for Electron DOMContentLoaded');
         await currentWindow.waitForLoadState('domcontentloaded', { timeout: 2_000 });
+        console.log('[e2e] Electron DOMContentLoaded received');
         return currentWindow;
       } catch (error) {
         const message = String(error);

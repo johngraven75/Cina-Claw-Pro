@@ -27,6 +27,15 @@ function getExtensionPackages(): Set<string> {
 }
 
 const extensionPackages = getExtensionPackages();
+
+// E2E and CI build jobs must produce artifacts only. Starting Electron from
+// vite-plugin-electron during `build:vite` creates an orphan application before
+// Playwright launches its isolated fixture, causing the matrix to wait until the
+// job timeout. Local development keeps the existing startup behavior.
+const shouldStartElectron = process.env.CLAWX_E2E !== '1'
+  && process.env.CI !== 'true'
+  && process.env.VITE_BUILD_ONLY !== '1';
+
 const alias = {
   '@': resolve(__dirname, 'src'),
   '@electron': resolve(__dirname, 'electron'),
@@ -57,7 +66,7 @@ export default defineConfig({
         // Main process entry file
         entry: 'electron/main/index.ts',
         onstart(options) {
-          options.startup();
+          if (shouldStartElectron) options.startup();
         },
         vite: {
           resolve: { alias },
