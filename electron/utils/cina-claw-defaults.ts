@@ -1,3 +1,5 @@
+import { applyOpenRouterFreeCompatibility } from './openrouter-free-compat';
+
 type ConfigRecord = Record<string, unknown>;
 
 export const CINA_LOCAL_PROVIDER_KEY = 'ollama';
@@ -88,5 +90,6 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   defaults.subagents = subagents;
   agents.defaults = defaults;
   config.agents = agents;
+  if (applyOpenRouterFreeCompatibility(config)) changed = true;
   return changed;
 }
