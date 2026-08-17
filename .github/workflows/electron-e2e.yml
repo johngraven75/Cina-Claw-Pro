@@ -35,6 +35,10 @@ jobs:
             node: '24'
     env:
       CI: 'true'
+      # Propagate E2E mode to Electron and every child process. The fixture also
+      # sets this value, but job-level propagation protects startup helpers and
+      # gateway children launched before fixture code runs.
+      CLAWX_E2E: '1'
       # Linux runners cannot use Electron's setuid chrome-sandbox; harmless on macOS/Windows.
       ELECTRON_DISABLE_SANDBOX: '1'
 
