@@ -377,6 +377,12 @@
       "localPath": "resources/skills/curated/wshobson-agents-catalog",
       "version": "cina-curated-2026.08.13",
       "autoEnable": true
+    },
+    {
+      "slug": "manus-runtime-compatibility",
+      "localPath": "resources/skills/curated/manus-runtime-compatibility",
+      "version": "cina-curated-2026.08.17",
+      "autoEnable": true
     }
   ]
 }

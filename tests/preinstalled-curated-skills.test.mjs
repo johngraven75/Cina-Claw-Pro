@@ -63,7 +63,7 @@ test('local skill materialization stays inside the repository and records proven
   }
 });
 
-test('all 40 reviewed Cina adapters are declared, auto-enabled, and name-aligned', () => {
+test('all 41 reviewed Cina adapters are declared, auto-enabled, and name-aligned', () => {
   const root = new URL('..', import.meta.url);
   const manifest = JSON.parse(readFileSync(new URL('resources/skills/preinstalled-manifest.json', root), 'utf8'));
   const localEntries = manifest.skills.filter((entry) => entry.localPath);
@@ -73,7 +73,7 @@ test('all 40 reviewed Cina adapters are declared, auto-enabled, and name-aligned
     .map((entry) => entry.name)
     .sort();
 
-  assert.equal(localEntries.length, 40);
+  assert.equal(localEntries.length, 41);
   assert.deepEqual(localEntries.map((entry) => entry.slug).sort(), directories);
   assert.equal(new Set(manifest.skills.map((entry) => entry.slug)).size, manifest.skills.length);
   assert.deepEqual(
