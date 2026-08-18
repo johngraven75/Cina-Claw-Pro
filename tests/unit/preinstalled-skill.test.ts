@@ -53,25 +53,43 @@ describe('preinstalled skill config', () => {
     });
 
     mkdirSync(join(state.resourcesDir, 'skills'), { recursive: true });
-    mkdirSync(join(state.resourcesDir, 'preinstalled-skills', 'example'), { recursive: true });
-    writeFileSync(
-      join(state.resourcesDir, 'skills', 'preinstalled-manifest.json'),
-      JSON.stringify({ skills: [{ slug: 'example', version: '1.0.0', autoEnable: true }] }),
-    );
-    writeFileSync(join(state.resourcesDir, 'preinstalled-skills', 'example', 'SKILL.md'), '# Example\n');
+      mkdirSync(join(state.resourcesDir, 'preinstalled-skills', 'example'), { recursive: true });
+      mkdirSync(join(state.resourcesDir, 'preinstalled-skills', 'already-installed'), { recursive: true });
+      mkdirSync(join(state.homeDir, '.openclaw', 'skills', 'already-installed'), { recursive: true });
+      writeFileSync(
+        join(state.resourcesDir, 'skills', 'preinstalled-manifest.json'),
+        JSON.stringify({
+          skills: [
+            { slug: 'example', version: '1.0.0', autoEnable: true },
+            { slug: 'already-installed', version: '1.0.0', autoEnable: true },
+          ],
+        }),
+      );
+      writeFileSync(join(state.resourcesDir, 'preinstalled-skills', 'example', 'SKILL.md'), '# Example\n');
+      writeFileSync(join(state.resourcesDir, 'preinstalled-skills', 'already-installed', 'SKILL.md'), '# Existing\n');
+      writeFileSync(join(state.homeDir, '.openclaw', 'skills', 'already-installed', 'SKILL.md'), '# Existing\n');
+      writeFileSync(
+        join(state.homeDir, '.openclaw', 'skills', 'already-installed', '.clawx-preinstalled.json'),
+        JSON.stringify({ source: 'clawx-preinstalled', slug: 'already-installed', version: '1.0.0', installedAt: '2026-01-01T00:00:00.000Z' }),
+      );
   });
 
   afterEach(async () => {
     await rm(root, { recursive: true, force: true });
   });
 
-  it('auto-enables installed skills through the coordinator authoritative snapshot', async () => {
+  it('auto-enables newly installed and already managed reviewed skills through the coordinator authoritative snapshot', async () => {
     const { ensurePreinstalledSkillsInstalled } = await import('@electron/utils/skill-config');
     await ensurePreinstalledSkillsInstalled();
 
     expect(state.authoritativeConfig).toEqual({
       gatewayOnly: true,
-      skills: { entries: { example: { enabled: true } } },
+      skills: {
+        entries: {
+          example: { enabled: true },
+          'already-installed': { enabled: true },
+        },
+      },
     });
     expect(mutateOpenClawConfigMock).toHaveBeenCalledOnce();
     expect(existsSync(join(state.homeDir, '.openclaw', 'openclaw.json'))).toBe(false);

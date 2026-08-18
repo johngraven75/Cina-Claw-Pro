@@ -11,7 +11,7 @@ const checks = [
   ['composer.attachFiles', 'src/pages/Chat/ChatInput.tsx'],
   ['openrouter/free', 'src/lib/providers.ts'],
   ['gemini-3-flash-preview', 'src/lib/providers.ts'],
-  ['qwen3-vl:8b', 'electron/utils/cina-claw-defaults.ts'],
+  ['CINA_DEFAULT_MODEL_REF', 'electron/utils/cina-claw-defaults.ts'],
   ['applyCinaClawAutonomyDefaults', 'electron/utils/cina-claw-defaults.ts'],
   ['safeStorage.encryptString', 'electron/services/secrets/secret-store.ts'],
   ['webapp-testing', 'resources/skills/preinstalled-manifest.json'],

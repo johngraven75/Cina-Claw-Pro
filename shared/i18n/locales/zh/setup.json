@@ -29,8 +29,8 @@
     "title": "欢迎使用 Cina-Claw Pro",
     "description": "Cina-Claw Pro 是 OpenClaw 的图形界面，让您可以在喜爱的消息平台上轻松使用 AI 助手。",
     "localModel": {
-      "title": "私密、零令牌费用的默认设置",
-      "description": "首次启动会选择本地 Qwen3 VL 8B 推理与视觉模型。请安装并启动 Ollama，然后使用下面的命令下载模型。在此之前，本地聊天不可用；Cina-Claw Pro 不会把请求发送到云端后备服务。"
+      "title": "默认使用 OpenRouter Free",
+      "description": "首次启动会使用 OpenRouter 免费路由器。请在提供商步骤中添加 OpenRouter API 密钥以使用 openrouter/free；路由器会根据请求选择可用的免费模型。功能和可用性可能变化，但 Cina-Claw Pro 永远不会自动升级到付费模型。"
     },
     "features": {
       "noCommand": "无需命令行",

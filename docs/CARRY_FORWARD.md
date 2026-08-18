@@ -14,7 +14,7 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Multimodal input | `composer.attachFiles` | `src/pages/Chat/ChatInput.tsx` |
 | OpenRouter free router | `openrouter/free` | `src/lib/providers.ts` |
 | Gemini free-tier preset | `gemini-3-flash-preview` | `src/lib/providers.ts` |
-| Startup-ready local Ollama preset | `qwen3-vl:8b` | `electron/utils/cina-claw-defaults.ts` |
+| OpenRouter Free startup default | `CINA_DEFAULT_MODEL_REF` | `electron/utils/cina-claw-defaults.ts` |
 | Guarded planning and delegation | `applyCinaClawAutonomyDefaults` | `electron/utils/cina-claw-defaults.ts` |
 | OS-backed secret encryption | `safeStorage.encryptString` | `electron/services/secrets/secret-store.ts` |
 | Official skill bundle | `webapp-testing` | `resources/skills/preinstalled-manifest.json` |
@@ -27,6 +27,7 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Ten-profile voice catalog (5 female / 5 male) | `export const VOICE_PROFILES` | `shared/voice.ts` |
 | Windows-native voice bridge | `export function createVoiceApi` | `electron/services/voice-api.ts` |
 | All-model truth, evidence, and privacy guidance | `## Default Model Behavior` | `resources/context/AGENTS.clawx.md` |
+| Free-router skill and plugin compatibility | `**Plugin compatibility:**` | `resources/context/AGENTS.clawx.md` |
 | Carry-forward CI | `verify:carry-forward` | `package.json` |
 
 Provider quotas, model inventories, and external plugin APIs may change independently. Community code is not silently granted machine access.

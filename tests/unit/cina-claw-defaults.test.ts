@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applyCinaClawAutonomyDefaults, CINA_LOCAL_MODEL_REF } from '../../electron/utils/cina-claw-defaults';
+import { applyCinaClawAutonomyDefaults, CINA_DEFAULT_MODEL_REF } from '../../electron/utils/cina-claw-defaults';
 
 describe('Cina-Claw Pro autonomy defaults', () => {
   const defaultsFrom = (config: Record<string, unknown>) =>
@@ -10,10 +10,23 @@ describe('Cina-Claw Pro autonomy defaults', () => {
     expect(applyCinaClawAutonomyDefaults(config)).toBe(true);
     expect(config).toMatchObject({
       tools: { codeMode: { enabled: true, maxPendingToolCalls: 24, timeoutMs: 300_000 }, experimental: { planTool: true }, exec: { host: 'gateway', security: 'allowlist', ask: 'on-miss' } },
-      agents: { defaults: { maxConcurrent: 4, subagents: { allowAgents: ['*'], maxConcurrent: 4, delegationMode: 'prefer', runTimeoutSeconds: 900 } } },
-      models: { providers: { ollama: { baseUrl: 'http://localhost:11434/v1', models: [{ id: 'qwen3-vl:8b', reasoning: true, input: ['text', 'image'] }] } } },
+      agents: { defaults: { maxConcurrent: 1, subagents: { allowAgents: ['*'], maxConcurrent: 1, delegationMode: 'prefer', runTimeoutSeconds: 900 } } },
+      models: {
+        providers: {
+          openrouter: {
+            baseUrl: 'https://openrouter.ai/api/v1',
+            api: 'openai-completions',
+            apiKey: 'OPENROUTER_API_KEY',
+            headers: {
+              'HTTP-Referer': 'https://github.com/johngraven75/Cina-Claw-Pro',
+              'X-OpenRouter-Title': 'Cina-Claw Pro',
+            },
+            models: [{ id: 'openrouter/free', input: ['text', 'image'] }],
+          },
+        },
+      },
     });
-    expect(defaultsFrom(config).model).toEqual({ primary: CINA_LOCAL_MODEL_REF, fallbacks: [] });
+    expect(defaultsFrom(config).model).toEqual({ primary: CINA_DEFAULT_MODEL_REF, fallbacks: [] });
   });
 
   it('preserves every valid explicit operator choice', () => {

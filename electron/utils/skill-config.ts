@@ -435,7 +435,7 @@ export async function ensurePreinstalledSkillsInstalled(): Promise<void> {
 
     const targetRoot = join(homedir(), '.openclaw', 'skills');
     await mkdir(targetRoot, { recursive: true });
-    const toEnable: string[] = [];
+    const toEnable = new Set<string>();
 
     for (const spec of skills) {
         const sourceDir = join(sourceRoot, spec.slug);
@@ -458,6 +458,9 @@ export async function ensurePreinstalledSkillsInstalled(): Promise<void> {
                 logger.info(`Skipping user-managed skill: ${spec.slug}`);
                 continue;
             }
+            if (spec.autoEnable) {
+                toEnable.add(spec.slug);
+            }
             if (marker.version === desiredVersion) {
                 continue;
             }
@@ -476,7 +479,7 @@ export async function ensurePreinstalledSkillsInstalled(): Promise<void> {
             };
             await writeFile(markerPath, `${JSON.stringify(markerPayload, null, 2)}\n`, 'utf-8');
             if (spec.autoEnable) {
-                toEnable.push(spec.slug);
+                toEnable.add(spec.slug);
             }
             logger.info(`Installed preinstalled skill: ${spec.slug} -> ${targetDir}`);
         } catch (error) {
@@ -484,9 +487,9 @@ export async function ensurePreinstalledSkillsInstalled(): Promise<void> {
         }
     }
 
-    if (toEnable.length > 0) {
+    if (toEnable.size > 0) {
         try {
-            await setSkillsEnabled(toEnable, true);
+            await setSkillsEnabled(Array.from(toEnable), true);
         } catch (error) {
             logger.warn('Failed to auto-enable preinstalled skills:', error);
         }

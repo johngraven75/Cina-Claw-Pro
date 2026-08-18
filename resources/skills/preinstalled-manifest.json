@@ -1,6 +1,6 @@
 {
   "source": "Reviewed official remote skills and repository-local curated adapters",
-  "policy": "Only reviewed bundled skills are enabled automatically; marketplace installs remain explicit.",
+  "policy": "All reviewed bundled skills, including third-party reasoning and workflow adapters, are enabled automatically under the shared OpenRouter Free compatibility policy; marketplace installs remain explicit.",
   "skills": [
     {
       "slug": "algorithmic-art",
