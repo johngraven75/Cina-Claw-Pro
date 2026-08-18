@@ -24,6 +24,8 @@ const checks = [
   ['export const VOICE_PROFILES', 'shared/voice.ts'],
   ['export function createVoiceApi', 'electron/services/voice-api.ts'],
   ['## Default Model Behavior', 'resources/context/AGENTS.clawx.md'],
+  ['openai-curated-chatgpt-apps', 'resources/skills/preinstalled-manifest.json'],
+  ['Official OpenAI Codex and ChatGPT Skill Concept Adaptation', 'resources/skills/OPENAI_CATALOG_ADAPTATION.md'],
   ['verify:carry-forward', 'package.json'],
 ];
 

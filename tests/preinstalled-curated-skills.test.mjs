@@ -63,7 +63,7 @@ test('local skill materialization stays inside the repository and records proven
   }
 });
 
-test('all 41 reviewed Cina adapters are declared, auto-enabled, and name-aligned', () => {
+test('all reviewed Cina adapters, including the adapted official OpenAI catalog, are declared, auto-enabled, and name-aligned', () => {
   const root = new URL('..', import.meta.url);
   const manifest = JSON.parse(readFileSync(new URL('resources/skills/preinstalled-manifest.json', root), 'utf8'));
   const localEntries = manifest.skills.filter((entry) => entry.localPath);
@@ -73,7 +73,9 @@ test('all 41 reviewed Cina adapters are declared, auto-enabled, and name-aligned
     .map((entry) => entry.name)
     .sort();
 
-  assert.equal(localEntries.length, 41);
+  const openAiEntries = localEntries.filter((entry) => entry.slug.startsWith('openai-curated-') || entry.slug.startsWith('openai-system-'));
+  assert.equal(openAiEntries.length, 44);
+  assert.equal(localEntries.length, 85);
   assert.deepEqual(localEntries.map((entry) => entry.slug).sort(), directories);
   assert.equal(new Set(manifest.skills.map((entry) => entry.slug)).size, manifest.skills.length);
   assert.deepEqual(
@@ -88,6 +90,10 @@ test('all 41 reviewed Cina adapters are declared, auto-enabled, and name-aligned
     assert.match(entry.version, /^cina-curated-\d{4}\.\d{2}\.\d{2}$/);
     const skill = readFileSync(new URL(`${entry.localPath}/SKILL.md`, root), 'utf8');
     assert.match(skill, new RegExp(`^name: ${entry.slug}$`, 'm'));
+    if (entry.slug.startsWith('openai-curated-') || entry.slug.startsWith('openai-system-')) {
+      assert.match(skill, /## CinaClaw Pro \/ OpenRouter Free compatibility/);
+      assert.match(skill, /cina-openrouter-free-v1/);
+    }
   }
 });
 

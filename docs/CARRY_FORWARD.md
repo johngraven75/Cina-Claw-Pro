@@ -28,6 +28,8 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Windows-native voice bridge | `export function createVoiceApi` | `electron/services/voice-api.ts` |
 | All-model truth, evidence, and privacy guidance | `## Default Model Behavior` | `resources/context/AGENTS.clawx.md` |
 | Free-router skill and plugin compatibility | `**Plugin compatibility:**` | `resources/context/AGENTS.clawx.md` |
+| Official OpenAI Codex and ChatGPT concept adapters | `openai-curated-chatgpt-apps` | `resources/skills/preinstalled-manifest.json` |
+| OpenAI catalog provenance and no-copy adaptation policy | `Official OpenAI Codex and ChatGPT Skill Concept Adaptation` | `resources/skills/OPENAI_CATALOG_ADAPTATION.md` |
 | Carry-forward CI | `verify:carry-forward` | `package.json` |
 
 Provider quotas, model inventories, and external plugin APIs may change independently. Community code is not silently granted machine access.
