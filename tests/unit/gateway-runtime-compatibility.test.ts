@@ -15,7 +15,7 @@ const manifest = JSON.parse(
 
 describe('packaged gateway runtime compatibility', () => {
   it('pins the last gateway-verified Electron and WebSocket runtime line', () => {
-    expect(manifest.devDependencies?.electron).toBe('40.10.6');
-    expect(manifest.dependencies?.ws).toBe('8.19.0');
+    expect(manifest.devDependencies?.electron).toBe('41.10.3');
+    expect(manifest.dependencies?.ws).toBe('8.21.0');
   });
 });
