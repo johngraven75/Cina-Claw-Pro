@@ -889,6 +889,27 @@ export type HostApiContract = {
     controlUi: () => GatewayControlUiResult;
     rpc: (payload: GatewayRpcPayload) => unknown;
   };
+  remoteRelay: {
+    status: () => {
+      enabled: boolean;
+      relayUrl: string;
+      gatewayId?: string;
+      polling: boolean;
+      lastSuccessfulPollAt?: string;
+      lastError?: string;
+    };
+    configure: (payload: { relayUrl: string; enabled: boolean }) => {
+      enabled: boolean;
+      relayUrl: string;
+      gatewayId?: string;
+      polling: boolean;
+      lastSuccessfulPollAt?: string;
+      lastError?: string;
+    };
+    createPairingCode: () => { code: string; expiresAt: string };
+    listDevices: () => Array<{ id: string; name: string; status: 'active' | 'revoked'; createdAt: string; lastSeenAt: string; revokedAt?: string }>;
+    revokeDevice: (payload: { deviceId: string }) => HostSuccess;
+  };
   logs: {
     recent: (payload?: LogRecentPayload) => LogContentResult;
     memory: (payload?: LogMemoryPayload) => string[];

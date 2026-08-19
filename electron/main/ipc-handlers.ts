@@ -65,6 +65,8 @@ import { createSessionsApi } from '../services/sessions-api';
 import { createSkillsApi } from '../services/skills-api';
 import { createUsageApi } from '../services/usage-api';
 import { createVoiceApi } from '../services/voice-api';
+import { createRemoteRelayApi } from '../services/remote-relay-api';
+import { RemoteRelayClient } from '../services/remote-relay-client';
 import { createWebBrowserApi } from '../services/web-browser-api';
 import type { WebBrowserGuestRegistry } from './web-browser-policy';
 import {
@@ -146,6 +148,8 @@ function registerTypedHostHandlers(
   registry: WebBrowserGuestRegistry,
 ): void {
   const acpSessionAccessRegistry = new AcpSessionAccessRegistry();
+  const remoteRelayClient = new RemoteRelayClient(gatewayManager);
+  void remoteRelayClient.start();
   const stagedAttachments = new StagedAttachmentRegistry();
   const attachmentOpenWith = createAttachmentOpenWithService();
   const attachmentAccess = createAttachmentAccess({
@@ -164,6 +168,7 @@ function registerTypedHostHandlers(
     uv: createUvApi(),
     settings: createSettingsApi(gatewayManager),
     gateway: createGatewayApi(gatewayManager),
+    remoteRelay: createRemoteRelayApi(remoteRelayClient),
     logs: createLogsApi(),
     channels: createChannelsApi({ gatewayManager, mainWindow }),
     agents: createAgentsApi({ gatewayManager }),
