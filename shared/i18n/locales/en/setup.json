@@ -29,8 +29,8 @@
     "title": "Welcome to Cina-Claw Pro",
     "description": "Cina-Claw Pro is a graphical interface for OpenClaw, making it easy to use AI assistants across your favorite messaging platforms.",
     "localModel": {
-      "title": "Private, zero-token-cost default",
-      "description": "First boot selects the local Qwen3 VL 8B reasoning and vision model. Install and start Ollama, then download the model with the command below. Until then, local chat is unavailable; Cina-Claw Pro will not send your request to a cloud fallback."
+      "title": "OpenRouter Free default",
+      "description": "First boot uses OpenRouter's free router. Add an OpenRouter API key in the provider step to use openrouter/free; the router selects an available no-cost model based on the request. Capabilities and availability can vary, and Cina-Claw Pro never upgrades to a paid model automatically."
     },
     "features": {
       "noCommand": "Zero command-line required",
@@ -88,7 +88,7 @@
     "valid": "Provider configured successfully",
     "invalid": "Invalid API key",
     "storedLocally": "Your API key is stored locally on your machine.",
-    "secureHint": "Provider credentials are protected with Windows OS encryption. Choose a free cloud account or local Ollama to continue."
+    "secureHint": "Provider credentials are protected with Windows OS encryption. OpenRouter Free is selected by default; add your OpenRouter API key to continue."
   },
   "channel": {
     "title": "Connect a Messaging Channel",

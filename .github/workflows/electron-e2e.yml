@@ -27,10 +27,9 @@ jobs:
         include:
           - os: ubuntu-latest
             node: '24'
-          # Node 24.18.0 arm64 aborted during build:vite on macos-latest.
-          # Keep the no-NODE_OPTIONS security rule and use the supported Node 22 line.
+          # Keep the current Node 24 release line on every desktop platform.
           - os: macos-latest
-            node: '22.22.3'
+            node: '24.15.0'
           - os: windows-latest
             node: '24'
     env:

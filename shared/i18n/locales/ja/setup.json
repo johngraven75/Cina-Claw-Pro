@@ -29,8 +29,8 @@
     "title": "Cina-Claw Proへようこそ",
     "description": "Cina-Claw ProはOpenClawのグラフィカルインターフェースで、お気に入りのメッセージングプラットフォームでAIアシスタントを簡単に使用できます。",
     "localModel": {
-      "title": "非公開・トークン費用ゼロの既定設定",
-      "description": "初回起動ではローカルの Qwen3 VL 8B 推論・画像モデルを選択します。Ollama をインストールして起動し、下のコマンドでモデルを取得してください。それまではローカルチャットを利用できず、Cina-Claw Pro がクラウドへ自動送信することはありません。"
+      "title": "OpenRouter Free を既定で使用",
+      "description": "初回起動では OpenRouter の無料ルーターを使用します。プロバイダー設定で OpenRouter API キーを追加すると openrouter/free を利用できます。ルーターは要求に応じて利用可能な無料モデルを選択します。機能と可用性は変動する場合がありますが、Cina-Claw Pro が有料モデルへ自動的に切り替えることはありません。"
     },
     "features": {
       "noCommand": "コマンドライン不要",

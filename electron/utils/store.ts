@@ -44,6 +44,10 @@ export interface AppSettings {
   proxyAllServer: string;
   proxyBypassRules: string;
   memorySearchFtsMigrationVersion: number;
+  remoteRelayEnabled: boolean;
+  remoteRelayUrl: string;
+  remoteRelayGatewayId: string;
+  remoteRelayGatewayToken: string;
 
   // Update
   updateChannel: 'stable' | 'beta' | 'dev';
@@ -107,6 +111,10 @@ function createDefaultSettings(): AppSettings {
     proxyAllServer: '',
     proxyBypassRules: '<local>;localhost;127.0.0.1;::1',
     memorySearchFtsMigrationVersion: 0,
+    remoteRelayEnabled: false,
+    remoteRelayUrl: '',
+    remoteRelayGatewayId: '',
+    remoteRelayGatewayToken: '',
 
     // Update
     updateChannel: 'stable',

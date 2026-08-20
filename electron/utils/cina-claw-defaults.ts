@@ -1,8 +1,17 @@
+import {
+  applyOpenRouterFreeCompatibility,
+  isOpenRouterFreeModelRef,
+  OPENROUTER_BASE_URL,
+  OPENROUTER_FREE_MODEL_ID,
+  OPENROUTER_REFERER_HEADER,
+  OPENROUTER_TITLE_HEADER,
+} from './openrouter-free-compat';
+
 type ConfigRecord = Record<string, unknown>;
 
-export const CINA_LOCAL_PROVIDER_KEY = 'ollama';
-export const CINA_LOCAL_MODEL_ID = 'qwen3-vl:8b';
-export const CINA_LOCAL_MODEL_REF = `${CINA_LOCAL_PROVIDER_KEY}/${CINA_LOCAL_MODEL_ID}`;
+export const CINA_DEFAULT_PROVIDER_KEY = 'openrouter';
+export const CINA_DEFAULT_MODEL_ID = OPENROUTER_FREE_MODEL_ID;
+export const CINA_DEFAULT_MODEL_REF = `${CINA_DEFAULT_PROVIDER_KEY}/${CINA_DEFAULT_MODEL_ID}`;
 
 function record(value: unknown): ConfigRecord {
   return value && typeof value === 'object' && !Array.isArray(value) ? value as ConfigRecord : {};
@@ -45,33 +54,42 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   const agents = record(config.agents);
   const defaults = record(agents.defaults);
 
-  // A brand-new install should have a private, zero-token-cost path through
-  // setup. Only seed when both sections are genuinely absent: an upgraded
-  // installation (including one whose operator removed every provider) must
-  // never have a provider or model choice recreated behind their back.
+  // A brand-new install should guide the operator to the zero-cost OpenRouter
+  // free router. The API key remains environment-backed and must be supplied
+  // through the normal secure provider setup flow. Only seed when both
+  // sections are genuinely absent: an upgraded installation (including one
+  // whose operator removed every provider) must never have a provider or
+  // model choice recreated behind their back.
   if (config.models === undefined && defaults.model === undefined) {
     config.models = {
       providers: {
-        [CINA_LOCAL_PROVIDER_KEY]: {
-          baseUrl: 'http://localhost:11434/v1',
+        [CINA_DEFAULT_PROVIDER_KEY]: {
+          baseUrl: OPENROUTER_BASE_URL,
           api: 'openai-completions',
-          apiKey: 'ollama-local',
+          apiKey: 'OPENROUTER_API_KEY',
+          headers: {
+            'HTTP-Referer': OPENROUTER_REFERER_HEADER,
+            'X-OpenRouter-Title': OPENROUTER_TITLE_HEADER,
+          },
           models: [{
-            id: CINA_LOCAL_MODEL_ID,
-            name: 'Qwen3 VL 8B (local)',
-            reasoning: true,
+            id: CINA_DEFAULT_MODEL_ID,
+            name: 'OpenRouter Free Router',
             input: ['text', 'image'],
             cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
-            contextWindow: 131_072,
-            maxTokens: 32_768,
+            contextWindow: 32_768,
+            maxTokens: 8_192,
           }],
         },
       },
     };
-    defaults.model = { primary: CINA_LOCAL_MODEL_REF, fallbacks: [] };
+    defaults.model = { primary: CINA_DEFAULT_MODEL_REF, fallbacks: [] };
     changed = true;
   }
-  if (defaults.maxConcurrent === undefined) { defaults.maxConcurrent = 4; changed = true; }
+  const usesOpenRouterFree = isOpenRouterFreeModelRef(record(defaults.model).primary);
+  if (defaults.maxConcurrent === undefined) {
+    defaults.maxConcurrent = usesOpenRouterFree ? 1 : 4;
+    changed = true;
+  }
   const subagents = record(defaults.subagents);
   if (subagents.allowAgents === undefined) {
     subagents.allowAgents = Array.isArray(subagents.allow) ? subagents.allow : ['*'];
@@ -80,7 +98,10 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   // OpenClaw's strict Subagent schema calls this field allowAgents. Remove
   // the obsolete v1.0.2 alias even when a canonical value already exists.
   if ('allow' in subagents) { delete subagents.allow; changed = true; }
-  if (subagents.maxConcurrent === undefined) { subagents.maxConcurrent = 4; changed = true; }
+  if (subagents.maxConcurrent === undefined) {
+    subagents.maxConcurrent = usesOpenRouterFree ? 1 : 4;
+    changed = true;
+  }
   if (subagents.delegationMode === undefined) { subagents.delegationMode = 'prefer'; changed = true; }
   if (subagents.runTimeoutSeconds === undefined) { subagents.runTimeoutSeconds = 900; changed = true; }
   if (subagents.announceTimeoutMs === undefined) { subagents.announceTimeoutMs = 120_000; changed = true; }
@@ -88,5 +109,6 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   defaults.subagents = subagents;
   agents.defaults = defaults;
   config.agents = agents;
+  if (applyOpenRouterFreeCompatibility(config)) changed = true;
   return changed;
 }

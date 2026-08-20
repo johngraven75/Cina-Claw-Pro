@@ -1,143 +1,7 @@
 {
-  "source": "Reviewed official remote skills and repository-local curated adapters",
-  "policy": "Only reviewed bundled skills are enabled automatically; marketplace installs remain explicit.",
+  "source": "Reviewed official remote skills and repository-local curated adapters, including original CinaClaw adaptations of official OpenAI Codex and ChatGPT skill concepts",
+  "policy": "All reviewed bundled skills, including original CinaClaw adapters for official OpenAI Codex and ChatGPT skill concepts, third-party reasoning workflows, and catalog adapters, are enabled automatically under the shared OpenRouter Free compatibility policy; marketplace installs remain explicit.",
   "skills": [
-    {
-      "slug": "algorithmic-art",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/algorithmic-art",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "brand-guidelines",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/brand-guidelines",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "canvas-design",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/canvas-design",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "claude-api",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/claude-api",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "doc-coauthoring",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/doc-coauthoring",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "docx",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/docx",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "frontend-design",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/frontend-design",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "internal-comms",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/internal-comms",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "mcp-builder",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/mcp-builder",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "pdf",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/pdf",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "pptx",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/pptx",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "skill-creator",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/skill-creator",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "slack-gif-creator",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/slack-gif-creator",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "theme-factory",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/theme-factory",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "web-artifacts-builder",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/web-artifacts-builder",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "webapp-testing",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/webapp-testing",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
-    {
-      "slug": "xlsx",
-      "repo": "anthropics/skills",
-      "repoPath": "skills/xlsx",
-      "ref": "main",
-      "version": "main",
-      "autoEnable": true
-    },
     {
       "slug": "agent-reach",
       "localPath": "resources/skills/curated/agent-reach",
@@ -157,6 +21,14 @@
       "autoEnable": true
     },
     {
+      "slug": "algorithmic-art",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/algorithmic-art",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "awesome-ai-tools-catalog",
       "localPath": "resources/skills/curated/awesome-ai-tools-catalog",
       "version": "cina-curated-2026.08.13",
@@ -169,15 +41,39 @@
       "autoEnable": true
     },
     {
+      "slug": "brand-guidelines",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/brand-guidelines",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "browser-act-skills-catalog",
       "localPath": "resources/skills/curated/browser-act-skills-catalog",
       "version": "cina-curated-2026.08.13",
       "autoEnable": true
     },
     {
+      "slug": "canvas-design",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/canvas-design",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "cherry-studio-operator",
       "localPath": "resources/skills/curated/cherry-studio-operator",
       "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
+      "slug": "claude-api",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/claude-api",
+      "ref": "main",
+      "version": "main",
       "autoEnable": true
     },
     {
@@ -205,6 +101,22 @@
       "autoEnable": true
     },
     {
+      "slug": "doc-coauthoring",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/doc-coauthoring",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
+      "slug": "docx",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/docx",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "ecc-skills-catalog",
       "localPath": "resources/skills/curated/ecc-skills-catalog",
       "version": "cina-curated-2026.08.13",
@@ -223,14 +135,22 @@
       "autoEnable": true
     },
     {
-      "slug": "headroom-optimizer",
-      "localPath": "resources/skills/curated/headroom-optimizer",
-      "version": "cina-curated-2026.08.13",
+      "slug": "frontend-design",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/frontend-design",
+      "ref": "main",
+      "version": "main",
       "autoEnable": true
     },
     {
       "slug": "google-agent-skills-catalog",
       "localPath": "resources/skills/curated/google-agent-skills-catalog",
+      "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
+      "slug": "headroom-optimizer",
+      "localPath": "resources/skills/curated/headroom-optimizer",
       "version": "cina-curated-2026.08.13",
       "autoEnable": true
     },
@@ -241,9 +161,31 @@
       "autoEnable": true
     },
     {
+      "slug": "internal-comms",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/internal-comms",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "jeffallan-engineering-catalog",
       "localPath": "resources/skills/curated/jeffallan-engineering-catalog",
       "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
+      "slug": "manus-runtime-compatibility",
+      "localPath": "resources/skills/curated/manus-runtime-compatibility",
+      "version": "cina-curated-2026.08.17",
+      "autoEnable": true
+    },
+    {
+      "slug": "mcp-builder",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/mcp-builder",
+      "ref": "main",
+      "version": "main",
       "autoEnable": true
     },
     {
@@ -271,9 +213,289 @@
       "autoEnable": true
     },
     {
+      "slug": "openai-curated-aspnet-core",
+      "localPath": "resources/skills/curated/openai-curated-aspnet-core",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-chatgpt-apps",
+      "localPath": "resources/skills/curated/openai-curated-chatgpt-apps",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-cli-creator",
+      "localPath": "resources/skills/curated/openai-curated-cli-creator",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-cloudflare-deploy",
+      "localPath": "resources/skills/curated/openai-curated-cloudflare-deploy",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-define-goal",
+      "localPath": "resources/skills/curated/openai-curated-define-goal",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma",
+      "localPath": "resources/skills/curated/openai-curated-figma",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-code-connect-components",
+      "localPath": "resources/skills/curated/openai-curated-figma-code-connect-components",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-create-design-system-rules",
+      "localPath": "resources/skills/curated/openai-curated-figma-create-design-system-rules",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-create-new-file",
+      "localPath": "resources/skills/curated/openai-curated-figma-create-new-file",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-generate-design",
+      "localPath": "resources/skills/curated/openai-curated-figma-generate-design",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-generate-library",
+      "localPath": "resources/skills/curated/openai-curated-figma-generate-library",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-implement-design",
+      "localPath": "resources/skills/curated/openai-curated-figma-implement-design",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-figma-use",
+      "localPath": "resources/skills/curated/openai-curated-figma-use",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-gh-address-comments",
+      "localPath": "resources/skills/curated/openai-curated-gh-address-comments",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-gh-fix-ci",
+      "localPath": "resources/skills/curated/openai-curated-gh-fix-ci",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-hatch-pet",
+      "localPath": "resources/skills/curated/openai-curated-hatch-pet",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-jupyter-notebook",
+      "localPath": "resources/skills/curated/openai-curated-jupyter-notebook",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-linear",
+      "localPath": "resources/skills/curated/openai-curated-linear",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-migrate-to-codex",
+      "localPath": "resources/skills/curated/openai-curated-migrate-to-codex",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-netlify-deploy",
+      "localPath": "resources/skills/curated/openai-curated-netlify-deploy",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-notion-knowledge-capture",
+      "localPath": "resources/skills/curated/openai-curated-notion-knowledge-capture",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-notion-meeting-intelligence",
+      "localPath": "resources/skills/curated/openai-curated-notion-meeting-intelligence",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-notion-research-documentation",
+      "localPath": "resources/skills/curated/openai-curated-notion-research-documentation",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-notion-spec-to-implementation",
+      "localPath": "resources/skills/curated/openai-curated-notion-spec-to-implementation",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-openai-docs",
+      "localPath": "resources/skills/curated/openai-curated-openai-docs",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-pdf",
+      "localPath": "resources/skills/curated/openai-curated-pdf",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-playwright",
+      "localPath": "resources/skills/curated/openai-curated-playwright",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-playwright-interactive",
+      "localPath": "resources/skills/curated/openai-curated-playwright-interactive",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-render-deploy",
+      "localPath": "resources/skills/curated/openai-curated-render-deploy",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-screenshot",
+      "localPath": "resources/skills/curated/openai-curated-screenshot",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-security-best-practices",
+      "localPath": "resources/skills/curated/openai-curated-security-best-practices",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-security-ownership-map",
+      "localPath": "resources/skills/curated/openai-curated-security-ownership-map",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-security-threat-model",
+      "localPath": "resources/skills/curated/openai-curated-security-threat-model",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-sentry",
+      "localPath": "resources/skills/curated/openai-curated-sentry",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-speech",
+      "localPath": "resources/skills/curated/openai-curated-speech",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-transcribe",
+      "localPath": "resources/skills/curated/openai-curated-transcribe",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-vercel-deploy",
+      "localPath": "resources/skills/curated/openai-curated-vercel-deploy",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-winui-app",
+      "localPath": "resources/skills/curated/openai-curated-winui-app",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-curated-yeet",
+      "localPath": "resources/skills/curated/openai-curated-yeet",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-system-imagegen",
+      "localPath": "resources/skills/curated/openai-system-imagegen",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-system-openai-docs",
+      "localPath": "resources/skills/curated/openai-system-openai-docs",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-system-plugin-creator",
+      "localPath": "resources/skills/curated/openai-system-plugin-creator",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-system-skill-creator",
+      "localPath": "resources/skills/curated/openai-system-skill-creator",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "openai-system-skill-installer",
+      "localPath": "resources/skills/curated/openai-system-skill-installer",
+      "version": "cina-curated-2026.08.18",
+      "autoEnable": true
+    },
+    {
+      "slug": "pdf",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/pdf",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "playwright-skill",
       "localPath": "resources/skills/curated/playwright-skill",
       "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
+      "slug": "pptx",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/pptx",
+      "ref": "main",
+      "version": "main",
       "autoEnable": true
     },
     {
@@ -325,6 +547,22 @@
       "autoEnable": true
     },
     {
+      "slug": "skill-creator",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/skill-creator",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
+      "slug": "slack-gif-creator",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/slack-gif-creator",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "summarize-document",
       "localPath": "resources/skills/curated/summarize-document",
       "version": "cina-curated-2026.08.13",
@@ -340,6 +578,14 @@
       "slug": "swarms-framework",
       "localPath": "resources/skills/curated/swarms-framework",
       "version": "cina-curated-2026.08.13",
+      "autoEnable": true
+    },
+    {
+      "slug": "theme-factory",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/theme-factory",
+      "ref": "main",
+      "version": "main",
       "autoEnable": true
     },
     {
@@ -367,6 +613,22 @@
       "autoEnable": true
     },
     {
+      "slug": "web-artifacts-builder",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/web-artifacts-builder",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
+      "slug": "webapp-testing",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/webapp-testing",
+      "ref": "main",
+      "version": "main",
+      "autoEnable": true
+    },
+    {
       "slug": "weekly-status-report",
       "localPath": "resources/skills/curated/weekly-status-report",
       "version": "cina-curated-2026.08.13",
@@ -379,9 +641,11 @@
       "autoEnable": true
     },
     {
-      "slug": "manus-runtime-compatibility",
-      "localPath": "resources/skills/curated/manus-runtime-compatibility",
-      "version": "cina-curated-2026.08.17",
+      "slug": "xlsx",
+      "repo": "anthropics/skills",
+      "repoPath": "skills/xlsx",
+      "ref": "main",
+      "version": "main",
       "autoEnable": true
     }
   ]

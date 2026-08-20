@@ -73,9 +73,8 @@ jobs:
       - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
-          # Node 23+ can abort on Windows during fetch() cleanup with
-          # 0xC0000409; packaging uses the app's supported Node 22 runtime.
-          node-version: '22.22.3'
+          # Keep packaging on the current project runtime line.
+          node-version: '24.15.0'
           cache: pnpm
       - name: Verify tag and package version
         shell: pwsh

@@ -180,6 +180,13 @@ export const hostApi = {
       invokeHost('gateway', 'rpc', { method, params, timeoutMs }) as Promise<T>
     ),
   },
+  remoteRelay: {
+    status: () => invokeHost('remoteRelay', 'status'),
+    configure: (input: { relayUrl: string; enabled: boolean }) => invokeHost('remoteRelay', 'configure', input),
+    createPairingCode: () => invokeHost('remoteRelay', 'createPairingCode'),
+    listDevices: () => invokeHost('remoteRelay', 'listDevices'),
+    revokeDevice: (deviceId: string) => invokeHost('remoteRelay', 'revokeDevice', { deviceId }),
+  },
   logs: {
     recent: (tailLines = 100) => invokeHost('logs', 'recent', { tailLines }),
     dir: () => invokeHost('logs', 'dir'),
