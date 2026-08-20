@@ -145,7 +145,7 @@
         "jszip": "^3.10.1",
         "katex": "^0.16.45",
         "lru-cache": "^11.2.6",
-        "lucide-react": "^0.563.0",
+        "lucide-react": "^1.31.0",
         "material-file-icons": "^2.4.0",
         "monaco-editor": "^0.55.1",
         "mpg123-decoder": "^1.0.3",
