@@ -4,6 +4,7 @@ import type {
   ProviderType,
   ProviderTypeInfo,
 } from './types';
+import { OPENROUTER_DEFAULT_MODEL_ID } from '@shared/openrouter';
 
 export const PROVIDER_DEFINITIONS: ProviderDefinition[] = [
   {
@@ -63,14 +64,14 @@ export const PROVIDER_DEFINITIONS: ProviderDefinition[] = [
   },
   {
     id: 'openrouter',
-    name: 'OpenRouter',
+    name: 'OpenRouter — Ox Alpha',
     icon: '🌐',
     placeholder: 'sk-or-v1-...',
-    model: 'Multi-Model',
+    model: 'Free multimodal agentic model',
     requiresApiKey: true,
     showModelId: true,
-    modelIdPlaceholder: 'openrouter/free',
-    defaultModelId: 'openrouter/free',
+    modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID,
+    defaultModelId: OPENROUTER_DEFAULT_MODEL_ID,
     category: 'compatible',
     envVar: 'OPENROUTER_API_KEY',
     supportedAuthModes: ['api_key'],

@@ -122,8 +122,8 @@
     "zeroTokenCost": "Без платы за модель",
     "providers": {
       "openrouter": {
-        "name": "OpenRouter Free Router",
-        "description": "Автовыбор доступной бесплатной модели с инструментами и зрением."
+        "name": "OpenRouter Ox Alpha",
+        "description": "Бесплатная скрытая предварительная модель с рассуждением, инструментами и мультимодальным вводом; внешняя доступность может меняться."
       },
       "google": {
         "name": "Google Gemini Flash",

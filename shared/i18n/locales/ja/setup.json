@@ -29,8 +29,8 @@
     "title": "Cina-Claw Proへようこそ",
     "description": "Cina-Claw ProはOpenClawのグラフィカルインターフェースで、お気に入りのメッセージングプラットフォームでAIアシスタントを簡単に使用できます。",
     "localModel": {
-      "title": "OpenRouter Free を既定で使用",
-      "description": "初回起動では OpenRouter の無料ルーターを使用します。プロバイダー設定で OpenRouter API キーを追加すると openrouter/free を利用できます。ルーターは要求に応じて利用可能な無料モデルを選択します。機能と可用性は変動する場合がありますが、Cina-Claw Pro が有料モデルへ自動的に切り替えることはありません。"
+      "title": "OpenRouter Ox Alpha を既定で使用",
+      "description": "初回起動では OpenRouter 経由で Ox Alpha を選択します。プロバイダー設定で OpenRouter API キーを追加すると stealth/ox-alpha を利用できます。現在は推論、ツール、マルチモーダル入力に対応する無料のステルスプレビューですが、可用性、価格、機能、提供元の条件は変更される場合があります。Cina-Claw Pro が有料モデルへ自動的に切り替えることはありません。"
     },
     "features": {
       "noCommand": "コマンドライン不要",
@@ -88,7 +88,7 @@
     "valid": "プロバイダーが正常に構成されました",
     "invalid": "無効な API キー",
     "storedLocally": "API キーはローカルマシンに保存されます。",
-    "secureHint": "プロバイダー認証情報は Windows の OS 暗号化で保護されます。無料クラウドまたは Ollama を選択してください。"
+    "secureHint": "プロバイダー認証情報は OS の安全なストレージで保護されます。OpenRouter Ox Alpha が既定です。続行するには OpenRouter API キーを追加してください。"
   },
   "channel": {
     "title": "メッセージングチャンネルを接続",

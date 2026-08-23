@@ -1,7 +1,9 @@
-export const OPENROUTER_FREE_MODEL_ID = 'openrouter/free';
-export const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1';
-export const OPENROUTER_REFERER_HEADER = 'https://github.com/johngraven75/Cina-Claw-Pro';
-export const OPENROUTER_TITLE_HEADER = 'Cina-Claw Pro';
+import {
+  OPENROUTER_BASE_URL,
+  OPENROUTER_NO_COST_MODEL_IDS,
+  OPENROUTER_REFERER_HEADER,
+  OPENROUTER_TITLE_HEADER,
+} from '@shared/openrouter';
 
 type ConfigRecord = Record<string, unknown>;
 
@@ -19,7 +21,9 @@ function isOpenRouterProvider(providerKey: string, provider: ConfigRecord): bool
 
 export function isOpenRouterFreeModelRef(modelRef: unknown): boolean {
   return typeof modelRef === 'string'
-    && (modelRef === OPENROUTER_FREE_MODEL_ID || modelRef.endsWith(`/${OPENROUTER_FREE_MODEL_ID}`));
+    && OPENROUTER_NO_COST_MODEL_IDS.some(
+      (modelId) => modelRef === modelId || modelRef.endsWith(`/${modelId}`),
+    );
 }
 
 export function applyOpenRouterFreeCompatibility(config: ConfigRecord): boolean {
@@ -31,7 +35,7 @@ export function applyOpenRouterFreeCompatibility(config: ConfigRecord): boolean 
   const defaults = record(agents.defaults);
   const defaultModel = record(defaults.model);
   const primary = defaultModel.primary;
-  const hasFreePrimary = isOpenRouterFreeModelRef(primary);
+  const hasNoCostPrimary = isOpenRouterFreeModelRef(primary);
 
   for (const [providerKey, rawProvider] of Object.entries(providers)) {
     const provider = record(rawProvider);
@@ -59,9 +63,10 @@ export function applyOpenRouterFreeCompatibility(config: ConfigRecord): boolean 
     providers[providerKey] = provider;
   }
 
-  if (hasFreePrimary) {
-    // Free routing has variable upstream latency and tighter rate limits. Only
-    // constrain concurrency when the operator has not chosen a value.
+  if (hasNoCostPrimary) {
+    // Free models can have variable upstream latency, availability, and rate
+    // limits. Only constrain concurrency when the operator has not chosen a
+    // value.
     if (defaults.maxConcurrent === undefined) {
       defaults.maxConcurrent = 1;
       changed = true;

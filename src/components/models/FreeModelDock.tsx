@@ -2,9 +2,10 @@ import { BrainCircuit, Check, Cloud, Cpu, Eye, Gauge, Sparkles, Wrench } from 'l
 import { useTranslation } from 'react-i18next';
 import { useProviderStore } from '@/stores/providers';
 import { cn } from '@/lib/utils';
+import { OPENROUTER_DEFAULT_MODEL_ID } from '@shared/openrouter';
 
 const FREE_PROVIDERS = [
-  { vendorId: 'openrouter', icon: Cloud, model: 'openrouter/free', accent: 'from-cyan-400/20 via-blue-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
+  { vendorId: 'openrouter', icon: Cloud, model: OPENROUTER_DEFAULT_MODEL_ID, accent: 'from-cyan-400/20 via-blue-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
   { vendorId: 'google', icon: Sparkles, model: 'gemini-3-flash-preview', accent: 'from-violet-400/20 via-fuchsia-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
   { vendorId: 'ollama', icon: Cpu, model: 'qwen3-vl:8b', accent: 'from-emerald-400/20 via-teal-500/10 to-transparent', traits: ['vision', 'tools', 'reasoning'] },
 ] as const;

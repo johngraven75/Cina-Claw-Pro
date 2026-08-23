@@ -29,8 +29,8 @@
     "title": "Welcome to Cina-Claw Pro",
     "description": "Cina-Claw Pro is a graphical interface for OpenClaw, making it easy to use AI assistants across your favorite messaging platforms.",
     "localModel": {
-      "title": "OpenRouter Free default",
-      "description": "First boot uses OpenRouter's free router. Add an OpenRouter API key in the provider step to use openrouter/free; the router selects an available no-cost model based on the request. Capabilities and availability can vary, and Cina-Claw Pro never upgrades to a paid model automatically."
+      "title": "OpenRouter Ox Alpha default",
+      "description": "First boot selects Ox Alpha through OpenRouter. Add an OpenRouter API key in the provider step to use stealth/ox-alpha. It is currently a free stealth preview with reasoning, tools, and multimodal input; availability, pricing, capabilities, and provider terms can change. Cina-Claw Pro never switches to a paid model automatically."
     },
     "features": {
       "noCommand": "Zero command-line required",
@@ -88,7 +88,7 @@
     "valid": "Provider configured successfully",
     "invalid": "Invalid API key",
     "storedLocally": "Your API key is stored locally on your machine.",
-    "secureHint": "Provider credentials are protected with Windows OS encryption. OpenRouter Free is selected by default; add your OpenRouter API key to continue."
+    "secureHint": "Provider credentials are protected by the operating system's secure storage. OpenRouter Ox Alpha is selected by default; add your OpenRouter API key to continue."
   },
   "channel": {
     "title": "Connect a Messaging Channel",

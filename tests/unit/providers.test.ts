@@ -11,6 +11,7 @@ import {
 import {
   BUILTIN_PROVIDER_TYPES,
   getProviderConfig,
+  getProviderDefaultModel,
   getProviderEnvVar,
   getProviderEnvVars,
 } from '@electron/utils/provider-registry';
@@ -138,7 +139,7 @@ describe('provider metadata', () => {
       docsUrl: 'https://platform.claude.com/docs/en/api/overview',
     });
     expect(getProviderDocsUrl(anthropic, 'en')).toBe('https://platform.claude.com/docs/en/api/overview');
-    expect(getProviderDocsUrl(openrouter, 'en')).toBe('https://openrouter.ai/docs/guides/routing/routers/free-router');
+    expect(getProviderDocsUrl(openrouter, 'en')).toBe('https://openrouter.ai/stealth/ox-alpha');
     expect(getProviderDocsUrl(moonshot, 'en')).toBe('https://platform.moonshot.cn/');
     expect(getProviderDocsUrl(siliconflow, 'en')).toBe('https://docs.siliconflow.cn/cn/userguide/introduction');
     expect(getProviderDocsUrl(ark, 'en')).toBe('https://www.volcengine.com/');
@@ -165,8 +166,10 @@ describe('provider metadata', () => {
     });
     expect(openrouter).toMatchObject({
       showModelId: true,
-      defaultModelId: 'openrouter/free',
+      defaultModelId: 'stealth/ox-alpha',
+      modelIdPlaceholder: 'stealth/ox-alpha',
     });
+    expect(getProviderDefaultModel('openrouter')).toBe('stealth/ox-alpha');
     expect(siliconflow).toMatchObject({
       showModelId: true,
       defaultModelId: 'deepseek-ai/DeepSeek-V3',
@@ -246,7 +249,7 @@ describe('provider metadata', () => {
       .toBe('Qwen/Qwen3-Coder-480B-A35B-Instruct');
     expect(resolveProviderModelForSave(anthropic, 'claude-sonnet-4-5', false)).toBe('claude-sonnet-4-5');
 
-    expect(resolveProviderModelForSave(openrouter, '   ', false)).toBe('openrouter/free');
+    expect(resolveProviderModelForSave(openrouter, '   ', false)).toBe('stealth/ox-alpha');
     expect(resolveProviderModelForSave(siliconflow, '   ', false)).toBe('deepseek-ai/DeepSeek-V3');
     expect(resolveProviderModelForSave(anthropic, '   ', false)).toBe('claude-opus-4-8');
     expect(resolveProviderModelForSave(ark, '  ep-custom-model  ', false)).toBe('ep-custom-model');

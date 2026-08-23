@@ -148,6 +148,10 @@ export interface ProviderAccount {
 }
 
 import { providerIcons } from '@/assets/providers';
+import {
+  OPENROUTER_DEFAULT_MODEL_DOCS_URL,
+  OPENROUTER_DEFAULT_MODEL_ID,
+} from '@shared/openrouter';
 
 /** All supported provider types with UI metadata */
 export const PROVIDER_TYPE_INFO: ProviderTypeInfo[] = [
@@ -189,7 +193,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeInfo[] = [
     modelIdPlaceholder: 'gemini-3-flash-preview',
     apiKeyUrl: 'https://aistudio.google.com/app/apikey',
   },
-  { id: 'openrouter', name: 'OpenRouter Free Model Router', icon: '🌐', placeholder: 'sk-or-v1-...', model: 'Free multimodal routing', requiresApiKey: true, showModelId: true, modelIdPlaceholder: 'openrouter/free', defaultModelId: 'openrouter/free', docsUrl: 'https://openrouter.ai/docs/guides/routing/routers/free-router' },
+  { id: 'openrouter', name: 'OpenRouter — Ox Alpha', icon: '🌐', placeholder: 'sk-or-v1-...', model: 'Free multimodal agentic model', requiresApiKey: true, showModelId: true, modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID, defaultModelId: OPENROUTER_DEFAULT_MODEL_ID, docsUrl: OPENROUTER_DEFAULT_MODEL_DOCS_URL },
   { id: 'minimax-portal-cn', name: 'MiniMax (CN)', icon: '☁️', placeholder: 'sk-...', model: 'MiniMax', requiresApiKey: false, isOAuth: true, supportsApiKey: true, defaultModelId: 'MiniMax-M3', showModelId: true, modelIdPlaceholder: 'MiniMax-M3', apiKeyUrl: 'https://platform.minimaxi.com/' },
   { id: 'moonshot', name: 'Moonshot (CN)', icon: '🌙', placeholder: 'sk-...', model: 'Kimi', requiresApiKey: true, defaultBaseUrl: 'https://api.moonshot.cn/v1', showModelId: true, defaultModelId: 'kimi-k2.6', modelIdPlaceholder: 'kimi-k2.6', docsUrl: 'https://platform.moonshot.cn/' },
   { id: 'moonshot-global', name: 'Moonshot (Global)', icon: '🌙', placeholder: 'sk-...', model: 'Kimi', requiresApiKey: true, defaultBaseUrl: 'https://api.moonshot.ai/v1', showModelId: true, defaultModelId: 'kimi-k2.6', modelIdPlaceholder: 'kimi-k2.6', docsUrl: 'https://platform.moonshot.ai/' },

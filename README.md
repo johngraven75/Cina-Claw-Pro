@@ -8,11 +8,12 @@ Voice chat uses Windows-native `System.Speech`, so dictation and playback do not
 
 ## Free-first models
 
-- **OpenRouter Free Router** — `openrouter/free` dynamically selects an available no-cost model. Availability and supported modalities vary.
+- **OpenRouter Ox Alpha** — fresh installations and newly configured OpenRouter accounts default to `stealth/ox-alpha`, currently a no-cost stealth-preview reasoning model with tool calling and multimodal input. Availability, pricing, capabilities, and provider terms may change.
+- **OpenRouter Free Router** — `openrouter/free` remains available as an explicit operator-selected route that dynamically chooses a no-cost model. Availability and supported modalities vary.
 - **Google Gemini Flash** — `gemini-3-flash-preview` uses Gemini API free-tier quotas when the account is eligible.
-- **Ollama Local** — fresh installs select `qwen3-vl:8b` for local reasoning, image input, and tool-driven general assistance with no hosted token charge. Install [Ollama](https://ollama.com/) separately, start it, and run `ollama pull qwen3-vl:8b`. Cina-Claw Pro never silently falls back to a cloud provider.
+- **Ollama Local** — `qwen3-vl:8b` remains available as an explicit local preset for reasoning, image input, and tool-driven general assistance with no hosted token charge. Install [Ollama](https://ollama.com/) separately, start it, and run `ollama pull qwen3-vl:8b`. Cina-Claw Pro never silently falls back to a cloud provider.
 
-Provider credentials are encrypted with Electron `safeStorage` (Windows DPAPI in packaged Windows builds). The setup wizard requires one enabled provider so chat works immediately after onboarding.
+Provider credentials are encrypted with Electron `safeStorage` using the operating system's protected credential storage. The setup wizard requires one enabled provider so chat works immediately after onboarding. Existing and upgraded provider or model choices are never replaced by the Ox Alpha first-boot default.
 
 Local speech never needs a speech host. Chat prompts sent to a hosted AI model are still processed under that provider's privacy terms; use Ollama for local model inference and never paste passwords, private keys, tokens, or recovery codes into a prompt.
 
@@ -24,9 +25,9 @@ Managed all-model guidance requires truthful, relevant, evidence-based responses
 
 Fifty-seven reviewed skills are bundled and enabled: 17 skills from the official Anthropic repository plus 40 provenance-preserving Cina adapters for the requested research, engineering, browser, design, gateway, Google, VoltAgent, agent, media, and workflow ecosystems. The adapters do not silently install external runtimes, start services, connect accounts, or grant machine access. OpenClaw's plugin/provider discovery and the broader skills marketplace remain available for explicit installs.
 
-## Windows development
+## Desktop development
 
-Requirements: Node.js 24, Corepack, pnpm 10.33.4, Git, and Windows 10/11.
+Requirements: Node.js 24, Corepack, pnpm 10.33.4, and Git. The shared default-model configuration is packaged for Windows, macOS, and Linux.
 
 ```powershell
 corepack enable

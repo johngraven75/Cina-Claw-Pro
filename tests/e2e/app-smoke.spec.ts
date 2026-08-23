@@ -27,7 +27,7 @@ test.describe('Cina-Claw Pro Electron smoke flows', () => {
     await expect(page.getByText('Guarded + enabled')).toBeVisible();
     await page.getByRole('button', { name: /Configure free models/i }).click();
     await expect(page.getByTestId('free-model-dock')).toBeVisible();
-    await expect(page.getByText('openrouter/free')).toBeVisible();
+    await expect(page.getByText('stealth/ox-alpha')).toBeVisible();
   });
 
   test('persists skipped setup across relaunch for the same isolated profile', async ({ electronApp, launchElectronApp }) => {

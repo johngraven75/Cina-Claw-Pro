@@ -12,9 +12,10 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Animated command center | `export function CinaCommandCenter` | `src/pages/Chat/CinaCommandCenter.tsx` |
 | 3D neural core | `.cina-core-card` | `src/styles/globals.css` |
 | Multimodal input | `composer.attachFiles` | `src/pages/Chat/ChatInput.tsx` |
-| OpenRouter free router | `openrouter/free` | `src/lib/providers.ts` |
+| OpenRouter Ox Alpha default | `stealth/ox-alpha` | `shared/openrouter.ts` |
+| OpenRouter free router option | `openrouter/free` | `shared/openrouter.ts` |
 | Gemini free-tier preset | `gemini-3-flash-preview` | `src/lib/providers.ts` |
-| OpenRouter Free startup default | `CINA_DEFAULT_MODEL_REF` | `electron/utils/cina-claw-defaults.ts` |
+| Shared OpenRouter startup default | `CINA_DEFAULT_MODEL_REF` | `electron/utils/cina-claw-defaults.ts` |
 | Guarded planning and delegation | `applyCinaClawAutonomyDefaults` | `electron/utils/cina-claw-defaults.ts` |
 | OS-backed secret encryption | `safeStorage.encryptString` | `electron/services/secrets/secret-store.ts` |
 | Official skill bundle | `webapp-testing` | `resources/skills/preinstalled-manifest.json` |

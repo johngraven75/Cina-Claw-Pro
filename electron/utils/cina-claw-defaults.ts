@@ -1,17 +1,24 @@
 import {
   applyOpenRouterFreeCompatibility,
   isOpenRouterFreeModelRef,
+} from './openrouter-free-compat';
+import {
   OPENROUTER_BASE_URL,
-  OPENROUTER_FREE_MODEL_ID,
+  OPENROUTER_DEFAULT_CONTEXT_WINDOW,
+  OPENROUTER_DEFAULT_MAX_TOKENS,
+  OPENROUTER_DEFAULT_MODEL_ID,
+  OPENROUTER_DEFAULT_MODEL_NAME,
+  OPENROUTER_DEFAULT_MODEL_REF,
+  OPENROUTER_PROVIDER_KEY,
   OPENROUTER_REFERER_HEADER,
   OPENROUTER_TITLE_HEADER,
-} from './openrouter-free-compat';
+} from '@shared/openrouter';
 
 type ConfigRecord = Record<string, unknown>;
 
-export const CINA_DEFAULT_PROVIDER_KEY = 'openrouter';
-export const CINA_DEFAULT_MODEL_ID = OPENROUTER_FREE_MODEL_ID;
-export const CINA_DEFAULT_MODEL_REF = `${CINA_DEFAULT_PROVIDER_KEY}/${CINA_DEFAULT_MODEL_ID}`;
+export const CINA_DEFAULT_PROVIDER_KEY = OPENROUTER_PROVIDER_KEY;
+export const CINA_DEFAULT_MODEL_ID = OPENROUTER_DEFAULT_MODEL_ID;
+export const CINA_DEFAULT_MODEL_REF = OPENROUTER_DEFAULT_MODEL_REF;
 
 function record(value: unknown): ConfigRecord {
   return value && typeof value === 'object' && !Array.isArray(value) ? value as ConfigRecord : {};
@@ -55,7 +62,7 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   const defaults = record(agents.defaults);
 
   // A brand-new install should guide the operator to the zero-cost OpenRouter
-  // free router. The API key remains environment-backed and must be supplied
+  // Ox Alpha model. The API key remains environment-backed and must be supplied
   // through the normal secure provider setup flow. Only seed when both
   // sections are genuinely absent: an upgraded installation (including one
   // whose operator removed every provider) must never have a provider or
@@ -73,11 +80,12 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
           },
           models: [{
             id: CINA_DEFAULT_MODEL_ID,
-            name: 'OpenRouter Free Router',
+            name: OPENROUTER_DEFAULT_MODEL_NAME,
+            reasoning: true,
             input: ['text', 'image'],
             cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
-            contextWindow: 32_768,
-            maxTokens: 8_192,
+            contextWindow: OPENROUTER_DEFAULT_CONTEXT_WINDOW,
+            maxTokens: OPENROUTER_DEFAULT_MAX_TOKENS,
           }],
         },
       },

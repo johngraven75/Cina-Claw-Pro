@@ -5,7 +5,9 @@ import {
 } from '../../electron/utils/openrouter-free-compat';
 
 describe('OpenRouter free-agent compatibility', () => {
-  it('recognizes provider-qualified and direct free-router model references', () => {
+  it('recognizes Ox Alpha and legacy free-router model references', () => {
+    expect(isOpenRouterFreeModelRef('stealth/ox-alpha')).toBe(true);
+    expect(isOpenRouterFreeModelRef('openrouter/stealth/ox-alpha')).toBe(true);
     expect(isOpenRouterFreeModelRef('openrouter/free')).toBe(true);
     expect(isOpenRouterFreeModelRef('openrouter/openrouter/free')).toBe(true);
     expect(isOpenRouterFreeModelRef('openai/gpt-5')).toBe(false);
@@ -20,7 +22,7 @@ describe('OpenRouter free-agent compatibility', () => {
       },
       agents: {
         defaults: {
-          model: { primary: 'openrouter/free', fallbacks: [] },
+          model: { primary: 'openrouter/stealth/ox-alpha', fallbacks: [] },
         },
       },
     };

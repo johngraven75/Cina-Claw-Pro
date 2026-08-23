@@ -122,8 +122,8 @@
     "zeroTokenCost": "无模型费用",
     "providers": {
       "openrouter": {
-        "name": "OpenRouter 免费路由",
-        "description": "可用时自动选择支持工具和视觉的免费模型。"
+        "name": "OpenRouter Ox Alpha",
+        "description": "支持工具和多模态输入的免费隐身预览推理模型；外部可用性可能变化。"
       },
       "google": {
         "name": "Google Gemini Flash",
