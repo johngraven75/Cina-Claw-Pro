@@ -12,6 +12,7 @@ Cina-Claw Pro v1.0.5 makes OpenRouter Free the safe first-boot routing default a
 - The managed catalog includes 44 original CinaClaw adapters for official OpenAI Codex and ChatGPT skill concepts. The adapters are auto-enabled only when application-managed and do not copy upstream instructions, scripts, or assets.
 - The first-boot experience explains the OpenRouter Free requirement in English, Japanese, Russian, and Chinese and states that Cina-Claw Pro does not automatically switch to a paid model.
 - The packaged runtime compatibility assertion now matches the current Electron 41.10.3 and WebSocket 8.21.0 release line.
+- Release validation rerun includes the corrected empty-query guard for the Google Agent Skills catalog search.
 
 ## Validation expectations
 
