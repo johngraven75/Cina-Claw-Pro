@@ -102,7 +102,7 @@ export function classifyMediaDownloadUrl(rawUrl: string): MediaDownloadEngine {
 }
 
 export function sanitizeDownloadFileName(url: string, jobId: string): string {
-  let host = 'video';
+  let host: string;
   try {
     host = new URL(url).hostname.replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '') || 'video';
   } catch {
