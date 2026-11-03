@@ -9,6 +9,7 @@ import { trackUiEvent } from '@/lib/telemetry';
 import { ProvidersSettings } from '@/components/settings/ProvidersSettings';
 import { FeedbackState } from '@/components/common/FeedbackState';
 import { FreeModelDock } from '@/components/models/FreeModelDock';
+import { FreeModelCatalog } from '@/components/models/FreeModelCatalog';
 import {
   filterUsageHistoryByWindow,
   groupUsageHistory,
@@ -287,6 +288,7 @@ export function Models() {
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto pr-2 pb-10 min-h-0 -mr-2 space-y-12">
           <FreeModelDock />
+          <FreeModelCatalog />
           {/* AI Providers Section */}
           <div id="provider-settings"><ProvidersSettings /></div>
 

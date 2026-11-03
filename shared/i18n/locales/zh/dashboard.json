@@ -144,5 +144,53 @@
       "2": "免费额度",
       "3": "本地私有"
     }
+  },
+  "freeCatalog": {
+    "eyebrow": "免费模型目录",
+    "title": "选择免费模型",
+    "description": "三十个免费、开源、多模态推理模型。云端即用模型需要免费提供商密钥；一键拉取模型需要 Ollama 和一次下载；进阶模型需要下载权重，视情况需要性能较好的 GPU。目录中的设置说明为英文；提供商配额可能变化。",
+    "searchPlaceholder": "按名称或 Hugging Face ID 搜索…",
+    "tiers": {
+      "all": "全部",
+      "cloud-instant": "云端即用",
+      "one-pull": "一键拉取",
+      "power-user": "进阶",
+      "not-default": "不作为默认"
+    },
+    "showUncensored": "显示无审查模型",
+    "uncensoredWarning": "无审查模型的拒绝能力较弱，仅限本地使用。你需要自行把关。",
+    "hiddenUncensored": "开启后才会显示 {{count}} 个无审查模型。",
+    "useModel": "使用此模型",
+    "configureProvider": "配置提供商",
+    "showSetup": "显示设置",
+    "hideSetup": "隐藏设置",
+    "selected": "已选择",
+    "needsProvider": "请先添加或启用 {{provider}} 提供商，然后重新选择。",
+    "saved": "已选择模型。",
+    "saveFailed": "无法选择此模型。请检查提供商设置后重试。",
+    "setup": "设置",
+    "gated": "需要注册：需免费账号并接受许可条款。",
+    "localOnly": "仅限本地",
+    "modalities": {
+      "text": "文本",
+      "image": "图像",
+      "video": "视频",
+      "audio": "音频",
+      "documents": "文档",
+      "gui": "界面"
+    },
+    "reasoning": {
+      "native-thinking": "原生思考",
+      "thinking-control": "思考强度控制",
+      "thinking-toggle": "思考开关",
+      "prompted-cot": "提示推理"
+    },
+    "contextUnknown": "未标明上下文",
+    "size": "大小",
+    "licence": "许可",
+    "noResults": "没有符合搜索的模型。",
+    "oxAlpha": "Ox Alpha（精选）",
+    "oxAlphaDescription": "OpenRouter 隐身预览推理模型，支持工具和多模态输入。这不是 Hugging Face 开源模型，可用性可能变化。",
+    "oxAlphaNote": "精选默认模型——下面的 30 个模型均为 Hugging Face 开源权重模型。"
   }
 }

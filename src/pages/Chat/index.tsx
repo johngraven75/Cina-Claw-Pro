@@ -32,6 +32,7 @@ import { hostApi } from '@/lib/host-api';
 import { getSessionDisplayTitle } from '@shared/chat/session-title';
 import { ChatInput, type ChatWorkspaceOption, type FileAttachment } from './ChatInput';
 import { ChatToolbar } from './ChatToolbar';
+import { TaskViewHeader } from '@/components/task-view/TaskViewHeader';
 import { AcpTimeline } from './AcpTimeline';
 import { AcpErrorBanner } from './AcpErrorBanner';
 import { CinaCommandCenter } from './CinaCommandCenter';
@@ -304,6 +305,8 @@ export function Chat() {
   const clearAcpError = useAcpChatSessionStore((s) => s.clearError);
 
   const panelOpen = useArtifactPanel((s) => s.open);
+  const taskView = useArtifactPanel((s) => s.taskView);
+  const toggleTaskView = useArtifactPanel((s) => s.toggleTaskView);
   const panelWidthPct = useArtifactPanel((s) => s.widthPct);
   const closeArtifactPanel = useArtifactPanel((s) => s.close);
   const splitContainerRef = useRef<HTMLDivElement | null>(null);
@@ -557,6 +560,15 @@ export function Chat() {
             />
           </div>
         </div>
+
+        {taskView && (
+          <TaskViewHeader
+            title={currentSessionTitle}
+            status={composerBusy ? 'working' : 'idle'}
+            fileCount={fileActivity.uniqueFileCount}
+            onClose={toggleTaskView}
+          />
+        )}
 
         <div className="relative min-h-0 flex-1 overflow-hidden px-4 py-4">
           <div className="relative mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col">

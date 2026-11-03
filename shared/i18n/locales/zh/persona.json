@@ -1,0 +1,34 @@
+{
+  "dirty": "有未保存的更改",
+  "loadFailed": "无法加载该文件。",
+  "loading": "正在加载…",
+  "notCreated": "该文件尚不存在。保存即可创建它。",
+  "path": "文件：{{path}}",
+  "reload": "重新加载",
+  "save": "保存",
+  "saveFailed": "无法保存该文件。",
+  "saved": "已保存。",
+  "saving": "正在保存…",
+  "spaces": {
+    "memory": {
+      "description": "长期记忆：值得保留的事实、偏好和决定。",
+      "file": "MEMORY.md",
+      "tab": "记忆",
+      "usedFor": "在每次新会话中作为智能体的长期记忆加载，同时还会加载 memory/*.md。"
+    },
+    "soul": {
+      "description": "智能体是谁：名称、风格和说话方式。",
+      "file": "SOUL.md",
+      "tab": "灵魂",
+      "usedFor": "在每次新会话中作为智能体的人格加载。"
+    },
+    "system": {
+      "description": "本工作区中智能体的指令。之所以称为系统提示词，是因为它起的就是这个作用；其磁盘文件名仍为 AGENTS.md，以便 OpenClaw 继续加载它。",
+      "file": "AGENTS.md",
+      "tab": "系统提示词",
+      "usedFor": "在每次新会话中作为智能体的指令加载。本文件中的 ClawX 部分会在启动时重新合并。"
+    }
+  },
+  "subtitle": "编辑塑造主智能体的文件。OpenClaw 会在新会话开始时读取它们，因此编辑对新会话生效，对已在运行的会话不生效。",
+  "title": "人格"
+}

@@ -88,7 +88,18 @@
     "valid": "Provider configured successfully",
     "invalid": "Invalid API key",
     "storedLocally": "Your API key is stored locally on your machine.",
-    "secureHint": "Provider credentials are protected by the operating system's secure storage. OpenRouter Ox Alpha is selected by default; add your OpenRouter API key to continue."
+    "secureHint": "Provider credentials are protected by the operating system's secure storage. OpenRouter Ox Alpha is selected by default; add your OpenRouter API key to continue.",
+    "firstBootKey": {
+      "title": "OpenRouter API key",
+      "description": "Paste your OpenRouter key once here. It is saved in the operating system's secure storage and reloaded on every boot — you do not need to enter it again.",
+      "placeholder": "sk-or-v1-...",
+      "save": "Save key",
+      "saving": "Saving…",
+      "saved": "Key saved and retained. It will be loaded automatically on the next boot.",
+      "replaceHint": "A key is already saved. Paste a new key to replace it.",
+      "errorEmpty": "Paste an API key first.",
+      "errorFailed": "Could not save the key. Try again."
+    }
   },
   "channel": {
     "title": "Connect a Messaging Channel",

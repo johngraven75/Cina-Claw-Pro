@@ -567,6 +567,7 @@ export type FilePreviewError =
   | 'binary'
   | 'notFound'
   | 'notDirectory'
+  | 'alreadyExists'
   | 'invalidContent'
   | 'operationFailed'
   | (string & {});
@@ -983,6 +984,7 @@ export type HostApiContract = {
     readText: (payload: FilePathPayload) => ReadTextFileResult;
     readBinary: (payload: FileReadBinaryPayload) => ReadBinaryFileResult;
     writeText: (payload: FileWriteTextPayload) => WriteTextFileResult;
+    createText: (payload: FileWriteTextPayload) => WriteTextFileResult;
     stat: (payload: FilePathPayload) => StatFileResult;
     listDir: (payload: FilePathPayload) => FileListDirResult;
     listTree: (payload: FileListTreePayload) => FileListTreeResult;

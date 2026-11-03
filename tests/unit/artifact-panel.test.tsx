@@ -118,7 +118,7 @@ afterEach(() => {
 });
 
 describe('ArtifactPanel', () => {
-  it('renders only Workspace, Preview, and Changes tabs', () => {
+  it('renders Workspace, Preview, Changes, and Steps tabs', () => {
     render(<ArtifactPanel fileGroups={[]} uniqueFileCount={0} agent={null} />);
 
     const tabs = screen.getByTestId('artifact-panel-tabs');
@@ -126,6 +126,7 @@ describe('ArtifactPanel', () => {
       'artifact-panel-tab-browser',
       'artifact-panel-tab-preview',
       'artifact-panel-tab-changes',
+      'artifact-panel-tab-steps',
     ]);
   });
 
@@ -146,7 +147,7 @@ describe('ArtifactPanel', () => {
     expect(screen.queryByTestId('artifact-panel-tab-web-browser')).not.toBeInTheDocument();
   });
 
-  it('keeps the rich-preview folder action after all three tabs', () => {
+  it('keeps the rich-preview folder action after all four tabs', () => {
     useArtifactPanel.setState({
       focusedFile: { filePath: '/tmp/report.pdf', fileName: 'report.pdf', ext: '.pdf', mimeType: 'application/pdf', contentType: 'document' },
     });
@@ -156,6 +157,7 @@ describe('ArtifactPanel', () => {
       'artifact-panel-tab-browser',
       'artifact-panel-tab-preview',
       'artifact-panel-tab-changes',
+      'artifact-panel-tab-steps',
       'artifact-panel-action-open-folder',
     ]);
   });

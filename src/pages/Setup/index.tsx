@@ -28,6 +28,7 @@ import { SUPPORTED_LANGUAGES } from '@/i18n';
 import { toast } from 'sonner';
 import { hostApi } from '@/lib/host-api';
 import { ProvidersSettings } from '@/components/settings/ProvidersSettings';
+import { FirstBootKeyEntry } from '@/components/setup/FirstBootKeyEntry';
 import { useProviderStore } from '@/stores/providers';
 import { OPENROUTER_DEFAULT_MODEL_ID } from '@shared/openrouter';
 
@@ -223,6 +224,7 @@ export function Setup() {
               {safeStepIndex === STEP.PROVIDER && (
                 <div className="space-y-4">
                   <p className="text-sm text-muted-foreground">{t('provider.secureHint')}</p>
+                  <FirstBootKeyEntry />
                   <ProvidersSettings />
                 </div>
               )}

@@ -14,7 +14,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
-import { ExternalLink, Eye, FileEdit, FolderOpen, FolderTree, Maximize2, Minimize2, X } from 'lucide-react';
+import { ExternalLink, Eye, FileEdit, FolderOpen, FolderTree, ListChecks, Maximize2, Minimize2, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -24,6 +24,7 @@ import { htmlPreviewFileUrl } from '@/lib/local-html-browser';
 import type { AcpSessionFileGroup } from '@/lib/acp/openclaw-file-activities';
 import type { AgentSummary } from '@/types/agent';
 import { useArtifactPanel } from '@/stores/artifact-panel';
+import { TaskStepsView } from './TaskStepsView';
 import { getFilePreviewTargetIdentity, type FilePreviewTarget } from './types';
 import { FilePreviewBody } from './FilePreviewBody';
 import { WorkspaceBrowserBody } from './WorkspaceBrowserBody';
@@ -104,6 +105,13 @@ export function ArtifactPanel({ fileGroups, uniqueFileCount, agent, workspacePat
             active={visibleTab === 'changes'}
             onClick={() => setTab('changes')}
           />
+          <PanelTabButton
+            testId="artifact-panel-tab-steps"
+            icon={<ListChecks className="h-3.5 w-3.5" />}
+            label={t('artifactPanel.tabs.steps', 'Steps')}
+            active={visibleTab === 'steps'}
+            onClick={() => setTab('steps')}
+          />
           {richFocusedFile && (
             <PanelTabButton
               testId="artifact-panel-action-open-folder"
@@ -145,6 +153,9 @@ export function ArtifactPanel({ fileGroups, uniqueFileCount, agent, workspacePat
         </div>
         <div className={cn('h-full min-h-0', visibleTab !== 'changes' && 'hidden')}>
           <AcpSessionChangesView fileGroups={fileGroups} uniqueFileCount={uniqueFileCount} focus={focusedChange} />
+        </div>
+        <div className={cn('h-full min-h-0', visibleTab !== 'steps' && 'hidden')}>
+          {visibleTab === 'steps' && <TaskStepsView />}
         </div>
       </div>
     </div>

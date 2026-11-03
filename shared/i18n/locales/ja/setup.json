@@ -88,7 +88,18 @@
     "valid": "プロバイダーが正常に構成されました",
     "invalid": "無効な API キー",
     "storedLocally": "API キーはローカルマシンに保存されます。",
-    "secureHint": "プロバイダー認証情報は OS の安全なストレージで保護されます。OpenRouter Ox Alpha が既定です。続行するには OpenRouter API キーを追加してください。"
+    "secureHint": "プロバイダー認証情報は OS の安全なストレージで保護されます。OpenRouter Ox Alpha が既定です。続行するには OpenRouter API キーを追加してください。",
+    "firstBootKey": {
+      "title": "OpenRouter APIキー",
+      "description": "OpenRouterキーをここに一度貼り付けてください。OSの安全なストレージに保存され、次回以降の起動時に自動で読み込まれるため、再入力は不要です。",
+      "placeholder": "sk-or-v1-...",
+      "save": "キーを保存",
+      "saving": "保存中…",
+      "saved": "キーが保存され、保持されます。次回起動時に自動で読み込まれます。",
+      "replaceHint": "キーはすでに保存されています。新しいキーを貼り付けると置き換えられます。",
+      "errorEmpty": "まずAPIキーを貼り付けてください。",
+      "errorFailed": "キーを保存できませんでした。もう一度お試しください。"
+    }
   },
   "channel": {
     "title": "メッセージングチャンネルを接続",

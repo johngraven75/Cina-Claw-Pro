@@ -921,6 +921,39 @@ export function createFilesApi(dependencies: FilesApiDependencies = {}): Complet
         return { ok: false, error: message };
       }
     },
+    // Create a new text file, refusing to overwrite an existing one.
+    // writeText deliberately never creates files, so editors for files
+    // that may not exist yet (workspace SOUL.md / MEMORY.md / AGENTS.md)
+    // need this explicit, guarded path. It is sandbox-checked exactly
+    // like writeText and never creates parent directories.
+    createText: async (payload) => {
+      try {
+        const body = isRecord(payload) ? payload as PathPayload : {};
+        if (typeof body.content !== 'string') return { ok: false, error: 'invalidContent' };
+        if (Buffer.byteLength(body.content, 'utf8') > FILE_PREVIEW_MAX_TEXT_BYTES) {
+          return { ok: false, error: 'tooLarge' };
+        }
+        const { realPath: real } = await resolveSandboxedPath(requirePath(payload), 'write');
+        const fsP = await import('node:fs/promises');
+        try {
+          await fsP.writeFile(real, body.content, { encoding: 'utf8', flag: 'wx' });
+        } catch (err) {
+          if ((err as NodeJS.ErrnoException).code === 'EEXIST') {
+            return { ok: false, error: 'alreadyExists' };
+          }
+          if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
+            return { ok: false, error: 'notFound' };
+          }
+          throw err;
+        }
+        return { ok: true };
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        if (message === 'outsideSandbox') return { ok: false, error: 'outsideSandbox' };
+        if (message === 'readOnlyRoot') return { ok: false, error: 'readOnlyRoot' };
+        return { ok: false, error: message };
+      }
+    },
     stat: async (payload) => {
       try {
         const { realPath: real, readOnly } = await resolveSandboxedPath(requirePath(payload), 'read');

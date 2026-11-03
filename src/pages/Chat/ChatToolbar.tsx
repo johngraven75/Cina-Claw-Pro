@@ -4,7 +4,7 @@
  * entry point.  Rendered in the Header when on the Chat page.
  */
 import { useMemo } from 'react';
-import { Bot, FolderTree, ListTree } from 'lucide-react';
+import { Bot, FolderTree, ListTree, PanelsTopLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useChatStore } from '@/stores/chat';
@@ -33,6 +33,8 @@ export function ChatToolbar({
   const panelOpen = useArtifactPanel((s) => s.open);
   const panelTab = useArtifactPanel((s) => s.tab);
   const closePanel = useArtifactPanel((s) => s.close);
+  const taskView = useArtifactPanel((s) => s.taskView);
+  const toggleTaskView = useArtifactPanel((s) => s.toggleTaskView);
   const { t } = useTranslation('chat');
   const currentAgent = useMemo(
     () => (agents ?? []).find((agent) => agent.id === currentAgentId) ?? null,
@@ -72,6 +74,27 @@ export function ChatToolbar({
           </TooltipContent>
         </Tooltip>
       )}
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            data-testid="chat-task-view-toggle"
+            variant="ghost"
+            size="icon"
+            className={cn(
+              'h-8 w-8 hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10',
+              taskView && 'bg-foreground/10 text-foreground',
+            )}
+            onClick={toggleTaskView}
+            aria-label={t('taskView.toggle')}
+            aria-pressed={taskView}
+          >
+            <PanelsTopLeft className="h-4 w-4" />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{t('taskView.toggle')}</p>
+        </TooltipContent>
+      </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
