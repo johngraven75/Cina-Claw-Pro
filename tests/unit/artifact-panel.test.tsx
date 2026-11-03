@@ -15,9 +15,12 @@ vi.mock('@/lib/host-api', () => ({
   },
 }));
 
-vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: (key: string, options?: string | Record<string, unknown>) => {
+vi.mock('react-i18next', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('react-i18next')>();
+  return {
+    ...actual,
+    useTranslation: () => ({
+      t: (key: string, options?: string | Record<string, unknown>) => {
       if (typeof options === 'string') return options;
       const labels: Record<string, string> = {
         'artifactPanel.tabs.browser': 'Workspace',
@@ -36,7 +39,8 @@ vi.mock('react-i18next', () => ({
       return labels[key] ?? '';
     },
   }),
-}));
+  };
+});
 
 const { filePreviewBodyProps, workspaceBrowserProps } = vi.hoisted(() => ({
   filePreviewBodyProps: [] as Array<Record<string, unknown>>,
@@ -118,7 +122,7 @@ afterEach(() => {
 });
 
 describe('ArtifactPanel', () => {
-  it('renders only Workspace, Preview, and Changes tabs', () => {
+  it('renders Workspace, Preview, Changes, and Steps tabs', () => {
     render(<ArtifactPanel fileGroups={[]} uniqueFileCount={0} agent={null} />);
 
     const tabs = screen.getByTestId('artifact-panel-tabs');
@@ -126,6 +130,7 @@ describe('ArtifactPanel', () => {
       'artifact-panel-tab-browser',
       'artifact-panel-tab-preview',
       'artifact-panel-tab-changes',
+      'artifact-panel-tab-steps',
     ]);
   });
 
@@ -146,7 +151,7 @@ describe('ArtifactPanel', () => {
     expect(screen.queryByTestId('artifact-panel-tab-web-browser')).not.toBeInTheDocument();
   });
 
-  it('keeps the rich-preview folder action after all three tabs', () => {
+  it('keeps the rich-preview folder action after all four tabs', () => {
     useArtifactPanel.setState({
       focusedFile: { filePath: '/tmp/report.pdf', fileName: 'report.pdf', ext: '.pdf', mimeType: 'application/pdf', contentType: 'document' },
     });
@@ -156,6 +161,7 @@ describe('ArtifactPanel', () => {
       'artifact-panel-tab-browser',
       'artifact-panel-tab-preview',
       'artifact-panel-tab-changes',
+      'artifact-panel-tab-steps',
       'artifact-panel-action-open-folder',
     ]);
   });
