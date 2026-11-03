@@ -23,6 +23,7 @@ import {
   X,
   Cpu,
   ImagePlus,
+  Download,
   ChevronRight,
   ChevronsUpDown,
   ChevronsDownUp,
@@ -439,16 +440,18 @@ export function Sidebar() {
       label: t('sidebar.cronTasks'),
       testId: 'sidebar-nav-cron',
     },
-    ...(devModeUnlocked
-      ? [
-          {
-            to: '/image-generation',
-            icon: <ImagePlus className="h-4 w-4" strokeWidth={2} />,
-            label: t('common:sidebar.imageGeneration'),
-            testId: 'sidebar-nav-image-generation',
-          },
-        ]
-      : []),
+    {
+      to: '/downloads',
+      icon: <Download className="h-4 w-4" strokeWidth={2} />,
+      label: t('sidebar.downloads'),
+      testId: 'sidebar-nav-downloads',
+    },
+    {
+      to: '/image-generation',
+      icon: <ImagePlus className="h-4 w-4" strokeWidth={2} />,
+      label: t('common:sidebar.imageGeneration'),
+      testId: 'sidebar-nav-image-generation',
+    },
   ];
 
   const navItems = [
