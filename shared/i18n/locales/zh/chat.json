@@ -84,7 +84,8 @@
     "tabs": {
       "changes": "变更",
       "preview": "预览",
-      "browser": "工作空间"
+      "browser": "工作空间",
+      "steps": "步骤"
     },
     "actions": {
       "back": "返回列表"
@@ -100,6 +101,14 @@
       "emptyTitle": "尚未选择文件",
       "emptyHint": "请先点击对话里的文件卡片，侧栏会选中该文件后在此预览。",
       "fullscreenLabel": "全屏文件预览"
+    },
+    "steps": {
+      "heading": "步骤（已完成 {{completed}} / 共 {{total}}）",
+      "empty": "此会话暂无计划步骤或工具调用。发送任务后，步骤会显示在这里。",
+      "plan": "计划",
+      "toolCall": "工具调用",
+      "permission": "审批",
+      "note": "步骤来自实时会话时间线。未包含单独的终端标签页：终端输出以工具调用的形式出现，而不是单独的控制台。"
     }
   },
   "filePreview": {
@@ -326,5 +335,12 @@
         "meta": "默认已审核"
       }
     }
+  },
+  "taskView": {
+    "toggle": "任务视图",
+    "close": "关闭任务视图",
+    "working": "工作中",
+    "idle": "空闲",
+    "fileChanges": "{{count}} 个文件变更"
   }
 }
