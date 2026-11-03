@@ -15,9 +15,12 @@ vi.mock('@/lib/host-api', () => ({
   },
 }));
 
-vi.mock('react-i18next', () => ({
-  useTranslation: () => ({
-    t: (key: string, options?: string | Record<string, unknown>) => {
+vi.mock('react-i18next', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('react-i18next')>();
+  return {
+    ...actual,
+    useTranslation: () => ({
+      t: (key: string, options?: string | Record<string, unknown>) => {
       if (typeof options === 'string') return options;
       const labels: Record<string, string> = {
         'artifactPanel.tabs.browser': 'Workspace',
@@ -36,7 +39,8 @@ vi.mock('react-i18next', () => ({
       return labels[key] ?? '';
     },
   }),
-}));
+  };
+});
 
 const { filePreviewBodyProps, workspaceBrowserProps } = vi.hoisted(() => ({
   filePreviewBodyProps: [] as Array<Record<string, unknown>>,
