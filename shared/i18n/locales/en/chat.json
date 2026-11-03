@@ -84,7 +84,8 @@
     "tabs": {
       "changes": "Changes",
       "preview": "Preview",
-      "browser": "Workspace"
+      "browser": "Workspace",
+      "steps": "Steps"
     },
     "actions": {
       "back": "Back to list"
@@ -100,6 +101,14 @@
       "emptyTitle": "No file selected",
       "emptyHint": "Click a file card in the chat first; the selected file will preview here.",
       "fullscreenLabel": "Fullscreen file preview"
+    },
+    "steps": {
+      "heading": "Steps ({{completed}} of {{total}} done)",
+      "empty": "No plan steps or tool calls in this session yet. Send a task and watch its steps appear here.",
+      "plan": "Plan",
+      "toolCall": "Tool call",
+      "permission": "Approval",
+      "note": "Steps come from the live session timeline. A terminal tab is not included: terminal output appears as tool calls, not as a separate console."
     }
   },
   "filePreview": {
@@ -326,5 +335,12 @@
         "meta": "Reviewed by default"
       }
     }
+  },
+  "taskView": {
+    "toggle": "Task view",
+    "close": "Close task view",
+    "working": "Working",
+    "idle": "Idle",
+    "fileChanges": "{{count}} file changes"
   }
 }
