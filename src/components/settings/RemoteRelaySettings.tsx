@@ -69,7 +69,7 @@ export function RemoteRelaySettings() {
   const revoke = async (device: RelayDevice) => {
     setBusy(true);
     try {
-      await hostApi.remoteRelay.revokeDevice({ deviceId: device.id });
+      await hostApi.remoteRelay.revokeDevice(device.id);
       await load();
       toast.success(`${device.name} was revoked.`);
     } catch (error) {

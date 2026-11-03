@@ -13,6 +13,11 @@ Cina-Claw Pro v1.0.5 makes OpenRouter Free the safe first-boot routing default a
 - The first-boot experience explains the OpenRouter Free requirement in English, Japanese, Russian, and Chinese and states that Cina-Claw Pro does not automatically switch to a paid model.
 - The packaged runtime compatibility assertion now matches the current Electron 41.10.3 and WebSocket 8.21.0 release line.
 - Release validation rerun includes the corrected empty-query guard for the Google Agent Skills catalog search.
+- Free model catalog (Models page): 30 free, open, multimodal reasoning models, grouped as cloud-instant, one-pull, power-user, and not-a-default. OpenRouter and Ollama rows apply to an existing enabled provider account; Hugging Face / vLLM / llama.cpp rows are setup-only. Ten uncensored models are hidden until an explicit opt-in toggle, are local-only, and are never defaults. OpenRouter Ox Alpha (`stealth/ox-alpha`) is featured at the top of the picker and is not counted in the 30 Hugging Face models. External free-tier availability is conditional and may change.
+- Manus-style TaskView (Chat page): a toolbar toggle opens a task header (Working/Idle, file-change count) beside the split panel, with a new Steps tab listing live plan entries, tool calls, and approvals.
+- First-boot key entry: the setup wizard Provider step has a single OpenRouter key field that is retained through the operating system's secure provider store (never localStorage, never rendered back), creating an Ox Alpha default account only when none exists.
+- Persona page: editable Soul (`SOUL.md`), Memory (`MEMORY.md`), and System Prompt (`AGENTS.md`) spaces for the main agent's workspace files. Edits take effect for new sessions. Saving uses the files service, with a guarded create path for files that do not exist yet.
+- Fixed the Remote Relay settings revoke call so it passes the device id in the form the host client expects; this was the last web typecheck error blocking the release gate.
 
 ## Validation expectations
 

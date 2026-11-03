@@ -1,0 +1,34 @@
+{
+  "dirty": "Unsaved changes",
+  "loadFailed": "Could not load this file.",
+  "loading": "Loading…",
+  "notCreated": "This file does not exist yet. Save to create it.",
+  "path": "File: {{path}}",
+  "reload": "Reload",
+  "save": "Save",
+  "saveFailed": "Could not save this file.",
+  "saved": "Saved.",
+  "saving": "Saving…",
+  "spaces": {
+    "memory": {
+      "description": "Durable long-term memory: facts, preferences, and decisions worth keeping.",
+      "file": "MEMORY.md",
+      "tab": "Memory",
+      "usedFor": "Loaded as the agent's long-term memory in every new session, alongside memory/*.md."
+    },
+    "soul": {
+      "description": "Who the agent is: name, vibe, and how it talks.",
+      "file": "SOUL.md",
+      "tab": "Soul",
+      "usedFor": "Loaded as the agent's persona in every new session."
+    },
+    "system": {
+      "description": "Instructions for the agent in this workspace. It is labelled System Prompt because that is what it functions as; its on-disk name stays AGENTS.md so OpenClaw keeps loading it.",
+      "file": "AGENTS.md",
+      "tab": "System Prompt",
+      "usedFor": "Loaded as the agent's instructions in every new session. The ClawX section in this file is re-merged on startup."
+    }
+  },
+  "subtitle": "Edit the files that shape the main agent. They are read by OpenClaw when a new session starts, so edits take effect for new sessions, not for sessions already running.",
+  "title": "Persona"
+}

@@ -22,6 +22,7 @@ import {
   Check,
   X,
   Cpu,
+  Sparkles,
   ImagePlus,
   ChevronRight,
   ChevronsUpDown,
@@ -420,6 +421,12 @@ export function Sidebar() {
       icon: <Bot className="h-4 w-4" strokeWidth={2} />,
       label: t('sidebar.agents'),
       testId: 'sidebar-nav-agents',
+    },
+    {
+      to: '/persona',
+      icon: <Sparkles className="h-4 w-4" strokeWidth={2} />,
+      label: t('sidebar.persona'),
+      testId: 'sidebar-nav-persona',
     },
     {
       to: '/channels',

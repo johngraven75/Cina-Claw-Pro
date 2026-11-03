@@ -17,7 +17,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { FilePreviewTarget } from '@/components/file-preview/types';
 
-export type ArtifactTab = 'changes' | 'preview' | 'browser';
+export type ArtifactTab = 'changes' | 'preview' | 'browser' | 'steps';
 
 export type ArtifactChangeFocus = {
   relativePath: string;
@@ -36,6 +36,8 @@ export const ARTIFACT_PANEL_DEFAULT_WIDTH = 45;
 
 interface ArtifactPanelState {
   open: boolean;
+  /** Manus-style TaskView mode: panel open on the Steps tab with a task header. */
+  taskView: boolean;
   tab: ArtifactTab;
   /**
    * The currently selected Preview file. Changes navigation is tracked
@@ -48,6 +50,10 @@ interface ArtifactPanelState {
   /** Persisted panel width as a % of the chat container (clamped on read). */
   widthPct: number;
   setTab: (tab: ArtifactTab) => void;
+  /** Open the panel in TaskView mode (Steps tab). */
+  openTaskView: () => void;
+  /** Toggle TaskView mode; closing it also closes the panel. */
+  toggleTaskView: () => void;
   setFocusedFile: (file: FilePreviewTarget | null) => void;
   /** Open the changes tab. Optionally focus a projected change. */
   openChanges: (focus?: ArtifactChangeFocus | null) => void;
@@ -73,6 +79,7 @@ export const useArtifactPanel = create<ArtifactPanelState>()(
   persist(
     (set, get) => ({
       open: false,
+      taskView: false,
       tab: 'changes',
       focusedFile: null,
       focusedChange: null,
@@ -99,9 +106,11 @@ export const useArtifactPanel = create<ArtifactPanelState>()(
       }),
       openPreview: (file = null) => set({ open: true, tab: 'preview', focusedFile: file ?? null }),
       openBrowser: () => set({ open: true, tab: 'browser', focusedFile: get().focusedFile }),
+      openTaskView: () => set({ open: true, taskView: true, tab: 'steps' }),
+      toggleTaskView: () => set((s) => (s.taskView ? { open: false, taskView: false, focusedFile: null, focusedChange: null } : { open: true, taskView: true, tab: 'steps' })),
       setHtmlPreviewAnchor: (htmlPreviewAnchor) => set({ htmlPreviewAnchor }),
       toggle: () => set((s) => ({ open: !s.open })),
-      close: () => set({ open: false, focusedFile: null, focusedChange: null }),
+      close: () => set({ open: false, taskView: false, focusedFile: null, focusedChange: null }),
       setWidthPct: (pct) => set({ widthPct: clampWidth(pct) }),
     }),
     {

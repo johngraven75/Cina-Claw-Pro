@@ -144,5 +144,53 @@
       "2": "無料枠",
       "3": "ローカル"
     }
+  },
+  "freeCatalog": {
+    "eyebrow": "無料モデルカタログ",
+    "title": "無料モデルを選ぶ",
+    "description": "無料・オープン・マルチモーダル推論モデル30件。クラウド即用モデルは無料のプロバイダーキーが必要で、ワンプルモデルはOllamaと1回のダウンロードが必要で、パワーユーザー向けモデルは重みのダウンロードと、場合により高性能GPUが必要です。カタログのセットアップ注記は英語です。プロバイダーの制限は変更される場合があります。",
+    "searchPlaceholder": "名前またはHugging Face IDで検索…",
+    "tiers": {
+      "all": "すべて",
+      "cloud-instant": "クラウド即用",
+      "one-pull": "ワンプル",
+      "power-user": "パワーユーザー向け",
+      "not-default": "既定にしない"
+    },
+    "showUncensored": "検閲なしモデルを表示",
+    "uncensoredWarning": "検閲なしモデルは拒否が弱く、ローカルのみで使用できます。安全の責任は利用者にあります。",
+    "hiddenUncensored": "{{count}}件の検閲なしモデルは、この設定をオンにするまで非表示です。",
+    "useModel": "このモデルを使う",
+    "configureProvider": "プロバイダーを設定",
+    "showSetup": "セットアップを表示",
+    "hideSetup": "セットアップを隠す",
+    "selected": "選択済み",
+    "needsProvider": "まず{{provider}}プロバイダーを追加または有効にしてから、もう一度選択してください。",
+    "saved": "モデルを選択しました。",
+    "saveFailed": "モデルを選択できませんでした。プロバイダー設定を確認して再試行してください。",
+    "setup": "セットアップ",
+    "gated": "ゲートあり：無料アカウントとライセンス承諾が必要です。",
+    "localOnly": "ローカルのみ",
+    "modalities": {
+      "text": "テキスト",
+      "image": "画像",
+      "video": "動画",
+      "audio": "音声",
+      "documents": "文書",
+      "gui": "画面"
+    },
+    "reasoning": {
+      "native-thinking": "ネイティブ思考",
+      "thinking-control": "思考強度制御",
+      "thinking-toggle": "思考切替",
+      "prompted-cot": "プロンプトによる推論"
+    },
+    "contextUnknown": "コンテキスト未記載",
+    "size": "サイズ",
+    "licence": "ライセンス",
+    "noResults": "検索に一致するモデルがありません。",
+    "oxAlpha": "Ox Alpha（注目）",
+    "oxAlphaDescription": "ツールとマルチモーダル入力に対応するOpenRouterのステルスプレビュー推論モデルです。Hugging Faceのオープンモデルではなく、可用性は変動します。",
+    "oxAlphaNote": "注目の既定モデル——下の30件はすべてHugging Faceのオープンウェイトモデルです。"
   }
 }
