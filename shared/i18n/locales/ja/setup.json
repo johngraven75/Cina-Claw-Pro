@@ -29,8 +29,8 @@
     "title": "Cina-Claw Proへようこそ",
     "description": "Cina-Claw ProはOpenClawのグラフィカルインターフェースで、お気に入りのメッセージングプラットフォームでAIアシスタントを簡単に使用できます。",
     "localModel": {
-      "title": "OpenRouter Ox Alpha を既定で使用",
-      "description": "初回起動では OpenRouter 経由で Ox Alpha を選択します。プロバイダー設定で OpenRouter API キーを追加すると stealth/ox-alpha を利用できます。現在は推論、ツール、マルチモーダル入力に対応する無料のステルスプレビューですが、可用性、価格、機能、提供元の条件は変更される場合があります。Cina-Claw Pro が有料モデルへ自動的に切り替えることはありません。"
+      "title": "ローカル Ollama モデルを既定で使用",
+      "description": "初回起動ではローカルの Ollama モデル Qwen3-VL 8B Instruct（qwen3-vl:8b-instruct）を既定で選択し、4B 版と 2B 版をフォールバックとします。API キーは不要ですが、Ollama の実行とモデルの初回プルが必要です。OpenRouter の後継モデル z-ai/glm-5.3-flash は従量課金制で、無料プレビューではありません。プロバイダー設定で OpenRouter API キーを追加した場合にのみ使用されます。Cina-Claw Pro が有料モデルへ自動的に切り替えることはありません。"
     },
     "features": {
       "noCommand": "コマンドライン不要",
@@ -88,7 +88,7 @@
     "valid": "プロバイダーが正常に構成されました",
     "invalid": "無効な API キー",
     "storedLocally": "API キーはローカルマシンに保存されます。",
-    "secureHint": "プロバイダー認証情報は OS の安全なストレージで保護されます。OpenRouter Ox Alpha が既定です。続行するには OpenRouter API キーを追加してください。",
+    "secureHint": "プロバイダー認証情報は OS の安全なストレージで保護されます。ローカルの Ollama モデルが既定です。従量課金制の OpenRouter 後継モデルも使う場合にのみ、OpenRouter API キーを追加してください。",
     "firstBootKey": {
       "title": "OpenRouter APIキー",
       "description": "OpenRouterキーをここに一度貼り付けてください。OSの安全なストレージに保存され、次回以降の起動時に自動で読み込まれるため、再入力は不要です。",

@@ -14,32 +14,26 @@ describe('Cina-Claw Pro autonomy defaults', () => {
     expect(applyCinaClawAutonomyDefaults(config)).toBe(true);
     expect(config).toMatchObject({
       tools: { codeMode: { enabled: true, maxPendingToolCalls: 24, timeoutMs: 300_000 }, experimental: { planTool: true }, exec: { host: 'gateway', security: 'allowlist', ask: 'on-miss' } },
-      agents: { defaults: { maxConcurrent: 1, subagents: { allowAgents: ['*'], maxConcurrent: 1, delegationMode: 'prefer', runTimeoutSeconds: 900 } } },
+      agents: { defaults: { maxConcurrent: 4, subagents: { allowAgents: ['*'], maxConcurrent: 4, delegationMode: 'prefer', runTimeoutSeconds: 900 } } },
       models: {
         providers: {
-          openrouter: {
-            baseUrl: 'https://openrouter.ai/api/v1',
+          ollama: {
+            baseUrl: 'http://localhost:11434/v1',
             api: 'openai-completions',
-            apiKey: 'OPENROUTER_API_KEY',
-            headers: {
-              'HTTP-Referer': 'https://github.com/johngraven75/Cina-Claw-Pro',
-              'X-OpenRouter-Title': 'Cina-Claw Pro',
-            },
             models: [{
-              id: 'stealth/ox-alpha',
-              name: 'Ox Alpha',
-              reasoning: true,
-              input: ['text', 'image'],
-              contextWindow: 1_048_576,
-              maxTokens: 131_072,
+              id: 'qwen3-vl:8b-instruct',
+              name: 'Qwen3-VL 8B Instruct',
+              input: ['text', 'image', 'video'],
+              contextWindow: 262144,
             }],
           },
         },
       },
     });
-    expect(defaultsFrom(config).model).toEqual({ primary: CINA_DEFAULT_MODEL_REF, fallbacks: [] });
-    expect(CINA_DEFAULT_MODEL_ID).toBe('stealth/ox-alpha');
-    expect(CINA_DEFAULT_MODEL_REF).toBe('openrouter/stealth/ox-alpha');
+    expect((config.models as Record<string, Record<string, Record<string, unknown>>>).providers.ollama).not.toHaveProperty('apiKey');
+    expect(defaultsFrom(config).model).toEqual({ primary: CINA_DEFAULT_MODEL_REF, fallbacks: ['ollama/qwen3-vl:4b-instruct', 'ollama/qwen3-vl:2b-instruct'] });
+    expect(CINA_DEFAULT_MODEL_ID).toBe('qwen3-vl:8b-instruct');
+    expect(CINA_DEFAULT_MODEL_REF).toBe('ollama/qwen3-vl:8b-instruct');
   });
 
   it('preserves every valid explicit operator choice', () => {

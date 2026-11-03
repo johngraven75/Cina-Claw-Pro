@@ -19,7 +19,10 @@ import { useChatStore } from '@/stores/chat';
 import { useArtifactPanel } from '@/stores/artifact-panel';
 import { buildPreviewTarget } from '@/components/file-preview/build-preview-target';
 import { useProviderStore } from '@/stores/providers';
-import { buildConfiguredModelOptions, formatModelRefLabel, isConfiguredModelRefAvailable, resolveConfiguredModelRef } from '@/lib/model-options';
+import { buildConfiguredModelOptions, formatModelRefLabel, isConfiguredModelRefAvailable, modelIdOfModelRef, resolveChatModelRef, splitModelRef } from '@/lib/model-options';
+import { DEFAULT_CHAT_MODE, useChatModeStore } from '@/stores/chat-mode';
+import { isKnownUncensoredModelRef, stripSkillTokens } from '@/lib/chat-mode-directives';
+import { ChatModeSwitches, type ModelReadiness } from './ChatModeSwitches';
 import type { AgentSummary } from '@/types/agent';
 import type { QuickAccessSkill } from '@/types/skill';
 import { useTranslation } from 'react-i18next';
@@ -265,15 +268,76 @@ export function ChatInput({
     ),
     [providerAccounts, providerDefaultAccountId, providerStatuses, providerVendors],
   );
+  // Per-session mode (chat selector switches). The current session key
+  // comes from the chat store; a session with no stored mode gets the
+  // defaults (reasoning on, Supervised autonomy, uncensored hidden).
+  const currentSessionKey = useChatStore((s) => s.currentSessionKey);
+  const chatMode = useChatModeStore((s) => (currentSessionKey ? s.modes[currentSessionKey] ?? DEFAULT_CHAT_MODE : DEFAULT_CHAT_MODE));
+  // Uncensored models stay hidden in this session's picker until the
+  // session's uncensored opt-in is on. Filtering is by the explicit
+  // metadata flag first (option.uncensored, set by the catalog
+  // pre-attach plan from the catalog row's uncensored boolean), with
+  // the known name markers as a fallback for accounts attached before
+  // the flag existed — so an uncensored row carrying none of those
+  // markers is still hidden.
+  const visibleModelOptions = useMemo(
+    () => (chatMode.showUncensored
+      ? modelOptions
+      : modelOptions.filter((option) => !option.uncensored && !isKnownUncensoredModelRef(option.modelRef))),
+    [chatMode.showUncensored, modelOptions],
+  );
+  const hiddenUncensoredCount = modelOptions.length - visibleModelOptions.length;
+  // Chat model resolution: agent override > agents default > pre-attached
+  // catalog default (Ollama qwen3-vl:8b-instruct, then 4b/2b fallbacks) >
+  // first configured option. Chat therefore opens with a model already
+  // selected whenever any configured option exists — never a blank picker.
   const configuredModelRef = useMemo(
-    () => resolveConfiguredModelRef(currentAgent?.modelRef, defaultModelRef, modelOptions),
-    [currentAgent?.modelRef, defaultModelRef, modelOptions],
+    () => resolveChatModelRef(currentAgent?.modelRef, defaultModelRef, visibleModelOptions),
+    [currentAgent?.modelRef, defaultModelRef, visibleModelOptions],
   );
   const effectiveModelRef = optimisticModelRef || configuredModelRef;
   const currentModelLabel = useMemo(() => {
-    const matchedOption = modelOptions.find((option) => option.modelRef === effectiveModelRef);
-    return matchedOption?.label || formatModelRefLabel(effectiveModelRef);
-  }, [effectiveModelRef, modelOptions]);
+    const matchedOption = visibleModelOptions.find((option) => option.modelRef === effectiveModelRef);
+    return matchedOption?.label || (effectiveModelRef ? formatModelRefLabel(effectiveModelRef) : t('composer.noModelConfigured'));
+  }, [effectiveModelRef, t, visibleModelOptions]);
+  const effectiveModelId = modelIdOfModelRef(effectiveModelRef);
+  const effectiveProviderKey = splitModelRef(effectiveModelRef)?.providerKey ?? '';
+  const isOllamaModel = effectiveProviderKey.startsWith('ollama');
+  const ollamaAccount = useMemo(
+    () => (providerAccounts ?? []).find((account) => account.vendorId === 'ollama' && account.enabled) ?? null,
+    [providerAccounts],
+  );
+  // Ollama readiness for the selected model, via the main-process probe
+  // (hostApi.ollama.health — the renderer never fetches Ollama itself).
+  // "up" + tag present = ready; "up" + tag absent = needs pull; "down" =
+  // needs Ollama started. A failed probe is "unknown", never "ready".
+  type OllamaHealthState = { status: 'up' | 'down'; models: string[] } | null;
+  const [ollamaHealth, setOllamaHealth] = useState<OllamaHealthState>(null);
+  const [ollamaHealthUnknown, setOllamaHealthUnknown] = useState(false);
+  const recheckOllamaHealth = useCallback(() => {
+    if (!isOllamaModel) return;
+    setOllamaHealthUnknown(false);
+    hostApi.ollama.health(ollamaAccount?.baseUrl ? { baseUrl: ollamaAccount.baseUrl } : undefined)
+      .then((result) => setOllamaHealth({ status: result.status, models: result.models }))
+      .catch(() => setOllamaHealthUnknown(true));
+  }, [isOllamaModel, ollamaAccount?.baseUrl]);
+  useEffect(() => {
+    if (!isOllamaModel || !providerSnapshotReady) return;
+    recheckOllamaHealth();
+  }, [isOllamaModel, providerSnapshotReady, recheckOllamaHealth]);
+  const modelReadiness: ModelReadiness = (() => {
+    if (!effectiveModelRef) return 'not-applicable';
+    if (!isOllamaModel) return 'not-applicable';
+    if (ollamaHealthUnknown) return 'unknown';
+    if (!ollamaHealth) return 'checking';
+    if (ollamaHealth.status === 'down') return 'needs-ollama';
+    const wanted = effectiveModelId.toLowerCase();
+    const pulled = ollamaHealth.models.some((name) => {
+      const normalized = name.toLowerCase().replace(/:latest$/, '');
+      return normalized === wanted || normalized === `${wanted}:latest`;
+    });
+    return pulled ? 'ready' : 'needs-pull';
+  })();
   const mentionableAgents = useMemo(
     () => (agents ?? []).filter((agent) => agent.id !== currentAgentId),
     [agents, currentAgentId],
@@ -292,7 +356,10 @@ export function ChatInput({
     );
   }, [quickSkills, skillQuery]);
   const showAgentPicker = mentionableAgents.length > 0;
-  const showModelPicker = modelOptions.length > 1;
+  // Show the picker whenever at least one model is configured, so the
+  // pre-attached default is visible even when it is the only option.
+  // (Previously a single option hid the picker entirely.)
+  const showModelPicker = visibleModelOptions.length >= 1;
   const chatComposerStatusComponents = rendererExtensionRegistry.getChatComposerStatusComponents();
   const isGatewayUsable = gatewayStatus.state === 'running' && gatewayStatus.gatewayReady !== false;
   const inputDisabled = disabled;
@@ -342,9 +409,9 @@ export function ChatInput({
   useEffect(() => {
     if (!providerSnapshotReady || providerError || !currentAgent || switchingModelRef || optimisticModelRef) return;
     const override = (currentAgent.overrideModelRef || '').trim();
-    if (!override || isConfiguredModelRefAvailable(override, modelOptions)) return;
+    if (!override || isConfiguredModelRefAvailable(override, visibleModelOptions)) return;
     void updateAgentModel(currentAgent.id, null).catch(() => {});
-  }, [currentAgent, modelOptions, optimisticModelRef, providerError, providerSnapshotReady, switchingModelRef, updateAgentModel]);
+  }, [currentAgent, visibleModelOptions, optimisticModelRef, providerError, providerSnapshotReady, switchingModelRef, updateAgentModel]);
 
   // Auto-resize textarea
   useEffect(() => {
@@ -761,8 +828,16 @@ export function ChatInput({
 
   const handleSend = useCallback(async () => {
     if (!canSend) return;
-    const readyAttachments = attachments.filter(a => a.status === 'ready');
-    const textToSend = input.trim();
+    // Session-mode gating at send time (real, not cosmetic):
+    // - Files off (or voice/multimodal off) drops attachments entirely.
+    // - Skills off strips /skill tokens so no skill is invoked by text.
+    // The directive block for the same mode is added by Chat/index.tsx.
+    const filesAllowed = chatMode.filesWorkspace && chatMode.voiceMultimodal;
+    if (!filesAllowed && attachments.length > 0) {
+      toast.info(t('modes.filesOffAttachmentsDropped'));
+    }
+    const readyAttachments = filesAllowed ? attachments.filter(a => a.status === 'ready') : [];
+    const textToSend = chatMode.skills ? input.trim() : stripSkillTokens(input.trim());
     const attachmentsToSend = readyAttachments.length > 0 ? readyAttachments : undefined;
 
     if (rendererExtensionRegistry.hasChatBeforeSendHooks()) {
@@ -801,7 +876,7 @@ export function ChatInput({
     setPickerOpen(false);
     setSkillPickerOpen(false);
     setWorkspaceMenuOpen(false);
-  }, [input, attachments, canSend, onSend, targetAgentId]);
+  }, [input, attachments, canSend, chatMode.filesWorkspace, chatMode.skills, chatMode.voiceMultimodal, onSend, t, targetAgentId]);
 
   const handleStop = useCallback(() => {
     if (!canStop) return;
@@ -1074,19 +1149,19 @@ export function ChatInput({
 
           {/* Action Row — icons on their own line */}
           <div className="mt-1.5 flex items-center gap-1">
-            {/* Attach Button */}
+            {/* Attach Button — disabled when Files or Voice/Multimodal is off for this session */}
             <Button
               variant="ghost"
               size="icon"
               className="shrink-0 h-8 w-8 rounded-lg text-muted-foreground hover:bg-black/5 dark:hover:bg-white/10 hover:text-foreground transition-colors"
               onClick={pickFiles}
-              disabled={inputDisabled || sending}
+              disabled={inputDisabled || sending || !chatMode.filesWorkspace || !chatMode.voiceMultimodal}
               title={t('composer.attachFiles')}
             >
               <Paperclip className="h-3.5 w-3.5" />
             </Button>
 
-            {voiceEnabled && (
+            {voiceEnabled && chatMode.voiceMultimodal && (
               <>
                 <Button
                   type="button"
@@ -1190,7 +1265,7 @@ export function ChatInput({
                   setWorkspaceMenuOpen(false);
                   setSkillPickerOpen((open) => !open);
                 }}
-                disabled={inputDisabled || sending}
+                disabled={inputDisabled || sending || !chatMode.skills}
                 title={t('composer.pickSkill')}
               >
                 <span>{t('composer.skillButton')}</span>
@@ -1259,6 +1334,25 @@ export function ChatInput({
               )}
             </div>
 
+            {/* Mode switches + autonomy badge, next to the model picker */}
+            <ChatModeSwitches
+              sessionKey={currentSessionKey}
+              modelId={effectiveModelId || null}
+              modelReadiness={modelReadiness}
+              onRecheckModel={isOllamaModel ? recheckOllamaHealth : undefined}
+              sending={sending}
+              onStop={onStop}
+            />
+
+            {!showModelPicker && (
+              <span
+                data-testid="chat-model-picker-empty"
+                className="inline-flex h-8 max-w-[220px] items-center truncate rounded-lg px-1.5 text-meta font-medium text-muted-foreground"
+              >
+                {t('composer.noModelConfigured')}
+              </span>
+            )}
+
             {showModelPicker && (
               <div ref={modelPickerRef} className="relative shrink-0">
                 <button
@@ -1291,8 +1385,13 @@ export function ChatInput({
                     <div className="px-3 py-2 text-tiny font-medium text-muted-foreground/80">
                       {t('composer.modelPickerTitle')}
                     </div>
+                    {hiddenUncensoredCount > 0 && (
+                      <div className="px-3 pb-2 text-xs text-muted-foreground">
+                        {t('modes.hiddenUncensored', { count: hiddenUncensoredCount })}
+                      </div>
+                    )}
                     <div className="max-h-64 overflow-y-auto">
-                      {modelOptions.map((option) => (
+                      {visibleModelOptions.map((option) => (
                         <button
                           key={option.modelRef}
                           type="button"
@@ -1338,6 +1437,23 @@ export function ChatInput({
           </div>
         </div>
         <div className="mt-2.5 flex min-w-0 items-center justify-between gap-2 text-tiny text-muted-foreground/60">
+          {isOllamaModel && modelReadiness !== 'ready' && modelReadiness !== 'not-applicable' && (
+            <button
+              type="button"
+              data-testid="chat-model-readiness-status"
+              onClick={recheckOllamaHealth}
+              className="shrink-0 truncate rounded-full border border-amber-500/30 px-2 py-0.5 text-tiny font-medium text-amber-700 hover:bg-black/5 dark:text-amber-400 dark:hover:bg-white/10"
+              title={t('modelStatus.recheck')}
+            >
+              {modelReadiness === 'needs-ollama'
+                ? t('modelStatus.needsOllama')
+                : modelReadiness === 'needs-pull'
+                  ? t('modelStatus.needsPull', { model: effectiveModelId })
+                  : modelReadiness === 'checking'
+                    ? t('modelStatus.checking')
+                    : t('modelStatus.unknown')}
+            </button>
+          )}
           <div className="flex min-w-0 flex-1 items-center gap-1.5">
             {workspaceLabel && workspacePath && (
               <div ref={workspaceMenuRef} className="relative min-w-0 shrink" onKeyDown={handleWorkspaceKeyDown}>

@@ -191,6 +191,13 @@ export interface ProviderAccount {
     email?: string;
     resourceUrl?: string;
     customModels?: string[];
+    /**
+     * Catalog route refs on this account that are uncensored models
+     * (catalog v2). Parallel to customModels, using the same raw route
+     * refs, so Chat can hide them until opt-in by flag instead of by
+     * guessing from name markers. Preserved by the pre-attach plan.
+     */
+    uncensoredModels?: string[];
   };
   createdAt: string;
   updatedAt: string;

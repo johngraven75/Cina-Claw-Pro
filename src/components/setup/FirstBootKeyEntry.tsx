@@ -4,7 +4,9 @@
  * A single, focused OpenRouter API key entry for the first-boot setup
  * wizard. It exists so a new user does not have to open the full provider
  * dialog to get going: paste the key once, save it, and the setup wizard
- * can proceed with Ox Alpha as the default model.
+ * can proceed with the OpenRouter successor model (the retired Ox Alpha
+ * default must never be seeded again; the app-wide keyless default is
+ * the local Ollama model).
  *
  * Retention: the key is never kept in renderer state beyond the input
  * field, never written to localStorage, and never rendered back. Saving
@@ -67,7 +69,7 @@ export function FirstBootKeyEntry() {
         const account: ProviderAccount = {
           id: buildProviderAccountId(OPENROUTER_VENDOR_ID, null, vendors),
           vendorId: OPENROUTER_VENDOR_ID,
-          label: 'OpenRouter — Ox Alpha',
+          label: 'OpenRouter — GLM 5.3 Flash',
           authMode: 'api_key',
           model: OPENROUTER_DEFAULT_MODEL_ID,
           enabled: true,

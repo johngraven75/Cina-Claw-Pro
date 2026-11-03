@@ -89,12 +89,14 @@ describe('model option helpers', () => {
         label: 'model-alpha (Alpha)',
         runtimeProviderKey: 'custom-alpha123',
         accountId: 'alpha1234',
+        uncensored: false,
       },
       {
         modelRef: 'custom-beta5678/provider/model-beta',
         label: 'provider/model-beta (Beta)',
         runtimeProviderKey: 'custom-beta5678',
         accountId: 'beta5678',
+        uncensored: false,
       },
     ]);
   });
@@ -139,12 +141,14 @@ describe('model option helpers', () => {
         label: 'gpt-5.4 (Model Hub)',
         runtimeProviderKey: runtimeKey,
         accountId,
+        uncensored: false,
       },
       {
         modelRef: `${runtimeKey}/claude-sonnet-4`,
         label: 'claude-sonnet-4 (Model Hub)',
         runtimeProviderKey: runtimeKey,
         accountId,
+        uncensored: false,
       },
     ]);
   });
@@ -176,6 +180,7 @@ describe('model option helpers', () => {
         label: 'gpt-5.6 (OpenAI)',
         runtimeProviderKey: 'openai',
         accountId: id,
+        uncensored: false,
       },
     ]);
     expect(resolveConfiguredModelRef('openai/gpt-5.5', 'openai/gpt-5.5', options))
@@ -211,12 +216,14 @@ describe('model option helpers', () => {
         label: 'gpt-5.4 (Enterprise)',
         runtimeProviderKey: 'custom-enterpri',
         accountId: 'custom-enterpri',
+        uncensored: false,
       },
       {
         modelRef: 'custom-enterpri/gpt-5.5',
         label: 'gpt-5.5 (Enterprise)',
         runtimeProviderKey: 'custom-enterpri',
         accountId: 'custom-enterpri',
+        uncensored: false,
       },
     ]);
   });
@@ -230,6 +237,31 @@ describe('model option helpers', () => {
         null,
       ),
     ).toEqual([]);
+  });
+
+  it('flags uncensored options from account metadata, not from name markers', () => {
+    const accountId = 'ollama-flagged';
+    const options = buildConfiguredModelOptions(
+      [
+        account({
+          id: accountId,
+          vendorId: 'ollama',
+          label: 'Ollama',
+          model: 'qwen3-vl:8b-instruct',
+          metadata: {
+            customModels: ['qwen3-vl:8b-instruct', 'plain-model-no-marker'],
+            uncensoredModels: ['plain-model-no-marker'],
+          },
+        }),
+      ],
+      [status(accountId)],
+      vendors,
+      accountId,
+    );
+    const flagged = options.find((option) => option.modelRef.endsWith('/plain-model-no-marker'));
+    const standard = options.find((option) => option.modelRef.endsWith('/qwen3-vl:8b-instruct'));
+    expect(flagged?.uncensored).toBe(true);
+    expect(standard?.uncensored).toBe(false);
   });
 
   it('falls back to default or first configured model when preferred ref is stale', () => {

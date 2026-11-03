@@ -11,10 +11,29 @@ const catalog = JSON.parse(readFileSync(
   'utf8',
 ));
 
-test('catalog has exactly 30 models, ranks 1-30, unique HF IDs', () => {
-  assert.equal(catalog.models.length, 30);
-  assert.deepEqual(catalog.models.map((m) => m.rank), Array.from({ length: 30 }, (_, i) => i + 1));
-  assert.equal(new Set(catalog.models.map((m) => m.hfId)).size, 30);
+test('catalog has exactly 50 models, ranks 1-50, unique HF IDs', () => {
+  assert.equal(catalog.models.length, 50);
+  assert.deepEqual(catalog.models.map((m) => m.rank), Array.from({ length: 50 }, (_, i) => i + 1));
+  assert.equal(new Set(catalog.models.map((m) => m.hfId)).size, 50);
+});
+
+test('standard ranks 1-30, new standard at 21-30, default is local Ollama Qwen3-VL 8B Instruct', () => {
+  assert.equal(catalog.models.filter((m) => !m.uncensored).length, 30);
+  const dflt = catalog.models.find((m) => m.rank === 23);
+  assert.equal(dflt.route.type, 'ollama');
+  assert.equal(dflt.route.ref, 'qwen3-vl:8b-instruct');
+  assert.equal(catalog.models.find((m) => m.rank === 22).route.ref, 'qwen3-vl:4b-instruct');
+  assert.equal(catalog.models.find((m) => m.rank === 21).route.ref, 'qwen3-vl:2b-instruct');
+  assert.ok(!catalog.models.some((m) => m.route.ref === 'stealth/ox-alpha'), 'retired default must not be any model route');
+});
+
+test('new rows carry a verification field; snippet-only rows are labelled', () => {
+  const v2 = catalog.models.filter((m) => m.verification);
+  assert.equal(v2.length, 20);
+  for (const m of v2) assert.ok(['strong', 'strong-existence-only', 'snippet-only'].includes(m.verification), m.hfId);
+  assert.equal(catalog.models.find((m) => m.rank === 46).verification, 'strong-existence-only');
+  assert.ok(catalog.notes.includes('snippet-level research only'));
+  assert.ok(catalog.notes.includes('do not ship as verified') || catalog.notes.includes('Do NOT ship as verified'));
 });
 
 test('every model is multimodal, has a route, licence and setup note', () => {
@@ -28,10 +47,10 @@ test('every model is multimodal, has a route, licence and setup note', () => {
   }
 });
 
-test('exactly 10 uncensored models, all local-only and never defaults', () => {
+test('exactly 20 uncensored models, all local-only and never defaults', () => {
   const uncensored = catalog.models.filter((m) => m.uncensored);
-  assert.equal(uncensored.length, 10);
-  assert.deepEqual(uncensored.map((m) => m.rank), [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]);
+  assert.equal(uncensored.length, 20);
+  assert.deepEqual(uncensored.map((m) => m.rank), Array.from({ length: 20 }, (_, i) => i + 31));
   for (const m of uncensored) {
     assert.notEqual(m.route.type, 'openrouter-free', `${m.hfId} must not route through a shared cloud endpoint by default`);
     assert.notEqual(m.tier, 'cloud-instant', `${m.hfId} must not be a cloud-instant default`);

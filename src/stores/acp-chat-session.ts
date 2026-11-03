@@ -43,6 +43,9 @@ import { alignHistoricalTurnTimings, type AcpTurnTiming } from '@/lib/acp/turn-t
 import { buildCronHistoryAcpNotifications, fetchCronSessionHistory } from '@/lib/cron-session-history';
 import { hostApi } from '@/lib/host-api';
 import { hostEvents } from '@/lib/host-events';
+import { useChatModeStore } from '@/stores/chat-mode';
+import { useHarnessStore } from '@/stores/harness';
+import { isExecLikePermissionTitle } from '@/lib/chat-mode-directives';
 import type { AcpTimelineSnapshot, MessageSegmentItem, PermissionItem, RenderPart } from '@/lib/acp/timeline-types';
 import { isCronSessionKey } from './chat/cron-session-utils';
 
@@ -1231,6 +1234,14 @@ export const useAcpChatSessionStore = create<AcpChatSessionState>((set, get) => 
 
     const messageId = input.messageId ?? createOptimisticMessageId();
     const payload = { ...input, messageId };
+    // Cina harness activity log (metadata only — never prompt text):
+    // the harness owns the turn lifecycle record; transport stays ACP.
+    useHarnessStore.getState().appendActivity({
+      sessionKey,
+      engineId: 'openclaw',
+      kind: 'turn-started',
+      summary: `Turn started: ${messageId}`,
+    });
     const startedAtMs = Date.now();
     const transcriptOperation = beginTranscriptSupplement(sessionKey, generation, messageId);
 
@@ -1295,6 +1306,12 @@ export const useAcpChatSessionStore = create<AcpChatSessionState>((set, get) => 
       } else if (activeTranscriptSupplement === transcriptOperation) {
         invalidateTranscriptSupplement();
       }
+      useHarnessStore.getState().appendActivity({
+        sessionKey,
+        engineId: 'openclaw',
+        kind: result.success ? 'turn-finished' : 'turn-failed',
+        summary: result.success ? `Turn finished: ${messageId}` : `Turn failed: ${messageId}`,
+      });
       return result.success;
     } catch (error) {
       liveSessionSnapshots.delete(sessionKey);
@@ -1380,6 +1397,24 @@ export const useAcpChatSessionStore = create<AcpChatSessionState>((set, get) => 
           timeline: result.generation == null ? timeline : { ...timeline, loadGeneration: nextGeneration },
         };
       });
+      // Mirror the user outcome into the harness approval queue, but
+      // never overwrite an auto-decline: its reason must be preserved.
+      if (result.success) {
+        const harness = useHarnessStore.getState();
+        const entry = harness.approvals.find((item) => item.requestId === requestId);
+        if (entry?.status === 'pending') {
+          harness.recordApprovalOutcome(
+            requestId,
+            optionId === CANCEL_PERMISSION_OPTION_ID ? 'declined' : 'approved',
+          );
+          harness.appendActivity({
+            sessionKey,
+            engineId: 'openclaw',
+            kind: 'approval-resolved',
+            summary: `Approval ${optionId === CANCEL_PERMISSION_OPTION_ID ? 'declined' : 'approved'}: ${requestId}`,
+          });
+        }
+      }
     } catch (error) {
       set((state) => (
         isCurrentAction(state, sessionKey, generation)
@@ -1785,6 +1820,21 @@ export const useAcpChatSessionStore = create<AcpChatSessionState>((set, get) => 
 
   applyPermissionRequest(event) {
     const state = get();
+    // Cina harness approval queue (mirror only): the ACP cards remain
+    // the approval UI; this record makes approvals auditable in one
+    // place and lets the harness log auto-declines with their reason.
+    // Title-based: the ACP request carries no tool name.
+    useHarnessStore.getState().recordApprovalRequest({
+      requestId: event.requestId,
+      sessionKey: event.sessionKey,
+      title: event.request.toolCall?.title ?? 'Permission request',
+    });
+    useHarnessStore.getState().appendActivity({
+      sessionKey: event.sessionKey,
+      engineId: 'openclaw',
+      kind: 'approval-requested',
+      summary: `Approval requested: ${event.request.toolCall?.title ?? event.requestId}`,
+    });
     if (event.sessionKey !== state.activeSessionKey || event.generation !== state.generation) {
       const liveSnapshot = liveSessionSnapshots.get(event.sessionKey);
       if (liveSnapshot?.generation === event.generation) {
@@ -1803,6 +1853,32 @@ export const useAcpChatSessionStore = create<AcpChatSessionState>((set, get) => 
       if (liveSnapshot?.generation === event.generation) {
         liveSessionSnapshots.set(event.sessionKey, { ...liveSnapshot, timeline });
       }
+    }
+    // Code Execution off is the one switch with a hard renderer-side
+    // enforcement: exec-like permission requests for this session are
+    // auto-declined (cancelled), so the agent cannot run a command the
+    // user switched off. This is a DENY, never an approval: Full
+    // Autonomy and every other mode still surface permission cards for
+    // the user to decide, and nothing here auto-selects an allow option.
+    // Title-based because the ACP request in this app carries no tool
+    // name — non-exec requests (e.g. "Edit file") are untouched.
+    if (
+      !useChatModeStore.getState().getMode(event.sessionKey).codeExecution
+      && isExecLikePermissionTitle(event.request.toolCall?.title)
+    ) {
+      void get().respondPermission(event.requestId, CANCEL_PERMISSION_OPTION_ID);
+      useHarnessStore.getState().recordApprovalOutcome(
+        event.requestId,
+        'auto-declined',
+        'Code Execution off for this session',
+      );
+      useHarnessStore.getState().appendActivity({
+        sessionKey: event.sessionKey,
+        engineId: 'openclaw',
+        kind: 'approval-auto-declined',
+        summary: `Approval auto-declined: ${event.request.toolCall?.title ?? event.requestId}`,
+        detail: 'Code Execution off for this session',
+      });
     }
   },
 

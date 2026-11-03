@@ -29,8 +29,8 @@
     "title": "欢迎使用 Cina-Claw Pro",
     "description": "Cina-Claw Pro 是 OpenClaw 的图形界面，让您可以在喜爱的消息平台上轻松使用 AI 助手。",
     "localModel": {
-      "title": "默认使用 OpenRouter Ox Alpha",
-      "description": "首次启动会通过 OpenRouter 选择 Ox Alpha。请在提供商步骤中添加 OpenRouter API 密钥以使用 stealth/ox-alpha。它目前是支持推理、工具和多模态输入的免费隐身预览模型；可用性、价格、功能和提供商条款可能变化。Cina-Claw Pro 永远不会自动切换到付费模型。"
+      "title": "默认使用本地 Ollama 模型",
+      "description": "首次启动默认选择本地 Ollama 模型 Qwen3-VL 8B Instruct（qwen3-vl:8b-instruct），并以 4B 和 2B 版本作为回退——无需 API 密钥，但需要 Ollama 正在运行且模型已拉取一次。OpenRouter 的后继模型 z-ai/glm-5.3-flash 按量计费，并非免费预览，仅在你在提供商步骤中添加 OpenRouter API 密钥后才会使用。Cina-Claw Pro 永远不会自动切换到付费模型。"
     },
     "features": {
       "noCommand": "无需命令行",
@@ -88,7 +88,7 @@
     "valid": "提供商配置成功",
     "invalid": "无效的 API 密钥",
     "storedLocally": "您的 API 密钥存储在本地机器上。",
-    "secureHint": "提供商凭据由操作系统的安全存储保护。默认选择 OpenRouter Ox Alpha；请添加 OpenRouter API 密钥以继续。",
+    "secureHint": "提供商凭据由操作系统的安全存储保护。默认选择本地 Ollama 模型；仅当你还想使用按量计费的 OpenRouter 后继模型时，才需要添加 OpenRouter API 密钥。",
     "firstBootKey": {
       "title": "OpenRouter API 密钥",
       "description": "在此粘贴一次 OpenRouter 密钥即可。它会保存在操作系统的安全存储中，并在每次启动时自动加载，无需再次输入。",

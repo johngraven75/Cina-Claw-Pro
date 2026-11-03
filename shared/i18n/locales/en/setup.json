@@ -29,8 +29,8 @@
     "title": "Welcome to Cina-Claw Pro",
     "description": "Cina-Claw Pro is a graphical interface for OpenClaw, making it easy to use AI assistants across your favorite messaging platforms.",
     "localModel": {
-      "title": "OpenRouter Ox Alpha default",
-      "description": "First boot selects Ox Alpha through OpenRouter. Add an OpenRouter API key in the provider step to use stealth/ox-alpha. It is currently a free stealth preview with reasoning, tools, and multimodal input; availability, pricing, capabilities, and provider terms can change. Cina-Claw Pro never switches to a paid model automatically."
+      "title": "Ollama Qwen3-VL default",
+      "description": "First boot selects the local Ollama model Qwen3-VL 8B Instruct (qwen3-vl:8b-instruct), with 4B and 2B fallbacks — no API key needed, but Ollama must be running and the model pulled once. The OpenRouter successor z-ai/glm-5.3-flash is metered, not a free preview, and is used only if you add an OpenRouter API key in the provider step. Cina-Claw Pro never switches to a paid model automatically."
     },
     "features": {
       "noCommand": "Zero command-line required",
@@ -88,7 +88,7 @@
     "valid": "Provider configured successfully",
     "invalid": "Invalid API key",
     "storedLocally": "Your API key is stored locally on your machine.",
-    "secureHint": "Provider credentials are protected by the operating system's secure storage. OpenRouter Ox Alpha is selected by default; add your OpenRouter API key to continue.",
+    "secureHint": "Provider credentials are protected by the operating system's secure storage. The local Ollama model is selected by default; add your OpenRouter API key only if you also want the metered OpenRouter successor.",
     "firstBootKey": {
       "title": "OpenRouter API key",
       "description": "Paste your OpenRouter key once here. It is saved in the operating system's secure storage and reloaded on every boot — you do not need to enter it again.",

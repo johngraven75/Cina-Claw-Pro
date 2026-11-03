@@ -5,6 +5,14 @@ export interface ConfiguredModelOption {
   label: string;
   runtimeProviderKey: string;
   accountId: string;
+  /**
+   * True when this option's model is flagged uncensored in its account's
+   * metadata.uncensoredModels (catalog v2 pre-attachment). Chat hides
+   * flagged options until the session uncensored opt-in is on; name
+   * markers remain only as a fallback for accounts attached before the
+   * flag existed.
+   */
+  uncensored: boolean;
 }
 
 export interface RuntimeProviderOption {
@@ -169,6 +177,11 @@ export function buildConfiguredModelOptions(
   const deduped = new Map<string, ConfiguredModelOption>();
   for (const account of entries) {
     const runtimeProviderKey = resolveRuntimeProviderKey(account);
+    const uncensoredModelIds = new Set(
+      (account.metadata?.uncensoredModels ?? [])
+        .map((modelId) => normalizeModelIdForRuntimeProvider(modelId, runtimeProviderKey))
+        .filter(Boolean),
+    );
     const modelIds = (() => {
       const selectedModelId = normalizeModelIdForRuntimeProvider(account.model, runtimeProviderKey);
       const supportsMultipleModels = account.vendorId === 'custom' || account.vendorId === 'ollama';
@@ -189,6 +202,7 @@ export function buildConfiguredModelOptions(
         label: formatConfiguredModelLabel(modelId, account, vendorMap),
         runtimeProviderKey,
         accountId: account.id,
+        uncensored: uncensoredModelIds.has(modelId),
       });
     }
   }
@@ -203,6 +217,63 @@ export function isConfiguredModelRefAvailable(
   const value = (modelRef || '').trim();
   if (!value) return false;
   return modelOptions.some((option) => option.modelRef === value);
+}
+
+/**
+ * Pre-attached catalog default (draft: catalog v2 pre-attachment).
+ *
+ * Chat must open with a model already selected, not a blank picker. The
+ * catalog worker pre-registers all catalog models to their providers;
+ * Chat's part is to prefer that pre-attached default when the agent has
+ * no explicit model and no agents-level default applies. Matching is by
+ * model id (the part after the provider key), so it survives the runtime
+ * provider-key suffix that Ollama/custom accounts get
+ * (e.g. `ollama-<hash>/qwen3-vl:8b-instruct`).
+ *
+ * Order: exact default id first, then lower-VRAM fallbacks in order.
+ * Uncensored models are never in these lists and are never returned here.
+ */
+export const PREATTACHED_DEFAULT_MODEL_IDS = ['qwen3-vl:8b-instruct', 'qwen3-vl:8b'];
+
+export const PREATTACHED_FALLBACK_MODEL_IDS = [
+  'qwen3-vl:4b-instruct',
+  'qwen3-vl:4b',
+  'qwen3-vl:2b-instruct',
+  'qwen3-vl:2b',
+];
+
+export function modelIdOfModelRef(modelRef: string | null | undefined): string {
+  return splitModelRef(modelRef)?.modelId ?? (modelRef || '').trim();
+}
+
+export function resolvePreattachedDefaultModelRef(
+  modelOptions: ConfiguredModelOption[],
+): string | null {
+  for (const wantedId of [...PREATTACHED_DEFAULT_MODEL_IDS, ...PREATTACHED_FALLBACK_MODEL_IDS]) {
+    const match = modelOptions.find(
+      (option) => modelIdOfModelRef(option.modelRef).toLowerCase() === wantedId.toLowerCase(),
+    );
+    if (match) return match.modelRef;
+  }
+  return null;
+}
+
+/**
+ * Chat model resolution with the pre-attached default slotted in:
+ * agent override > agents default > pre-attached catalog default > first
+ * configured option. This replaces the old "first option wins" fallback
+ * for Chat only; resolveConfiguredModelRef is unchanged for other callers.
+ */
+export function resolveChatModelRef(
+  preferredModelRef: string | null | undefined,
+  defaultModelRef: string | null | undefined,
+  modelOptions: ConfiguredModelOption[],
+): string | null {
+  const preferred = (preferredModelRef || '').trim();
+  if (preferred && isConfiguredModelRefAvailable(preferred, modelOptions)) return preferred;
+  const fallbackDefault = (defaultModelRef || '').trim();
+  if (fallbackDefault && isConfiguredModelRefAvailable(fallbackDefault, modelOptions)) return fallbackDefault;
+  return resolvePreattachedDefaultModelRef(modelOptions) ?? modelOptions[0]?.modelRef ?? null;
 }
 
 export function resolveConfiguredModelRef(

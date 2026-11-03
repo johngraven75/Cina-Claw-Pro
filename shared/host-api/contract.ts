@@ -394,6 +394,13 @@ export type ProviderAccount = {
     email?: string;
     resourceUrl?: string;
     customModels?: string[];
+    /**
+     * Catalog route refs on this account that are uncensored models
+     * (catalog v2). Parallel to customModels, using the same raw route
+     * refs, so Chat can hide them until opt-in by flag instead of by
+     * guessing from name markers. Preserved by the pre-attach plan.
+     */
+    uncensoredModels?: string[];
   };
   createdAt: string;
   updatedAt: string;
@@ -826,6 +833,20 @@ export type DeliveryChannelGroup = {
 };
 export type DeliveryTargetsResult = HostSuccess & { targets: DeliveryChannelGroup[] };
 
+export type OllamaHealthPayload = {
+  /** Loopback-only base URL; any non-loopback value is rejected without a request. */
+  baseUrl?: string;
+};
+
+export type OllamaHealthResult = {
+  status: 'up' | 'down';
+  baseUrl: string;
+  /** Model tags reported by GET /api/tags (empty when down or unparsable). */
+  models: string[];
+  checkedAt: string;
+  error?: string;
+};
+
 export type HostApiContract = {
   app: {
     openClawDoctor: (payload: OpenClawDoctorPayload) => Omit<OpenClawDoctorResult, 'mode'>;
@@ -834,6 +855,10 @@ export type HostApiContract = {
     status: () => OpenClawStatusResult;
     getSkillsDir: () => string;
     getCliCommand: () => OpenClawCliCommandResult;
+  };
+  /** Local Ollama probe (draft: chat pre-attachment). Reachability + tag list only; no start/pull action exists yet. */
+  ollama: {
+    health: (payload?: OllamaHealthPayload) => OllamaHealthResult;
   };
   shell: {
     openExternal: (payload: ShellOpenExternalPayload) => void;

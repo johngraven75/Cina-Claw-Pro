@@ -43,6 +43,7 @@ import { appUpdater } from './updater';
 import { HostApiRegistry, registerHostInvokeHandler } from './ipc/host-invoke';
 import { createAppApi } from '../services/app-api';
 import { createOpenClawApi } from '../services/openclaw-api';
+import { createOllamaApi } from '../services/ollama-api';
 import { createShellApi } from '../services/shell-api';
 import { createDialogApi } from '../services/dialog-api';
 import { createWindowApi } from '../services/window-api';
@@ -160,6 +161,7 @@ function registerTypedHostHandlers(
   hostApiRegistry.registerCoreServices({
     app: createAppApi(),
     openclaw: createOpenClawApi(),
+    ollama: createOllamaApi(),
     shell: createShellApi(),
     webBrowser: createWebBrowserApi({ browserSession, registry }),
     dialog: createDialogApi(),
