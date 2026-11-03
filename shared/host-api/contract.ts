@@ -17,6 +17,8 @@ import type {
   MediaDownloadToolsResult,
 } from '../media-download';
 
+export type { MediaDownloadJob, MediaDownloadStartPayload, MediaDownloadToolsResult } from '../media-download';
+
 export type MediaDownloadIdPayload = { id: string };
 
 export type JsonRecord = Record<string, unknown>;
@@ -574,6 +576,7 @@ export type FilePreviewError =
   | 'binary'
   | 'notFound'
   | 'notDirectory'
+  | 'alreadyExists'
   | 'invalidContent'
   | 'operationFailed'
   | (string & {});
@@ -990,6 +993,7 @@ export type HostApiContract = {
     readText: (payload: FilePathPayload) => ReadTextFileResult;
     readBinary: (payload: FileReadBinaryPayload) => ReadBinaryFileResult;
     writeText: (payload: FileWriteTextPayload) => WriteTextFileResult;
+    createText: (payload: FileWriteTextPayload) => WriteTextFileResult;
     stat: (payload: FilePathPayload) => StatFileResult;
     listDir: (payload: FilePathPayload) => FileListDirResult;
     listTree: (payload: FileListTreePayload) => FileListTreeResult;
