@@ -1,5 +1,16 @@
 # Unreleased
 
+## Media downloads (new)
+
+- New Downloads page: downloads clear, public video — HLS playlists (`.m3u8`) via ffmpeg and site video via yt-dlp — using ffmpeg and yt-dlp bundled into the Windows installer by `prep:win-binaries`.
+- DRM-protected streams, login/paywall-gated content, and CAPTCHA-gated downloads are refused; the app never supplies credentials, cookies, or CAPTCHA answers to a download tool.
+- Image generation is no longer dev-mode-gated: the sidebar entry and page are available in release builds.
+- Bundled skill count corrected in all READMEs: 102 reviewed skills (17 Anthropic + 85 Cina adapters), matching `resources/skills/preinstalled-manifest.json`.
+
+## Signing status (unchanged — still unsigned)
+
+- Windows installers remain **unsigned**: no code-signing identity has been configured, `verifyUpdateCodeSignature` stays `false`, and Windows may show a SmartScreen warning. Signing would require a Windows code-signing certificate (e.g. an EV certificate or a trusted signing service account) plus the corresponding electron-builder `certificateFile`/`certificatePassword` (or Azure Trusted Signing) configuration — none of which is created or committed here.
+
 ## OpenRouter Ox Alpha default
 
 - Fresh configurations and newly configured OpenRouter accounts now select `stealth/ox-alpha` (Ox Alpha) through the existing OpenClaw architecture on Windows, macOS, and Linux.

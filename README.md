@@ -23,7 +23,11 @@ Planning, bounded code-mode execution, and multi-agent delegation are enabled on
 
 Managed all-model guidance requires truthful, relevant, evidence-based responses, minimal assumptions, private handling of user content, and maximal completion of lawful and safe requests. Provider/system requirements still apply. Secrets should be entered through secure Settings, not pasted into chat.
 
-Fifty-seven reviewed skills are bundled and enabled: 17 skills from the official Anthropic repository plus 40 provenance-preserving Cina adapters for the requested research, engineering, browser, design, gateway, Google, VoltAgent, agent, media, and workflow ecosystems. The adapters do not silently install external runtimes, start services, connect accounts, or grant machine access. OpenClaw's plugin/provider discovery and the broader skills marketplace remain available for explicit installs.
+One hundred two reviewed skills are bundled and enabled: 17 skills from the official Anthropic repository plus 85 provenance-preserving Cina adapters for the requested research, engineering, browser, design, gateway, Google, VoltAgent, agent, media, and workflow ecosystems. "Reviewed" means every entry in `resources/skills/preinstalled-manifest.json` (102 total, all `autoEnable: true` under the manifest's shared policy); there is no smaller reviewed subset. The adapters do not silently install external runtimes, start services, connect accounts, or grant machine access. OpenClaw's plugin/provider discovery and the broader skills marketplace remain available for explicit installs.
+
+## Downloads
+
+The Downloads page downloads clear, public video only: HLS playlists (`.m3u8`) with ffmpeg and site video with yt-dlp, using the ffmpeg and yt-dlp binaries bundled into the Windows installer by `pnpm run prep:win-binaries` (script: `scripts/download-bundled-media-tools.mjs`). DRM-protected streams, login/paywall-gated content, and anything requiring a CAPTCHA are refused; the app never supplies credentials, cookies, or CAPTCHA answers to a download tool. Image generation is available from the sidebar in release builds (previously dev-mode-gated).
 
 ## Desktop development
 

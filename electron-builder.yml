@@ -110,6 +110,10 @@ win:
   # code-signing certificate, so verifying would always fail on the updater.
   verifyUpdateCodeSignature: false
   extraResources:
+    # resources/bin/win32-x64 holds uv, node AND the media-download tools
+    # (ffmpeg.exe, yt-dlp.exe, fetched by prep:win-binaries via
+    # scripts/download-bundled-media-tools.mjs). The media-download service
+    # runs these bundled copies in packaged builds; it never relies on PATH.
     - from: resources/bin/win32-${arch}
       to: bin
     - from: resources/cli/win32/
