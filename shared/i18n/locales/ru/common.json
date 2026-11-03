@@ -17,7 +17,8 @@
     "renameSessionPlaceholder": "Название сессии",
     "saveSessionRename": "Сохранить название",
     "cancelSessionRename": "Отменить переименование",
-    "imageGeneration": "Генерация изображений"
+    "imageGeneration": "Генерация изображений",
+    "downloads": "Загрузки"
   },
   "actions": {
     "save": "Сохранить",
