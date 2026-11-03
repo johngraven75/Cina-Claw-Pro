@@ -184,7 +184,7 @@ export function Persona() {
                 )}
               </div>
               <div className="flex gap-2">
-                <Button variant="ghost" onClick={() => void load()} disabled={saving}>
+                <Button data-testid="persona-reload" variant="ghost" onClick={() => void load()} disabled={saving}>
                   <RotateCcw className="mr-2 h-4 w-4" />
                   {t('reload')}
                 </Button>

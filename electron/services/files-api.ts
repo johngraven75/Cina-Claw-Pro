@@ -925,7 +925,10 @@ export function createFilesApi(dependencies: FilesApiDependencies = {}): Complet
     // writeText deliberately never creates files, so editors for files
     // that may not exist yet (workspace SOUL.md / MEMORY.md / AGENTS.md)
     // need this explicit, guarded path. It is sandbox-checked exactly
-    // like writeText and never creates parent directories.
+    // like writeText. It creates missing parent directories inside the
+    // sandbox roots, because a fresh workspace directory may not exist
+    // yet (no gateway seed has run) — without that, creating the first
+    // Persona file in a fresh home always fails with notFound.
     createText: async (payload) => {
       try {
         const body = isRecord(payload) ? payload as PathPayload : {};
@@ -936,6 +939,8 @@ export function createFilesApi(dependencies: FilesApiDependencies = {}): Complet
         const { realPath: real } = await resolveSandboxedPath(requirePath(payload), 'write');
         const fsP = await import('node:fs/promises');
         try {
+          const { dirname } = await import('node:path');
+          await fsP.mkdir(dirname(real), { recursive: true });
           await fsP.writeFile(real, body.content, { encoding: 'utf8', flag: 'wx' });
         } catch (err) {
           if ((err as NodeJS.ErrnoException).code === 'EEXIST') {

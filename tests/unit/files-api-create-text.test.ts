@@ -55,4 +55,20 @@ describe('files api createText', () => {
       api.createText({ path: join(testDir, 'outside.txt'), content: 'x' }),
     ).resolves.toEqual({ ok: false, error: 'readOnlyRoot' });
   });
+
+  it('creates missing parent directories inside the sandbox roots', async () => {
+    const { createFilesApi } = await import('../../electron/services/files-api');
+    const api = createFilesApi();
+
+    // The workspace directory itself is removed here to model a fresh
+    // home where no gateway seed has created it yet.
+    const { rm: rmDir } = await import('node:fs/promises');
+    await rmDir(workspaceRoot, { recursive: true, force: true });
+
+    const target = join(workspaceRoot, 'SOUL.md');
+    await expect(api.createText({ path: target, content: '# Soul\n' })).resolves.toEqual({
+      ok: true,
+    });
+    expect(await readFile(target, 'utf8')).toBe('# Soul\n');
+  });
 });
