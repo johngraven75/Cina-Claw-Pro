@@ -14,7 +14,6 @@ import type {
   FilePreviewTreeOptions,
   FileReadBinaryOptions,
   ImageGenerationSettingsPayload,
-  MediaDownloadJob,
   MediaDownloadStartPayload,
   MediaThumbnailEntry,
   OpenClawDoctorMode,
@@ -319,6 +318,9 @@ export const hostApi = {
     ),
     writeText: (path: string, content: string) => (
       invokeHost('files', 'writeText', { path, content })
+    ),
+    createText: (path: string, content: string) => (
+      invokeHost('files', 'createText', { path, content })
     ),
     stat: (path: string) => invokeHost('files', 'stat', { path }),
     listDir: (path: string) => invokeHost('files', 'listDir', { path }),
