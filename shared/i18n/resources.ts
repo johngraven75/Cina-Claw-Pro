@@ -11,6 +11,7 @@ import enSkills from './locales/en/skills.json';
 import enCron from './locales/en/cron.json';
 import enSetup from './locales/en/setup.json';
 import enMenu from './locales/en/menu.json';
+import enPersona from './locales/en/persona.json';
 import enDownloads from './locales/en/downloads.json';
 
 // ZH
@@ -24,6 +25,7 @@ import zhSkills from './locales/zh/skills.json';
 import zhCron from './locales/zh/cron.json';
 import zhSetup from './locales/zh/setup.json';
 import zhMenu from './locales/zh/menu.json';
+import zhPersona from './locales/zh/persona.json';
 import zhDownloads from './locales/zh/downloads.json';
 
 // JA
@@ -37,6 +39,7 @@ import jaSkills from './locales/ja/skills.json';
 import jaCron from './locales/ja/cron.json';
 import jaSetup from './locales/ja/setup.json';
 import jaMenu from './locales/ja/menu.json';
+import jaPersona from './locales/ja/persona.json';
 import jaDownloads from './locales/ja/downloads.json';
 
 // RU
@@ -50,6 +53,7 @@ import ruSkills from './locales/ru/skills.json';
 import ruCron from './locales/ru/cron.json';
 import ruSetup from './locales/ru/setup.json';
 import ruMenu from './locales/ru/menu.json';
+import ruPersona from './locales/ru/persona.json';
 import ruDownloads from './locales/ru/downloads.json';
 
 export const I18N_NAMESPACES = [
@@ -63,6 +67,7 @@ export const I18N_NAMESPACES = [
   'cron',
   'setup',
   'menu',
+  'persona',
   'downloads',
 ] as const;
 
@@ -78,6 +83,7 @@ export const I18N_RESOURCES = {
     cron: enCron,
     setup: enSetup,
     menu: enMenu,
+    persona: enPersona,
     downloads: enDownloads,
   },
   zh: {
@@ -91,6 +97,7 @@ export const I18N_RESOURCES = {
     cron: zhCron,
     setup: zhSetup,
     menu: zhMenu,
+    persona: zhPersona,
     downloads: zhDownloads,
   },
   ja: {
@@ -104,6 +111,7 @@ export const I18N_RESOURCES = {
     cron: jaCron,
     setup: jaSetup,
     menu: jaMenu,
+    persona: jaPersona,
     downloads: jaDownloads,
   },
   ru: {
@@ -117,6 +125,7 @@ export const I18N_RESOURCES = {
     cron: ruCron,
     setup: ruSetup,
     menu: ruMenu,
+    persona: ruPersona,
     downloads: ruDownloads,
   },
 } as const;
