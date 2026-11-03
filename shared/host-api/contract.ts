@@ -11,6 +11,13 @@ import type { CronJob, CronJobCreateInput, CronJobUpdateInput } from '../types/c
 import type { GatewayHealth, GatewayStatus } from '../types/gateway';
 import type { MarketplaceSkill, QuickAccessSkill, Skill } from '../types/skill';
 import type { WebBrowserNavigatePayload } from '../web-browser';
+import type {
+  MediaDownloadJob,
+  MediaDownloadStartPayload,
+  MediaDownloadToolsResult,
+} from '../media-download';
+
+export type MediaDownloadIdPayload = { id: string };
 
 export type JsonRecord = Record<string, unknown>;
 export type HostSuccess = { success: boolean; error?: string };
@@ -1013,6 +1020,13 @@ export type HostApiContract = {
     saveImageGenerationSettings: (payload: ImageGenerationSettingsPayload) => ImageGenerationSettingsResult;
     imageGenerationProviders: () => ImageGenerationProvidersResult;
     testImageGeneration: (payload: ImageGenerationTestPayload) => ImageGenerationTestResult;
+  };
+  mediaDownloads: {
+    start: (payload: MediaDownloadStartPayload) => MediaDownloadJob;
+    get: (payload: MediaDownloadIdPayload) => MediaDownloadJob | null;
+    list: () => MediaDownloadJob[];
+    cancel: (payload: MediaDownloadIdPayload) => HostSuccess;
+    tools: () => MediaDownloadToolsResult;
   };
   sessions: {
     delete: (payload: SessionDeletePayload) => HostSuccess;
