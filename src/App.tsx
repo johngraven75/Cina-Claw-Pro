@@ -12,6 +12,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { Models } from './pages/Models';
 import { Chat } from './pages/Chat';
 import { Agents } from './pages/Agents';
+import { Persona } from './pages/Persona';
 import { Channels } from './pages/Channels';
 import { Skills } from './pages/Skills';
 import { Cron } from './pages/Cron';
@@ -206,6 +207,7 @@ function App() {
             <Route path="/" element={<Chat />} />
             <Route path="/models" element={<Models />} />
             <Route path="/agents" element={<Agents />} />
+          <Route path="/persona" element={<Persona />} />
             <Route path="/channels" element={<Channels />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/cron" element={<Cron />} />

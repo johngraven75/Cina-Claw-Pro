@@ -144,5 +144,53 @@
       "2": "Free tier",
       "3": "Private local"
     }
+  },
+  "freeCatalog": {
+    "eyebrow": "Free model catalog",
+    "title": "Pick a free model",
+    "description": "Thirty free, open, multimodal reasoning models. Cloud-instant models need a free provider key; one-pull models need Ollama and one download; power-user models need a weight download and, where noted, a capable GPU. Catalog setup notes are in English; provider limits may change.",
+    "searchPlaceholder": "Search by name or Hugging Face ID…",
+    "tiers": {
+      "all": "All",
+      "cloud-instant": "Cloud instant",
+      "one-pull": "One pull",
+      "power-user": "Power user",
+      "not-default": "Not a default"
+    },
+    "showUncensored": "Show uncensored models",
+    "uncensoredWarning": "Uncensored models have weaker refusals and are local-only. You are the safety layer.",
+    "hiddenUncensored": "{{count}} uncensored models are hidden until you turn this on.",
+    "useModel": "Use this model",
+    "configureProvider": "Configure provider",
+    "showSetup": "Show setup",
+    "hideSetup": "Hide setup",
+    "selected": "Selected",
+    "needsProvider": "Add or enable the {{provider}} provider first, then pick again.",
+    "saved": "Model selected.",
+    "saveFailed": "Could not select this model. Check the provider settings and try again.",
+    "setup": "Setup",
+    "gated": "Gated: needs a free account and licence acceptance.",
+    "localOnly": "Local only",
+    "modalities": {
+      "text": "Text",
+      "image": "Image",
+      "video": "Video",
+      "audio": "Audio",
+      "documents": "Documents",
+      "gui": "Interface"
+    },
+    "reasoning": {
+      "native-thinking": "Native thinking",
+      "thinking-control": "Thinking control",
+      "thinking-toggle": "Thinking toggle",
+      "prompted-cot": "Reasoning by prompting"
+    },
+    "contextUnknown": "Context not stated",
+    "size": "Size",
+    "licence": "Licence",
+    "noResults": "No models match this search.",
+    "oxAlpha": "Ox Alpha (featured)",
+    "oxAlphaDescription": "OpenRouter stealth-preview reasoning model with tools and multimodal input. This is not a Hugging Face open model, and its availability may change.",
+    "oxAlphaNote": "Featured default \u2014 the 30 models below are all Hugging Face open-weight models."
   }
 }
