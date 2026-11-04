@@ -286,6 +286,48 @@ describe('model option helpers', () => {
     expect(standard?.uncensored).toBe(false);
   });
 
+  it('auto-adds downloaded Ollama models without a Settings edit', () => {
+    const accountId = 'ollama-abc12345';
+    const options = buildConfiguredModelOptions(
+      [
+        account({
+          id: accountId,
+          vendorId: 'ollama',
+          label: 'Ollama',
+          authMode: 'local',
+          model: 'qwen3-vl:8b-instruct',
+        }),
+      ],
+      [status(accountId)],
+      vendors,
+      accountId,
+      ['llama3.2:3b', 'qwen3-vl:8b-instruct', 'gemma3:1b:latest', '  '],
+    );
+
+    const refs = options.map((option) => option.modelRef);
+    expect(refs).toContain('ollama-abc12345/llama3.2:3b');
+    expect(refs).toContain('ollama-abc12345/gemma3:1b');
+    // Configured model first, installed tags appended, no duplicates.
+    expect(refs.filter((ref) => ref.endsWith('/qwen3-vl:8b-instruct'))).toHaveLength(1);
+    expect(options.find((option) => option.modelRef.endsWith('/llama3.2:3b'))).toMatchObject({
+      label: 'llama3.2:3b (Ollama)',
+      accountId,
+      uncensored: false,
+    });
+    expect(isConfiguredModelRefAvailable('ollama-abc12345/llama3.2:3b', options)).toBe(true);
+  });
+
+  it('does not auto-add installed Ollama models without an enabled Ollama account', () => {
+    const options = buildConfiguredModelOptions(
+      [account({ id: 'alpha1234', model: 'model-alpha' })],
+      [status('alpha1234')],
+      vendors,
+      'alpha1234',
+      ['llama3.2:3b'],
+    );
+    expect(options.some((option) => option.modelRef.endsWith('/llama3.2:3b'))).toBe(false);
+  });
+
   it('falls back to default or first configured model when preferred ref is stale', () => {
     const options = buildConfiguredModelOptions(
       [account({ id: 'alpha1234', model: 'model-alpha' })],

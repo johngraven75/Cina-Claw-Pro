@@ -259,14 +259,34 @@ export function ChatInput({
     () => currentAgent?.name ?? currentAgentId,
     [currentAgent, currentAgentId],
   );
+  // Ollama account + health are defined before the model options so
+  // downloaded Ollama models can be auto-added to the picker (below):
+  // the picker lists configured models plus every tag Ollama reports as
+  // installed, under the enabled Ollama account. Listing never changes
+  // the selected model — the user still picks.
+  const ollamaAccount = useMemo(
+    () => (providerAccounts ?? []).find((account) => account.vendorId === 'ollama' && account.enabled) ?? null,
+    [providerAccounts],
+  );
+  type OllamaHealthState = { status: 'up' | 'down'; models: string[] } | null;
+  const [ollamaHealth, setOllamaHealth] = useState<OllamaHealthState>(null);
+  const [ollamaHealthUnknown, setOllamaHealthUnknown] = useState(false);
+  const recheckOllamaHealth = useCallback(() => {
+    if (!ollamaAccount) return;
+    setOllamaHealthUnknown(false);
+    hostApi.ollama.health(ollamaAccount.baseUrl ? { baseUrl: ollamaAccount.baseUrl } : undefined)
+      .then((result) => setOllamaHealth({ status: result.status, models: result.models }))
+      .catch(() => setOllamaHealthUnknown(true));
+  }, [ollamaAccount]);
   const modelOptions = useMemo(
     () => buildConfiguredModelOptions(
       providerAccounts,
       providerStatuses,
       providerVendors,
       providerDefaultAccountId,
+      ollamaHealth?.status === 'up' ? ollamaHealth.models : [],
     ),
-    [providerAccounts, providerDefaultAccountId, providerStatuses, providerVendors],
+    [providerAccounts, providerDefaultAccountId, providerStatuses, providerVendors, ollamaHealth],
   );
   // Per-session mode (chat selector switches). The current session key
   // comes from the chat store; a session with no stored mode gets the
@@ -303,24 +323,13 @@ export function ChatInput({
   const effectiveModelId = modelIdOfModelRef(effectiveModelRef);
   const effectiveProviderKey = splitModelRef(effectiveModelRef)?.providerKey ?? '';
   const isOllamaModel = effectiveProviderKey.startsWith('ollama');
-  const ollamaAccount = useMemo(
-    () => (providerAccounts ?? []).find((account) => account.vendorId === 'ollama' && account.enabled) ?? null,
-    [providerAccounts],
-  );
   // Ollama readiness for the selected model, via the main-process probe
   // (hostApi.ollama.health — the renderer never fetches Ollama itself).
   // "up" + tag present = ready; "up" + tag absent = needs pull; "down" =
   // needs Ollama started. A failed probe is "unknown", never "ready".
-  type OllamaHealthState = { status: 'up' | 'down'; models: string[] } | null;
-  const [ollamaHealth, setOllamaHealth] = useState<OllamaHealthState>(null);
-  const [ollamaHealthUnknown, setOllamaHealthUnknown] = useState(false);
-  const recheckOllamaHealth = useCallback(() => {
-    if (!isOllamaModel) return;
-    setOllamaHealthUnknown(false);
-    hostApi.ollama.health(ollamaAccount?.baseUrl ? { baseUrl: ollamaAccount.baseUrl } : undefined)
-      .then((result) => setOllamaHealth({ status: result.status, models: result.models }))
-      .catch(() => setOllamaHealthUnknown(true));
-  }, [isOllamaModel, ollamaAccount?.baseUrl]);
+  // Health is probed whenever an Ollama account exists, not only when
+  // an Ollama model is selected, so downloaded models appear in the
+  // picker even while a cloud model is currently selected.
   // v1.0.7 autoconfig: one-click start/pull instead of a dead status pill.
   // Start/pull run in the main process (loopback only; pull is allowlisted
   // to the pre-attached Qwen3-VL builds). Failures surface as toasts with
@@ -356,9 +365,16 @@ export function ChatInput({
     }
   }, [isOllamaModel, ollamaAccount?.baseUrl, ollamaAction, effectiveModelId, t]);
   useEffect(() => {
-    if (!isOllamaModel || !providerSnapshotReady) return;
+    if (!ollamaAccount || !providerSnapshotReady) return;
     recheckOllamaHealth();
-  }, [isOllamaModel, providerSnapshotReady, recheckOllamaHealth]);
+  }, [ollamaAccount, providerSnapshotReady, recheckOllamaHealth]);
+  // Refresh the installed-model list when the picker opens, so a model
+  // pulled outside the app (e.g. `ollama pull` in a terminal) while the
+  // app was already open appears without restarting the app.
+  useEffect(() => {
+    if (!modelPickerOpen || !ollamaAccount) return;
+    recheckOllamaHealth();
+  }, [modelPickerOpen, ollamaAccount, recheckOllamaHealth]);
   const modelReadiness: ModelReadiness = (() => {
     if (!effectiveModelRef) return 'not-applicable';
     if (!isOllamaModel) return 'not-applicable';
@@ -374,8 +390,10 @@ export function ChatInput({
   })();
   // Pulled pre-attached fallback (published list only) that Chat can switch
   // to with one tap when the selected model is not pulled, plus any other
-  // installed model, which is offered only if it is already a configured
-  // option — never silently substituted.
+  // installed model — now auto-added to the picker, so it is switchable
+  // through its real configured option ref (with the Ollama account's
+  // runtime-provider suffix), not the bare `ollama/<id>` ref. Selection
+  // is still only changed by the user's tap — never silently substituted.
   const pulledFallbackRef = useMemo(() => {
     if (!isOllamaModel || !ollamaHealth || ollamaHealth.status !== 'up') return null;
     const pulled = ollamaHealth.models.map((name) => name.toLowerCase().replace(/:latest$/, ''));
@@ -392,8 +410,14 @@ export function ChatInput({
     const pulled = [...new Set(ollamaHealth.models.map((name) => name.toLowerCase().replace(/:latest$/, '')))].sort();
     const other = pulled.find((id) => !preattached.has(id));
     if (!other) return null;
-    const ref = `ollama/${other}`;
-    return { id: other, ref, switchable: visibleModelOptions.some((option) => option.modelRef === ref) };
+    const matchingOption = visibleModelOptions.find(
+      (option) => modelIdOfModelRef(option.modelRef).toLowerCase() === other.toLowerCase(),
+    );
+    return {
+      id: other,
+      ref: matchingOption?.modelRef ?? `ollama/${other}`,
+      switchable: Boolean(matchingOption),
+    };
   }, [isOllamaModel, ollamaHealth, visibleModelOptions]);
   const mentionableAgents = useMemo(
     () => (agents ?? []).filter((agent) => agent.id !== currentAgentId),

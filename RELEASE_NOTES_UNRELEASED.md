@@ -1,5 +1,20 @@
 # Unreleased
 
+## Auto-add downloaded Ollama models to the chat picker (new)
+
+- The chat picker now lists every model Ollama reports as installed
+  (`ollama list` tags), under the enabled Ollama account, in addition
+  to configured provider models. Pulling a model no longer requires a
+  Settings > AI Providers edit to make it appear — for example,
+  `llama3.2:3b` shows up once Ollama is up and the tag is pulled, and
+  the list refreshes when the picker is opened.
+- Listing is not selection: the selected model does not change until
+  the user picks a listed model. Uncensored-named models stay hidden
+  until the per-session uncensored opt-in is on, as before.
+- The "Use pulled model instead" fallback for a not-pulled selected
+  model now switches through the model's real picker option, so it
+  works for auto-added models too, not only for pre-attached ones.
+
 ## Chat empty-turn fix and Ox Alpha removal (new)
 
 - Fixed the "thinking, then nothing" failure: a chat turn that finished with no assistant text, thought, tool call, or plan no longer silently clears the thinking indicator. It now shows a prompt error explaining that the model finished without a reply, and suggesting a retry or a larger model (for example, Ollama `llama3.2:3b` or `qwen3-vl:8b-instruct`; a 1B model is usually too small for agentic chat).
