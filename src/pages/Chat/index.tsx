@@ -15,6 +15,8 @@ import { useChatStore } from '@/stores/chat';
 import { useSessionAttentionStore } from '@/stores/session-attention';
 import { useSettingsStore } from '@/stores/settings';
 import { ensureAcpChatSubscriptions, useAcpChatSessionStore } from '@/stores/acp-chat-session';
+import { useChatModeStore } from '@/stores/chat-mode';
+import { buildModeDirectives } from '@/lib/chat-mode-directives';
 import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 import { cn } from '@/lib/utils';
 import {
@@ -637,14 +639,19 @@ export function Chat() {
             const existingSession = sessions.find((session) => session.key === sessionKey);
             setLastPromptAttemptSessionKey(sessionKey);
             const promptCwd = targetAgent?.workspace || cwd;
-            const media = attachments
-              ?.filter((file) => file.status === 'ready')
-              .map((file) => ({
-                filePath: file.stagedPath,
-                stagingId: file.id,
-                fileName: file.fileName,
-                mimeType: file.mimeType,
-              }));
+            // Session-mode gating (defense in depth; ChatInput already
+            // drops attachments when Files is off for this session).
+            const sessionMode = useChatModeStore.getState().getMode(sessionKey);
+            const media = !sessionMode.filesWorkspace || !sessionMode.voiceMultimodal
+              ? undefined
+              : attachments
+                ?.filter((file) => file.status === 'ready')
+                .map((file) => ({
+                  filePath: file.stagedPath,
+                  stagingId: file.id,
+                  fileName: file.fileName,
+                  mimeType: file.mimeType,
+                }));
             if (targetAgent || !existingSession) {
               selectAcpSession(sessionKey, promptCwd);
             }
@@ -684,11 +691,18 @@ export function Chat() {
                 }
                 if (!loaded) return;
               }
+              // Session-mode directive block for this turn only (null
+              // for the exact default mode, so default sends are
+              // byte-identical to before this draft). The main process
+              // prepends it as its own ACP text block; it is never
+              // merged into the user's message text.
+              const modeDirectives = buildModeDirectives(sessionMode);
               const sendPromise = sendAcpPrompt({
                 sessionKey,
                 cwd: promptCwd,
                 message: text,
                 media,
+                ...(modeDirectives ? { modeDirectives } : {}),
               });
               requestAnimationFrame(() => {
                 void scrollToBottom({ animation: 'instant', ignoreEscapes: true });

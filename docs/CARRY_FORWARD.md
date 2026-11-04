@@ -12,7 +12,7 @@ No accepted capability may be removed or hidden without explicit owner approval 
 | Animated command center | `export function CinaCommandCenter` | `src/pages/Chat/CinaCommandCenter.tsx` |
 | 3D neural core | `.cina-core-card` | `src/styles/globals.css` |
 | Multimodal input | `composer.attachFiles` | `src/pages/Chat/ChatInput.tsx` |
-| OpenRouter Ox Alpha default | `stealth/ox-alpha` | `shared/openrouter.ts` |
+| OpenRouter successor default | `z-ai/glm-5.3-flash` | `shared/openrouter.ts` |
 | OpenRouter free router option | `openrouter/free` | `shared/openrouter.ts` |
 | Gemini free-tier preset | `gemini-3-flash-preview` | `src/lib/providers.ts` |
 | Shared OpenRouter startup default | `CINA_DEFAULT_MODEL_REF` | `electron/utils/cina-claw-defaults.ts` |

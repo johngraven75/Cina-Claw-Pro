@@ -1,1 +1,1147 @@
-{"excludedNotVerified":["prithivMLmods/Qwen3-VL-8B-Abliterated-Caption (HF API check returned 401, outcome unknown)","huihui-ai/Huihui-GLM-4.6V-Flash-abliterated (HF API check returned 401, outcome unknown)","dphn/Dolphin3.0-Mistral-24B and NousResearch/Hermes-4-70B (verified uncensored but text-only, excluded on the multimodal criterion)","google/gemma-4-26B-A4B-it, google/gemma-4-12b-it, Qwen/Qwen3.5-27B, microsoft/Phi-4-multimodal-instruct, openbmb/MiniCPM-o-2_6, stepfun-ai/Step3-VL-10B (plausible, not API-verified in this pass — reserves only)","meta-llama/Llama-4-Behemoth (announced, never publicly released)","openai/gpt-oss-120b, DeepSeek-R1, Qwen3 text-only Thinking (excluded on the multimodal criterion)"],"generated":"2026-11-02","important":"Free means no model-licence fee, NOT free compute. Only the cloud-instant rows work with a single free OpenRouter key and no download, and OpenRouter's :free list churns — verify live at openrouter.ai/models?max_price=0 before shipping or relying on any :free ID. Local rows need a download (and, where noted, a suitable GPU). Gated rows need a free Hugging Face account plus licence-terms acceptance. Uncensored rows (21-30) are local-only, behind an explicit opt-in, and are NEVER defaults. No API keys, tokens or secrets are stored in this file.","models":[{"contextTokens":262144,"displayName":"Qwen3-VL 8B Thinking","gated":false,"hfId":"Qwen/Qwen3-VL-8B-Thinking","license":"Apache-2.0","modalities":["text","image","video"],"rank":1,"reasoning":"native-thinking","route":{"ref":"qwen3-vl:8b","type":"ollama"},"setupNeeded":"Install Ollama once, then one pull (~6 GB Q4). No key.","size":"8B","tier":"one-pull","uncensored":false},{"contextTokens":262144,"displayName":"Qwen3-VL 32B Thinking","gated":false,"hfId":"Qwen/Qwen3-VL-32B-Thinking","license":"Apache-2.0","modalities":["text","image","video","documents","gui"],"rank":2,"reasoning":"native-thinking","route":{"ref":"Qwen/Qwen3-VL-32B-Thinking","type":"hf-local"},"setupNeeded":"Download weights (~21 GB Q4). 24 GB+ GPU recommended. No key.","size":"32B","tier":"power-user","uncensored":false},{"contextTokens":262144,"displayName":"Qwen3-VL 30B-A3B Thinking","gated":false,"hfId":"Qwen/Qwen3-VL-30B-A3B-Thinking","license":"Apache-2.0","modalities":["text","image","video"],"rank":3,"reasoning":"native-thinking","route":{"ref":"Qwen/Qwen3-VL-30B-A3B-Thinking","type":"hf-local"},"setupNeeded":"Download weights. Server / high-VRAM GPU. No key.","size":"30B total / 3B active MoE","tier":"power-user","uncensored":false},{"contextTokens":262144,"displayName":"Qwen3.8 27B","gated":false,"hfId":"Qwen/Qwen3.8-27B","license":"Apache-2.0","modalities":["text","image","video"],"rank":4,"reasoning":"thinking-control","route":{"ref":"unsloth/Qwen3.8-27B-GGUF","type":"hf-local"},"setupNeeded":"Local: one GGUF download (~17 GB Q4_K_M). Cloud OpenRouter qwen/qwen3.8-27b:free was reported removed in Oct 2026 — VERIFY LIVE before offering it, do not assume it.","size":"27B dense","tier":"power-user","uncensored":false},{"contextTokens":null,"displayName":"Qwen3-Omni 30B-A3B Thinking","gated":false,"hfId":"Qwen/Qwen3-Omni-30B-A3B-Thinking","license":"Apache-2.0","modalities":["text","image","audio","video"],"rank":5,"reasoning":"native-thinking","route":{"ref":"Qwen/Qwen3-Omni-30B-A3B-Thinking","type":"hf-local"},"setupNeeded":"Download weights (~70 GB BF16, quantise for desktop). Audio/video needs the Omni runtime, not plain Ollama. Verify context on the model card.","size":"30B total / 3B active MoE","tier":"power-user","uncensored":false},{"contextTokens":null,"displayName":"Qwen2.5-Omni 7B","gated":false,"hfId":"Qwen/Qwen2.5-Omni-7B","license":"Apache-2.0","modalities":["text","image","video","audio"],"rank":6,"reasoning":"prompted-cot","route":{"ref":"Qwen/Qwen2.5-Omni-7B","type":"hf-local"},"setupNeeded":"Download weights. Audio input is NOT supported by stock Ollama — use the HF/vLLM route for audio.","size":"~11B total incl. encoders","tier":"power-user","uncensored":false},{"contextTokens":131072,"displayName":"Qwen2.5-VL 32B Instruct","gated":false,"hfId":"Qwen/Qwen2.5-VL-32B-Instruct","license":"Apache-2.0","modalities":["text","image","video","documents"],"rank":7,"reasoning":"prompted-cot","route":{"ref":"Qwen/Qwen2.5-VL-32B-Instruct","type":"hf-local"},"setupNeeded":"Download weights. 24 GB+ GPU. No key.","size":"32B","tier":"power-user","uncensored":false},{"contextTokens":262144,"displayName":"Gemma 4 31B IT","gated":false,"hfId":"google/gemma-4-31B-it","license":"Apache-2.0","modalities":["text","image","video"],"rank":8,"reasoning":"thinking-toggle","route":{"ref":"google/gemma-4-31b-it:free","type":"openrouter-free"},"setupNeeded":"One free OpenRouter key only, no download. VERIFY the :free ID is still listed live before shipping; rate limits apply.","size":"31B dense","tier":"cloud-instant","uncensored":false},{"contextTokens":131072,"displayName":"Gemma 3 27B IT","gated":true,"hfId":"google/gemma-3-27b-it","license":"Gemma Terms of Use","modalities":["text","image"],"rank":9,"reasoning":"prompted-cot","route":{"ref":"gemma3:27b","type":"ollama"},"setupNeeded":"GATED: free HF account + accept Gemma Terms, then one pull (~24 GB Q4).","size":"27B","tier":"one-pull","uncensored":false},{"contextTokens":131072,"displayName":"Gemma 3 12B IT","gated":true,"hfId":"google/gemma-3-12b-it","license":"Gemma Terms of Use","modalities":["text","image"],"rank":10,"reasoning":"prompted-cot","route":{"ref":"gemma3:12b","type":"ollama"},"setupNeeded":"GATED: free HF account + accept Gemma Terms, then one pull (~8 GB).","size":"12B","tier":"one-pull","uncensored":false},{"contextTokens":10485760,"displayName":"Llama 4 Scout","gated":true,"hfId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","license":"Llama 4 Community Licence","modalities":["text","image"],"rank":11,"reasoning":"prompted-cot","route":{"ref":"llama4:scout","type":"ollama"},"setupNeeded":"GATED: HF account + Llama licence acceptance. Quantised build still needs server-grade GPU for large contexts.","size":"17B active / 109B total MoE","tier":"power-user","uncensored":false},{"contextTokens":1048576,"displayName":"Llama 4 Maverick","gated":true,"hfId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","license":"Llama 4 Community Licence","modalities":["text","image"],"rank":12,"reasoning":"prompted-cot","route":{"ref":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","type":"hf-local"},"setupNeeded":"GATED + heavy: HF licence acceptance + multi-GPU / cloud GPU. Do NOT present as a laptop preset.","size":"17B active / 400B total MoE","tier":"not-default","uncensored":false},{"contextTokens":131072,"displayName":"Mistral Small 3.2 24B","gated":false,"hfId":"mistralai/Mistral-Small-3.2-24B-Instruct-2506","license":"Apache-2.0","modalities":["text","image"],"rank":13,"reasoning":"prompted-cot","route":{"ref":"mistral-small3.2:24b","type":"ollama"},"setupNeeded":"Install Ollama once, then one pull (~15 GB). No key, ungated.","size":"24B dense","tier":"one-pull","uncensored":false},{"contextTokens":131072,"displayName":"Mistral Small 3.1 24B","gated":false,"hfId":"mistralai/Mistral-Small-3.1-24B-Instruct-2503","license":"Apache-2.0","modalities":["text","image"],"rank":14,"reasoning":"prompted-cot","route":{"ref":"mistral-small3.1","type":"ollama"},"setupNeeded":"One pull/download. No key, ungated. GGUF alternative: unsloth/Mistral-Small-3.1-24B-Instruct-2503-GGUF.","size":"24B dense","tier":"one-pull","uncensored":false},{"contextTokens":131072,"displayName":"Magistral Small","gated":false,"hfId":"mistralai/Magistral-Small-2506","license":"Apache-2.0","modalities":["text","image"],"rank":15,"reasoning":"native-thinking","route":{"ref":"unsloth/Magistral-Small-2506-GGUF","type":"hf-local"},"setupNeeded":"One GGUF download (UD-Q4_K_XL) via llama.cpp / LM Studio. Cap context at ~40K in the preset for quality. Vision is experimental — test before advertising it.","size":"24B","tier":"power-user","uncensored":false},{"contextTokens":131072,"displayName":"GLM-4.6V Flash","gated":false,"hfId":"zai-org/GLM-4.6V-Flash","license":"MIT","modalities":["text","image","video"],"rank":16,"reasoning":"native-thinking","route":{"ref":"zai-org/GLM-4.6V-Flash","type":"hf-local"},"setupNeeded":"Download weights (~20 GB). No key. No verified OpenRouter :free variant — do not claim one.","size":"~10B","tier":"power-user","uncensored":false},{"contextTokens":131072,"displayName":"GLM-4.6V","gated":false,"hfId":"zai-org/GLM-4.6V","license":"MIT","modalities":["text","image","video","documents"],"rank":17,"reasoning":"native-thinking","route":{"ref":"zai-org/GLM-4.6V","type":"hf-local"},"setupNeeded":"Download weights. Server GPU only. No key. No verified :free variant.","size":"106B","tier":"not-default","uncensored":false},{"contextTokens":131072,"displayName":"Kimi-VL-A3B Thinking","gated":false,"hfId":"moonshotai/Kimi-VL-A3B-Thinking","license":"MIT","modalities":["text","image","video"],"rank":18,"reasoning":"native-thinking","route":{"ref":"moonshotai/Kimi-VL-A3B-Thinking","type":"hf-local"},"setupNeeded":"Download weights. No key. Older OpenRouter :free guides are stale — do not claim it.","size":"16B total / 2.8B active MoE","tier":"power-user","uncensored":false},{"contextTokens":32768,"displayName":"InternVL3.5 8B Instruct","gated":false,"hfId":"OpenGVLab/InternVL3_5-8B-Instruct","license":"Apache-2.0","modalities":["text","image","video"],"rank":19,"reasoning":"prompted-cot","route":{"ref":"OpenGVLab/InternVL3_5-8B-Instruct","type":"hf-local"},"setupNeeded":"Download weights. No key. Needs a Transformers/vLLM preset, NOT an Ollama one-click (not in the Ollama library).","size":"8B","tier":"power-user","uncensored":false},{"contextTokens":36000,"displayName":"Molmo2 8B","gated":false,"hfId":"allenai/Molmo2-8B","license":"Apache-2.0","modalities":["text","image","video"],"rank":20,"reasoning":"prompted-cot","route":{"ref":"allenai/Molmo2-8B","type":"hf-local"},"setupNeeded":"Download + Molmo2-to-HF conversion step. Not an Ollama one-click. Best as a grounding specialist, not a general chat default.","size":"8B","tier":"not-default","uncensored":false},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3-VL 8B Thinking, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3-VL-8B-Thinking-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":21,"reasoning":"native-thinking","route":{"ref":"huihui-ai/Huihui-Qwen3-VL-8B-Thinking-abliterated","type":"hf-local"},"setupNeeded":"One download/pull. LOCAL USE ONLY recommended. Weaker refusals — you are the safety layer.","size":"8B","tier":"power-user","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3-VL 8B Instruct, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":22,"reasoning":"prompted-cot","route":{"ref":"huihui_ai/qwen3-vl-abliterated:8b-instruct","type":"ollama"},"setupNeeded":"Install Ollama once, then one pull. LOCAL USE ONLY recommended.","size":"8B","tier":"one-pull","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3-VL 30B-A3B Thinking, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3-VL-30B-A3B-Thinking-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":23,"reasoning":"native-thinking","route":{"ref":"huihui-ai/Huihui-Qwen3-VL-30B-A3B-Thinking-abliterated","type":"hf-local"},"setupNeeded":"Download weights. High-VRAM GPU. LOCAL USE ONLY recommended.","size":"30B / 3B active","tier":"power-user","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3-VL 30B-A3B Instruct, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3-VL-30B-A3B-Instruct-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":24,"reasoning":"prompted-cot","route":{"ref":"huihui-ai/Huihui-Qwen3-VL-30B-A3B-Instruct-abliterated","type":"hf-local"},"setupNeeded":"Download weights. High-VRAM GPU. LOCAL USE ONLY recommended.","size":"30B / 3B active","tier":"power-user","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3-VL 32B Thinking, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3-VL-32B-Thinking-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":25,"reasoning":"native-thinking","route":{"ref":"huihui-ai/Huihui-Qwen3-VL-32B-Thinking-abliterated","type":"hf-local"},"setupNeeded":"Download weights. 24 GB+ GPU. LOCAL USE ONLY recommended.","size":"32B","tier":"power-user","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3-VL 32B Instruct, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3-VL-32B-Instruct-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":26,"reasoning":"prompted-cot","route":{"ref":"huihui-ai/Huihui-Qwen3-VL-32B-Instruct-abliterated","type":"hf-local"},"setupNeeded":"Download weights. 24 GB+ GPU. LOCAL USE ONLY recommended.","size":"32B","tier":"power-user","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3.8 27B, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Qwen3.8-27B-abliterated","license":"Apache-2.0","modalities":["text","image","video"],"rank":27,"reasoning":"thinking-control","route":{"ref":"huihui-ai/Huihui-Qwen3.8-27B-abliterated","type":"hf-local"},"setupNeeded":"Download weights. LOCAL USE ONLY recommended. No cloud :free claim for the abliterated build.","size":"27B","tier":"power-user","uncensored":true},{"contextTokens":262144,"displayName":"UNCENSORED Qwen3.8 27B, GGUF","gated":false,"hfId":"orcarouter/Qwen3.8-27B-Uncensored-GGUF","license":"Apache-2.0","modalities":["text","image","video"],"rank":28,"reasoning":"thinking-control","route":{"ref":"orcarouter/Qwen3.8-27B-Uncensored-GGUF","type":"hf-local"},"setupNeeded":"TWO files via llama.cpp / LM Studio: model GGUF (~17 GB Q4_K_M) PLUS mmproj-Qwen3.8-27B-Uncensored-f16.gguf for vision. LOCAL USE ONLY.","size":"27B","tier":"power-user","uncensored":true},{"contextTokens":131072,"displayName":"UNCENSORED Mistral Small 3.2 24B, abliterated","gated":false,"hfId":"huihui-ai/Huihui-Mistral-Small-3.2-24B-Instruct-2506-abliterated","license":"Apache-2.0","modalities":["text","image"],"rank":29,"reasoning":"prompted-cot","route":{"ref":"huihui-ai/Huihui-Mistral-Small-3.2-24B-Instruct-2506-abliterated","type":"hf-local"},"setupNeeded":"Download weights. LOCAL USE ONLY recommended.","size":"24B","tier":"power-user","uncensored":true},{"contextTokens":null,"displayName":"UNCENSORED DolphinVision 72B (legacy)","gated":false,"hfId":"dphn/dolphin-vision-72b","license":"Other / Tongyi-Qianwen","modalities":["text","image"],"rank":30,"reasoning":"prompted-cot","route":{"ref":"dphn/dolphin-vision-72b","type":"hf-local"},"setupNeeded":"~146 GB weights, custom-code runtime (llava-qwen2), old stack. NOT a one-click, NOT a default preset.","size":"72B","tier":"not-default","uncensored":true}],"sourceBranch":"feat/hf-free-model-catalog","sourceRepo":"johngraven75/Cina-Claw-Pro","tiers":{"cloud-instant":"One free OpenRouter key, no download. Rate-limited (audits in 2026 reported about 20 req/min, 50 req/day unfunded, 1000 req/day after a $10 lifetime platform top-up — re-check live).","not-default":"Do not present as a just-works preset: needs multi-GPU, a conversion step, or a legacy custom runtime.","one-pull":"Install Ollama once, then one pull. No cloud key.","power-user":"Hugging Face / vLLM / llama.cpp download. Check the VRAM note before picking it on a laptop."},"version":1}
+{
+  "excludedNotVerified": [
+    "prithivMLmods/Qwen3-VL-8B-Abliterated-Caption (HF API check returned 401, outcome unknown)",
+    "huihui-ai/Huihui-GLM-4.6V-Flash-abliterated (HF API check returned 401, outcome unknown)",
+    "dphn/Dolphin3.0-Mistral-24B and NousResearch/Hermes-4-70B (verified uncensored but text-only, excluded on the multimodal criterion)",
+    "google/gemma-4-26B-A4B-it, google/gemma-4-12b-it, Qwen/Qwen3.5-27B, microsoft/Phi-4-multimodal-instruct, openbmb/MiniCPM-o-2_6, stepfun-ai/Step3-VL-10B (plausible, not API-verified in this pass — reserves only)",
+    "meta-llama/Llama-4-Behemoth (announced, never publicly released)",
+    "openai/gpt-oss-120b, DeepSeek-R1, Qwen3 text-only Thinking (excluded on the multimodal criterion)"
+  ],
+  "generated": "2026-11-03",
+  "important": "Free means no model-licence fee, NOT free compute. Only the cloud-instant rows work with a single free OpenRouter key and no download, and OpenRouter's :free list churns — verify live at openrouter.ai/models?max_price=0 before shipping or relying on any :free ID. Local rows need a download (and, where noted, a suitable GPU). Gated rows need a free Hugging Face account plus licence-terms acceptance. Uncensored rows (31-50) are local-only, behind an explicit opt-in, and are NEVER defaults. No API keys, tokens or secrets are stored in this file.",
+  "models": [
+    {
+      "contextTokens": 262144,
+      "displayName": "Qwen3-VL 8B Thinking",
+      "gated": false,
+      "hfId": "Qwen/Qwen3-VL-8B-Thinking",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 1,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "qwen3-vl:8b",
+        "type": "ollama"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~6 GB Q4). No key.",
+      "size": "8B",
+      "tier": "one-pull",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "Qwen3-VL 32B Thinking",
+      "gated": false,
+      "hfId": "Qwen/Qwen3-VL-32B-Thinking",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "documents",
+        "gui"
+      ],
+      "rank": 2,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "Qwen/Qwen3-VL-32B-Thinking",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights (~21 GB Q4). 24 GB+ GPU recommended. No key.",
+      "size": "32B",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "Qwen3-VL 30B-A3B Thinking",
+      "gated": false,
+      "hfId": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 3,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. Server / high-VRAM GPU. No key.",
+      "size": "30B total / 3B active MoE",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "Qwen3.8 27B",
+      "gated": false,
+      "hfId": "Qwen/Qwen3.8-27B",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 4,
+      "reasoning": "thinking-control",
+      "route": {
+        "ref": "unsloth/Qwen3.8-27B-GGUF",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Local: one GGUF download (~17 GB Q4_K_M). Cloud OpenRouter qwen/qwen3.8-27b:free was reported removed in Oct 2026 — VERIFY LIVE before offering it, do not assume it.",
+      "size": "27B dense",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": null,
+      "displayName": "Qwen3-Omni 30B-A3B Thinking",
+      "gated": false,
+      "hfId": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "rank": 5,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights (~70 GB BF16, quantise for desktop). Audio/video needs the Omni runtime, not plain Ollama. Verify context on the model card.",
+      "size": "30B total / 3B active MoE",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": null,
+      "displayName": "Qwen2.5-Omni 7B",
+      "gated": false,
+      "hfId": "Qwen/Qwen2.5-Omni-7B",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "rank": 6,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "Qwen/Qwen2.5-Omni-7B",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. Audio input is NOT supported by stock Ollama — use the HF/vLLM route for audio.",
+      "size": "~11B total incl. encoders",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Qwen2.5-VL 32B Instruct",
+      "gated": false,
+      "hfId": "Qwen/Qwen2.5-VL-32B-Instruct",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "documents"
+      ],
+      "rank": 7,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "Qwen/Qwen2.5-VL-32B-Instruct",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. 24 GB+ GPU. No key.",
+      "size": "32B",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "Gemma 4 31B IT",
+      "gated": false,
+      "hfId": "google/gemma-4-31B-it",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 8,
+      "reasoning": "thinking-toggle",
+      "route": {
+        "ref": "google/gemma-4-31b-it:free",
+        "type": "openrouter-free"
+      },
+      "setupNeeded": "One free OpenRouter key only, no download. VERIFY the :free ID is still listed live before shipping; rate limits apply.",
+      "size": "31B dense",
+      "tier": "cloud-instant",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Gemma 3 27B IT",
+      "gated": true,
+      "hfId": "google/gemma-3-27b-it",
+      "license": "Gemma Terms of Use",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 9,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "gemma3:27b",
+        "type": "ollama"
+      },
+      "setupNeeded": "GATED: free HF account + accept Gemma Terms, then one pull (~24 GB Q4).",
+      "size": "27B",
+      "tier": "one-pull",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Gemma 3 12B IT",
+      "gated": true,
+      "hfId": "google/gemma-3-12b-it",
+      "license": "Gemma Terms of Use",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 10,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "gemma3:12b",
+        "type": "ollama"
+      },
+      "setupNeeded": "GATED: free HF account + accept Gemma Terms, then one pull (~8 GB).",
+      "size": "12B",
+      "tier": "one-pull",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 10485760,
+      "displayName": "Llama 4 Scout",
+      "gated": true,
+      "hfId": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "license": "Llama 4 Community Licence",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 11,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "llama4:scout",
+        "type": "ollama"
+      },
+      "setupNeeded": "GATED: HF account + Llama licence acceptance. Quantised build still needs server-grade GPU for large contexts.",
+      "size": "17B active / 109B total MoE",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 1048576,
+      "displayName": "Llama 4 Maverick",
+      "gated": true,
+      "hfId": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+      "license": "Llama 4 Community Licence",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 12,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+        "type": "hf-local"
+      },
+      "setupNeeded": "GATED + heavy: HF licence acceptance + multi-GPU / cloud GPU. Do NOT present as a laptop preset.",
+      "size": "17B active / 400B total MoE",
+      "tier": "not-default",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Mistral Small 3.2 24B",
+      "gated": false,
+      "hfId": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 13,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "mistral-small3.2:24b",
+        "type": "ollama"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~15 GB). No key, ungated.",
+      "size": "24B dense",
+      "tier": "one-pull",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Mistral Small 3.1 24B",
+      "gated": false,
+      "hfId": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 14,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "mistral-small3.1",
+        "type": "ollama"
+      },
+      "setupNeeded": "One pull/download. No key, ungated. GGUF alternative: unsloth/Mistral-Small-3.1-24B-Instruct-2503-GGUF.",
+      "size": "24B dense",
+      "tier": "one-pull",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Magistral Small",
+      "gated": false,
+      "hfId": "mistralai/Magistral-Small-2506",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 15,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "unsloth/Magistral-Small-2506-GGUF",
+        "type": "hf-local"
+      },
+      "setupNeeded": "One GGUF download (UD-Q4_K_XL) via llama.cpp / LM Studio. Cap context at ~40K in the preset for quality. Vision is experimental — test before advertising it.",
+      "size": "24B",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "GLM-4.6V Flash",
+      "gated": false,
+      "hfId": "zai-org/GLM-4.6V-Flash",
+      "license": "MIT",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 16,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "zai-org/GLM-4.6V-Flash",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights (~20 GB). No key. No verified OpenRouter :free variant — do not claim one.",
+      "size": "~10B",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "GLM-4.6V",
+      "gated": false,
+      "hfId": "zai-org/GLM-4.6V",
+      "license": "MIT",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "documents"
+      ],
+      "rank": 17,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "zai-org/GLM-4.6V",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. Server GPU only. No key. No verified :free variant.",
+      "size": "106B",
+      "tier": "not-default",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "Kimi-VL-A3B Thinking",
+      "gated": false,
+      "hfId": "moonshotai/Kimi-VL-A3B-Thinking",
+      "license": "MIT",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 18,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "moonshotai/Kimi-VL-A3B-Thinking",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. No key. Older OpenRouter :free guides are stale — do not claim it.",
+      "size": "16B total / 2.8B active MoE",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 32768,
+      "displayName": "InternVL3.5 8B Instruct",
+      "gated": false,
+      "hfId": "OpenGVLab/InternVL3_5-8B-Instruct",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 19,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "OpenGVLab/InternVL3_5-8B-Instruct",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. No key. Needs a Transformers/vLLM preset, NOT an Ollama one-click (not in the Ollama library).",
+      "size": "8B",
+      "tier": "power-user",
+      "uncensored": false
+    },
+    {
+      "contextTokens": 36000,
+      "displayName": "Molmo2 8B",
+      "gated": false,
+      "hfId": "allenai/Molmo2-8B",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 20,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "allenai/Molmo2-8B",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download + Molmo2-to-HF conversion step. Not an Ollama one-click. Best as a grounding specialist, not a general chat default.",
+      "size": "8B",
+      "tier": "not-default",
+      "uncensored": false
+    },
+    {
+      "rank": 21,
+      "displayName": "Qwen3-VL 2B Instruct",
+      "hfId": "Qwen/Qwen3-VL-2B-Instruct",
+      "license": "Apache-2.0",
+      "size": "2B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "qwen3-vl:2b-instruct"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~1.9 GB). No key. Low-memory default.",
+      "tier": "one-pull",
+      "uncensored": false,
+      "contextTokens": 262144,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 22,
+      "displayName": "Qwen3-VL 4B Instruct",
+      "hfId": "Qwen/Qwen3-VL-4B-Instruct",
+      "license": "Apache-2.0",
+      "size": "4B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "qwen3-vl:4b-instruct"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~3.3 GB). No key. 8 GB VRAM sweet spot.",
+      "tier": "one-pull",
+      "uncensored": false,
+      "contextTokens": 262144,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 23,
+      "displayName": "Qwen3-VL 8B Instruct",
+      "hfId": "Qwen/Qwen3-VL-8B-Instruct",
+      "license": "Apache-2.0",
+      "size": "8B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "qwen3-vl:8b-instruct"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~6.1 GB). No key. Best general default (faster than the Thinking variant).",
+      "tier": "one-pull",
+      "uncensored": false,
+      "contextTokens": 262144,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 24,
+      "displayName": "Qwen2.5-VL 7B Instruct",
+      "hfId": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "license": "Apache-2.0",
+      "size": "7B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "qwen2.5vl:7b"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~6.0 GB). No key. Document/OCR alternative.",
+      "tier": "one-pull",
+      "uncensored": false,
+      "contextTokens": 131072,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 25,
+      "displayName": "Qwen2.5-VL 3B Instruct",
+      "hfId": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "license": "Qwen licence",
+      "size": "3B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "qwen2.5vl:3b"
+      },
+      "setupNeeded": "Install Ollama once, then one pull (~3.2 GB). No key. Note: the 3B licence differs from the 7B/32B Apache licence — verify on the model card.",
+      "tier": "one-pull",
+      "uncensored": false,
+      "contextTokens": 131072,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 26,
+      "displayName": "MiniCPM-V 4.5",
+      "hfId": "openbmb/MiniCPM-V-4_5",
+      "license": "Apache-2.0 with commercial-registration note, verify on card",
+      "size": "8B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "thinking-control",
+      "route": {
+        "type": "hf-local",
+        "ref": "openbmb/MiniCPM-V-4_5-gguf"
+      },
+      "setupNeeded": "No official Ollama library entry found; GGUF via openbmb/MiniCPM-V-4_5-gguf, Ollama via fork/Modelfile only, verify. HF route needs trust_remote_code. ~5-6 GB Q4 class, laptop-friendly.",
+      "tier": "power-user",
+      "uncensored": false,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    },
+    {
+      "rank": 27,
+      "displayName": "SmolVLM2 2.2B Instruct",
+      "hfId": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "license": "Apache-2.0",
+      "size": "2.2B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "richardyoung/smolvlm2-2.2b-instruct:Q4_K_M"
+      },
+      "setupNeeded": "Community GGUF (richardyoung/smolvlm2-2.2b-instruct:Q4_K_M), not the official library. GGUF Q4_K_M ~1.0 GB, English only per card, CPU-friendly.",
+      "tier": "power-user",
+      "uncensored": false,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 28,
+      "displayName": "Phi-4 Multimodal Instruct",
+      "hfId": "microsoft/Phi-4-multimodal-instruct",
+      "license": "MIT",
+      "size": "5.6B",
+      "modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "microsoft/Phi-4-multimodal-instruct"
+      },
+      "setupNeeded": "No official Ollama library entry found. 11.2 GB VRAM, 128K context, trust_remote_code. Audio needs the Phi runtime, not stock Ollama.",
+      "tier": "power-user",
+      "uncensored": false,
+      "contextTokens": 131072,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 29,
+      "displayName": "InternVL3.5 2B Instruct",
+      "hfId": "OpenGVLab/InternVL3_5-2B-Instruct",
+      "license": "Apache-2.0 (family, verify this size)",
+      "size": "2.3B total",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "OpenGVLab/InternVL3_5-2B-Instruct"
+      },
+      "setupNeeded": "No Ollama entry found. Laptop-friendly, but needs a Transformers/vLLM preset, NOT an Ollama one-click. Licence per size needs a direct card check.",
+      "tier": "power-user",
+      "uncensored": false,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    },
+    {
+      "rank": 30,
+      "displayName": "InternVL3.5 4B Instruct",
+      "hfId": "OpenGVLab/InternVL3_5-4B-Instruct",
+      "license": "Apache-2.0 per 4B snippet, verify on card",
+      "size": "4.7B total",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "OpenGVLab/InternVL3_5-4B-Instruct"
+      },
+      "setupNeeded": "No Ollama entry found. Laptop-friendly, but needs a Transformers/vLLM preset, NOT an Ollama one-click. Licence per size needs a direct card check.",
+      "tier": "power-user",
+      "uncensored": false,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3-VL 8B Thinking, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-8B-Thinking-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 31,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "huihui-ai/Huihui-Qwen3-VL-8B-Thinking-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "One download/pull. LOCAL USE ONLY recommended. Weaker refusals — you are the safety layer.",
+      "size": "8B",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3-VL 8B Instruct, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 32,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "huihui_ai/qwen3-vl-abliterated:8b-instruct",
+        "type": "ollama"
+      },
+      "setupNeeded": "Install Ollama once, then one pull. LOCAL USE ONLY recommended.",
+      "size": "8B",
+      "tier": "one-pull",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3-VL 30B-A3B Thinking, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-30B-A3B-Thinking-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 33,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "huihui-ai/Huihui-Qwen3-VL-30B-A3B-Thinking-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. High-VRAM GPU. LOCAL USE ONLY recommended.",
+      "size": "30B / 3B active",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3-VL 30B-A3B Instruct, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-30B-A3B-Instruct-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 34,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "huihui-ai/Huihui-Qwen3-VL-30B-A3B-Instruct-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. High-VRAM GPU. LOCAL USE ONLY recommended.",
+      "size": "30B / 3B active",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3-VL 32B Thinking, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-32B-Thinking-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 35,
+      "reasoning": "native-thinking",
+      "route": {
+        "ref": "huihui-ai/Huihui-Qwen3-VL-32B-Thinking-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. 24 GB+ GPU. LOCAL USE ONLY recommended.",
+      "size": "32B",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3-VL 32B Instruct, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-32B-Instruct-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 36,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "huihui-ai/Huihui-Qwen3-VL-32B-Instruct-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. 24 GB+ GPU. LOCAL USE ONLY recommended.",
+      "size": "32B",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3.8 27B, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 37,
+      "reasoning": "thinking-control",
+      "route": {
+        "ref": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. LOCAL USE ONLY recommended. No cloud :free claim for the abliterated build.",
+      "size": "27B",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 262144,
+      "displayName": "UNCENSORED Qwen3.8 27B, GGUF",
+      "gated": false,
+      "hfId": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "rank": 38,
+      "reasoning": "thinking-control",
+      "route": {
+        "ref": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+        "type": "hf-local"
+      },
+      "setupNeeded": "TWO files via llama.cpp / LM Studio: model GGUF (~17 GB Q4_K_M) PLUS mmproj-Qwen3.8-27B-Uncensored-f16.gguf for vision. LOCAL USE ONLY.",
+      "size": "27B",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": 131072,
+      "displayName": "UNCENSORED Mistral Small 3.2 24B, abliterated",
+      "gated": false,
+      "hfId": "huihui-ai/Huihui-Mistral-Small-3.2-24B-Instruct-2506-abliterated",
+      "license": "Apache-2.0",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 39,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "huihui-ai/Huihui-Mistral-Small-3.2-24B-Instruct-2506-abliterated",
+        "type": "hf-local"
+      },
+      "setupNeeded": "Download weights. LOCAL USE ONLY recommended.",
+      "size": "24B",
+      "tier": "power-user",
+      "uncensored": true
+    },
+    {
+      "contextTokens": null,
+      "displayName": "UNCENSORED DolphinVision 72B (legacy)",
+      "gated": false,
+      "hfId": "dphn/dolphin-vision-72b",
+      "license": "Other / Tongyi-Qianwen",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "rank": 40,
+      "reasoning": "prompted-cot",
+      "route": {
+        "ref": "dphn/dolphin-vision-72b",
+        "type": "hf-local"
+      },
+      "setupNeeded": "~146 GB weights, custom-code runtime (llava-qwen2), old stack. NOT a one-click, NOT a default preset.",
+      "size": "72B",
+      "tier": "not-default",
+      "uncensored": true
+    },
+    {
+      "rank": 41,
+      "displayName": "UNCENSORED Qwen3-VL 4B Instruct, abliterated",
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-4B-Instruct-abliterated",
+      "license": "Apache-2.0",
+      "size": "4B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "huihui_ai/qwen3-vl-abliterated:4b-instruct"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Install Ollama once, then one pull (~3.3 GB Q4). Weaker refusals — you are the safety layer.",
+      "tier": "one-pull",
+      "uncensored": true,
+      "contextTokens": 262144,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 42,
+      "displayName": "UNCENSORED Qwen3-VL 4B Thinking, abliterated",
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-4B-Thinking-abliterated",
+      "license": "Apache-2.0",
+      "size": "4B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "native-thinking",
+      "route": {
+        "type": "ollama",
+        "ref": "huihui_ai/qwen3-vl-abliterated:4b"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Install Ollama once, then one pull (~3-4 GB). Laptop-friendly. Weaker refusals — you are the safety layer.",
+      "tier": "one-pull",
+      "uncensored": true,
+      "contextTokens": 262144,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 43,
+      "displayName": "UNCENSORED Qwen3-VL 2B Instruct, abliterated",
+      "hfId": "huihui-ai/Huihui-Qwen3-VL-2B-Instruct-abliterated",
+      "license": "Apache-2.0",
+      "size": "2B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "huihui_ai/qwen3-vl-abliterated:2b"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Install Ollama once, then one pull (~1.9 GB). Weaker refusals — you are the safety layer.",
+      "tier": "one-pull",
+      "uncensored": true,
+      "contextTokens": 262144,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 44,
+      "displayName": "UNCENSORED Qwen2.5-VL 3B Instruct, abliterated",
+      "hfId": "huihui-ai/Qwen2.5-VL-3B-Instruct-abliterated",
+      "license": "Qwen licence for 3B, verify on card, not Apache",
+      "size": "3B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "huihui_ai/qwen2.5-vl-abliterated:3b"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Install Ollama once, then one pull (~3.2 GB Ollama; GGUF Q4_K_M 2.0 GB + mmproj). Licence: Qwen licence for 3B, verify on card, not Apache. Weaker refusals — you are the safety layer.",
+      "tier": "one-pull",
+      "uncensored": true,
+      "contextTokens": 131072,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 45,
+      "displayName": "UNCENSORED Qwen2.5-VL 32B Instruct, abliterated",
+      "hfId": "huihui-ai/Qwen2.5-VL-32B-Instruct-abliterated",
+      "license": "Apache-2.0",
+      "size": "32B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "ollama",
+        "ref": "huihui_ai/qwen2.5-vl-abliterated:32b"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Install Ollama once, then one pull (~21 GB Q4). 24 GB+ GPU, power-user only. Weaker refusals — you are the safety layer.",
+      "tier": "power-user",
+      "uncensored": true,
+      "contextTokens": 131072,
+      "gated": false,
+      "verification": "strong"
+    },
+    {
+      "rank": 46,
+      "displayName": "UNCENSORED GLM-4.6V Flash, abliterated",
+      "hfId": "huihui-ai/Huihui-GLM-4.6V-Flash-abliterated",
+      "license": "MIT (base), resolve licence claim on card",
+      "size": "~9-10B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "native-thinking",
+      "route": {
+        "type": "hf-local",
+        "ref": "huihui-ai/Huihui-GLM-4.6V-Flash-abliterated"
+      },
+      "setupNeeded": "LOCAL USE ONLY. No Ollama tag verified. ~20 GB BF16, GGUF + mmproj. Previously 401-unknown, now search-visible, still needs a direct page open. Resolve the MIT (base) licence claim on the card. Weaker refusals — you are the safety layer.",
+      "tier": "power-user",
+      "uncensored": true,
+      "contextTokens": 131072,
+      "gated": false,
+      "verification": "strong-existence-only"
+    },
+    {
+      "rank": 47,
+      "displayName": "UNCENSORED Gemma 4 12B, uncensored (Heretic)",
+      "hfId": "zaakirio/gemma-4-12b-it-uncensored",
+      "license": "Gemma licence (base), do not ship Apache claim without card check",
+      "size": "12B",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "reasoning": "thinking-toggle",
+      "route": {
+        "type": "hf-local",
+        "ref": "llmfan46/gemma-4-12B-it-uncensored-heretic-NVFP4-GGUF"
+      },
+      "setupNeeded": "LOCAL USE ONLY. No Ollama tag verified. NVFP4 GGUF + mmproj BF16 for vision, Blackwell-optimised, not a generic laptop preset. Gemma licence (base), do not ship Apache claim without card check. Weaker refusals — you are the safety layer.",
+      "tier": "power-user",
+      "uncensored": true,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    },
+    {
+      "rank": 48,
+      "displayName": "UNCENSORED Qwen3-VL 8B Abliterated Caption-it",
+      "hfId": "prithivMLmods/Qwen3-VL-8B-Abliterated-Caption-it",
+      "license": "Apache-2.0",
+      "size": "8B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "prithivMLmods/Qwen3-VL-8B-Abliterated-Caption-it"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Caption-specialist, not a general chat default. No Ollama tag verified. GGUF i1-Q4_K_M 5.1 GB + mmproj. Weaker refusals — you are the safety layer.",
+      "tier": "power-user",
+      "uncensored": true,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    },
+    {
+      "rank": 49,
+      "displayName": "UNCENSORED Qwen2.5-VL 7B Abliterated Caption-it",
+      "hfId": "prithivMLmods/Qwen2.5-VL-7B-Abliterated-Caption-it",
+      "license": "Apache-2.0",
+      "size": "7B",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "prithivMLmods/Qwen2.5-VL-7B-Abliterated-Caption-it"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Caption-specialist, not a general chat default. No Ollama tag verified. GGUF Q4_K_M ~4.4 GB. Weaker refusals — you are the safety layer.",
+      "tier": "power-user",
+      "uncensored": true,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    },
+    {
+      "rank": 50,
+      "displayName": "UNCENSORED Qwen2.5-VL 3B Abliterated Caption-it",
+      "hfId": "prithivMLmods/Qwen2.5-VL-3B-Abliterated-Caption-it",
+      "license": "Apache-2.0",
+      "size": "3B",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "reasoning": "prompted-cot",
+      "route": {
+        "type": "hf-local",
+        "ref": "prithivMLmods/Qwen2.5-VL-3B-Abliterated-Caption-it"
+      },
+      "setupNeeded": "LOCAL USE ONLY. Caption-specialist, not a general chat default. No Ollama tag verified. GGUF IQ4_XS 1.75 GB + mmproj Q8_0 845 MB. Weaker refusals — you are the safety layer.",
+      "tier": "power-user",
+      "uncensored": true,
+      "contextTokens": null,
+      "gated": false,
+      "verification": "snippet-only"
+    }
+  ],
+  "sourceBranch": "feat/catalog-v2-50-models",
+  "sourceRepo": "johngraven75/Cina-Claw-Pro",
+  "tiers": {
+    "cloud-instant": "One free OpenRouter key, no download. Rate-limited (audits in 2026 reported about 20 req/min, 50 req/day unfunded, 1000 req/day after a $10 lifetime platform top-up — re-check live).",
+    "not-default": "Do not present as a just-works preset: needs multi-GPU, a conversion step, or a legacy custom runtime.",
+    "one-pull": "Install Ollama once, then one pull. No cloud key.",
+    "power-user": "Hugging Face / vLLM / llama.cpp download. Check the VRAM note before picking it on a laptop."
+  },
+  "version": 2,
+  "rankScheme": "Standard ranks 1-30 (existing 1-20 unchanged, new S1-S10 at 21-30); uncensored ranks 31-50 (existing uncensored moved 21-30 -> 31-40 in original order, new U1,U2,U3,U4,U7,U8,U11,U13,U5,U6 at 41-50).",
+  "notes": "DRAFT ONLY — snippet-level research only (2026-11-03 web-search snippets, research file catalog-v2-research-2026-11-03.md). No HF/Ollama page-open and no local pull/test was done for this draft. Do NOT ship as verified: every new row still needs a direct model-card open plus one local pull/test before it is presented as working in Cina-Claw. Uncensored rows (31-50) are LOCAL-ONLY, behind an explicit opt-in that defaults off, and are NEVER defaults. The default model is Ollama Qwen3-VL 8B Instruct (qwen3-vl:8b-instruct, rank 23), with 4B (rank 22) and 2B (rank 21) as lower-VRAM fallbacks. OpenRouter stealth/ox-alpha is RETIRED (404, 2026-11-03); its OpenRouter successor is z-ai/glm-5.3-flash (metered, not a free preview), not the keyless default.",
+  "verification": {
+    "strong": "Search snippet + Ollama/HF page title (research section E): new standard S1-S5, S7, S8; new uncensored U1-U4, U7.",
+    "strongExistenceOnly": "U8 (GLM-4.6V Flash abliterated): existence search-visible only; licence and route still need a direct page open.",
+    "snippetOnly": "Snippet-only, needs direct page open: new standard S6 (Ollama route), S9/S10 (licence per size); new uncensored U5, U6, U11, U13 (plus every GGUF mmproj requirement). Existing rows 1-20 and 31-40 carry no new verification field and retain their v1 catalog status; they were not re-verified in this pass.",
+    "field": "New rows carry a per-row \"verification\" field: \"strong\", \"strong-existence-only\", or \"snippet-only\"."
+  }
+}

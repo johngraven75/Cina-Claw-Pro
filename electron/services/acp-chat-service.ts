@@ -384,7 +384,11 @@ export class AcpChatService {
       this.trace('session/prompt:start', {
         sessionKey: payload.sessionKey,
         generation,
-        details: { messageLength: payload.message?.length ?? 0, mediaCount: payload.media?.length ?? 0 },
+        details: {
+          messageLength: payload.message?.length ?? 0,
+          mediaCount: payload.media?.length ?? 0,
+          modeDirectivesPresent: Boolean(payload.modeDirectives?.trim()),
+        },
       });
       const connection = await this.ensureConnection();
       const prompt = await this.buildPromptBlocks(payload);
@@ -719,6 +723,10 @@ export class AcpChatService {
 
   private async buildPromptBlocks(payload: AcpChatPromptPayload): Promise<ContentBlock[]> {
     const blocks: ContentBlock[] = [];
+    // Session-mode directives travel as their own leading text block so
+    // they can never be mistaken for (or edited into) the user's message.
+    const directives = payload.modeDirectives?.trim();
+    if (directives) blocks.push({ type: 'text', text: directives });
     const text = payload.message?.trim();
     if (text) blocks.push({ type: 'text', text });
 

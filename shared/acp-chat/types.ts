@@ -29,6 +29,16 @@ export type AcpChatPromptPayload = AcpSessionKeyPayload & {
   message?: string;
   media?: AcpPromptMediaItem[];
   messageId?: string;
+  /**
+   * Session-mode directive block (draft: chat selector switches).
+   * Prepended by the main process as its own ACP text block, ahead of the
+   * user's message block. It is never merged into the user's message text
+   * and never rendered as a user segment. It is an instruction to the
+   * agent for this turn only; it does not change global runtime config
+   * (tools.deny, exec allowlist/ask policy) and must not be mistaken for
+   * a per-session tool allow/deny enforcement.
+   */
+  modeDirectives?: string;
 };
 
 export type AcpChatCancelPayload = AcpSessionKeyPayload;

@@ -142,6 +142,13 @@ export interface ProviderAccount {
     email?: string;
     resourceUrl?: string;
     customModels?: string[];
+    /**
+     * Catalog route refs on this account that are uncensored models
+     * (catalog v2). Parallel to customModels, using the same raw route
+     * refs, so Chat can hide them until opt-in by flag instead of by
+     * guessing from name markers. Preserved by the pre-attach plan.
+     */
+    uncensoredModels?: string[];
   };
   createdAt: string;
   updatedAt: string;
@@ -193,7 +200,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeInfo[] = [
     modelIdPlaceholder: 'gemini-3-flash-preview',
     apiKeyUrl: 'https://aistudio.google.com/app/apikey',
   },
-  { id: 'openrouter', name: 'OpenRouter — Ox Alpha', icon: '🌐', placeholder: 'sk-or-v1-...', model: 'Free multimodal agentic model', requiresApiKey: true, showModelId: true, modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID, defaultModelId: OPENROUTER_DEFAULT_MODEL_ID, docsUrl: OPENROUTER_DEFAULT_MODEL_DOCS_URL },
+  { id: 'openrouter', name: 'OpenRouter', icon: '🌐', placeholder: 'sk-or-v1-...', model: 'OpenRouter successor: z-ai/glm-5.3-flash (metered, not free preview; Ox Alpha retired 2026-11-03)', requiresApiKey: true, showModelId: true, modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID, defaultModelId: OPENROUTER_DEFAULT_MODEL_ID, docsUrl: OPENROUTER_DEFAULT_MODEL_DOCS_URL },
   { id: 'minimax-portal-cn', name: 'MiniMax (CN)', icon: '☁️', placeholder: 'sk-...', model: 'MiniMax', requiresApiKey: false, isOAuth: true, supportsApiKey: true, defaultModelId: 'MiniMax-M3', showModelId: true, modelIdPlaceholder: 'MiniMax-M3', apiKeyUrl: 'https://platform.minimaxi.com/' },
   { id: 'moonshot', name: 'Moonshot (CN)', icon: '🌙', placeholder: 'sk-...', model: 'Kimi', requiresApiKey: true, defaultBaseUrl: 'https://api.moonshot.cn/v1', showModelId: true, defaultModelId: 'kimi-k2.6', modelIdPlaceholder: 'kimi-k2.6', docsUrl: 'https://platform.moonshot.cn/' },
   { id: 'moonshot-global', name: 'Moonshot (Global)', icon: '🌙', placeholder: 'sk-...', model: 'Kimi', requiresApiKey: true, defaultBaseUrl: 'https://api.moonshot.ai/v1', showModelId: true, defaultModelId: 'kimi-k2.6', modelIdPlaceholder: 'kimi-k2.6', docsUrl: 'https://platform.moonshot.ai/' },
@@ -239,7 +246,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeInfo[] = [
   },
   { id: 'modelstudio', name: 'Model Studio', icon: '☁️', placeholder: 'sk-...', model: 'Qwen', requiresApiKey: true, defaultBaseUrl: 'https://coding.dashscope.aliyuncs.com/v1', showBaseUrl: true, defaultModelId: 'qwen3.6-plus', showModelId: true, showModelIdInDevModeOnly: true, modelIdPlaceholder: 'qwen3.6-plus', apiKeyUrl: 'https://bailian.console.aliyun.com/', hidden: true },
   { id: 'ark', name: 'ByteDance Ark', icon: 'A', placeholder: 'your-ark-api-key', model: 'Doubao', requiresApiKey: true, defaultBaseUrl: 'https://ark.cn-beijing.volces.com/api/v3', showBaseUrl: true, showModelId: true, modelIdPlaceholder: 'ep-20260228000000-xxxxx', docsUrl: 'https://www.volcengine.com/', codePlanPresetBaseUrl: 'https://ark.cn-beijing.volces.com/api/coding/v3', codePlanPresetModelId: 'ark-code-latest', codePlanDocsUrl: 'https://www.volcengine.com/docs/82379/1928261?lang=zh' },
-  { id: 'ollama', name: 'Ollama', icon: '🦙', placeholder: 'Not required', requiresApiKey: false, defaultBaseUrl: 'http://localhost:11434/v1', showBaseUrl: true, showModelId: true, defaultModelId: 'qwen3-vl:8b', modelIdPlaceholder: 'qwen3-vl:8b' },
+  { id: 'ollama', name: 'Ollama', icon: '🦙', placeholder: 'Not required', requiresApiKey: false, defaultBaseUrl: 'http://localhost:11434/v1', showBaseUrl: true, showModelId: true, defaultModelId: 'qwen3-vl:8b-instruct', modelIdPlaceholder: 'qwen3-vl:8b-instruct' },
   {
     id: 'custom',
     name: 'Custom',

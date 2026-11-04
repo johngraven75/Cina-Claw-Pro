@@ -118,6 +118,9 @@ export const hostApi = {
     getSkillsDir: () => invokeHost('openclaw', 'getSkillsDir'),
     getCliCommand: () => invokeHost('openclaw', 'getCliCommand'),
   },
+  ollama: {
+    health: (input?: { baseUrl?: string }) => invokeHost('ollama', 'health', input),
+  },
   shell: {
     openExternal: (url: string) => invokeHost('shell', 'openExternal', { url } satisfies ShellOpenExternalPayload),
     showItemInFolder: (path: string) => invokeHost('shell', 'showItemInFolder', { path } satisfies ShellPathPayload),

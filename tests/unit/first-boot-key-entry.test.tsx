@@ -34,7 +34,7 @@ beforeEach(() => {
 });
 
 describe('FirstBootKeyEntry', () => {
-  it('creates an enabled OpenRouter account with the Ox Alpha model and sets it as default', async () => {
+  it('creates an enabled OpenRouter account with the successor model and sets it as default', async () => {
     render(<FirstBootKeyEntry />);
 
     fireEvent.change(screen.getByTestId('first-boot-key-input'), {
@@ -47,7 +47,7 @@ describe('FirstBootKeyEntry', () => {
     });
     const [account, apiKey] = createAccount.mock.calls[0] as [Record<string, unknown>, string];
     expect(account.vendorId).toBe('openrouter');
-    expect(account.model).toBe('stealth/ox-alpha');
+    expect(account.model).toBe('z-ai/glm-5.3-flash');
     expect(account.enabled).toBe(true);
     expect(apiKey).toBe('sk-or-test-123');
     expect(setDefaultAccount).toHaveBeenCalledTimes(1);
@@ -61,9 +61,9 @@ describe('FirstBootKeyEntry', () => {
     const existing = {
       id: 'openrouter',
       vendorId: 'openrouter',
-      label: 'OpenRouter — Ox Alpha',
+      label: 'OpenRouter — GLM 5.3 Flash',
       authMode: 'api_key',
-      model: 'stealth/ox-alpha',
+      model: 'z-ai/glm-5.3-flash',
       enabled: true,
       isDefault: false,
       createdAt: '2026-11-02T00:00:00.000Z',

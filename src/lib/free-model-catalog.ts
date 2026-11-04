@@ -1,19 +1,37 @@
 import catalog from '@shared/free-models/catalog.json';
-import { OPENROUTER_DEFAULT_MODEL_ID } from '@shared/openrouter';
+import {
+  OPENROUTER_DEFAULT_MODEL_ID,
+  OPENROUTER_RETIRED_MODEL_ID,
+} from '@shared/openrouter';
+
+/** App-wide keyless default (local Ollama) — see catalog-preattach.ts. */
+export const CATALOG_DEFAULT_VENDOR_ID = 'ollama' as const;
+export const CATALOG_DEFAULT_MODEL_ID = 'qwen3-vl:8b-instruct' as const;
+export const CATALOG_DEFAULT_FALLBACK_MODEL_IDS = [
+  'qwen3-vl:4b-instruct',
+  'qwen3-vl:2b-instruct',
+] as const;
 
 /**
- * Ox Alpha is featured at the top of the picker, but it is NOT one of the
- * 30 Hugging Face models: it is an OpenRouter stealth-preview model with no
- * Hugging Face model ID, and its availability may change. Keeping it out of
- * FREE_MODELS preserves the exactly-30 HF catalog count and its tests.
+ * Ox Alpha (stealth/ox-alpha) RETIRED 2026-11-03 (OpenRouter 404). The
+ * featured OpenRouter pick is now its successor, z-ai/glm-5.3-flash
+ * (metered, not a free preview). It is NOT one of the 50 Hugging Face
+ * catalog models: it has no Hugging Face model ID. Keeping it out of
+ * FREE_MODELS preserves the exactly-50 HF catalog count and its tests.
+ * OX_ALPHA_PICK is kept as a compatibility alias for the picker component;
+ * the component's Ox Alpha label still needs an i18n/label pass (see report).
  */
-export const OX_ALPHA_PICK = {
+export const OPENROUTER_SUCCESSOR_PICK = {
   vendorId: 'openrouter',
   modelId: OPENROUTER_DEFAULT_MODEL_ID,
 } as const;
+export const OX_ALPHA_PICK = OPENROUTER_SUCCESSOR_PICK;
+export const OX_ALPHA_RETIRED_MODEL_ID = OPENROUTER_RETIRED_MODEL_ID;
 
 export type FreeModelTier = 'cloud-instant' | 'one-pull' | 'power-user' | 'not-default';
 export type FreeModelRouteType = 'openrouter-free' | 'ollama' | 'hf-local';
+
+export type FreeModelVerification = 'strong' | 'strong-existence-only' | 'snippet-only';
 
 export interface FreeModel {
   rank: number;
@@ -29,6 +47,8 @@ export interface FreeModel {
   gated: boolean;
   tier: FreeModelTier;
   uncensored: boolean;
+  /** Draft verification level; present on catalog-v2 rows, absent on v1 rows. */
+  verification?: FreeModelVerification;
 }
 
 interface CatalogFile {
