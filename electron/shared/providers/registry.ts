@@ -64,10 +64,10 @@ export const PROVIDER_DEFINITIONS: ProviderDefinition[] = [
   },
   {
     id: 'openrouter',
-    name: 'OpenRouter — Ox Alpha',
+    name: 'OpenRouter',
     icon: '🌐',
     placeholder: 'sk-or-v1-...',
-    model: 'Free multimodal agentic model',
+    model: 'GLM 5.3 Flash (metered)',
     requiresApiKey: true,
     showModelId: true,
     modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID,

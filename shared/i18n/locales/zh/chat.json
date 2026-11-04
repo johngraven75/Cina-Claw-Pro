@@ -61,6 +61,7 @@
     "cancelled": "已取消",
     "loadFailed": "会话加载失败",
     "promptFailed": "发送提示失败",
+    "emptyTurn": "模型结束时未返回任何回复。请重试，或切换到更大的模型（例如已安装的 Ollama llama3.2:3b，或 qwen3-vl:8b-instruct）。1B 模型通常太小，无法胜任智能体对话。",
     "unsupportedContent": "不支持的内容",
     "dismiss": "关闭",
     "image": "图片",

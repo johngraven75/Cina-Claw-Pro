@@ -3,7 +3,6 @@ import {
   CATALOG_DEFAULT_MODEL_ID,
   FREE_MODELS,
   OPENROUTER_SUCCESSOR_PICK,
-  OX_ALPHA_PICK,
   filterFreeModels,
   isSelectableFreeModel,
   targetModelId,
@@ -48,7 +47,6 @@ describe('free model catalog picker logic (v2: 50 models)', () => {
   it('features the OpenRouter successor separately, without changing the 50-model HF count', () => {
     expect(OPENROUTER_SUCCESSOR_PICK.vendorId).toBe('openrouter');
     expect(OPENROUTER_SUCCESSOR_PICK.modelId).toBe('z-ai/glm-5.3-flash');
-    expect(OX_ALPHA_PICK).toBe(OPENROUTER_SUCCESSOR_PICK);
     expect(FREE_MODELS.some((model) => model.route.ref === 'stealth/ox-alpha')).toBe(false);
     expect(FREE_MODELS).toHaveLength(50);
   });

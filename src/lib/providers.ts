@@ -200,7 +200,7 @@ export const PROVIDER_TYPE_INFO: ProviderTypeInfo[] = [
     modelIdPlaceholder: 'gemini-3-flash-preview',
     apiKeyUrl: 'https://aistudio.google.com/app/apikey',
   },
-  { id: 'openrouter', name: 'OpenRouter', icon: '🌐', placeholder: 'sk-or-v1-...', model: 'OpenRouter successor: z-ai/glm-5.3-flash (metered, not free preview; Ox Alpha retired 2026-11-03)', requiresApiKey: true, showModelId: true, modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID, defaultModelId: OPENROUTER_DEFAULT_MODEL_ID, docsUrl: OPENROUTER_DEFAULT_MODEL_DOCS_URL },
+  { id: 'openrouter', name: 'OpenRouter', icon: '🌐', placeholder: 'sk-or-v1-...', model: 'z-ai/glm-5.3-flash (metered, not free preview)', requiresApiKey: true, showModelId: true, modelIdPlaceholder: OPENROUTER_DEFAULT_MODEL_ID, defaultModelId: OPENROUTER_DEFAULT_MODEL_ID, docsUrl: OPENROUTER_DEFAULT_MODEL_DOCS_URL },
   { id: 'minimax-portal-cn', name: 'MiniMax (CN)', icon: '☁️', placeholder: 'sk-...', model: 'MiniMax', requiresApiKey: false, isOAuth: true, supportsApiKey: true, defaultModelId: 'MiniMax-M3', showModelId: true, modelIdPlaceholder: 'MiniMax-M3', apiKeyUrl: 'https://platform.minimaxi.com/' },
   { id: 'moonshot', name: 'Moonshot (CN)', icon: '🌙', placeholder: 'sk-...', model: 'Kimi', requiresApiKey: true, defaultBaseUrl: 'https://api.moonshot.cn/v1', showModelId: true, defaultModelId: 'kimi-k2.6', modelIdPlaceholder: 'kimi-k2.6', docsUrl: 'https://platform.moonshot.cn/' },
   { id: 'moonshot-global', name: 'Moonshot (Global)', icon: '🌙', placeholder: 'sk-...', model: 'Kimi', requiresApiKey: true, defaultBaseUrl: 'https://api.moonshot.ai/v1', showModelId: true, defaultModelId: 'kimi-k2.6', modelIdPlaceholder: 'kimi-k2.6', docsUrl: 'https://platform.moonshot.ai/' },

@@ -1,5 +1,11 @@
 # Unreleased
 
+## Chat empty-turn fix and Ox Alpha removal (new)
+
+- Fixed the "thinking, then nothing" failure: a chat turn that finished with no assistant text, thought, tool call, or plan no longer silently clears the thinking indicator. It now shows a prompt error explaining that the model finished without a reply, and suggesting a retry or a larger model (for example, Ollama `llama3.2:3b` or `qwen3-vl:8b-instruct`; a 1B model is usually too small for agentic chat).
+- Removed Ox Alpha from every user-visible surface: the provider registry entry, the provider list, the Models page dock, and all four locales now name OpenRouter's successor, GLM 5.3 Flash (metered), instead. The retired model ID survives only as an invisible migration matcher in config loading, so existing installs saved on it still migrate to the successor instead of 404-ing again; it is never seeded, listed, or selectable.
+- The retired-model migration itself is unchanged: existing installs are still migrated on config load, and no other provider, model, or fallback choice is touched.
+
 ## Media downloads (new)
 
 - New Downloads page: downloads clear, public video — HLS playlists (`.m3u8`) via ffmpeg and site video via yt-dlp — using ffmpeg and yt-dlp bundled into the Windows installer by `prep:win-binaries`.

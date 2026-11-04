@@ -122,8 +122,8 @@
     "zeroTokenCost": "No model charge",
     "providers": {
       "openrouter": {
-        "name": "OpenRouter Ox Alpha",
-        "description": "Free stealth-preview reasoning model with tools and multimodal input; external availability can change."
+        "name": "OpenRouter GLM 5.3 Flash",
+        "description": "Metered multimodal reasoning model with tools and multimodal input; external availability can change."
       },
       "google": {
         "name": "Google Gemini Flash",
@@ -190,7 +190,7 @@
     "licence": "Licence",
     "noResults": "No models match this search.",
     "successorPick": "GLM 5.3 Flash (OpenRouter, metered)",
-    "successorPickDescription": "OpenRouter reasoning model with tools and multimodal input. This replaces the retired Ox Alpha preview (404) and is metered, not a free preview. It is not a Hugging Face open model, and its availability may change.",
+    "successorPickDescription": "OpenRouter reasoning model with tools and multimodal input. It is metered, not a free preview. It is not a Hugging Face open model, and its availability may change.",
     "successorPickNote": "OpenRouter pick — the app default remains the local Ollama Qwen3-VL model, and the 50 models below are Hugging Face open-weight models."
   }
 }
