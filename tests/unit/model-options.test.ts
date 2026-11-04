@@ -153,6 +153,28 @@ describe('model option helpers', () => {
     ]);
   });
 
+  it('honors pre-attached customModels for OpenRouter accounts, selected model first', () => {
+    const accountId = 'openrouter-01';
+    const options = buildConfiguredModelOptions(
+      [
+        account({
+          id: accountId,
+          vendorId: 'openrouter',
+          label: 'OpenRouter',
+          model: 'z-ai/glm-5.3-flash',
+          metadata: { customModels: ['openrouter/free', 'z-ai/glm-5.3-flash'] },
+        }),
+      ],
+      [status(accountId)],
+      vendors,
+      accountId,
+    );
+    expect(options.map((option) => option.modelRef)).toEqual([
+      'openrouter/z-ai/glm-5.3-flash',
+      'openrouter/free',
+    ]);
+  });
+
   it.each([
     ['api_key', 'openai-api-key'],
     ['oauth_device', 'openai-device-oauth'],

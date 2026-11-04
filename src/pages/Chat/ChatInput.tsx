@@ -19,7 +19,7 @@ import { useChatStore } from '@/stores/chat';
 import { useArtifactPanel } from '@/stores/artifact-panel';
 import { buildPreviewTarget } from '@/components/file-preview/build-preview-target';
 import { useProviderStore } from '@/stores/providers';
-import { buildConfiguredModelOptions, formatModelRefLabel, isConfiguredModelRefAvailable, modelIdOfModelRef, resolveChatModelRef, splitModelRef } from '@/lib/model-options';
+import { buildConfiguredModelOptions, formatModelRefLabel, isConfiguredModelRefAvailable, modelIdOfModelRef, PREATTACHED_DEFAULT_MODEL_IDS, PREATTACHED_FALLBACK_MODEL_IDS, resolveChatModelRef, splitModelRef } from '@/lib/model-options';
 import { DEFAULT_CHAT_MODE, useChatModeStore } from '@/stores/chat-mode';
 import { isKnownUncensoredModelRef, stripSkillTokens } from '@/lib/chat-mode-directives';
 import { ChatModeSwitches, type ModelReadiness } from './ChatModeSwitches';
@@ -321,6 +321,40 @@ export function ChatInput({
       .then((result) => setOllamaHealth({ status: result.status, models: result.models }))
       .catch(() => setOllamaHealthUnknown(true));
   }, [isOllamaModel, ollamaAccount?.baseUrl]);
+  // v1.0.7 autoconfig: one-click start/pull instead of a dead status pill.
+  // Start/pull run in the main process (loopback only; pull is allowlisted
+  // to the pre-attached Qwen3-VL builds). Failures surface as toasts with
+  // the real error — never a silent spin.
+  const [ollamaAction, setOllamaAction] = useState<'idle' | 'starting' | 'pulling'>('idle');
+  const handleOllamaStart = useCallback(async () => {
+    if (!isOllamaModel || ollamaAction !== 'idle') return;
+    setOllamaAction('starting');
+    try {
+      const result = await hostApi.ollama.start(ollamaAccount?.baseUrl ? { baseUrl: ollamaAccount.baseUrl } : undefined);
+      setOllamaHealth({ status: result.status, models: result.models });
+      if (result.status !== 'up') toast.error(result.error || t('modelStatus.autoconfigFailed', { error: '' }));
+    } catch (error) {
+      toast.error(t('modelStatus.autoconfigFailed', { error: String(error) }));
+    } finally {
+      setOllamaAction('idle');
+    }
+  }, [isOllamaModel, ollamaAccount?.baseUrl, ollamaAction, t]);
+  const handleOllamaPull = useCallback(async () => {
+    if (!isOllamaModel || ollamaAction !== 'idle') return;
+    setOllamaAction('pulling');
+    try {
+      const result = await hostApi.ollama.pull({
+        ...(ollamaAccount?.baseUrl ? { baseUrl: ollamaAccount.baseUrl } : {}),
+        model: effectiveModelId,
+      });
+      setOllamaHealth({ status: result.status, models: result.models });
+      if (!result.pulled) toast.error(result.error || t('modelStatus.autoconfigFailed', { error: '' }));
+    } catch (error) {
+      toast.error(t('modelStatus.autoconfigFailed', { error: String(error) }));
+    } finally {
+      setOllamaAction('idle');
+    }
+  }, [isOllamaModel, ollamaAccount?.baseUrl, ollamaAction, effectiveModelId, t]);
   useEffect(() => {
     if (!isOllamaModel || !providerSnapshotReady) return;
     recheckOllamaHealth();
@@ -338,6 +372,29 @@ export function ChatInput({
     });
     return pulled ? 'ready' : 'needs-pull';
   })();
+  // Pulled pre-attached fallback (published list only) that Chat can switch
+  // to with one tap when the selected model is not pulled, plus any other
+  // installed model, which is offered only if it is already a configured
+  // option — never silently substituted.
+  const pulledFallbackRef = useMemo(() => {
+    if (!isOllamaModel || !ollamaHealth || ollamaHealth.status !== 'up') return null;
+    const pulled = ollamaHealth.models.map((name) => name.toLowerCase().replace(/:latest$/, ''));
+    const wanted = effectiveModelId.toLowerCase();
+    const candidate = [...PREATTACHED_DEFAULT_MODEL_IDS, ...PREATTACHED_FALLBACK_MODEL_IDS]
+      .find((id) => id.toLowerCase() !== wanted && pulled.includes(id.toLowerCase()));
+    return candidate ? `ollama/${candidate}` : null;
+  }, [isOllamaModel, ollamaHealth, effectiveModelId]);
+  const installedFallback = useMemo(() => {
+    if (!isOllamaModel || !ollamaHealth || ollamaHealth.status !== 'up') return null;
+    const preattached = new Set(
+      [...PREATTACHED_DEFAULT_MODEL_IDS, ...PREATTACHED_FALLBACK_MODEL_IDS].map((id) => id.toLowerCase()),
+    );
+    const pulled = [...new Set(ollamaHealth.models.map((name) => name.toLowerCase().replace(/:latest$/, '')))].sort();
+    const other = pulled.find((id) => !preattached.has(id));
+    if (!other) return null;
+    const ref = `ollama/${other}`;
+    return { id: other, ref, switchable: visibleModelOptions.some((option) => option.modelRef === ref) };
+  }, [isOllamaModel, ollamaHealth, visibleModelOptions]);
   const mentionableAgents = useMemo(
     () => (agents ?? []).filter((agent) => agent.id !== currentAgentId),
     [agents, currentAgentId],
@@ -409,9 +466,13 @@ export function ChatInput({
   useEffect(() => {
     if (!providerSnapshotReady || providerError || !currentAgent || switchingModelRef || optimisticModelRef) return;
     const override = (currentAgent.overrideModelRef || '').trim();
-    if (!override || isConfiguredModelRefAvailable(override, visibleModelOptions)) return;
+    // v1.0.7 (CodeAnt MAJOR): check against the UNFILTERED options. The
+    // old check used visibleModelOptions, so a valid saved override for an
+    // uncensored model was permanently cleared the moment the user hid
+    // uncensored models — hiding must hide, never delete a saved choice.
+    if (!override || isConfiguredModelRefAvailable(override, modelOptions)) return;
     void updateAgentModel(currentAgent.id, null).catch(() => {});
-  }, [currentAgent, visibleModelOptions, optimisticModelRef, providerError, providerSnapshotReady, switchingModelRef, updateAgentModel]);
+  }, [currentAgent, modelOptions, optimisticModelRef, providerError, providerSnapshotReady, switchingModelRef, updateAgentModel]);
 
   // Auto-resize textarea
   useEffect(() => {
@@ -832,12 +893,20 @@ export function ChatInput({
     // - Files off (or voice/multimodal off) drops attachments entirely.
     // - Skills off strips /skill tokens so no skill is invoked by text.
     // The directive block for the same mode is added by Chat/index.tsx.
-    const filesAllowed = chatMode.filesWorkspace && chatMode.voiceMultimodal;
+    // v1.0.7 (CodeAnt MAJOR): when the send is @-routed to another agent,
+    // gate by the TARGET session's mode, not the current session's — the
+    // old code dropped attachments (and stripped tokens) by the wrong
+    // session's switches even though Chat/index.tsx re-gates by the target
+    // session. Session key formula mirrors Chat/index.tsx.
+    const sendMode = targetAgentId && selectedTarget
+      ? useChatModeStore.getState().getMode(selectedTarget.mainSessionKey || `agent:${targetAgentId}:main`)
+      : chatMode;
+    const filesAllowed = sendMode.filesWorkspace && sendMode.voiceMultimodal;
     if (!filesAllowed && attachments.length > 0) {
       toast.info(t('modes.filesOffAttachmentsDropped'));
     }
     const readyAttachments = filesAllowed ? attachments.filter(a => a.status === 'ready') : [];
-    const textToSend = chatMode.skills ? input.trim() : stripSkillTokens(input.trim());
+    const textToSend = sendMode.skills ? input.trim() : stripSkillTokens(input.trim());
     const attachmentsToSend = readyAttachments.length > 0 ? readyAttachments : undefined;
 
     if (rendererExtensionRegistry.hasChatBeforeSendHooks()) {
@@ -876,7 +945,7 @@ export function ChatInput({
     setPickerOpen(false);
     setSkillPickerOpen(false);
     setWorkspaceMenuOpen(false);
-  }, [input, attachments, canSend, chatMode.filesWorkspace, chatMode.skills, chatMode.voiceMultimodal, onSend, t, targetAgentId]);
+  }, [input, attachments, canSend, chatMode, onSend, selectedTarget, t, targetAgentId]);
 
   const handleStop = useCallback(() => {
     if (!canStop) return;
@@ -1438,21 +1507,74 @@ export function ChatInput({
         </div>
         <div className="mt-2.5 flex min-w-0 items-center justify-between gap-2 text-tiny text-muted-foreground/60">
           {isOllamaModel && modelReadiness !== 'ready' && modelReadiness !== 'not-applicable' && (
-            <button
-              type="button"
-              data-testid="chat-model-readiness-status"
-              onClick={recheckOllamaHealth}
-              className="shrink-0 truncate rounded-full border border-amber-500/30 px-2 py-0.5 text-tiny font-medium text-amber-700 hover:bg-black/5 dark:text-amber-400 dark:hover:bg-white/10"
-              title={t('modelStatus.recheck')}
-            >
-              {modelReadiness === 'needs-ollama'
-                ? t('modelStatus.needsOllama')
-                : modelReadiness === 'needs-pull'
-                  ? t('modelStatus.needsPull', { model: effectiveModelId })
-                  : modelReadiness === 'checking'
-                    ? t('modelStatus.checking')
-                    : t('modelStatus.unknown')}
-            </button>
+            <div className="flex shrink-0 flex-wrap items-center gap-1">
+              <button
+                type="button"
+                data-testid="chat-model-readiness-status"
+                onClick={recheckOllamaHealth}
+                className="truncate rounded-full border border-amber-500/30 px-2 py-0.5 text-tiny font-medium text-amber-700 hover:bg-black/5 dark:text-amber-400 dark:hover:bg-white/10"
+                title={t('modelStatus.recheck')}
+              >
+                {modelReadiness === 'needs-ollama'
+                  ? t('modelStatus.needsOllama')
+                  : modelReadiness === 'needs-pull'
+                    ? t('modelStatus.needsPull', { model: effectiveModelId })
+                    : modelReadiness === 'checking'
+                      ? t('modelStatus.checking')
+                      : t('modelStatus.unknown')}
+              </button>
+              {modelReadiness === 'needs-ollama' && (
+                <button
+                  type="button"
+                  data-testid="chat-ollama-start"
+                  onClick={handleOllamaStart}
+                  disabled={ollamaAction !== 'idle'}
+                  className="rounded-full border border-emerald-500/30 px-2 py-0.5 text-tiny font-medium text-emerald-700 hover:bg-black/5 disabled:opacity-50 dark:text-emerald-400 dark:hover:bg-white/10"
+                >
+                  {ollamaAction === 'starting' ? t('modelStatus.startingOllama') : t('modelStatus.startOllama')}
+                </button>
+              )}
+              {modelReadiness === 'needs-pull' && (
+                <>
+                  <button
+                    type="button"
+                    data-testid="chat-ollama-pull"
+                    onClick={handleOllamaPull}
+                    disabled={ollamaAction !== 'idle'}
+                    className="rounded-full border border-emerald-500/30 px-2 py-0.5 text-tiny font-medium text-emerald-700 hover:bg-black/5 disabled:opacity-50 dark:text-emerald-400 dark:hover:bg-white/10"
+                  >
+                    {ollamaAction === 'pulling'
+                      ? t('modelStatus.pullingModel', { model: effectiveModelId })
+                      : t('modelStatus.pullModel', { model: effectiveModelId })}
+                  </button>
+                  {pulledFallbackRef && (
+                    <button
+                      type="button"
+                      data-testid="chat-use-pulled-fallback"
+                      onClick={() => handleSelectModel(pulledFallbackRef)}
+                      className="rounded-full border border-sky-500/30 px-2 py-0.5 text-tiny font-medium text-sky-700 hover:bg-black/5 dark:text-sky-400 dark:hover:bg-white/10"
+                    >
+                      {t('modelStatus.usePulledFallback', { model: pulledFallbackRef.replace(/^ollama\//, '') })}
+                    </button>
+                  )}
+                  {!pulledFallbackRef && installedFallback?.switchable && (
+                    <button
+                      type="button"
+                      data-testid="chat-use-installed-fallback"
+                      onClick={() => handleSelectModel(installedFallback.ref)}
+                      className="rounded-full border border-sky-500/30 px-2 py-0.5 text-tiny font-medium text-sky-700 hover:bg-black/5 dark:text-sky-400 dark:hover:bg-white/10"
+                    >
+                      {t('modelStatus.usePulledFallback', { model: installedFallback.id })}
+                    </button>
+                  )}
+                  {!pulledFallbackRef && installedFallback && !installedFallback.switchable && (
+                    <span className="truncate px-1 text-tiny text-muted-foreground/60">
+                      {t('modelStatus.installedModelHint', { model: installedFallback.id })}
+                    </span>
+                  )}
+                </>
+              )}
+            </div>
           )}
           <div className="flex min-w-0 flex-1 items-center gap-1.5">
             {workspaceLabel && workspacePath && (

@@ -112,9 +112,17 @@ export function buildModeDirectives(mode: ChatMode): string | null {
   return lines.join('\n');
 }
 
-/** Remove composer skill tokens (`/name␣␣`) from text. Used when Skills is off at send time. */
+/**
+ * Remove composer skill tokens (`/name␣␣`) from text. Used when Skills is
+ * off at send time. v1.0.7 (CodeAnt MAJOR): the old pattern matched any
+ * slash-run (`/[^\s]+`) and then collapsed every double space in the
+ * message, so a path or URL-adjacent double space was mangled (e.g. text
+ * containing "/api/v1  docs" lost the path). Tokens are now only
+ * slash + a bare skill name (letters, digits, `_`, `-`) followed by the
+ * two-space delimiter, and no other spacing in the message is touched.
+ */
 export function stripSkillTokens(text: string): string {
-  return text.replace(/\/[^\s]+ {2}/g, '').replace(/[ \t]{2,}/g, ' ');
+  return text.replace(/(^|\s)\/[A-Za-z0-9_-]+ {2}/g, '$1');
 }
 
 /**

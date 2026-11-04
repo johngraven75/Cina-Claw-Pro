@@ -203,9 +203,13 @@ export interface CatalogPreattachDeps {
  * - never creates an account or a key (missing providers stay missing, and
  *   the caller must render the default as "needs Ollama started / one pull"
  *   with a one-click start/pull action, not a blank picker);
- * - setDefaultAccount is called only when a default account exists AND the
- *   caller passes setAsDefault (e.g. no default account is set yet), so an
- *   operator's existing default is never clobbered.
+ * - setAsDefault gates BOTH the account-model patch and setDefaultAccount:
+ *   when false, only metadata (customModels / uncensoredModels) is applied,
+ *   so an operator's existing account model is never overwritten by a
+ *   pre-attach run that was not asked to set the default (v1.0.7 fix);
+ * - setupOnly rows are intentionally not applied: they are HF-local rows
+ *   with no provider account to update, and their only meaning is
+ *   "download/pull still required" (see plan.setupOnly.needsDownload).
  */
 export async function applyCatalogPreattachPlan(
   plan: CatalogPreattachPlan,
@@ -216,7 +220,10 @@ export async function applyCatalogPreattachPlan(
     if (update.patch.model && update.patch.model !== plan.defaultModelId) {
       throw new Error('catalog pre-attach refused to set a non-default model');
     }
-    await deps.updateAccount(update.accountId, update.patch);
+    const patch = options.setAsDefault
+      ? update.patch
+      : { metadata: update.patch.metadata };
+    await deps.updateAccount(update.accountId, patch);
   }
   if (options.setAsDefault && plan.defaultAccountId) {
     await deps.setDefaultAccount(plan.defaultAccountId);

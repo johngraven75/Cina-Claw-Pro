@@ -94,6 +94,12 @@ describe('catalog v2 pre-attachment', () => {
     await applyCatalogPreattachPlan(plan, { updateAccount, setDefaultAccount }, { setAsDefault: false });
     expect(updateAccount).toHaveBeenCalledTimes(2);
     expect(setDefaultAccount).not.toHaveBeenCalled();
+    // v1.0.7: without setAsDefault, metadata is applied but the existing
+    // account model is never overwritten by the pre-attach run.
+    for (const call of updateAccount.mock.calls) {
+      expect(call[1]).not.toHaveProperty('model');
+      expect(call[1].metadata.customModels.length).toBeGreaterThan(0);
+    }
     await applyCatalogPreattachPlan(plan, { updateAccount, setDefaultAccount }, { setAsDefault: true });
     expect(setDefaultAccount).toHaveBeenCalledWith('ollama');
   });

@@ -189,8 +189,8 @@
     "size": "サイズ",
     "licence": "ライセンス",
     "noResults": "検索に一致するモデルがありません。",
-    "oxAlpha": "Ox Alpha（注目）",
-    "oxAlphaDescription": "ツールとマルチモーダル入力に対応するOpenRouterのステルスプレビュー推論モデルです。Hugging Faceのオープンモデルではなく、可用性は変動します。",
-    "oxAlphaNote": "注目の既定モデル——下の30件はすべてHugging Faceのオープンウェイトモデルです。"
+    "successorPick": "GLM 5.3 Flash（OpenRouter、従量課金）",
+    "successorPickDescription": "ツールとマルチモーダル入力に対応する OpenRouter の推論モデルです。終了した Ox Alpha プレビュー（404）の後継で、無料プレビューではなく従量課金です。Hugging Face のオープンモデルではなく、可用性は変動します。",
+    "successorPickNote": "OpenRouter の選択肢——アプリの既定は引き続きローカルの Ollama Qwen3-VL モデルで、下の 50 件は Hugging Face のオープンウェイトモデルです。"
   }
 }

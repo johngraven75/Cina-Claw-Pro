@@ -184,13 +184,25 @@ export function buildConfiguredModelOptions(
     );
     const modelIds = (() => {
       const selectedModelId = normalizeModelIdForRuntimeProvider(account.model, runtimeProviderKey);
+      const configured = (account.metadata?.customModels ?? [])
+        .map((modelId) => normalizeModelIdForRuntimeProvider(modelId, runtimeProviderKey))
+        .filter(Boolean);
+      // v1.0.7 (CodeAnt MAJOR, scoped): pre-attached customModels are
+      // honored for the vendors the catalog planner actually attaches to
+      // — ollama, custom, and openrouter. Previously an OpenRouter account
+      // with catalog customModels returned only its single selected model,
+      // so catalog rows pre-attached to it never appeared as Chat options.
+      // Selected model stays first for openrouter (its selected model is
+      // not itself a catalog row), then the pre-attached rows, deduped
+      // below. Other built-in vendors keep the existing stale-metadata
+      // behavior (selected model only), covered by unit tests.
+      if (account.vendorId === 'openrouter' && configured.length > 0) {
+        return [...new Set([selectedModelId, ...configured].filter(Boolean))];
+      }
       const supportsMultipleModels = account.vendorId === 'custom' || account.vendorId === 'ollama';
       if (!supportsMultipleModels && selectedModelId) {
         return [selectedModelId];
       }
-      const configured = (account.metadata?.customModels ?? [])
-        .map((modelId) => normalizeModelIdForRuntimeProvider(modelId, runtimeProviderKey))
-        .filter(Boolean);
       if (configured.length > 0) return configured;
       return selectedModelId ? [selectedModelId] : [];
     })();

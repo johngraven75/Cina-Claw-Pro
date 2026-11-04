@@ -158,6 +158,10 @@ vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: translate,
   }),
+  // v1.0.7: ChatInput transitively imports src/i18n (via acp-chat-session),
+  // which calls .use(initReactI18next). Sibling tests mock it; this file
+  // did not, so the file failed at import time in this environment.
+  initReactI18next: { type: '3rdParty', init: vi.fn() },
 }));
 
 function renderChatInput(onSend = vi.fn()) {

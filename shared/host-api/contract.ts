@@ -856,6 +856,56 @@ export type OllamaHealthResult = {
   error?: string;
 };
 
+export type OllamaStartPayload = {
+  baseUrl?: string;
+};
+
+export type OllamaStartResult = {
+  started: boolean;
+  alreadyRunning: boolean;
+  status: 'up' | 'down';
+  baseUrl: string;
+  models: string[];
+  checkedAt: string;
+  error?: string;
+};
+
+export type OllamaPullPayload = {
+  baseUrl?: string;
+  /** Must be a pre-attached Qwen3-VL 8B/4B/2B model ID; anything else is refused. */
+  model: string;
+};
+
+export type OllamaPullResult = {
+  pulled: boolean;
+  model: string;
+  alreadyPulled?: boolean;
+  status: 'up' | 'down';
+  baseUrl: string;
+  models: string[];
+  checkedAt: string;
+  error?: string;
+};
+
+export type OllamaAutoconfigPayload = {
+  baseUrl?: string;
+};
+
+export type OllamaAutoconfigResult = {
+  status: 'up' | 'down';
+  baseUrl: string;
+  models: string[];
+  /** First pulled pre-attached model in priority order, or null. */
+  selectedModelId: string | null;
+  selectedModelRef: string | null;
+  fromPreattachedFallback: boolean;
+  /** First other installed model, offered explicitly — never auto-selected. */
+  installedFallbackModelId: string | null;
+  startedOllama: boolean;
+  checkedAt: string;
+  error?: string;
+};
+
 export type HostApiContract = {
   app: {
     openClawDoctor: (payload: OpenClawDoctorPayload) => Omit<OpenClawDoctorResult, 'mode'>;
@@ -865,9 +915,12 @@ export type HostApiContract = {
     getSkillsDir: () => string;
     getCliCommand: () => OpenClawCliCommandResult;
   };
-  /** Local Ollama probe (draft: chat pre-attachment). Reachability + tag list only; no start/pull action exists yet. */
+  /** Local Ollama probe + autoconfig actions (v1.0.7). Health, start, pull (pre-attached models only), and autoconfig resolution. */
   ollama: {
     health: (payload?: OllamaHealthPayload) => OllamaHealthResult;
+    start: (payload?: OllamaStartPayload) => OllamaStartResult;
+    pull: (payload: OllamaPullPayload) => OllamaPullResult;
+    autoconfig: (payload?: OllamaAutoconfigPayload) => OllamaAutoconfigResult;
   };
   shell: {
     openExternal: (payload: ShellOpenExternalPayload) => void;
