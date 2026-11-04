@@ -4,7 +4,7 @@
  * A single, focused OpenRouter API key entry for the first-boot setup
  * wizard. It exists so a new user does not have to open the full provider
  * dialog to get going: paste the key once, save it, and the setup wizard
- * can proceed with the OpenRouter successor model (the retired Ox Alpha
+ * can proceed with the OpenRouter successor model (the retired model
  * default must never be seeded again; the app-wide keyless default is
  * the local Ollama model).
  *

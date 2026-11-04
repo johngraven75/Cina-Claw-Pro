@@ -61,6 +61,7 @@
     "cancelled": "Cancelled",
     "loadFailed": "Failed to load session",
     "promptFailed": "Failed to send prompt",
+    "emptyTurn": "The model finished without a reply. Try sending again, or switch to a larger model — for example, Ollama llama3.2:3b (already installed) or qwen3-vl:8b-instruct. A 1B model is usually too small for agentic chat.",
     "unsupportedContent": "Unsupported content",
     "dismiss": "Dismiss",
     "image": "Image",

@@ -122,8 +122,8 @@
     "zeroTokenCost": "无模型费用",
     "providers": {
       "openrouter": {
-        "name": "OpenRouter Ox Alpha",
-        "description": "支持工具和多模态输入的免费隐身预览推理模型；外部可用性可能变化。"
+        "name": "OpenRouter GLM 5.3 Flash",
+        "description": "按量计费的多模态推理模型，支持工具和多模态输入；外部可用性可能变化。"
       },
       "google": {
         "name": "Google Gemini Flash",
@@ -190,7 +190,7 @@
     "licence": "许可",
     "noResults": "没有符合搜索的模型。",
     "successorPick": "GLM 5.3 Flash（OpenRouter，按量计费）",
-    "successorPickDescription": "OpenRouter 推理模型，支持工具和多模态输入。它取代了已停用的 Ox Alpha 预览版（404），按量计费，并非免费预览。这不是 Hugging Face 开源模型，可用性可能变化。",
+    "successorPickDescription": "OpenRouter 推理模型，支持工具和多模态输入，按量计费，并非免费预览。这不是 Hugging Face 开源模型，可用性可能变化。",
     "successorPickNote": "OpenRouter 之选——应用默认仍为本地 Ollama Qwen3-VL 模型，下面的 50 个模型均为 Hugging Face 开源权重模型。"
   }
 }

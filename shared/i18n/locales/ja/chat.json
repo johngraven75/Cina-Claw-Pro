@@ -61,6 +61,7 @@
     "cancelled": "キャンセル済み",
     "loadFailed": "セッションの読み込みに失敗しました",
     "promptFailed": "プロンプトの送信に失敗しました",
+    "emptyTurn": "モデルが返信なしで終了しました。再試行するか、より大きなモデル（インストール済みの Ollama llama3.2:3b や qwen3-vl:8b-instruct など）に切り替えてください。1B モデルはエージェント会話には小さすぎます。",
     "unsupportedContent": "未対応のコンテンツ",
     "dismiss": "閉じる",
     "image": "画像",

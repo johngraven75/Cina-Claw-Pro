@@ -27,6 +27,7 @@ import {
 } from '@/lib/workspace-context';
 import { useStickToBottomInstant } from '@/hooks/use-stick-to-bottom-instant';
 import { getAcpUserMessageAnchorId } from '@/lib/acp/timeline-anchors';
+import { emptyAssistantTurnMessageId, lastUserMessageId } from '@/lib/acp/empty-turn';
 import type { MessageSegmentItem, RenderPart } from '@/lib/acp/timeline-types';
 import { createEmptyAcpTimeline } from '@/lib/acp/reducer';
 import { projectOpenClawFileActivities, type AcpFileActivityProjection } from '@/lib/acp/openclaw-file-activities';
@@ -216,6 +217,7 @@ export function Chat() {
   const agents = useAgentsStore((s) => s.agents);
   const [sessionDiscoveryAttempted, setSessionDiscoveryAttempted] = useState(false);
   const [lastPromptAttemptSessionKey, setLastPromptAttemptSessionKey] = useState<string | null>(null);
+  const [dismissedEmptyTurnId, setDismissedEmptyTurnId] = useState<string | null>(null);
   const [questionDirectoryOpenSessionKey, setQuestionDirectoryOpenSessionKey] = useState<string | null>(null);
   const [resolvedWorkspaceContext, setResolvedWorkspaceContext] = useState<{
     key: string;
@@ -478,10 +480,28 @@ export function Chat() {
   const composerBusy = acpSending || acpCancelling;
   const showScrollToLatest = visibleAcpTimeline.itemOrder.length > 0 && !isAtBottom;
   const hasAttemptedAcpPromptForCurrentSession = lastPromptAttemptSessionKey === currentSessionKey;
-  const visibleAcpError = !workspaceUnavailable && acpError
+  // A turn that finished (timing complete, no longer sending) but produced
+  // no assistant content must not silently clear the thinking indicator:
+  // surface it as a prompt error, with a model hint, instead of "nothing".
+  const emptyTurnUserMessageId = !composerBusy && hasAttemptedAcpPromptForCurrentSession
+    ? emptyAssistantTurnMessageId(
+      visibleAcpTimeline,
+      (acpTurnTimings ?? {})[lastUserMessageId(visibleAcpTimeline) ?? '']?.status,
+    )
+    : null;
+  const emptyTurnVisible = !!emptyTurnUserMessageId && dismissedEmptyTurnId !== emptyTurnUserMessageId;
+  const storeAcpError = !workspaceUnavailable && acpError
     && !(acpTimeline.itemOrder.length === 0 && !hasAttemptedAcpPromptForCurrentSession && isRecoverableInitialAcpLoadError(acpError))
     ? acpError
     : null;
+  const visibleAcpError = storeAcpError ?? (emptyTurnVisible ? t('acp.emptyTurn') : null);
+  const dismissAcpError = () => {
+    if (emptyTurnUserMessageId && !storeAcpError) {
+      setDismissedEmptyTurnId(emptyTurnUserMessageId);
+      return;
+    }
+    clearAcpError();
+  };
   const chooseReplacementWorkspace = async () => {
     try {
       const result = await hostApi.dialog.open({
@@ -584,7 +604,7 @@ export function Chat() {
                       onChooseWorkspace={effectiveWorkspace.readOnly ? undefined : () => void chooseReplacementWorkspace()}
                     />
                   )}
-                  {visibleAcpError && <AcpErrorBanner message={visibleAcpError} onDismiss={clearAcpError} />}
+                  {visibleAcpError && <AcpErrorBanner message={visibleAcpError} kind={emptyTurnVisible && !storeAcpError ? 'prompt' : undefined} onDismiss={dismissAcpError} />}
                   {acpLoading ? (
                     <div className="flex min-h-[40vh] items-center justify-center" data-testid="acp-chat-loading">
                       <LoadingSpinner size="md" />

@@ -1,8 +1,5 @@
 import catalog from '@shared/free-models/catalog.json';
-import {
-  OPENROUTER_DEFAULT_MODEL_ID,
-  OPENROUTER_RETIRED_MODEL_ID,
-} from '@shared/openrouter';
+import { OPENROUTER_DEFAULT_MODEL_ID } from '@shared/openrouter';
 
 /** App-wide keyless default (local Ollama) — see catalog-preattach.ts. */
 export const CATALOG_DEFAULT_VENDOR_ID = 'ollama' as const;
@@ -13,25 +10,17 @@ export const CATALOG_DEFAULT_FALLBACK_MODEL_IDS = [
 ] as const;
 
 /**
- * Ox Alpha (stealth/ox-alpha) RETIRED 2026-11-03 (OpenRouter 404). The
- * featured OpenRouter pick is now its successor, z-ai/glm-5.3-flash
- * (metered, not a free preview). It is NOT one of the 50 Hugging Face
- * catalog models: it has no Hugging Face model ID. Keeping it out of
- * FREE_MODELS preserves the exactly-50 HF catalog count and its tests.
- * OX_ALPHA_PICK is kept as a compatibility alias for the picker component;
- * the component's Ox Alpha label still needs an i18n/label pass (see report).
+ * The featured OpenRouter pick is z-ai/glm-5.3-flash (metered, not a
+ * free preview). It is NOT one of the 50 Hugging Face catalog models:
+ * it has no Hugging Face model ID. Keeping it out of FREE_MODELS
+ * preserves the exactly-50 HF catalog count and its tests. The retired
+ * Ox Alpha model was removed from the picker in full: it is no longer
+ * a pick, a label, or a default anywhere in the UI.
  */
 export const OPENROUTER_SUCCESSOR_PICK = {
   vendorId: 'openrouter',
   modelId: OPENROUTER_DEFAULT_MODEL_ID,
 } as const;
-/**
- * @deprecated v1.0.7: kept only so older imports keep working. The pick is
- * the GLM successor, not Ox Alpha — new code must use
- * OPENROUTER_SUCCESSOR_PICK, and the UI label/testids no longer say Ox Alpha.
- */
-export const OX_ALPHA_PICK = OPENROUTER_SUCCESSOR_PICK;
-export const OX_ALPHA_RETIRED_MODEL_ID = OPENROUTER_RETIRED_MODEL_ID;
 
 export type FreeModelTier = 'cloud-instant' | 'one-pull' | 'power-user' | 'not-default';
 export type FreeModelRouteType = 'openrouter-free' | 'ollama' | 'hf-local';
