@@ -18,7 +18,8 @@
     "saveSessionRename": "Сохранить название",
     "cancelSessionRename": "Отменить переименование",
     "imageGeneration": "Генерация изображений",
-    "persona": "Персона"
+    "persona": "Персона",
+    "downloads": "Загрузки"
   },
   "actions": {
     "save": "Сохранить",

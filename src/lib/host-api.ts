@@ -14,6 +14,7 @@ import type {
   FilePreviewTreeOptions,
   FileReadBinaryOptions,
   ImageGenerationSettingsPayload,
+  MediaDownloadStartPayload,
   MediaThumbnailEntry,
   OpenClawDoctorMode,
   OpenClawDoctorResult,
@@ -369,6 +370,13 @@ export const hostApi = {
     testImageGeneration: (input: { agentId?: string; prompt?: string; model?: string }) => (
       invokeHost('media', 'testImageGeneration', input)
     ),
+  },
+  mediaDownloads: {
+    start: (input: MediaDownloadStartPayload) => invokeHost('mediaDownloads', 'start', input),
+    get: (id: string) => invokeHost('mediaDownloads', 'get', { id }),
+    list: () => invokeHost('mediaDownloads', 'list'),
+    cancel: (id: string) => invokeHost('mediaDownloads', 'cancel', { id }),
+    tools: () => invokeHost('mediaDownloads', 'tools'),
   },
   sessions: {
     delete: (id: string) => invokeHost('sessions', 'delete', { id }),

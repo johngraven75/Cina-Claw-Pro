@@ -3,7 +3,7 @@
  * Types for the APIs exposed via contextBridge
  */
 
-import type { HostResponse, HostRequest } from '../lib/host-api-types';
+import type { HostResponse, HostRequest } from '@shared/host-api/types';
 
 export interface IpcRenderer {
   invoke(channel: string, ...args: unknown[]): Promise<unknown>;

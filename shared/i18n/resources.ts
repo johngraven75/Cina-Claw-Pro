@@ -12,6 +12,7 @@ import enCron from './locales/en/cron.json';
 import enSetup from './locales/en/setup.json';
 import enMenu from './locales/en/menu.json';
 import enPersona from './locales/en/persona.json';
+import enDownloads from './locales/en/downloads.json';
 
 // ZH
 import zhCommon from './locales/zh/common.json';
@@ -25,6 +26,7 @@ import zhCron from './locales/zh/cron.json';
 import zhSetup from './locales/zh/setup.json';
 import zhMenu from './locales/zh/menu.json';
 import zhPersona from './locales/zh/persona.json';
+import zhDownloads from './locales/zh/downloads.json';
 
 // JA
 import jaCommon from './locales/ja/common.json';
@@ -38,6 +40,7 @@ import jaCron from './locales/ja/cron.json';
 import jaSetup from './locales/ja/setup.json';
 import jaMenu from './locales/ja/menu.json';
 import jaPersona from './locales/ja/persona.json';
+import jaDownloads from './locales/ja/downloads.json';
 
 // RU
 import ruCommon from './locales/ru/common.json';
@@ -51,6 +54,7 @@ import ruCron from './locales/ru/cron.json';
 import ruSetup from './locales/ru/setup.json';
 import ruMenu from './locales/ru/menu.json';
 import ruPersona from './locales/ru/persona.json';
+import ruDownloads from './locales/ru/downloads.json';
 
 export const I18N_NAMESPACES = [
   'common',
@@ -64,6 +68,7 @@ export const I18N_NAMESPACES = [
   'setup',
   'menu',
   'persona',
+  'downloads',
 ] as const;
 
 export const I18N_RESOURCES = {
@@ -79,6 +84,7 @@ export const I18N_RESOURCES = {
     setup: enSetup,
     menu: enMenu,
     persona: enPersona,
+    downloads: enDownloads,
   },
   zh: {
     common: zhCommon,
@@ -92,6 +98,7 @@ export const I18N_RESOURCES = {
     setup: zhSetup,
     menu: zhMenu,
     persona: zhPersona,
+    downloads: zhDownloads,
   },
   ja: {
     common: jaCommon,
@@ -105,6 +112,7 @@ export const I18N_RESOURCES = {
     setup: jaSetup,
     menu: jaMenu,
     persona: jaPersona,
+    downloads: jaDownloads,
   },
   ru: {
     common: ruCommon,
@@ -118,6 +126,7 @@ export const I18N_RESOURCES = {
     setup: ruSetup,
     menu: ruMenu,
     persona: ruPersona,
+    downloads: ruDownloads,
   },
 } as const;
 

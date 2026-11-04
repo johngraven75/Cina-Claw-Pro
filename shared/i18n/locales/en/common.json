@@ -18,7 +18,8 @@
     "saveSessionRename": "Save session title",
     "cancelSessionRename": "Cancel renaming",
     "imageGeneration": "Image Generation",
-    "persona": "Persona"
+    "persona": "Persona",
+    "downloads": "Downloads"
   },
   "actions": {
     "save": "Save",
