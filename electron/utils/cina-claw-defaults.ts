@@ -2,8 +2,72 @@ import {
   applyOpenRouterFreeCompatibility,
   isOpenRouterFreeModelRef,
 } from './openrouter-free-compat';
+import {
+  OPENROUTER_DEFAULT_MODEL_ID,
+  OPENROUTER_DEFAULT_MODEL_NAME,
+  OPENROUTER_DEFAULT_MODEL_REF,
+  OPENROUTER_RETIRED_MODEL_ID,
+  OPENROUTER_RETIRED_MODEL_REF,
+} from '@shared/openrouter';
 
 type ConfigRecord = Record<string, unknown>;
+
+/**
+ * v1.0.7 retired-model migration (CodeAnt MAJOR): existing installs whose
+ * saved primary, fallback, agent override, or provider model entry still
+ * points at the retired OpenRouter stealth/ox-alpha (404) are migrated to
+ * OpenRouter's own successor, z-ai/glm-5.3-flash (same provider, metered),
+ * on config load. This runs inside applyCinaClawAutonomyDefaults, which
+ * already runs on the config-load/sanitize paths, so no new load path is
+ * needed. It never touches any other model choice, never creates a
+ * provider, and is idempotent (a migrated config migrates no further).
+ */
+export function migrateRetiredModelRefs(config: ConfigRecord): boolean {
+  let changed = false;
+  const migrateRef = (value: unknown): unknown => {
+    if (typeof value !== 'string') return value;
+    const trimmed = value.trim();
+    if (trimmed === OPENROUTER_RETIRED_MODEL_REF || trimmed === OPENROUTER_RETIRED_MODEL_ID) {
+      changed = true;
+      return trimmed === OPENROUTER_RETIRED_MODEL_ID ? OPENROUTER_DEFAULT_MODEL_ID : OPENROUTER_DEFAULT_MODEL_REF;
+    }
+    return value;
+  };
+  const migrateModelConfig = (modelCfg: unknown): void => {
+    // record() returns the original object for objects (mutations apply)
+    // and a throwaway {} for anything else (no-op, nothing to migrate).
+    const cfg = record(modelCfg);
+    if (cfg.primary !== undefined) cfg.primary = migrateRef(cfg.primary);
+    if (Array.isArray(cfg.fallbacks)) {
+      const fallbacks = cfg.fallbacks as unknown[];
+      const next = fallbacks.map(migrateRef);
+      if (next.some((value, index) => value !== fallbacks[index])) changed = true;
+      cfg.fallbacks = next;
+    }
+  };
+  const models = record(config.models);
+  const providers = record(models.providers);
+  for (const rawProvider of Object.values(providers)) {
+    const provider = record(rawProvider);
+    if (Array.isArray(provider.models)) {
+      for (const entry of provider.models) {
+        const modelEntry = record(entry);
+        if (typeof modelEntry.id === 'string' && modelEntry.id.trim() === OPENROUTER_RETIRED_MODEL_ID) {
+          modelEntry.id = OPENROUTER_DEFAULT_MODEL_ID;
+          modelEntry.name = OPENROUTER_DEFAULT_MODEL_NAME;
+          changed = true;
+        }
+      }
+    }
+  }
+  const agents = record(config.agents);
+  migrateModelConfig(record(agents.defaults).model);
+  const agentMap = record(agents.agents);
+  for (const rawAgent of Object.values(agentMap)) {
+    migrateModelConfig(record(rawAgent).model);
+  }
+  return changed;
+}
 
 /**
  * App-wide default, changed 2026-11-03 (catalog v2): the previous default,
@@ -77,17 +141,34 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   // installation (including one whose operator removed every provider)
   // must never have a provider or model choice recreated behind their back.
   if (config.models === undefined && defaults.model === undefined) {
+    // v1.0.7 (CodeAnt MAJOR): register the fallback models in the
+    // provider's models list too, not just in defaults.model.fallbacks —
+    // OpenClaw cannot route to a fallback it has never seen registered.
     config.models = {
       providers: {
         [CINA_DEFAULT_PROVIDER_KEY]: {
           baseUrl: CINA_DEFAULT_BASE_URL,
           api: 'openai-completions',
-          models: [{
-            id: CINA_DEFAULT_MODEL_ID,
-            name: CINA_DEFAULT_MODEL_NAME,
-            input: ['text', 'image', 'video'],
-            contextWindow: CINA_DEFAULT_CONTEXT_WINDOW,
-          }],
+          models: [
+            {
+              id: CINA_DEFAULT_MODEL_ID,
+              name: CINA_DEFAULT_MODEL_NAME,
+              input: ['text', 'image', 'video'],
+              contextWindow: CINA_DEFAULT_CONTEXT_WINDOW,
+            },
+            {
+              id: 'qwen3-vl:4b-instruct',
+              name: 'Qwen3-VL 4B Instruct',
+              input: ['text', 'image', 'video'],
+              contextWindow: CINA_DEFAULT_CONTEXT_WINDOW,
+            },
+            {
+              id: 'qwen3-vl:2b-instruct',
+              name: 'Qwen3-VL 2B Instruct',
+              input: ['text', 'image', 'video'],
+              contextWindow: CINA_DEFAULT_CONTEXT_WINDOW,
+            },
+          ],
         },
       },
     };
@@ -119,5 +200,9 @@ export function applyCinaClawAutonomyDefaults(config: ConfigRecord): boolean {
   agents.defaults = defaults;
   config.agents = agents;
   if (applyOpenRouterFreeCompatibility(config)) changed = true;
+  // Retired-model migration runs on every config load/sanitize pass, so
+  // an existing install saved on the dead Ox Alpha default recovers to
+  // the successor instead of 404-ing forever. It touches nothing else.
+  if (migrateRetiredModelRefs(config)) changed = true;
   return changed;
 }
