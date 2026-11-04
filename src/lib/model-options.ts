@@ -151,11 +151,21 @@ export function buildRuntimeProviderOptions(
   return [...deduped.values()];
 }
 
+/**
+ * Normalize an Ollama `/api/tags` name to the model id Chat routes by:
+ * trim, drop a trailing `:latest` (Ollama reports `llama3.2:latest` for a
+ * bare `llama3.2` pull), keep everything else verbatim.
+ */
+export function normalizeInstalledOllamaModelId(tag: string): string {
+  return tag.trim().replace(/:latest$/i, '');
+}
+
 export function buildConfiguredModelOptions(
   providerAccounts: ProviderAccount[],
   providerStatuses: ProviderWithKeyInfo[],
   providerVendors: ProviderVendorInfo[],
   providerDefaultAccountId: string | null,
+  installedOllamaModelIds: string[] = [],
 ): ConfiguredModelOption[] {
   const safeAccounts = Array.isArray(providerAccounts) ? providerAccounts : [];
   const safeStatuses = Array.isArray(providerStatuses) ? providerStatuses : [];
@@ -216,6 +226,50 @@ export function buildConfiguredModelOptions(
         accountId: account.id,
         uncensored: uncensoredModelIds.has(modelId),
       });
+    }
+  }
+
+  // Auto-add downloaded Ollama models: a tag pulled in Ollama is a
+  // selectable Chat option, without any Settings edit. This only lists
+  // models — it never changes the selected model, and a model is only
+  // added under an enabled Ollama account with credentials, so Chat can
+  // actually route to it. Existing configured options keep their order
+  // and win on duplicates (matched by model id, case-insensitive, so a
+  // configured `llama3.2:3b` is not duplicated by a `llama3.2:3b` tag).
+  // Uncensored-name filtering still happens in Chat (visible options),
+  // so a pulled uncensored-named model stays hidden until opt-in.
+  const installedIds = [...new Set(
+    (installedOllamaModelIds ?? [])
+      .map(normalizeInstalledOllamaModelId)
+      .filter(Boolean),
+  )];
+  if (installedIds.length > 0) {
+    const seenModelIds = new Set(
+      [...deduped.values()].map((option) => modelIdOfModelRef(option.modelRef).toLowerCase()),
+    );
+    const ollamaAccounts = safeAccounts
+      .filter((account) => account.vendorId === 'ollama' && account.enabled
+        && hasConfiguredProviderCredentials(account, statusById))
+      .sort((left, right) => {
+        if (left.id === providerDefaultAccountId) return -1;
+        if (right.id === providerDefaultAccountId) return 1;
+        return right.updatedAt.localeCompare(left.updatedAt);
+      });
+    for (const account of ollamaAccounts) {
+      const runtimeProviderKey = resolveRuntimeProviderKey(account);
+      for (const modelId of installedIds) {
+        if (seenModelIds.has(modelId.toLowerCase())) continue;
+        seenModelIds.add(modelId.toLowerCase());
+        const modelRef = `${runtimeProviderKey}/${modelId}`;
+        if (deduped.has(modelRef)) continue;
+        deduped.set(modelRef, {
+          modelRef,
+          label: formatConfiguredModelLabel(modelId, account, vendorMap),
+          runtimeProviderKey,
+          accountId: account.id,
+          uncensored: false,
+        });
+      }
     }
   }
 
