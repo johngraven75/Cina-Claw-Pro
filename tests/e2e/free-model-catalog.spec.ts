@@ -10,8 +10,8 @@ test.describe('Free model catalog picker', () => {
 
     await expect(page.getByTestId('models-page')).toBeVisible();
     await expect(page.getByTestId('free-model-catalog')).toBeVisible();
-    await expect(page.getByTestId('free-catalog-featured-ox-alpha')).toBeVisible();
-    await expect(page.getByTestId('free-catalog-use-ox-alpha')).toBeVisible();
+    await expect(page.getByTestId('free-catalog-featured-successor')).toBeVisible();
+    await expect(page.getByTestId('free-catalog-use-successor')).toBeVisible();
     await expect(page.getByTestId('free-catalog-card-1')).toBeVisible();
     // Uncensored rows (21-30) are hidden by default, never a default selection.
     await expect(page.getByTestId('free-catalog-card-21')).toHaveCount(0);

@@ -12,6 +12,40 @@ import type {
 import { normalizeProviderApiKeyInput } from '@/lib/providers';
 import { hostApi } from '@/lib/host-api';
 import { fetchProviderSnapshot } from '@/lib/provider-accounts';
+import {
+  applyCatalogPreattachPlan,
+  buildCatalogPreattachPlan,
+} from '@/lib/catalog-preattach';
+import { FREE_MODELS } from '@/lib/free-model-catalog';
+
+/**
+ * v1.0.7 (CodeAnt MAJOR): the catalog-v2 pre-attach planner previously had
+ * no production caller — it existed only in unit tests, so pre-attachment
+ * worked only through the config seed, not through provider load. Provider
+ * load now applies it (once per session, and only when the plan would
+ * actually change an account), through the existing host provider-account
+ * path. Failures are logged, never thrown: provider load must not fail
+ * because pre-attachment did.
+ */
+let catalogPreattachApplied = false;
+
+function catalogPreattachNeedsApply(
+  plan: ReturnType<typeof buildCatalogPreattachPlan>,
+  accounts: ProviderAccount[],
+  setAsDefault: boolean,
+): boolean {
+  const byId = new Map(accounts.map((account) => [account.id, account]));
+  for (const update of plan.accountUpdates) {
+    const account = byId.get(update.accountId);
+    if (!account) continue;
+    const currentCustom = new Set(account.metadata?.customModels ?? []);
+    if ((update.patch.metadata?.customModels ?? []).some((id) => !currentCustom.has(id))) return true;
+    const currentUncensored = new Set(account.metadata?.uncensoredModels ?? []);
+    if ((update.patch.metadata?.uncensoredModels ?? []).some((id) => !currentUncensored.has(id))) return true;
+    if (setAsDefault && update.patch.model && account.model !== update.patch.model) return true;
+  }
+  return false;
+}
 
 // Re-export types for consumers that imported from here
 export type {
@@ -81,17 +115,61 @@ export const useProviderStore = create<ProviderState>((set, get) => ({
 
   refreshProviderSnapshot: async () => {
     set({ loading: true, error: null });
-    
+
     try {
       const snapshot = await fetchProviderSnapshot();
-      
-      set({ 
+
+      set({
         statuses: snapshot.statuses ?? [],
         accounts: snapshot.accounts ?? [],
         vendors: snapshot.vendors ?? [],
         defaultAccountId: snapshot.defaultAccountId ?? null,
-        loading: false 
+        loading: false
       });
+
+      // Catalog v2 pre-attachment on provider load (see flag above).
+      // showUncensored is display-time only (chat-mode store); the plan
+      // always records the uncensored flags, so passing false here does
+      // not drop any flag — it only keeps uncensoredVisible false.
+      if (!catalogPreattachApplied && (snapshot.accounts ?? []).length > 0) {
+        const accounts = snapshot.accounts ?? [];
+        const plan = buildCatalogPreattachPlan(
+          FREE_MODELS,
+          accounts.map((account) => ({
+            id: account.id,
+            vendorId: account.vendorId,
+            enabled: account.enabled,
+            model: account.model,
+            metadata: account.metadata,
+          })),
+          { showUncensored: false },
+        );
+        const setAsDefault = (snapshot.defaultAccountId ?? null) === null;
+        if (catalogPreattachNeedsApply(plan, accounts, setAsDefault)) {
+          catalogPreattachApplied = true;
+          try {
+            await applyCatalogPreattachPlan(
+              plan,
+              {
+                updateAccount: async (accountId, patch) => {
+                  const result = await hostApi.providers.updateAccount(accountId, patch);
+                  if (!result.success) throw new Error(result.error || 'Failed to update provider account');
+                },
+                setDefaultAccount: async (accountId) => {
+                  const result = await hostApi.providers.setDefaultAccount(accountId);
+                  if (!result.success) throw new Error(result.error || 'Failed to set default provider account');
+                },
+              },
+              { setAsDefault },
+            );
+            await get().refreshProviderSnapshot();
+          } catch (error) {
+            console.error('Catalog pre-attach on provider load failed (provider load itself succeeded):', error);
+          }
+        } else {
+          catalogPreattachApplied = true;
+        }
+      }
     } catch (error) {
       set({ error: String(error), loading: false });
     }

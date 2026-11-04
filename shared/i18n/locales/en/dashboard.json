@@ -189,8 +189,8 @@
     "size": "Size",
     "licence": "Licence",
     "noResults": "No models match this search.",
-    "oxAlpha": "Ox Alpha (featured)",
-    "oxAlphaDescription": "OpenRouter stealth-preview reasoning model with tools and multimodal input. This is not a Hugging Face open model, and its availability may change.",
-    "oxAlphaNote": "Featured default \u2014 the 30 models below are all Hugging Face open-weight models."
+    "successorPick": "GLM 5.3 Flash (OpenRouter, metered)",
+    "successorPickDescription": "OpenRouter reasoning model with tools and multimodal input. This replaces the retired Ox Alpha preview (404) and is metered, not a free preview. It is not a Hugging Face open model, and its availability may change.",
+    "successorPickNote": "OpenRouter pick — the app default remains the local Ollama Qwen3-VL model, and the 50 models below are Hugging Face open-weight models."
   }
 }

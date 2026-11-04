@@ -120,6 +120,9 @@ export const hostApi = {
   },
   ollama: {
     health: (input?: { baseUrl?: string }) => invokeHost('ollama', 'health', input),
+    start: (input?: { baseUrl?: string }) => invokeHost('ollama', 'start', input),
+    pull: (input: { baseUrl?: string; model: string }) => invokeHost('ollama', 'pull', input),
+    autoconfig: (input?: { baseUrl?: string }) => invokeHost('ollama', 'autoconfig', input),
   },
   shell: {
     openExternal: (url: string) => invokeHost('shell', 'openExternal', { url } satisfies ShellOpenExternalPayload),

@@ -189,8 +189,8 @@
     "size": "大小",
     "licence": "许可",
     "noResults": "没有符合搜索的模型。",
-    "oxAlpha": "Ox Alpha（精选）",
-    "oxAlphaDescription": "OpenRouter 隐身预览推理模型，支持工具和多模态输入。这不是 Hugging Face 开源模型，可用性可能变化。",
-    "oxAlphaNote": "精选默认模型——下面的 30 个模型均为 Hugging Face 开源权重模型。"
+    "successorPick": "GLM 5.3 Flash（OpenRouter，按量计费）",
+    "successorPickDescription": "OpenRouter 推理模型，支持工具和多模态输入。它取代了已停用的 Ox Alpha 预览版（404），按量计费，并非免费预览。这不是 Hugging Face 开源模型，可用性可能变化。",
+    "successorPickNote": "OpenRouter 之选——应用默认仍为本地 Ollama Qwen3-VL 模型，下面的 50 个模型均为 Hugging Face 开源权重模型。"
   }
 }

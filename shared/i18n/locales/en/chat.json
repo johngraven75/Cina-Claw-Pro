@@ -395,8 +395,15 @@
     "checking": "Checking model status…",
     "unknown": "Could not check Ollama status. The model may still work — this check is advisory only.",
     "recheck": "Recheck",
-    "ollamaStartHint": "Start Ollama on this machine, then tap Recheck. No start action is built into the app yet.",
-    "pullHint": "Run: ollama pull {{model}} — then tap Recheck. No in-app pull action exists yet."
+    "ollamaStartHint": "Ollama is not running. Use Start Ollama below, or start it on this machine, then tap Recheck.",
+    "pullHint": "Use the Pull button below, or run: ollama pull {{model}} — then tap Recheck.",
+    "startOllama": "Start Ollama",
+    "startingOllama": "Starting Ollama…",
+    "pullModel": "Pull {{model}}",
+    "pullingModel": "Pulling {{model}}…",
+    "usePulledFallback": "Use pulled {{model}} instead",
+    "installedModelHint": "Installed: {{model}} — add it in Settings > AI Providers to use it.",
+    "autoconfigFailed": "Automatic setup failed: {{error}}"
   },
   "ollama": {
     "notRunning": "Ollama is not running — start it, then retry.",

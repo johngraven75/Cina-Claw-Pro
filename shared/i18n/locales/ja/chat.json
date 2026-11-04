@@ -395,8 +395,15 @@
     "checking": "モデルステータスを確認中…",
     "unknown": "Ollama のステータスを確認できませんでした。モデルは引き続き動作する可能性があります。このチェックは参考情報のみです。",
     "recheck": "再確認",
-    "ollamaStartHint": "このマシンで Ollama を起動してから「再確認」をタップしてください。アプリ内に起動操作はまだありません。",
-    "pullHint": "次を実行してください：ollama pull {{model}} — その後「再確認」をタップしてください。アプリ内のプル操作はまだありません。"
+    "ollamaStartHint": "Ollama が実行されていません。下の「Ollama を起動」を使うか、このマシンで Ollama を起動してから再確認してください。",
+    "pullHint": "下の取得ボタンを使うか、次を実行してください：ollama pull {{model}} — その後再確認してください。",
+    "startOllama": "Ollama を起動",
+    "startingOllama": "Ollama を起動しています…",
+    "pullModel": "{{model}} を取得",
+    "pullingModel": "{{model}} を取得しています…",
+    "usePulledFallback": "取得済みの {{model}} を使う",
+    "installedModelHint": "インストール済み：{{model}} — 設定 > AI プロバイダーで追加して使用できます。",
+    "autoconfigFailed": "自動設定に失敗しました：{{error}}"
   },
   "ollama": {
     "notRunning": "Ollama が実行されていません。起動してから再試行してください。",

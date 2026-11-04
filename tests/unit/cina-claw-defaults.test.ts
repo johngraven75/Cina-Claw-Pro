@@ -20,12 +20,26 @@ describe('Cina-Claw Pro autonomy defaults', () => {
           ollama: {
             baseUrl: 'http://localhost:11434/v1',
             api: 'openai-completions',
-            models: [{
-              id: 'qwen3-vl:8b-instruct',
-              name: 'Qwen3-VL 8B Instruct',
-              input: ['text', 'image', 'video'],
-              contextWindow: 262144,
-            }],
+            models: [
+              {
+                id: 'qwen3-vl:8b-instruct',
+                name: 'Qwen3-VL 8B Instruct',
+                input: ['text', 'image', 'video'],
+                contextWindow: 262144,
+              },
+              {
+                id: 'qwen3-vl:4b-instruct',
+                name: 'Qwen3-VL 4B Instruct',
+                input: ['text', 'image', 'video'],
+                contextWindow: 262144,
+              },
+              {
+                id: 'qwen3-vl:2b-instruct',
+                name: 'Qwen3-VL 2B Instruct',
+                input: ['text', 'image', 'video'],
+                contextWindow: 262144,
+              },
+            ],
           },
         },
       },
@@ -43,6 +57,42 @@ describe('Cina-Claw Pro autonomy defaults', () => {
   });
 
   it('is idempotent', () => { const config: Record<string, unknown> = {}; applyCinaClawAutonomyDefaults(config); expect(applyCinaClawAutonomyDefaults(config)).toBe(false); });
+
+  it('migrates a saved retired Ox Alpha default to the OpenRouter successor', () => {
+    const config: Record<string, unknown> = {
+      models: {
+        providers: {
+          openrouter: {
+            baseUrl: 'https://openrouter.ai/api/v1',
+            api: 'openai-completions',
+            models: [{ id: 'stealth/ox-alpha', name: 'Ox Alpha' }],
+          },
+        },
+      },
+      agents: {
+        defaults: { model: { primary: 'openrouter/stealth/ox-alpha', fallbacks: ['openrouter/stealth/ox-alpha', 'ollama/qwen3-vl:4b-instruct'] } },
+        agents: { main: { model: { primary: 'openrouter/stealth/ox-alpha' } } },
+      },
+    };
+    expect(applyCinaClawAutonomyDefaults(config)).toBe(true);
+    const defaults = ((config.agents as Record<string, unknown>).defaults as Record<string, unknown>).model as Record<string, unknown>;
+    expect(defaults.primary).toBe('openrouter/z-ai/glm-5.3-flash');
+    expect(defaults.fallbacks).toEqual(['openrouter/z-ai/glm-5.3-flash', 'ollama/qwen3-vl:4b-instruct']);
+    const providerModels = ((config.models as Record<string, unknown>).providers as Record<string, Record<string, unknown>>).openrouter.models as Array<Record<string, unknown>>;
+    expect(providerModels[0].id).toBe('z-ai/glm-5.3-flash');
+    // Idempotent: a second pass changes nothing further.
+    expect(applyCinaClawAutonomyDefaults(config)).toBe(false);
+  });
+
+  it('leaves every non-retired model choice untouched by the migration', () => {
+    const config: Record<string, unknown> = {
+      models: { providers: {} },
+      agents: { defaults: { model: { primary: 'ollama/qwen3-vl:8b-instruct', fallbacks: ['ollama/qwen3-vl:4b-instruct'] } } },
+    };
+    applyCinaClawAutonomyDefaults(config);
+    const defaults = ((config.agents as Record<string, unknown>).defaults as Record<string, unknown>).model as Record<string, unknown>;
+    expect(defaults.primary).toBe('ollama/qwen3-vl:8b-instruct');
+  });
 
   it('never recreates a provider or changes an upgraded installation model choice', () => {
     const explicitModel = { primary: 'custom/private-model', fallbacks: ['custom/backup'] };

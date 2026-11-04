@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import {
   FREE_MODELS,
   FREE_MODEL_TIERS,
-  OX_ALPHA_PICK,
+  OPENROUTER_SUCCESSOR_PICK,
   filterFreeModels,
   isSelectableFreeModel,
   targetModelId,
@@ -81,10 +81,10 @@ export function FreeModelCatalog() {
     await handleUseVendorModel(vendorId, targetModelId(model), model.rank);
   };
 
-  const oxAlphaAccount = accounts.find(
-    (candidate) => candidate.vendorId === OX_ALPHA_PICK.vendorId && candidate.enabled,
+  const successorAccount = accounts.find(
+    (candidate) => candidate.vendorId === OPENROUTER_SUCCESSOR_PICK.vendorId && candidate.enabled,
   );
-  const oxAlphaSelected = oxAlphaAccount?.model === OX_ALPHA_PICK.modelId;
+  const successorSelected = successorAccount?.model === OPENROUTER_SUCCESSOR_PICK.modelId;
 
   return (
     <section
@@ -105,41 +105,41 @@ export function FreeModelCatalog() {
         </div>
 
         <article
-          data-testid="free-catalog-featured-ox-alpha"
+          data-testid="free-catalog-featured-successor"
           className="rounded-2xl border border-black/10 bg-background p-4 dark:border-white/10"
         >
           <div className="flex items-start justify-between gap-2">
             <div>
-              <p className="text-sm font-semibold">{t('freeCatalog.oxAlpha')}</p>
-              <p className="mt-1 font-mono text-[11px] text-foreground/45">{OX_ALPHA_PICK.modelId}</p>
+              <p className="text-sm font-semibold">{t('freeCatalog.successorPick')}</p>
+              <p className="mt-1 font-mono text-[11px] text-foreground/45">{OPENROUTER_SUCCESSOR_PICK.modelId}</p>
             </div>
             <span className="inline-flex items-center gap-1 self-center text-[11px] text-foreground/45">
               <Cloud className="h-3 w-3" />
-              {OX_ALPHA_PICK.vendorId}
+              {OPENROUTER_SUCCESSOR_PICK.vendorId}
             </span>
           </div>
           <p className="mt-2 text-sm leading-5 text-foreground/60">
-            {t('freeCatalog.oxAlphaDescription')}
+            {t('freeCatalog.successorPickDescription')}
           </p>
-          <p className="mt-1 text-xs leading-5 text-foreground/60">{t('freeCatalog.oxAlphaNote')}</p>
+          <p className="mt-1 text-xs leading-5 text-foreground/60">{t('freeCatalog.successorPickNote')}</p>
           <div className="mt-4 flex gap-2">
             <button
               type="button"
-              data-testid="free-catalog-use-ox-alpha"
+              data-testid="free-catalog-use-successor"
               disabled={busyRank === 0}
               onClick={() =>
-                handleUseVendorModel(OX_ALPHA_PICK.vendorId, OX_ALPHA_PICK.modelId, 0)
+                handleUseVendorModel(OPENROUTER_SUCCESSOR_PICK.vendorId, OPENROUTER_SUCCESSOR_PICK.modelId, 0)
               }
               className={cn(
                 'rounded-xl px-3 py-2 text-sm font-semibold',
-                oxAlphaSelected
+                successorSelected
                   ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'
                   : 'bg-foreground text-background',
               )}
             >
-              {oxAlphaSelected ? t('freeCatalog.selected') : t('freeCatalog.useModel')}
+              {successorSelected ? t('freeCatalog.selected') : t('freeCatalog.useModel')}
             </button>
-            {!oxAlphaAccount && (
+            {!successorAccount && (
               <button
                 type="button"
                 onClick={scrollToProviders}

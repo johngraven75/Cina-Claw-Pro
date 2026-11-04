@@ -395,8 +395,15 @@
     "checking": "正在检查模型状态…",
     "unknown": "无法检查 Ollama 状态。该模型可能仍可使用，此检查仅供参考。",
     "recheck": "重新检查",
-    "ollamaStartHint": "请先在本机启动 Ollama，然后点击“重新检查”。应用内暂无启动操作。",
-    "pullHint": "请运行：ollama pull {{model}}，然后点击“重新检查”。应用内暂无拉取操作。"
+    "ollamaStartHint": "Ollama 未运行。请点击下方的“启动 Ollama”，或先在本机启动 Ollama，然后重新检查。",
+    "pullHint": "请点击下方的“拉取”按钮，或运行：ollama pull {{model}}，然后重新检查。",
+    "startOllama": "启动 Ollama",
+    "startingOllama": "正在启动 Ollama…",
+    "pullModel": "拉取 {{model}}",
+    "pullingModel": "正在拉取 {{model}}…",
+    "usePulledFallback": "改用已拉取的 {{model}}",
+    "installedModelHint": "已安装：{{model}} — 请在设置 > AI 提供方中添加后使用。",
+    "autoconfigFailed": "自动配置失败：{{error}}"
   },
   "ollama": {
     "notRunning": "Ollama 未运行——请先启动 Ollama，然后重试。",

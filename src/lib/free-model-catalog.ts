@@ -25,6 +25,11 @@ export const OPENROUTER_SUCCESSOR_PICK = {
   vendorId: 'openrouter',
   modelId: OPENROUTER_DEFAULT_MODEL_ID,
 } as const;
+/**
+ * @deprecated v1.0.7: kept only so older imports keep working. The pick is
+ * the GLM successor, not Ox Alpha — new code must use
+ * OPENROUTER_SUCCESSOR_PICK, and the UI label/testids no longer say Ox Alpha.
+ */
 export const OX_ALPHA_PICK = OPENROUTER_SUCCESSOR_PICK;
 export const OX_ALPHA_RETIRED_MODEL_ID = OPENROUTER_RETIRED_MODEL_ID;
 
