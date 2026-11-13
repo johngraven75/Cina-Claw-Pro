@@ -13,8 +13,8 @@ test.describe('Free model catalog picker', () => {
     await expect(page.getByTestId('free-catalog-featured-successor')).toBeVisible();
     await expect(page.getByTestId('free-catalog-use-successor')).toBeVisible();
     await expect(page.getByTestId('free-catalog-card-1')).toBeVisible();
-    // Uncensored rows (21-30) are hidden by default, never a default selection.
-    await expect(page.getByTestId('free-catalog-card-21')).toHaveCount(0);
+    // Uncensored rows (31-50) are hidden by default, never a default selection.
+    await expect(page.getByTestId('free-catalog-card-31')).toHaveCount(0);
 
     await page.getByTestId('free-catalog-search').fill('Gemma');
     await expect(page.getByTestId('free-catalog-card-8')).toBeVisible();
@@ -22,8 +22,8 @@ test.describe('Free model catalog picker', () => {
 
     await page.getByTestId('free-catalog-search').fill('');
     await page.getByTestId('free-catalog-uncensored-toggle').click();
-    await expect(page.getByTestId('free-catalog-card-21')).toBeVisible();
-    await expect(page.getByTestId('free-catalog-card-30')).toBeVisible();
+    await expect(page.getByTestId('free-catalog-card-31')).toBeVisible();
+    await expect(page.getByTestId('free-catalog-card-50')).toBeVisible();
 
     await page.getByTestId('free-catalog-uncensored-toggle').click();
     await page.getByTestId('free-catalog-tier-one-pull').click();

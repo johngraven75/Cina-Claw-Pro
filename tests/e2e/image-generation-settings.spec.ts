@@ -8,7 +8,7 @@ test.describe('Image generation settings page', () => {
     await expect(page.getByTestId('sidebar-nav-image-generation')).toBeVisible();
   }
 
-  test('shows image generation only as a developer-mode page after skipping setup', async ({ page }) => {
+  test('shows image generation in the sidebar after skipping setup', async ({ page }) => {
     await expect(page.getByTestId('setup-page')).toBeVisible();
     await page.getByTestId('setup-skip-button').click();
 
@@ -18,7 +18,9 @@ test.describe('Image generation settings page', () => {
     await expect(page.getByTestId('models-page')).toBeVisible();
     await expect(page.getByTestId('providers-settings')).toBeVisible();
     await expect(page.getByTestId('image-generation-settings')).toHaveCount(0);
-    await expect(page.getByTestId('sidebar-nav-image-generation')).toHaveCount(0);
+    // The sidebar nav item was deliberately un-gated in PR #28, so it is
+    // visible by default; only the settings page itself stays dev-mode only.
+    await expect(page.getByTestId('sidebar-nav-image-generation')).toBeVisible();
 
     await unlockDeveloperMode(page);
     await page.getByTestId('sidebar-nav-image-generation').click();
