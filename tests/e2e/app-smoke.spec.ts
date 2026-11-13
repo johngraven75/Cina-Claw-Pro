@@ -27,7 +27,10 @@ test.describe('Cina-Claw Pro Electron smoke flows', () => {
     await expect(page.getByText('Guarded + enabled')).toBeVisible();
     await page.getByRole('button', { name: /Configure free models/i }).click();
     await expect(page.getByTestId('free-model-dock')).toBeVisible();
-    await expect(page.getByText('z-ai/glm-5.3-flash')).toBeVisible();
+    // The successor model name appears twice by design: once in the featured
+    // successor card and once in its catalog row (PR #30). Scope to the
+    // featured card so strict mode does not see two matches.
+    await expect(page.getByTestId('free-catalog-featured-successor').getByText('z-ai/glm-5.3-flash')).toBeVisible();
   });
 
   test('persists skipped setup across relaunch for the same isolated profile', async ({ electronApp, launchElectronApp }) => {
